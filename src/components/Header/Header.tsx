@@ -23,12 +23,12 @@ const Header = () => {
         <button className='header__link'>контакты</button>
       </nav>
       <div className='header__buttons-field'>
-        <button className='header__user-btn header__user-btn_login'>
+        {/* <button className='header__user-btn header__user-btn_login'>
           Вход
         </button>
         <button className='header__user-btn header__user-btn_signin'>
           Регистрация
-        </button>
+        </button> */}
       </div>
       <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
     </header>
