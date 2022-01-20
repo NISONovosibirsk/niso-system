@@ -3,7 +3,10 @@ import './Terms.scss';
 import Button from '../Button/Button';
 
 export interface ButtonsArray {
-  [index: number]: { title: string; type?: string; onClick?: Function };
+  [index: number]: {};
+  title: string;
+  type?: string;
+  onClick?: Function;
 }
 
 const Terms = ({
@@ -13,7 +16,6 @@ const Terms = ({
   title: string;
   buttons: ButtonsArray[];
 }) => {
-  console.log(buttons);
   return (
     <div className='terms'>
       <p className='terms__title'>{title}</p>
