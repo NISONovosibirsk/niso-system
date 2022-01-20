@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Button from '../Button/Button';
 import Sidebar from '../Sidebar/Sidebar';
 import './Header.scss';
 
@@ -23,12 +24,8 @@ const Header = () => {
         <button className='header__link'>контакты</button>
       </nav>
       <div className='header__buttons-field'>
-        <button className='header__user-btn header__user-btn_login'>
-          Вход
-        </button>
-        <button className='header__user-btn header__user-btn_signin'>
-          Регистрация
-        </button>
+        <Button title='Войти'></Button>
+        <Button title='Регистрация' type='filled'></Button>
       </div>
       <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
     </header>
