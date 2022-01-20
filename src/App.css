@@ -120,7 +120,13 @@ body, html {
 }
 .showcase-carousel .swiper-wrapper {
 	transition: var(--transition);
+	height: 100vh;
 }
+
+.swiper-wrapper {
+	height: 100vh !important;
+}
+
 .showcase-carousel__item {
 	position: relative;
 	height: calc(100vh - var(--padding)*2);
