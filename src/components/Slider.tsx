@@ -5,7 +5,7 @@ import { Navigation } from 'swiper';
 import 'swiper/css';
 
 //images import
-import { slide1, slide2, slide3, slide4 } from '../assets';
+import { slide1, slide2, slide3, slide4, smoke } from '../assets';
 
 const Slider = () => {
     return (
@@ -35,7 +35,6 @@ const Slider = () => {
                                             <div className='showcase-carousel__image-left'>
                                                 <div
                                                     className='showcase-carousel__image'
-                                                    // style='background-image: url(images/1.png);'
                                                     style={{
                                                         backgroundImage: `url(${slide1})`,
                                                     }}
@@ -44,40 +43,13 @@ const Slider = () => {
                                             <div className='showcase-carousel__image-right'>
                                                 <div
                                                     className='showcase-carousel__image'
-                                                    // style='background-image: url(images/1.png);'
                                                     style={{
                                                         backgroundImage: `url(${slide1})`,
                                                     }}
                                                 ></div>
                                             </div>
                                         </div>
-                                        <p>Front</p>
-                                    </div>
-                                </SwiperSlide>
-
-                                {/* <SwiperSlide>
-                                    <div className='swiper-slide showcase-carousel__item'>
-                                        <div className='showcase-carousel__image-wrapper'>
-                                            <div className='showcase-carousel__image-left'>
-                                                <div
-                                                    className='showcase-carousel__image'
-                                                    // style='background-image: url(images/2.png);'
-                                                    style={{
-                                                        backgroundImage: slide2,
-                                                    }}
-                                                ></div>
-                                            </div>
-                                            <div className='showcase-carousel__image-right'>
-                                                <div
-                                                    className='showcase-carousel__image'
-                                                    // style='background-image: url(images/2.png);'
-                                                    style={{
-                                                        backgroundImage: slide2,
-                                                    }}
-                                                ></div>
-                                            </div>
-                                        </div>
-                                        <p>Front Two</p>
+                                        <p>First</p>
                                     </div>
                                 </SwiperSlide>
 
@@ -87,23 +59,21 @@ const Slider = () => {
                                             <div className='showcase-carousel__image-left'>
                                                 <div
                                                     className='showcase-carousel__image'
-                                                    // style='background-image: url(images/3.png);'
                                                     style={{
-                                                        backgroundImage: slide3,
+                                                        backgroundImage: `url(${slide2})`,
                                                     }}
                                                 ></div>
                                             </div>
                                             <div className='showcase-carousel__image-right'>
                                                 <div
                                                     className='showcase-carousel__image'
-                                                    // style='background-image: url(images/3.png);'
                                                     style={{
-                                                        backgroundImage: slide3,
+                                                        backgroundImage: `url(${slide2})`,
                                                     }}
                                                 ></div>
                                             </div>
                                         </div>
-                                        <p>Side</p>
+                                        <p>Second</p>
                                     </div>
                                 </SwiperSlide>
 
@@ -113,25 +83,47 @@ const Slider = () => {
                                             <div className='showcase-carousel__image-left'>
                                                 <div
                                                     className='showcase-carousel__image'
-                                                    // style='background-image: url(images/4.png);'
                                                     style={{
-                                                        backgroundImage: slide4,
+                                                        backgroundImage: `url(${slide3})`,
                                                     }}
                                                 ></div>
                                             </div>
                                             <div className='showcase-carousel__image-right'>
                                                 <div
                                                     className='showcase-carousel__image'
-                                                    // style='background-image: url(images/4.png);'
                                                     style={{
-                                                        backgroundImage: slide4,
+                                                        backgroundImage: `url(${slide3})`,
                                                     }}
                                                 ></div>
                                             </div>
                                         </div>
-                                        <p>Back</p>
+                                        <p>Third</p>
                                     </div>
-                                </SwiperSlide> */}
+                                </SwiperSlide>
+
+                                <SwiperSlide>
+                                    <div className='swiper-slide showcase-carousel__item'>
+                                        <div className='showcase-carousel__image-wrapper'>
+                                            <div className='showcase-carousel__image-left'>
+                                                <div
+                                                    className='showcase-carousel__image'
+                                                    style={{
+                                                        backgroundImage: `url(${slide4})`,
+                                                    }}
+                                                ></div>
+                                            </div>
+                                            <div className='showcase-carousel__image-right'>
+                                                <div
+                                                    className='showcase-carousel__image'
+                                                    style={{
+                                                        backgroundImage: `url(${slide4})`,
+                                                    }}
+                                                ></div>
+                                            </div>
+                                        </div>
+                                        <p>Fourth</p>
+                                    </div>
+                                </SwiperSlide>
                             </div>
                         </div>
 
@@ -143,13 +135,13 @@ const Slider = () => {
                 </div>
             </div>
 
-            {/* <video
-                src='videos/smoke-background-optimized.mp4'
+            <video
+                src={smoke}
                 className='showcase__video'
-                autoplay
-                loop
-                muted
-            ></video> */}
+                autoPlay={true}
+                loop={true}
+                muted={true}
+            ></video>
         </section>
     );
 };
