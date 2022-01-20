@@ -1,0 +1,75 @@
+@keyframes burger-btn_rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.header {
+  width: 100%;
+  padding: 0 5%;
+  display: grid;
+  grid-template: 1fr / 1fr 1fr 1fr 1fr;
+  align-items: center;
+  border-bottom: 1px solid black;
+
+  &__burger-btn {
+    cursor: pointer;
+    padding: 0;
+    height: 20px;
+    width: 20px;
+    border: none;
+    background: url(../../images/header__burger-btn.svg) center no-repeat;
+    transition: opacity linear .2s, transform linear .5s;
+
+    &:hover {
+      opacity: .7;
+    }
+
+    &:focus {
+      animation: burger-btn_rotate .5s;
+    }
+  }
+
+  &__link {
+    cursor: pointer;
+    color: #3374A2;
+    background: none;
+    border: none;
+    padding: 0 10px;
+    transition: opacity linear .2s;
+
+    &:hover {
+      opacity: .7;
+    }
+  }
+
+  &__user-btn {
+    cursor: pointer;
+    margin: 5px;
+    width: 100px;
+    height: 30px;
+    background: none;
+    border: 2px solid #3374A2 {
+      radius: 5px;
+    }
+    transition: opacity linear .2s;
+
+    &:hover {
+      opacity: .7;
+    }
+
+    &_login {
+      background: white;
+      color: #3374A2;
+    }
+
+    &_signin {
+      background: #3374A2;
+      color: white;
+    }
+  }
+}
