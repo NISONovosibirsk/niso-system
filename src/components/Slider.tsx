@@ -1,8 +1,9 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper';
+import { Navigation, Zoom } from 'swiper';
 
-// Import Swiper styles
+// import Swiper styles
 import 'swiper/css';
+import 'swiper/css/zoom';
 
 //images import
 import { slide1, slide2, slide3, slide4, smoke } from '../assets';
@@ -17,7 +18,7 @@ const Slider = () => {
             <div className='showcase__content-wrapper'>
                 <div className='showcase__content'>
                     <Swiper
-                        modules={[Navigation]}
+                        modules={[Navigation, Zoom]}
                         loop={true}
                         slidesPerView={3}
                         speed={1800}
