@@ -10,13 +10,9 @@ import 'swiper/css/zoom';
 
 // source import
 import { slide1, slide2, slide3, slide4, smoke } from '../../assets';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 const Slider = () => {
-    // const handleActive = ({isActive}: {isActive: boolean}) => {
-    //     isActive ? (return 'swiper-slide-active') : (return null);
-    // }
-
     // temporary state with slider content
     const [slides, setSlide] = useState([slide1, slide2, slide3, slide4]);
 
@@ -38,12 +34,13 @@ const Slider = () => {
                             nextEl: '.showcase-navigation__next',
                             prevEl: '.showcase-navigation__prev',
                         }}
+
                     >
                         <div className='showcase-carousel'>
                             <div className='swiper-wrapper'>
                                 {slides.map((item, index) => (
-                                    <SwiperSlide>
-                                        <Item image={item} key={index} />
+                                    <SwiperSlide key={index}>
+                                        <Item image={item}/>
                                     </SwiperSlide>
                                 ))}
                             </div>
