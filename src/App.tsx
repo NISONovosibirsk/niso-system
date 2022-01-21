@@ -1,6 +1,3 @@
-import React from 'react';
-import "./App.css"
-
 // components import
 import { Slider } from './components';
 

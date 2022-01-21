@@ -12,6 +12,8 @@ import 'swiper/css/zoom';
 import { slide1, slide2, slide3, slide4 } from '../../assets';
 import { useState } from 'react';
 
+import './Slider.scss';
+
 const Slider = () => {
     // temporary state with slider content
     const [slides, setSlide] = useState([slide1, slide2, slide3, slide4]);
@@ -39,9 +41,19 @@ const Slider = () => {
                             <div className='swiper-wrapper'>
                                 {slides.map((item, index) => (
                                     <SwiperSlide key={index}>
-                                        {({isActive})=>(
-                                            isActive ? <Item active={true} image={item}/> : <Item active={false} image={item}/>
-                                        )}
+                                        {({ isActive }) =>
+                                            isActive ? (
+                                                <Item
+                                                    active={true}
+                                                    image={item}
+                                                />
+                                            ) : (
+                                                <Item
+                                                    active={false}
+                                                    image={item}
+                                                />
+                                            )
+                                        }
                                     </SwiperSlide>
                                 ))}
                             </div>
