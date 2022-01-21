@@ -9,8 +9,8 @@ import 'swiper/css';
 import 'swiper/css/zoom';
 
 // source import
-import { slide1, slide2, slide3, slide4, smoke } from '../../assets';
-import { useRef, useState } from 'react';
+import { slide1, slide2, slide3, slide4 } from '../../assets';
+import { useState } from 'react';
 
 const Slider = () => {
     // temporary state with slider content
@@ -34,13 +34,14 @@ const Slider = () => {
                             nextEl: '.showcase-navigation__next',
                             prevEl: '.showcase-navigation__prev',
                         }}
-
                     >
                         <div className='showcase-carousel'>
                             <div className='swiper-wrapper'>
                                 {slides.map((item, index) => (
                                     <SwiperSlide key={index}>
-                                        <Item image={item}/>
+                                        {({isActive})=>(
+                                            isActive ? <Item active={true} image={item}/> : <Item active={false} image={item}/>
+                                        )}
                                     </SwiperSlide>
                                 ))}
                             </div>
