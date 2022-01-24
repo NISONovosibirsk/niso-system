@@ -2,13 +2,13 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTypeSelector } from './hooks/useTypeSelector';
 
-function App() {
-    const { elements, constructor } = useTypeSelector(state => state.form);
-    const dispatch = useDispatch();
+//actions import
+import {dropElement} from './store/action-creators/form'
 
-    const handleClick = () => {
-        
-    } 
+function App() {
+    // const { elements, constructor } = useTypeSelector(state => state.form);
+
+    // const dispatch = useDispatch()
 
     return (
         <div className='App'>
