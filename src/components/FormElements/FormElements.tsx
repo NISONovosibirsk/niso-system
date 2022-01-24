@@ -6,7 +6,7 @@ const FormElements = () => {
   return <div className='form-elements'>
     <h2 className='form-elements__title'>Элементы конструктора</h2>
     <div className='form-elements__field'>
-      <FormElement isDisabled={false} />
+      <FormElement isDisabled={true} />
       <FormElement isDisabled={true} />
       <FormElement isDisabled={true} />
       <FormElement isDisabled={true} />
