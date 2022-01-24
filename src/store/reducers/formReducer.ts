@@ -13,8 +13,34 @@ interface FormActions {
 }
 
 const initialState: FormState = {
-    elements: [],
-    constructor: [],
+    elements: [
+        {
+            id: 0,
+            title: 'Текстовое поле input',
+            type: 'text',
+            isDisabled: true,
+        },
+        {
+            id: 1,
+            title: 'Числовое поле input',
+            type: 'number',
+            isDisabled: true,
+        },
+        {
+            id: 2,
+            title: 'E-mail input',
+            type: 'email',
+            isDisabled: true,
+        },
+    ],
+    constructor: [
+        {
+            id: 666,
+            title: 'ТЕСТ',
+            type: 'text',
+            isDisabled: true,
+        },
+    ],
 };
 
 export const formReducer = (

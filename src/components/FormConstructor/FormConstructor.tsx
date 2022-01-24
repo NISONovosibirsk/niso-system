@@ -4,12 +4,13 @@ import FormElements from '../FormElements/FormElements';
 import './FormConstructor.scss';
 
 const FormConstructor = () => {
-  return (
-    <section className='form-constructor'>
-      <FormElements />
-      <CustomForm />
-    </section>
-  );
+
+    return (
+        <section className='form-constructor'>
+            <FormElements />
+            <CustomForm />
+        </section>
+    );
 };
 
 export default FormConstructor;
