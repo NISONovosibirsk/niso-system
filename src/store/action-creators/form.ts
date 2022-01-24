@@ -1,8 +1,14 @@
-import { Dispatch } from 'redux'
-import { DROP_ELEMENT, FormAction } from '../reducers/formReducer'
+import { useDispatch } from 'react-redux';
+import { DROP_ELEMENT } from '../reducers/formReducer';
 
-export const dragElement = (elem: any) => {
-    return (dispatch: Dispatch<FormAction>) => {
-        dispatch({type: DROP_ELEMENT, payload: elem})
+// init dispatch
+const dispatch = useDispatch();
+
+// actions
+export const dropElement = (elem: any) => {
+    try {
+        return dispatch({ type: DROP_ELEMENT, payload: elem });
+    } catch (e) {
+        console.log(e)
     }
-}
+};
