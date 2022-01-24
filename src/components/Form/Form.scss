@@ -1,0 +1,33 @@
+.form {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 20px;
+  width: 622px;
+  padding: 64px;
+
+  &__title {
+    margin: 0;
+    padding-bottom: 43px - 24px;
+    grid-column: span 2;
+  }
+
+  &__input {
+    height: 40px;
+    padding-left: 14px;
+    border: 1px solid rgba(0, 0, 0, .5);
+    box-sizing: border-box;
+    background: white;
+    transition: border linear .2s;
+
+    &:hover {
+      border: 1px solid rgba(0, 0, 0);
+    }
+
+    &_type {
+      &_large {
+        grid-column: span 2;
+      }
+    }
+  }
+}
