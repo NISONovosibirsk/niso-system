@@ -1,7 +1,14 @@
 .form-element {
   display: grid;
+  cursor: move;
+
+  &:hover {
+    background: rgba(128, 128, 128, 0.2);
+    border-radius: 10px;
+  }
 
   &__input {
+    background: none;
     height: 51px;
     margin-bottom: 17px;
     box-sizing: border-box;
@@ -9,20 +16,30 @@
     border-radius: 10px;
     border: 1px solid black;
 
+    &:hover {
+      border: 1px solid black;
+    }
+
     &:disabled {
       background: none;
-      border: 1px solid black;
       border-radius: 10px;
+      cursor: move;
     }
 
     &_type {
       &_label {
         padding: 0;
         height: 24px;
-        border: none !important;
+        border: none;
         margin-bottom: 7px;
         font-size: 15px;
         line-height: 24px;
+
+        &:disabled {
+          &:hover {
+            border: none;
+          }
+        }
       }
     }
   }

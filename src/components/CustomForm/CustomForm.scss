@@ -1,4 +1,68 @@
 .custom-form {
   padding-left: 212px;
   padding-right: 176px;
+  display: grid;
+  width: 100%;
+  grid-template: 16px 74px minmax(26px, 78px) minmax(99px, 1fr) / 1fr;
+  gap: 24px;
+
+  &__title {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    color: rgba(133, 92, 248, 1);
+    border-radius: 10px;
+    border: none;
+
+    &::placeholder {
+      color: rgba(133, 92, 248, 1);
+    }
+
+    &:hover {
+      border: 1px solid black;
+    }
+  }
+
+  &__form-title {
+    font-weight: 700;
+    font-size: 57px;
+    line-height: 74px;
+    text-align: center;
+    color: rgba(27, 49, 75, 1);
+    border-radius: 10px;
+    border: none;
+
+    &::placeholder {
+      color: rgba(27, 49, 75, 1);
+    }
+
+    &:hover {
+      border: 1px solid black;
+    }
+  }
+
+  &__form-subtitle {
+    text-align: center;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 25px;
+    resize: none;
+    padding: 0;
+    color: rgba(38, 50, 56, 1);
+    border-radius: 10px;
+    border: none;
+
+    &::placeholder {
+      color: rgba(38, 50, 56, 1);
+    }
+
+    &:hover {
+      border: 1px solid black;
+    }
+  }
+
+  &__field {
+    margin-top: 67px;
+  }
 }
