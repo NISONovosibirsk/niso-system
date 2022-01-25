@@ -1,6 +1,6 @@
 import { DRAG_ELEMENT, DROP_ELEMENT } from '../types';
 
-const initialState: FormState = {
+const initialState: dragAndDropState = {
     elements: [
         {
             id: 0,
@@ -32,10 +32,10 @@ const initialState: FormState = {
     currentElement: {},
 };
 
-export const formReducer = (
+export const dragAndDropReducer = (
     state = initialState,
-    action: FormActions
-): FormState => {
+    action: dragAndDropActions
+): dragAndDropState => {
     switch (action.type) {
         case DRAG_ELEMENT:
             return { ...state, currentElement: action.payload };
@@ -50,15 +50,15 @@ export const formReducer = (
 };
 
 // interfaces for state and actions
-interface FormState {
+interface dragAndDropState {
     elements?: any;
     constructor: any;
     currentElement?: any;
 }
 
-interface FormActions {
+interface dragAndDropActions {
     type: string;
     payload: any[];
 }
 
-export type FormAction = FormActions;
+export type FormAction = dragAndDropActions;

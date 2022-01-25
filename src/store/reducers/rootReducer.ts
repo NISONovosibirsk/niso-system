@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import { formReducer } from './dragAndDropReducer';
-import { sidebarReducer } from './headerSidebarReducer';
+import { dragAndDropReducer } from './dragAndDropReducer';
+import { headerSidebarReducer } from './headerSidebarReducer';
 
 export const rootReducer = combineReducers({
-    dragAndDrop: formReducer,
-    headerSidebar: sidebarReducer,
+    dragAndDrop: dragAndDropReducer,
+    headerSidebar: headerSidebarReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
