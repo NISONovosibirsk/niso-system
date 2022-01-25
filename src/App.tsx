@@ -1,5 +1,6 @@
 import Header from './components/Header/Header';
-import FormConstructor from './components/FormConstructor/FormConstructor';
+import { FormConstructor } from './components';
+
 
 function App() {
     return (

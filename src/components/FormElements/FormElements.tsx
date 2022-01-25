@@ -3,6 +3,10 @@ import FormElement from '../FormElement/FormElement';
 import './FormElements.scss';
 import { useTypeSelector } from '../../hooks/useTypeSelector';
 
+//import action to take element
+import { takeElement } from '../../store/action-creators/form';
+import { useDispatch } from 'react-redux';
+
 const FormElements = () => {
     const [value, setValue] = useState({});
 
@@ -16,6 +20,17 @@ const FormElements = () => {
 
     const { elements, constructor } = useTypeSelector(state => state.form);
 
+    const dispatch = useDispatch()
+
+
+    //dispatching graggin' item to redux
+    const dragStartHandler = (item: any) => {
+        console.log('drag started!')
+        // e.preventDefault();
+        takeElement(dispatch, item)
+
+    };
+
     return (
         <div className='form-elements'>
             <h2 className='form-elements__title'>Элементы конструктора</h2>
@@ -28,6 +43,9 @@ const FormElements = () => {
                         isDisabled={item.isDisabled}
                         onChange={() => {}}
                         key={item.id}
+                        item={item}
+
+                        dragNdrop={dragStartHandler}
                     />
                 ))}
             </div>
