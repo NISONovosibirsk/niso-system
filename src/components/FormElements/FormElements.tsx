@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import FormElement from '../FormElement/FormElement';
+import { useState } from 'react';
+import { FormElement } from '..';
 import './FormElements.scss';
 import { useTypeSelector } from '../../hooks/useTypeSelector';
 
