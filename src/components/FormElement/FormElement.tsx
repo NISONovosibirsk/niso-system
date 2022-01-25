@@ -44,7 +44,6 @@ const FormElement = ({
         e.target.style.boxShadow = 'none';
     };
 
-
     return (
         <div
             id={id}
