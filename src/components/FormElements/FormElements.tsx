@@ -4,7 +4,7 @@ import './FormElements.scss';
 import { useTypeSelector } from '../../hooks/useTypeSelector';
 
 //import action to take element
-import { takeElement } from '../../store/action-creators/form';
+import { dragElement } from '../../store/actions/form';
 import { useDispatch } from 'react-redux';
 
 const FormElements = () => {

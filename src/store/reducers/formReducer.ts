@@ -1,18 +1,4 @@
-// actions
-export const TAKE_ELEMENT = 'TAKE_ELEMENT';
-export const DROP_ELEMENT = 'DROP_ELEMENT';
-
-// interfaces for state and actions
-interface FormState {
-    elements?: any;
-    constructor: any;
-    currentElem?: any;
-}
-
-interface FormActions {
-    type: string;
-    payload: any[];
-}
+import { DRAG_ELEMENT, DROP_ELEMENT } from '../types';
 
 const initialState: FormState = {
     elements: [
@@ -51,13 +37,28 @@ export const formReducer = (
     action: FormActions
 ): FormState => {
     switch (action.type) {
-        case DROP_ELEMENT:
-            return { ...state, constructor: [...state.constructor, action.payload]};
-        case TAKE_ELEMENT:
+        case DRAG_ELEMENT:
             return { ...state, currentElem: action.payload };
+        case DROP_ELEMENT:
+            return {
+                ...state,
+                constructor: [...state.constructor, action.payload],
+            };
         default:
             return state;
     }
 };
+
+// interfaces for state and actions
+interface FormState {
+    elements?: any;
+    constructor: any;
+    currentElem?: any;
+}
+
+interface FormActions {
+    type: string;
+    payload: any[];
+}
 
 export type FormAction = FormActions;
