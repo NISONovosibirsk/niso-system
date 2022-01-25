@@ -26,7 +26,7 @@ const FormElements = () => {
     const dragStartHandler = (item: any) => {
         console.log('drag started!');
         // e.preventDefault();
-        takeElement(dispatch, item);
+        dispatch(takeElement(item))
     };
 
     return (
