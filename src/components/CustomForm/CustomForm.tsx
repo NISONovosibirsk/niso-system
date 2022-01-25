@@ -1,10 +1,20 @@
-import React from 'react';
 import { useTypeSelector } from '../../hooks/useTypeSelector';
 import './CustomForm.scss';
-import FormElement from '../FormElement/FormElement';
+import { FormElement } from '..';
+
+//drop action import
+import { dropElement } from '../../store/action-creators/form';
+import { useDispatch } from 'react-redux';
 
 const CustomForm = () => {
-    const { elements, constructor } = useTypeSelector(state => state.form);
+    const { constructor, currentElem } = useTypeSelector(state => state.form);
+    const dispatch = useDispatch();
+
+    const dropHandler = (e: any) => {
+        e.preventDefault();
+        e.target.style.boxShadow = 'none';
+        dropElement(dispatch, currentElem);
+    };
 
     return (
         <form className='custom-form'>
@@ -22,7 +32,7 @@ const CustomForm = () => {
                 className='custom-form__form-subtitle'
             />
             <div className='custom-form__field'>
-                {constructor.map((item: any) => 
+                {constructor.map((item: any) => (
                     <FormElement
                         id={item.id}
                         title={item.title}
@@ -30,8 +40,10 @@ const CustomForm = () => {
                         isDisabled={item.isDisabled}
                         onChange={() => {}}
                         key={item.id}
+                        item={item}
+                        dragNdrop={dropHandler}
                     />
-                )}
+                ))}
             </div>
         </form>
     );

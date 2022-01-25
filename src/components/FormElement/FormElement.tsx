@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './FormElement.scss';
 
 const FormElement = ({
@@ -7,12 +7,16 @@ const FormElement = ({
     type,
     isDisabled,
     onChange,
+    dragNdrop,
+    item
 }: {
     id: any;
     title: string;
     type: string;
     isDisabled: boolean;
     onChange: Function;
+    dragNdrop: Function;
+    item: any
 }) => {
     const [value, setValue] = useState({ label: title, input: '' });
     const handleChange = (e: any) => {
@@ -40,12 +44,6 @@ const FormElement = ({
         e.target.style.boxShadow = 'none';
     };
 
-    const dragStartHandler = (e: any) => {};
-
-    const dropHandler = (e: any) => {
-        e.preventDefault();
-        e.target.style.boxShadow = 'none';
-    };
 
     return (
         <div
@@ -55,8 +53,8 @@ const FormElement = ({
             onDragOver={e => dragOverHandler(e)}
             onDragLeave={e => dragLeaveHandler(e)}
             onDragEnd={e => dragEndHandler(e)}
-            onDragStart={e => dragStartHandler(e)}
-            onDrop={e => dropHandler(e)}
+            onDragStart={e => dragNdrop(item)}
+            onDrop={(e) => dragNdrop(e)}
         >
             <input
                 onChange={handleChange}

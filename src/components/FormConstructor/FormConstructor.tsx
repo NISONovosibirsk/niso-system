@@ -1,7 +1,6 @@
-import React from 'react';
-import CustomForm from '../CustomForm/CustomForm';
-import FormElements from '../FormElements/FormElements';
+import { CustomForm, FormElements } from '..';
 import './FormConstructor.scss';
+
 
 const FormConstructor = () => {
 

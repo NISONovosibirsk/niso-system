@@ -1,10 +1,12 @@
 // actions
+export const TAKE_ELEMENT = 'TAKE_ELEMENT';
 export const DROP_ELEMENT = 'DROP_ELEMENT';
 
 // interfaces for state and actions
 interface FormState {
-    elements: any;
+    elements?: any;
     constructor: any;
+    currentElem?: any;
 }
 
 interface FormActions {
@@ -41,6 +43,7 @@ const initialState: FormState = {
             isDisabled: true,
         },
     ],
+    currentElem: {},
 };
 
 export const formReducer = (
@@ -49,7 +52,9 @@ export const formReducer = (
 ): FormState => {
     switch (action.type) {
         case DROP_ELEMENT:
-            return { elements: action.payload };
+            return { ...state, constructor: [...state.constructor, action.payload]};
+        case TAKE_ELEMENT:
+            return { ...state, currentElem: action.payload };
         default:
             return state;
     }
