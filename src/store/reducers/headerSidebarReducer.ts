@@ -1,14 +1,14 @@
 import { SET_LOGGED_IN_STATUS } from '../types';
 
-interface SidebarState {
+interface headerSidebarState {
     isOpen: boolean;
 }
 
-const initialState: SidebarState = {
+const initialState: headerSidebarState = {
     isOpen: false,
 };
 
-export const sidebarReducer = (state = initialState, action: any) => {
+export const headerSidebarReducer = (state = initialState, action: any) => {
     switch (action.type) {
         case SET_LOGGED_IN_STATUS:
             return { ...state, isOpen: action.payload };
