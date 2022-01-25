@@ -44,6 +44,7 @@ const FormElement = ({
 
     const dropHandler = (e: any) => {
         e.preventDefault();
+        e.target.style.boxShadow = 'none';
     };
 
     return (
