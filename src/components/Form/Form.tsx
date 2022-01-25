@@ -1,29 +1,29 @@
 import React from 'react';
+import { Button } from '..';
 import './Form.scss';
-import Button from '../Button/Button';
 
 const Form = ({
-  title,
-  onSubmit,
-  children,
+    title,
+    onSubmit,
+    children,
 }: {
-  title: string;
-  onSubmit?: any;
-  children: any;
+    title: string;
+    onSubmit?: any;
+    children: any;
 }) => {
-  const handleSubmit = (e: React.SyntheticEvent) => {
-    e.preventDefault();
+    const handleSubmit = (e: React.SyntheticEvent) => {
+        e.preventDefault();
 
-    onSubmit();
-  }
+        onSubmit();
+    };
 
-  return (
-    <form onSubmit={handleSubmit} className='form'>
-      <h2 className='form__title'>{title}</h2>
-      {children}
-      <Button title='Зарегистрироваться' type='filled'></Button>
-    </form>
-  );
+    return (
+        <form onSubmit={handleSubmit} className='form'>
+            <h2 className='form__title'>{title}</h2>
+            {children}
+            <Button title='Зарегистрироваться' type='filled'></Button>
+        </form>
+    );
 };
 
 export default Form;
