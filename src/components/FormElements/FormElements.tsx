@@ -1,25 +1,13 @@
-import { useState } from 'react';
 import { FormElement } from '..';
 import './FormElements.scss';
 import { useTypeSelector } from '../../hooks/useTypeSelector';
 
 //import action to take element
-import { dragElement } from '../../store/actions/form';
+import { dragElement } from '../../store/actions/dragAndDrop';
 import { useDispatch } from 'react-redux';
 
 const FormElements = () => {
-    const [value, setValue] = useState({});
-
-    const handleChange = (
-        id: number,
-        inputValue: { label: string; input: string }
-    ) => {
-        setValue({ ...value, [id]: inputValue });
-        console.log(value);
-    };
-
-    const { elements } = useTypeSelector(state => state.form);
-
+    const { elements } = useTypeSelector(state => state.dragAndDrop);
     const dispatch = useDispatch();
 
     //dispatching draggin' item to redux

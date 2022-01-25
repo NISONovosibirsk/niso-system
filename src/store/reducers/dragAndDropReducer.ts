@@ -29,7 +29,7 @@ const initialState: FormState = {
             isDisabled: true,
         },
     ],
-    currentElem: {},
+    currentElement: {},
 };
 
 export const formReducer = (
@@ -38,7 +38,7 @@ export const formReducer = (
 ): FormState => {
     switch (action.type) {
         case DRAG_ELEMENT:
-            return { ...state, currentElem: action.payload };
+            return { ...state, currentElement: action.payload };
         case DROP_ELEMENT:
             return {
                 ...state,
@@ -53,7 +53,7 @@ export const formReducer = (
 interface FormState {
     elements?: any;
     constructor: any;
-    currentElem?: any;
+    currentElement?: any;
 }
 
 interface FormActions {

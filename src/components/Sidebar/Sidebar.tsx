@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { setLoggedInStatus } from '../../store/actions/sidebar';
+import { setLoggedInStatus } from '../../store/actions/headerSidebar';
 import './Sidebar.scss';
 
 const Sidebar = ({ isOpen }: { isOpen: boolean }) => {
