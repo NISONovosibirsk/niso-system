@@ -5,3 +5,5 @@ export { default as FormConstructor } from './FormConstructor/FormConstructor';
 export { default as FormElements } from './FormElements/FormElements';
 export { default as FormElement } from './FormElement/FormElement';
 export { default as CustomForm } from './CustomForm/CustomForm';
+export { default as Sidebar } from './Sidebar/Sidebar';
+export { default as Button } from './Button/Button';
