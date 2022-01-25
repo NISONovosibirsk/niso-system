@@ -17,7 +17,7 @@ const CustomForm = () => {
     };
 
     return (
-        <form className='custom-form'>
+        <form className='custom-form' onDrop={e=>{dropHandler(e)}} onDragOver={(e)=>{e.preventDefault()}}>
             <input
                 placeholder='Введите заголовок'
                 className='custom-form__title'
@@ -41,7 +41,7 @@ const CustomForm = () => {
                         onChange={() => {}}
                         key={item.id}
                         item={item}
-                        dragNdrop={dropHandler}
+                        dragNdrop={()=>{}}
                     />
                 ))}
             </div>

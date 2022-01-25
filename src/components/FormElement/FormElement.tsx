@@ -27,11 +27,10 @@ const FormElement = ({
         onChange(id, value);
     };
 
-    //drag'n'drop handlers
+    //drag'n'drop box-shadow handlers
     const dragOverHandler = (e: any) => {
         e.preventDefault();
         if (e.target.className == 'form-element__input') {
-            console.log('over!');
             e.target.style.boxShadow = '0 2px 3px black';
         }
     };
@@ -53,7 +52,7 @@ const FormElement = ({
             onDragLeave={e => dragLeaveHandler(e)}
             onDragEnd={e => dragEndHandler(e)}
             onDragStart={e => dragNdrop(item)}
-            onDrop={(e) => dragNdrop(e)}
+            // onDrop={(e) => dragNdrop(e)}
         >
             <input
                 onChange={handleChange}
