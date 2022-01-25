@@ -1,13 +1,15 @@
-import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Button, Sidebar } from '../';
 import { nisoLogo } from '../../assets';
+import { useTypeSelector } from '../../hooks/useTypeSelector';
+import { setLoggedInStatus } from '../../store/action-creators/sidebar';
 import './Header.scss';
 
 const Header = () => {
-    const [isOpen, setIsOpen] = useState(false);
-
+    const isOpen = useTypeSelector(state => state.sidebar.isOpen);
+    const dispatch = useDispatch();
     const handleBurgerButtonClick = () => {
-        setIsOpen(true);
+        dispatch(setLoggedInStatus(true));
     };
 
     return (
@@ -27,7 +29,7 @@ const Header = () => {
                 <Button title='Войти'></Button>
                 <Button title='Регистрация' type='filled'></Button>
             </div>
-            <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
+            <Sidebar isOpen={isOpen} />
         </header>
     );
 };
