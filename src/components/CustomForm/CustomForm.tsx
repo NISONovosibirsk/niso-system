@@ -3,17 +3,17 @@ import './CustomForm.scss';
 import { FormElement } from '..';
 
 //drop action import
-import { dropElement } from '../../store/actions/form';
+import { dropElement } from '../../store/actions/dragAndDrop';
 import { useDispatch } from 'react-redux';
 
 const CustomForm = () => {
-    const { constructor, currentElem } = useTypeSelector(state => state.form);
+    const { constructor, currentElement } = useTypeSelector(state => state.dragAndDrop);
     const dispatch = useDispatch();
 
     const dropHandler = (e: any) => {
         e.preventDefault();
         e.target.style.boxShadow = 'none';
-        dispatch(dropElement(currentElem));
+        dispatch(dropElement(currentElement));
     };
 
     return (

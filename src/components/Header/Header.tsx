@@ -2,11 +2,11 @@ import { useDispatch } from 'react-redux';
 import { Button, Sidebar } from '../';
 import { nisoLogo } from '../../assets';
 import { useTypeSelector } from '../../hooks/useTypeSelector';
-import { setLoggedInStatus } from '../../store/actions/sidebar';
+import { setLoggedInStatus } from '../../store/actions/headerSidebar';
 import './Header.scss';
 
 const Header = () => {
-    const isOpen = useTypeSelector(state => state.sidebar.isOpen);
+    const isOpen = useTypeSelector(state => state.headerSidebar.isOpen);
     const dispatch = useDispatch();
     const handleBurgerButtonClick = () => {
         dispatch(setLoggedInStatus(true));
