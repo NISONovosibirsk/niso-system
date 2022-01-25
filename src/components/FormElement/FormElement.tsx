@@ -8,7 +8,7 @@ const FormElement = ({
     isDisabled,
     onChange,
     dragNdrop,
-    item
+    item,
 }: {
     id: any;
     title: string;
@@ -16,7 +16,7 @@ const FormElement = ({
     isDisabled: boolean;
     onChange: Function;
     dragNdrop: Function;
-    item: any
+    item: any;
 }) => {
     const [value, setValue] = useState({ label: title, input: '' });
     const handleChange = (e: any) => {
@@ -52,7 +52,6 @@ const FormElement = ({
             onDragLeave={e => dragLeaveHandler(e)}
             onDragEnd={e => dragEndHandler(e)}
             onDragStart={e => dragNdrop(item)}
-            // onDrop={(e) => dragNdrop(e)}
         >
             <input
                 onChange={handleChange}

@@ -1,9 +1,7 @@
 import { CustomForm, FormElements } from '..';
 import './FormConstructor.scss';
 
-
 const FormConstructor = () => {
-
     return (
         <section className='form-constructor'>
             <FormElements />
