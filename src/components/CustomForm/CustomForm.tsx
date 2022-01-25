@@ -13,7 +13,7 @@ const CustomForm = () => {
     const dropHandler = (e: any) => {
         e.preventDefault();
         e.target.style.boxShadow = 'none';
-        dropElement(dispatch, currentElem);
+        dispatch(dropElement(currentElem));
     };
 
     return (

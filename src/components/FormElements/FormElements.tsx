@@ -20,15 +20,13 @@ const FormElements = () => {
 
     const { elements, constructor } = useTypeSelector(state => state.form);
 
-    const dispatch = useDispatch()
-
+    const dispatch = useDispatch();
 
     //dispatching graggin' item to redux
     const dragStartHandler = (item: any) => {
-        console.log('drag started!')
+        console.log('drag started!');
         // e.preventDefault();
-        takeElement(dispatch, item)
-
+        dispatch(takeElement(item))
     };
 
     return (
@@ -44,7 +42,6 @@ const FormElements = () => {
                         onChange={() => {}}
                         key={item.id}
                         item={item}
-
                         dragNdrop={dragStartHandler}
                     />
                 ))}
