@@ -3,7 +3,7 @@ import './CustomForm.scss';
 import { FormElement } from '..';
 
 //drop action import
-import { dropElement } from '../../store/action-creators/form';
+import { dropElement } from '../../store/actions/form';
 import { useDispatch } from 'react-redux';
 
 const CustomForm = () => {
