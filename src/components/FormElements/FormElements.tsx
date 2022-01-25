@@ -24,7 +24,7 @@ const FormElements = () => {
 
     //dispatching draggin' item to redux
     const dragStartHandler = (item: any) => {
-        dispatch(takeElement(item));
+        dispatch(dragElement(item));
     };
 
     return (
