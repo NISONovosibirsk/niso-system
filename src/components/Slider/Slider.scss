@@ -258,7 +258,7 @@ html {
         }
 
         & > *::before {
-            content: '?';
+            content: '^';
             font-family: assassin-st;
             opacity: 0;
             transition: opacity 0.75s ease-out;
