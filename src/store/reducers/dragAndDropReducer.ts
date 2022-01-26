@@ -38,7 +38,10 @@ export const dragAndDropReducer = (
 ): dragAndDropState => {
     switch (action.type) {
         case DRAG_ELEMENT:
-            return { ...state, currentElement: action.payload };
+            return {
+                ...state,
+                currentElement: action.payload,
+            };
         case DROP_ELEMENT:
             return {
                 ...state,

@@ -11,7 +11,10 @@ const initialState: headerSidebarState = {
 export const headerSidebarReducer = (state = initialState, action: any) => {
     switch (action.type) {
         case SET_LOGGED_IN_STATUS:
-            return { ...state, isOpen: action.payload };
+            return {
+                ...state,
+                isOpen: action.payload,
+            };
         default:
             return state;
     }
