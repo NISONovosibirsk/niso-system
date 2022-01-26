@@ -1,0 +1,29 @@
+.saved-forms-item {
+    height: 96px;
+    width: 100%;
+    border-bottom: 1px solid #d0d0d0;
+    display: grid;
+    grid-template: 1fr / 24% 28% 8% 14% 14% 12%;
+    align-items: center;
+
+    &__title {
+        font-weight: 400;
+        font-size: 28px;
+        line-height: 32px;
+    }
+
+    &__subtitle {
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 18px;
+        color: #18a0fb;
+    }
+
+    &__status {
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 18px;
+        color: #18a0fb;
+        text-align: center;
+    }
+}

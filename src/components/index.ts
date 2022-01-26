@@ -8,6 +8,9 @@ export { default as FormElement } from './FormElement/FormElement';
 export { default as FormElements } from './FormElements/FormElements';
 export { default as Header } from './Header/Header';
 export { default as Register } from './Register/Register';
+export { default as SavedForms } from './SavedForms/SavedFroms';
+export { default as SavedFormsItem } from './SavedFormsItem/SavedFormsItem';
+export { default as SavedFormsList } from './SavedFormsList/SavedFormsList';
 export { default as Sidebar } from './Sidebar/Sidebar';
 
 export { default as Slider } from './Slider/Slider';
