@@ -1,4 +1,4 @@
-import { FormConstructor, Header } from './components';
+import { FormConstructor, Header, SavedForms } from './components';
 
 function App() {
     return (
@@ -6,6 +6,7 @@ function App() {
             <div className='container'>
                 <Header />
                 <FormConstructor />
+                <SavedForms />
             </div>
         </div>
     );
