@@ -1,4 +1,4 @@
-import { DRAG_ELEMENT, DROP_ELEMENT } from '../types';
+import { DRAG_ELEMENT, DROP_ELEMENT, REPLACE_ELEMENT } from '../types';
 
 const initialState: dragAndDropState = {
     elements: [
@@ -21,14 +21,7 @@ const initialState: dragAndDropState = {
             isDisabled: true,
         },
     ],
-    constructor: [
-        {
-            id: 666,
-            title: 'ТЕСТ',
-            type: 'text',
-            isDisabled: true,
-        },
-    ],
+    constructor: [],
     currentElement: {},
 };
 
@@ -46,6 +39,31 @@ export const dragAndDropReducer = (
             return {
                 ...state,
                 constructor: [...state.constructor, action.payload],
+                currentElement: {},
+            };
+        case REPLACE_ELEMENT:
+            const { index, currentIndex } = action.payload;
+            const constructorCopy = Array.from(state.constructor);
+
+            constructorCopy.splice(currentIndex, 1);
+
+            constructorCopy.splice(index, 0, state.currentElement);
+
+            // console.log(constructorCopy);
+
+            // console.log(state.currentElement);
+
+            // const splicedCopy = constructorCopy.splice(
+            //     index,
+            //     0,
+            //     state.currentElement
+            // );
+
+            // console.log(splicedCopy);
+
+            return {
+                ...state,
+                constructor: [...constructorCopy],
             };
         default:
             return state;
@@ -61,7 +79,7 @@ interface dragAndDropState {
 
 interface dragAndDropActions {
     type: string;
-    payload: any[];
+    payload: any;
 }
 
 export type FormAction = dragAndDropActions;

@@ -1,4 +1,4 @@
-import { DRAG_ELEMENT, DROP_ELEMENT } from '../types';
+import { DRAG_ELEMENT, DROP_ELEMENT, REPLACE_ELEMENT } from '../types';
 
 export const dragElement = (element: any) => {
     try {
@@ -6,8 +6,8 @@ export const dragElement = (element: any) => {
             type: DRAG_ELEMENT,
             payload: element,
         };
-    } catch (e) {
-        console.log(e);
+    } catch (err) {
+        console.log(err);
     }
 };
 
@@ -17,7 +17,27 @@ export const dropElement = (element: any) => {
             type: DROP_ELEMENT,
             payload: element,
         };
-    } catch (e) {
-        console.log(e);
+    } catch (err) {
+        console.log(err);
+    }
+};
+
+export const replaceElement = ({
+    index,
+    currentIndex,
+}: {
+    index: number;
+    currentIndex: number;
+}) => {
+    try {
+        return {
+            type: REPLACE_ELEMENT,
+            payload: {
+                index,
+                currentIndex,
+            },
+        };
+    } catch (err) {
+        console.log(err);
     }
 };

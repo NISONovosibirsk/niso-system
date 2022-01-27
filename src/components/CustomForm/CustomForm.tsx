@@ -3,7 +3,11 @@ import './CustomForm.scss';
 import { FormElement } from '..';
 
 //drop action import
-import { dropElement } from '../../store/actions/dragAndDrop';
+import {
+    dropElement,
+    dragElement,
+    replaceElement,
+} from '../../store/actions/dragAndDrop';
 import { useDispatch } from 'react-redux';
 import {
     changeCustomInputsValues,
@@ -22,6 +26,28 @@ const CustomForm = () => {
         e.preventDefault();
         e.target.style.boxShadow = 'none';
         dispatch(dropElement(currentElement));
+    };
+
+    const dragStartHandler = (item: any) => {
+        dispatch(dragElement(item));
+    };
+
+    const handleReplace = (e: any) => {
+        if (e.target.draggable) {
+            dispatch(
+                replaceElement({
+                    index: e.target.id,
+                    currentIndex: currentElement.id,
+                })
+            );
+        } else {
+            dispatch(
+                replaceElement({
+                    index: e.target.parentNode.id,
+                    currentIndex: currentElement.id,
+                })
+            );
+        }
     };
 
     const handleChangeInputsValue = (e: any) => {
@@ -53,9 +79,7 @@ const CustomForm = () => {
     return (
         <form
             className='custom-form'
-            onDrop={e => {
-                dropHandler(e);
-            }}
+            // onDrop={dropHandler}
             onDragOver={e => {
                 e.preventDefault();
             }}
@@ -79,7 +103,7 @@ const CustomForm = () => {
                 rows={3}
                 className='custom-form__form-subtitle'
             />
-            <div className='custom-form__field'>
+            <div onDrop={handleReplace} className='custom-form__field'>
                 {constructor.map((item: any, index: number) => (
                     <FormElement
                         id={index}
@@ -89,7 +113,8 @@ const CustomForm = () => {
                         onChange={handleChangeCustomInputsValue}
                         key={index}
                         item={item}
-                        dragNdrop={() => {}}
+                        drag={dragStartHandler}
+                        drop={() => {}}
                     />
                 ))}
             </div>

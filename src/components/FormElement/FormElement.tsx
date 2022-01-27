@@ -7,7 +7,8 @@ const FormElement = ({
     type,
     isDisabled,
     onChange,
-    dragNdrop,
+    drag,
+    drop,
     item,
 }: {
     id: any;
@@ -15,10 +16,13 @@ const FormElement = ({
     type: string;
     isDisabled: boolean;
     onChange: Function;
-    dragNdrop: Function;
+    drag: Function;
+    drop: Function;
     item: any;
 }) => {
     const [value, setValue] = useState({ label: title, input: '' });
+    item.id = id;
+
     const handleChange = (e: any) => {
         const { target } = e;
         const { id } = target.parentNode;
@@ -30,7 +34,7 @@ const FormElement = ({
     //drag'n'drop box-shadow handlers
     const dragOverHandler = (e: any) => {
         e.preventDefault();
-        if (e.target.className == 'form-element__input') {
+        if (e.target.className === 'form-element__input') {
             e.target.style.boxShadow = '0 2px 3px black';
         }
     };
@@ -45,13 +49,13 @@ const FormElement = ({
 
     return (
         <div
-            id={id}
+            id={item.id}
             className='form-element'
             draggable={true}
             onDragOver={e => dragOverHandler(e)}
             onDragLeave={e => dragLeaveHandler(e)}
             onDragEnd={e => dragEndHandler(e)}
-            onDragStart={e => dragNdrop(item)}
+            onDragStart={() => drag(item)}
         >
             <input
                 onChange={handleChange}

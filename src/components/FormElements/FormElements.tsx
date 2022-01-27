@@ -28,7 +28,8 @@ const FormElements = () => {
                         onChange={() => {}}
                         key={item.id}
                         item={item}
-                        dragNdrop={dragStartHandler}
+                        drag={dragStartHandler}
+                        drop={()=>{}}
                     />
                 ))}
             </div>
