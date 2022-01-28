@@ -1,6 +1,6 @@
 .form-element {
   display: grid;
-  cursor: move;
+  cursor: grab;
 
   &:hover {
     background: rgba(128, 128, 128, 0.2);
@@ -23,7 +23,7 @@
     &:disabled {
       background: none;
       border-radius: 10px;
-      cursor: move;
+      cursor: grab;
     }
 
     &_type {

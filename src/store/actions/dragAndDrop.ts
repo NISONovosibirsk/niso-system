@@ -1,4 +1,9 @@
-import { DRAG_ELEMENT, DROP_ELEMENT, REPLACE_ELEMENT } from '../types';
+import {
+    DRAG_ELEMENT,
+    DROP_ELEMENT,
+    REPLACE_ELEMENT,
+    SORT_ELEMENTS,
+} from '../types';
 
 export const dragElement = (element: any) => {
     try {
@@ -40,4 +45,23 @@ export const replaceElement = ({
     } catch (err) {
         console.log(err);
     }
+};
+
+export const sortElements = (
+    droppableIdStart,
+    droppableIdEnd,
+    droppableIndexStart,
+    droppableIndexEnd,
+    draggableId
+) => {
+    return {
+        type: SORT_ELEMENTS,
+        payload: {
+            droppableIdStart,
+            droppableIdEnd,
+            droppableIndexStart,
+            droppableIndexEnd,
+            draggableId,
+        },
+    };
 };
