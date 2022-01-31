@@ -5,10 +5,12 @@ import { sortElements } from '../../store/actions/dragAndDrop';
 import { useDispatch } from 'react-redux';
 
 const FormConstructor = () => {
-    const dispatch = useDispatch();
-    const onDragEnd = result => {
-        const { destination, source, draggableId } = result;
 
+    const dispatch = useDispatch();
+
+    const onDragEnd = result => {
+        console.log(result)
+        const { destination, source, draggableId } = result;
         if (!destination) {
             return;
         }
