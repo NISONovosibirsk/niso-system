@@ -63,7 +63,7 @@ const CustomForm = () => {
                                 item={item}
                                 id={item.id}
                                 index={index}
-                                key={index}
+                                key={item.id}
                             />
                         ))}
                     </div>
