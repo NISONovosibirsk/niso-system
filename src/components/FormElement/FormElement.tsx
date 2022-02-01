@@ -9,9 +9,10 @@ interface IFormElement {
     item: any;
     id: number;
     index: number;
+    isDisabled: boolean;
 }
 
-const NewFormElement = ({ item, id, index }: IFormElement) => {
+const NewFormElement = ({ item, id, index, isDisabled }: IFormElement) => {
     const { constructor } = useTypeSelector(state => state.form);
 
     const dispatch = useDispatch();
@@ -43,12 +44,14 @@ const NewFormElement = ({ item, id, index }: IFormElement) => {
                             className='form-element__input form-element__input_type_label'
                             value={item.title}
                             onChange={e => handleTitleChange(e)}
+                            disabled={item.isDisabled}
                         ></input>
                         <input
                             className='form-element__input'
                             type={item.type}
                             value={item.value}
                             onChange={e => handleValueChange(e)}
+                            disabled={isDisabled}
                         ></input>
                     </div>
                 </div>
