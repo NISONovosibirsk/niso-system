@@ -1,4 +1,4 @@
-import { SORT_ELEMENTS } from '../types';
+import { SORT_ELEMENTS, LABLE_CHANGE, VALUE_CHANGE } from '../types';
 
 export const sortElements = (
     droppableIdStart,
@@ -18,6 +18,22 @@ export const sortElements = (
                 draggableId,
             },
         };
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const lableChange = newState => {
+    try {
+        return { type: LABLE_CHANGE, payload: newState };
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const valueChange = newState => {
+    try {
+        return { type: VALUE_CHANGE, payload: newState };
     } catch (error) {
         console.log(error);
     }

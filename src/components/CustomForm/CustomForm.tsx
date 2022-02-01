@@ -10,6 +10,8 @@ import {
     changeTitle,
 } from '../../store/actions/customForm';
 
+import NewFormElement from '../FormElement/NewFormElement';
+
 const CustomForm = () => {
     const { constructor } = useTypeSelector(state => state.dragAndDrop);
     const dispatch = useDispatch();
@@ -69,15 +71,21 @@ const CustomForm = () => {
                         className='custom-form__field'
                     >
                         {constructor.map((item: any, index: number) => (
-                            <FormElement
-                                id={item.id}
-                                title={item.title}
-                                type={item.type}
-                                isDisabled={false}
-                                onChange={handleChangeCustomInputsValue}
-                                key={index}
-                                index={index}
+                            // <FormElement
+                            //     id={item.id}
+                            //     title={item.title}
+                            //     type={item.type}
+                            //     isDisabled={false}
+                            //     onChange={handleChangeCustomInputsValue}
+                            //     key={index}
+                            //     index={index}
+                            //     item={item}
+                            // />
+                            <NewFormElement
                                 item={item}
+                                id={item.id}
+                                index={index}
+                                key={index}
                             />
                         ))}
                     </div>

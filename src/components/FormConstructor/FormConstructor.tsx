@@ -8,8 +8,7 @@ const FormConstructor = () => {
 
     const dispatch = useDispatch();
 
-    const onDragEnd = result => {
-        console.log(result)
+    const handleDragEnd = result => {
         const { destination, source, draggableId } = result;
         if (!destination) {
             return;
@@ -26,7 +25,7 @@ const FormConstructor = () => {
     };
 
     return (
-        <DragDropContext onDragEnd={onDragEnd}>
+        <DragDropContext onDragEnd={handleDragEnd}>
             <section className='form-constructor'>
                 <FormElements />
                 <CustomForm />

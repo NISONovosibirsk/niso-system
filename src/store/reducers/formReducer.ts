@@ -1,4 +1,4 @@
-import { SORT_ELEMENTS } from '../types';
+import { LABLE_CHANGE, SORT_ELEMENTS, VALUE_CHANGE } from '../types';
 
 const initialState: dragAndDropState = {
     elements: [
@@ -26,18 +26,21 @@ const initialState: dragAndDropState = {
             id: 3,
             title: 'Текстовое поле input',
             type: 'text',
+            value: '',
             isDisabled: true,
         },
         {
             id: 4,
             title: 'Числовое поле input',
             type: 'number',
+            value: '',
             isDisabled: true,
         },
         {
             id: 5,
             title: 'E-mail input',
             type: 'email',
+            value: '',
             isDisabled: true,
         },
     ],
@@ -57,18 +60,20 @@ export const dragAndDropReducer = (
                 draggableId,
             } = action.payload;
 
-            const newState = Array.from([...state.constructor])
-
+            // moving in constructor field
             if (droppableIdStart === droppableIdEnd) {
+                const newState = Array.from(state.constructor);
+
                 const spliced = newState.splice(droppableIndexStart, 1);
                 newState.splice(droppableIndexEnd, 0, ...spliced);
+
+                return { ...state, constructor: newState };
             }
-
-            return {
-                ...state,
-                constructor: [...newState]
-            };
-
+            return state;
+        case LABLE_CHANGE:
+            return { ...state, constructor: action.payload };
+        case VALUE_CHANGE:
+            return { ...state, constructor: action.payload };
         default:
             return state;
     }

@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { customFormReducer } from './customFormReducer';
-import { dragAndDropReducer } from './dragAndDropReducer';
+import { dragAndDropReducer } from './formReducer';
 import { headerSidebarReducer } from './headerSidebarReducer';
 
 export const rootReducer = combineReducers({
