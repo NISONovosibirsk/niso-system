@@ -52,24 +52,7 @@ export const dragAndDropReducer = (
 ): dragAndDropState => {
     switch (action.type) {
         case SORT_ELEMENTS:
-            const {
-                droppableIdStart,
-                droppableIdEnd,
-                droppableIndexStart,
-                droppableIndexEnd,
-                draggableId,
-            } = action.payload;
-
-            // moving in constructor field
-            if (droppableIdStart === droppableIdEnd) {
-                const newState = Array.from(state.constructor);
-
-                const spliced = newState.splice(droppableIndexStart, 1);
-                newState.splice(droppableIndexEnd, 0, ...spliced);
-
-                return { ...state, constructor: newState };
-            }
-            return state;
+            return { ...state, constructor: action.payload };
         case LABLE_CHANGE:
             return { ...state, constructor: action.payload };
         case VALUE_CHANGE:

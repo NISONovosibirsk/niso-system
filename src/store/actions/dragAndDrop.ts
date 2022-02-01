@@ -1,27 +1,35 @@
 import { SORT_ELEMENTS, LABLE_CHANGE, VALUE_CHANGE } from '../types';
 
-export const sortElements = (
-    droppableIdStart,
-    droppableIdEnd,
-    droppableIndexStart,
-    droppableIndexEnd,
-    draggableId
-) => {
+// export const sortElements = (
+//     droppableIdStart,
+//     droppableIdEnd,
+//     droppableIndexStart,
+//     droppableIndexEnd,
+//     draggableId
+// ) => {
+//     try {
+//         return {
+//             type: SORT_ELEMENTS,
+//             payload: {
+//                 droppableIdStart,
+//                 droppableIdEnd,
+//                 droppableIndexStart,
+//                 droppableIndexEnd,
+//                 draggableId,
+//             },
+//         };
+//     } catch (error) {
+//         console.log(error);
+//     }
+// };
+
+export const sortElements = newState => {
     try {
-        return {
-            type: SORT_ELEMENTS,
-            payload: {
-                droppableIdStart,
-                droppableIdEnd,
-                droppableIndexStart,
-                droppableIndexEnd,
-                draggableId,
-            },
-        };
+        return {type: SORT_ELEMENTS, payload: newState}
     } catch (error) {
-        console.log(error);
+        console.log(error)
     }
-};
+}
 
 export const lableChange = newState => {
     try {

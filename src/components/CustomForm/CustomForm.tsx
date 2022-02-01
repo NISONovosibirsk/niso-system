@@ -45,7 +45,7 @@ const CustomForm = () => {
     return (
         <Droppable droppableId={'customForm'}>
             {provided => (
-                <form>
+                <form className='custom-form'>
                     <input
                         onChange={handleChangeInputsValue}
                         name='title'
