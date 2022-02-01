@@ -1,8 +1,7 @@
 import './FormElements.scss';
 import { useTypeSelector } from '../../hooks/useTypeSelector';
 import { Droppable } from 'react-beautiful-dnd';
-
-import OldFormElement from '../FormElement/OldFormElement'
+import { FormElement } from '..';
 
 const FormElements = () => {
     const { elements } = useTypeSelector(state => state.form);
@@ -20,15 +19,11 @@ const FormElements = () => {
                         ref={provided.innerRef}
                     >
                         {elements.map((item: any, index: number) => (
-                            <OldFormElement
-                                id={item.id}
-                                title={item.title}
-                                type={item.type}
-                                isDisabled={item.isDisabled}
-                                onChange={() => {}}
-                                key={item.id}
+                            <FormElement
                                 item={item}
+                                id={item.id}
                                 index={index}
+                                key={index}
                             />
                         ))}
                     </div>

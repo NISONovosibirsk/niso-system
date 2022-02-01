@@ -30,16 +30,6 @@ const CustomForm = () => {
         }
     };
 
-    const handleChangeCustomInputsValue = (
-        id: number,
-        value: {
-            label: string;
-            input: string;
-        }
-    ) => {
-        dispatch(changeCustomInputsValues({ id, value }));
-    };
-
     return (
         <Droppable droppableId={'customForm'}>
             {provided => (
@@ -69,16 +59,6 @@ const CustomForm = () => {
                         className='custom-form__field'
                     >
                         {constructor.map((item: any, index: number) => (
-                            // <FormElement
-                            //     id={item.id}
-                            //     title={item.title}
-                            //     type={item.type}
-                            //     isDisabled={false}
-                            //     onChange={handleChangeCustomInputsValue}
-                            //     key={index}
-                            //     index={index}
-                            //     item={item}
-                            // />
                             <FormElement
                                 item={item}
                                 id={item.id}
