@@ -1,6 +1,6 @@
 import { LABLE_CHANGE, SORT_ELEMENTS, VALUE_CHANGE } from '../types';
 
-const initialState: dragAndDropState = {
+const initialState: formState = {
     elements: [
         {
             id: 0,
@@ -46,10 +46,10 @@ const initialState: dragAndDropState = {
     ],
 };
 
-export const dragAndDropReducer = (
+export const formReducer = (
     state = initialState,
     action: dragAndDropActions
-): dragAndDropState => {
+): formState => {
     switch (action.type) {
         case SORT_ELEMENTS:
             return { ...state, constructor: action.payload };
@@ -63,10 +63,9 @@ export const dragAndDropReducer = (
 };
 
 // interfaces for state and actions
-interface dragAndDropState {
+interface formState {
     elements?: any;
     constructor: any;
-    currentElement?: any;
 }
 
 interface dragAndDropActions {

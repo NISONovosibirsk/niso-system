@@ -7,7 +7,7 @@ import { useTypeSelector } from '../../hooks/useTypeSelector';
 
 const FormConstructor = () => {
 
-    const {constructor} = useTypeSelector(state => state.dragAndDrop)
+    const {constructor} = useTypeSelector(state => state.form)
 
     const dispatch = useDispatch();
 

@@ -12,7 +12,7 @@ interface IFormElement {
 }
 
 const NewFormElement = ({ item, id, index }: IFormElement) => {
-    const { constructor } = useTypeSelector(state => state.dragAndDrop);
+    const { constructor } = useTypeSelector(state => state.form);
 
     const dispatch = useDispatch();
 

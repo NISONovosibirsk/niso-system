@@ -13,7 +13,7 @@ import {
 import NewFormElement from '../FormElement/NewFormElement';
 
 const CustomForm = () => {
-    const { constructor } = useTypeSelector(state => state.dragAndDrop);
+    const { constructor } = useTypeSelector(state => state.form);
     const dispatch = useDispatch();
 
     const handleChangeInputsValue = (e: any) => {

@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { Droppable } from 'react-beautiful-dnd';
 
 const FormElements = () => {
-    const { elements } = useTypeSelector(state => state.dragAndDrop);
+    const { elements } = useTypeSelector(state => state.form);
     const dispatch = useDispatch();
 
     return (
