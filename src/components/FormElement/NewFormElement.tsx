@@ -1,7 +1,7 @@
 import './FormElement.scss';
 import { Draggable } from 'react-beautiful-dnd';
 import { useDispatch } from 'react-redux';
-import { lableChange, valueChange } from '../../store/actions/dragAndDrop';
+import { lableChange, valueChange } from '../../store/actions/formActions';
 import { useTypeSelector } from '../../hooks/useTypeSelector';
 
 // FormElement props types
