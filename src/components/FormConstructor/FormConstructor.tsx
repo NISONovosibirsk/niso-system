@@ -30,10 +30,10 @@ const FormConstructor = () => {
         // drag element to constructor
         if (source.droppableId === 'formElements') {
             const newState: Array<any> = Array.from(constructor);
-            const card = {...elements[source.index]}
+            const card = { ...elements[source.index] };
             card.id = Date.now();
             newState.splice(destination.index, 0, card);
-            
+
             dispatch(addElement(newState));
         }
     };
