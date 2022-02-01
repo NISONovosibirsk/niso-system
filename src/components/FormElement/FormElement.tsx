@@ -1,33 +1,33 @@
-import { useState } from 'react';
 import './FormElement.scss';
 import { Draggable } from 'react-beautiful-dnd';
+import { useDispatch } from 'react-redux';
+import { lableChange, valueChange } from '../../store/actions/formActions';
+import { useTypeSelector } from '../../hooks/useTypeSelector';
 
-const FormElement = ({
-    id,
-    title,
-    type,
-    isDisabled,
-    onChange,
-    item,
-    index,
-}: {
-    id: any;
-    title: string;
-    type: string;
-    isDisabled: boolean;
-    onChange: Function;
+// FormElement props types
+interface IFormElement {
     item: any;
+    id: number;
     index: number;
-}) => {
-    const [value, setValue] = useState({ label: title, input: '' });
-    item.id = id;
+}
 
-    const handleChange = (e: any) => {
-        const { target } = e;
-        const { id } = target.parentNode;
+const NewFormElement = ({ item, id, index }: IFormElement) => {
+    const { constructor } = useTypeSelector(state => state.form);
 
-        setValue({ ...value, [target.name]: target.value });
-        onChange(id, value);
+    const dispatch = useDispatch();
+
+    // change title of element
+    const handleTitleChange = e => {
+        const newState: Array<any> = Array.from(constructor);
+        newState[index].title = e.target.value;
+        dispatch(lableChange(newState));
+    };
+
+    // change value of element
+    const handleValueChange = e => {
+        const newState: Array<any> = Array.from(constructor);
+        newState[index].value = e.target.value;
+        dispatch(valueChange(newState));
     };
 
     return (
@@ -38,22 +38,18 @@ const FormElement = ({
                     {...provided.dragHandleProps}
                     ref={provided.innerRef}
                 >
-                    <div id={item.id} className='form-element'>
+                    <div className='form-element'>
                         <input
-                            onChange={handleChange}
-                            value={value.label}
-                            name='label'
                             className='form-element__input form-element__input_type_label'
-                            disabled={isDisabled}
-                        />
+                            value={item.title}
+                            onChange={e => handleTitleChange(e)}
+                        ></input>
                         <input
-                            onChange={handleChange}
-                            value={value.input}
-                            name='input'
-                            type={type}
                             className='form-element__input'
-                            disabled={isDisabled}
-                        />
+                            type={item.type}
+                            value={item.value}
+                            onChange={e => handleValueChange(e)}
+                        ></input>
                     </div>
                 </div>
             )}
@@ -61,4 +57,4 @@ const FormElement = ({
     );
 };
 
-export default FormElement;
+export default NewFormElement;

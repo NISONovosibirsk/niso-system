@@ -4,12 +4,14 @@ import { useTypeSelector } from '../../hooks/useTypeSelector';
 import { useDispatch } from 'react-redux';
 import { Droppable } from 'react-beautiful-dnd';
 
+import OldFormElement from '../FormElement/OldFormElement'
+
 const FormElements = () => {
     const { elements } = useTypeSelector(state => state.form);
     const dispatch = useDispatch();
 
     return (
-        <Droppable droppableId={'formElements'}>
+        <Droppable droppableId={'formElements'} isDropDisabled={true}>
             {provided => (
                 <div className='form-elements'>
                     <h2 className='form-elements__title'>
@@ -21,7 +23,7 @@ const FormElements = () => {
                         ref={provided.innerRef}
                     >
                         {elements.map((item: any, index: number) => (
-                            <FormElement
+                            <OldFormElement
                                 id={item.id}
                                 title={item.title}
                                 type={item.type}

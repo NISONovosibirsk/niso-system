@@ -10,8 +10,6 @@ import {
     changeTitle,
 } from '../../store/actions/customForm';
 
-import NewFormElement from '../FormElement/NewFormElement';
-
 const CustomForm = () => {
     const { constructor } = useTypeSelector(state => state.form);
     const dispatch = useDispatch();
@@ -81,7 +79,7 @@ const CustomForm = () => {
                             //     index={index}
                             //     item={item}
                             // />
-                            <NewFormElement
+                            <FormElement
                                 item={item}
                                 id={item.id}
                                 index={index}
