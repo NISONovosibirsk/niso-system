@@ -1,14 +1,11 @@
 import './FormElements.scss';
-import { FormElement } from '..';
 import { useTypeSelector } from '../../hooks/useTypeSelector';
-import { useDispatch } from 'react-redux';
 import { Droppable } from 'react-beautiful-dnd';
 
 import OldFormElement from '../FormElement/OldFormElement'
 
 const FormElements = () => {
     const { elements } = useTypeSelector(state => state.form);
-    const dispatch = useDispatch();
 
     return (
         <Droppable droppableId={'formElements'} isDropDisabled={true}>

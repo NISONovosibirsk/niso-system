@@ -1,4 +1,9 @@
-import { LABLE_CHANGE, SORT_ELEMENTS, VALUE_CHANGE } from '../types';
+import {
+    ADD_ELEMENT,
+    LABLE_CHANGE,
+    SORT_ELEMENTS,
+    VALUE_CHANGE,
+} from '../types';
 
 const initialState: formState = {
     elements: [
@@ -52,6 +57,8 @@ export const formReducer = (
 ): formState => {
     switch (action.type) {
         case SORT_ELEMENTS:
+            return { ...state, constructor: action.payload };
+        case ADD_ELEMENT:
             return { ...state, constructor: action.payload };
         case LABLE_CHANGE:
             return { ...state, constructor: action.payload };

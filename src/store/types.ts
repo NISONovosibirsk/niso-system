@@ -1,4 +1,5 @@
 export const SORT_ELEMENTS = 'FORM/SORT_ELEMENTS';
+export const ADD_ELEMENT = 'FORM/ADD_ELEMENT';
 export const LABLE_CHANGE = 'FORM/LABLE_CHANGE';
 export const VALUE_CHANGE = 'FORM/VALUE_CHANGE';
 
