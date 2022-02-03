@@ -1,3 +1,5 @@
+// COMPONENTS //
+
 // Form Element
 export interface IFormElement {
     item: any;
@@ -58,4 +60,17 @@ interface ButtonsArray {
 export interface ITerms {
     title: string;
     buttons: ButtonsArray[];
+}
+
+
+// REDUX //
+
+export interface IFormState {
+    elements?: any;
+    constructor: any;
+}
+
+export interface IDragAndDropActions {
+    type: string;
+    payload: any;
 }

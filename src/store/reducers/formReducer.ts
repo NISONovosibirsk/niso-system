@@ -5,8 +5,9 @@ import {
     SORT_ELEMENTS,
     VALUE_CHANGE,
 } from '../types';
+import { IFormState, IDragAndDropActions } from '../../interfaces';
 
-const initialState: formState = {
+const initialState: IFormState = {
     elements: [
         {
             id: 0,
@@ -64,8 +65,8 @@ const initialState: formState = {
 
 export const formReducer = (
     state = initialState,
-    action: dragAndDropActions
-): formState => {
+    action: IDragAndDropActions
+): IFormState => {
     switch (action.type) {
         case SORT_ELEMENTS:
             return { ...state, constructor: action.payload };
@@ -82,15 +83,4 @@ export const formReducer = (
     }
 };
 
-// interfaces for state and actions
-interface formState {
-    elements?: any;
-    constructor: any;
-}
-
-interface dragAndDropActions {
-    type: string;
-    payload: any;
-}
-
-export type FormAction = dragAndDropActions;
+export type FormAction = IDragAndDropActions;
