@@ -72,7 +72,7 @@ const NewFormElement = ({ item, id, index, isDisabled }: IFormElement) => {
                         <Button
                             type='filled'
                             onClick={handleRemove}
-                            title='Delete'
+                            title='Удалить'
                         />
                     )}
                 </div>
