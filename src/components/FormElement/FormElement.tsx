@@ -7,7 +7,6 @@ import {
     valueChange,
 } from '../../store/actions/formActions';
 import { useTypeSelector } from '../../hooks/useTypeSelector';
-import { Button } from '..';
 import { IFormElement } from '../../interfaces';
 
 const FormElement = ({ item, id, index }: IFormElement) => {
@@ -85,15 +84,14 @@ const FormElement = ({ item, id, index }: IFormElement) => {
                             onChange={handleTitleChange}
                             disabled={item.isDisabled}
                         />
+                        {item.isDisabled ? null : (
+                            <div
+                                className='form-element__remove-btn'
+                                onClick={handleRemove}
+                            ></div>
+                        )}
                         {handleElementType()}
                     </div>
-                    {item.isDisabled ? null : (
-                        <Button
-                            type='filled'
-                            onClick={handleRemove}
-                            title='Удалить'
-                        />
-                    )}
                 </div>
             )}
         </Draggable>
