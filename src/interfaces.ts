@@ -65,6 +65,7 @@ export interface ITerms {
 
 // REDUX //
 
+// Form state and actions
 export interface IFormState {
     elements?: any;
     constructor: any;
