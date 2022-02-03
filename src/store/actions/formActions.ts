@@ -3,6 +3,7 @@ import {
     LABLE_CHANGE,
     VALUE_CHANGE,
     ADD_ELEMENT,
+    REMOVE_ELEMENT,
 } from '../types';
 
 export const sortElements = newState => {
@@ -32,6 +33,14 @@ export const lableChange = newState => {
 export const valueChange = newState => {
     try {
         return { type: VALUE_CHANGE, payload: newState };
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const removeElement = newState => {
+    try {
+        return { type: REMOVE_ELEMENT, payload: newState };
     } catch (error) {
         console.log(error);
     }

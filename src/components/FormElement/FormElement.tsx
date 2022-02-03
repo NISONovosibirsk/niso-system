@@ -1,7 +1,11 @@
 import './FormElement.scss';
 import { Draggable } from 'react-beautiful-dnd';
 import { useDispatch } from 'react-redux';
-import { lableChange, valueChange } from '../../store/actions/formActions';
+import {
+    lableChange,
+    removeElement,
+    valueChange,
+} from '../../store/actions/formActions';
 import { useTypeSelector } from '../../hooks/useTypeSelector';
 
 // FormElement props types
@@ -31,6 +35,15 @@ const NewFormElement = ({ item, id, index, isDisabled }: IFormElement) => {
         dispatch(valueChange(newState));
     };
 
+    // remove element
+    const handleRemove = e => {
+        e.preventDefault();
+
+        const newState = Array.from(constructor);
+        newState.splice(index, 1);
+        dispatch(removeElement(newState));
+    };
+
     return (
         <Draggable draggableId={String(id)} index={index}>
             {provided => (
@@ -54,6 +67,17 @@ const NewFormElement = ({ item, id, index, isDisabled }: IFormElement) => {
                             disabled={isDisabled}
                         ></input>
                     </div>
+                    {isDisabled ? (
+                        <div></div>
+                    ) : (
+                        <button
+                            onClick={e => {
+                                handleRemove(e);
+                            }}
+                        >
+                            Delete
+                        </button>
+                    )}
                 </div>
             )}
         </Draggable>
