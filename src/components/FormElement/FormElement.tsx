@@ -67,9 +67,7 @@ const NewFormElement = ({ item, id, index, isDisabled }: IFormElement) => {
                             disabled={isDisabled}
                         ></input>
                     </div>
-                    {isDisabled ? (
-                        <div></div>
-                    ) : (
+                    {isDisabled ? null : (
                         <button
                             onClick={e => {
                                 handleRemove(e);
