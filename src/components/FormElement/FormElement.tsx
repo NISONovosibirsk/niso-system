@@ -57,14 +57,14 @@ const FormElement = ({ item, id, index, isDisabled }: IFormElement) => {
                         <input
                             className='form-element__input form-element__input_type_label'
                             value={item.title}
-                            onChange={e => handleTitleChange(e)}
+                            onChange={handleTitleChange}
                             disabled={item.isDisabled}
                         ></input>
                         <input
                             className='form-element__input'
                             type={item.type}
                             value={item.value}
-                            onChange={e => handleValueChange(e)}
+                            onChange={handleValueChange}
                             disabled={isDisabled}
                         ></input>
                     </div>
