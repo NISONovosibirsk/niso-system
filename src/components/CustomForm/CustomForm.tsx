@@ -4,7 +4,6 @@ import { FormElement } from '..';
 import { Droppable } from 'react-beautiful-dnd';
 import { useDispatch } from 'react-redux';
 import {
-    changeCustomInputsValues,
     changeFormSubtitle,
     changeFormTitle,
     changeTitle,
@@ -64,7 +63,6 @@ const CustomForm = () => {
                                 id={item.id}
                                 index={index}
                                 key={item.id}
-                                isDisabled={item.isDisabled}
                             />
                         ))}
                     </div>

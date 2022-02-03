@@ -1,9 +1,9 @@
 .custom-form {
-  padding-left: 212px;
-  padding-right: 176px;
+  padding-left: 13%;
+  padding-right: 10%;
   display: grid;
   width: 100%;
-  grid-template: 16px 74px minmax(26px, 78px) minmax(99px, 1fr) / 1fr;
+  grid-template: 16px 74px minmax(26px, 78px) minmax(99px, 1fr) / minmax(223px, 1fr);
   gap: 24px;
 
   &__title {

@@ -10,7 +10,7 @@ import { useTypeSelector } from '../../hooks/useTypeSelector';
 import { Button } from '..';
 import { IFormElement } from '../../interfaces';
 
-const FormElement = ({ item, id, index, isDisabled }: IFormElement) => {
+const FormElement = ({ item, id, index }: IFormElement) => {
     const { constructor } = useTypeSelector(state => state.form);
 
     const dispatch = useDispatch();
@@ -31,11 +31,43 @@ const FormElement = ({ item, id, index, isDisabled }: IFormElement) => {
 
     // remove element
     const handleRemove = e => {
-        e.preventDefault();
-
         const newState = Array.from(constructor);
         newState.splice(index, 1);
         dispatch(removeElement(newState));
+    };
+
+    const handleChecked = e => {
+        const newState: Array<any> = Array.from(constructor);
+        newState[index].value = e.target.checked;
+        dispatch(valueChange(newState));
+    };
+
+    //handle ElementType
+    const handleElementType = () => {
+        switch (item.type) {
+            case 'checkbox':
+                return (
+                    <label className='form-element__checkbox-label'>
+                        <input
+                            className='form-element__input form-element__input_type_checkbox'
+                            type='checkbox'
+                            checked={item.value}
+                            onChange={handleChecked}
+                            disabled={item.isDisabled}
+                        />
+                    </label>
+                );
+            default:
+                return (
+                    <input
+                        className='form-element__input'
+                        type={item.type}
+                        value={item.value}
+                        onChange={handleValueChange}
+                        disabled={item.isDisabled}
+                    />
+                );
+        }
     };
 
     return (
@@ -52,16 +84,10 @@ const FormElement = ({ item, id, index, isDisabled }: IFormElement) => {
                             value={item.title}
                             onChange={handleTitleChange}
                             disabled={item.isDisabled}
-                        ></input>
-                        <input
-                            className='form-element__input'
-                            type={item.type}
-                            value={item.value}
-                            onChange={handleValueChange}
-                            disabled={isDisabled}
-                        ></input>
+                        />
+                        {handleElementType()}
                     </div>
-                    {isDisabled ? null : (
+                    {item.isDisabled ? null : (
                         <Button
                             type='filled'
                             onClick={handleRemove}

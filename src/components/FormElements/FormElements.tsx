@@ -24,7 +24,6 @@ const FormElements = () => {
                                 id={item.id}
                                 index={index}
                                 key={item.id}
-                                isDisabled={item.isDisabled}
                             />
                         ))}
                     </div>

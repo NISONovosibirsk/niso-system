@@ -3,7 +3,6 @@ export interface IFormElement {
     item: any;
     id: number;
     index: number;
-    isDisabled: boolean;
 }
 
 // Blog Card

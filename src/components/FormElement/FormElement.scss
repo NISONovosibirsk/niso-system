@@ -1,46 +1,66 @@
 .form-element {
-  display: grid;
-  cursor: grab;
-
-  &:hover {
-    background: rgba(128, 128, 128, 0.2);
-    border-radius: 10px;
-  }
-
-  &__input {
-    background: none;
-    height: 51px;
-    margin-bottom: 17px;
-    box-sizing: border-box;
-    padding: 0 26px;
-    border-radius: 10px;
-    border: 1px solid black;
+    display: grid;
+    cursor: grab;
 
     &:hover {
-      border: 1px solid black;
+        background: rgba(128, 128, 128, 0.2);
+        border-radius: 10px;
     }
 
-    &:disabled {
-      background: none;
-      border-radius: 10px;
-      cursor: grab;
+    &__checkbox-label {
+        cursor: pointer;
+        height: 29px;
+        width: 29px;
+        border: 1px solid rgba($color: #000, $alpha: 1) {
+            radius: 10px;
+        }
+        margin: {
+            bottom: 17px;
+        }
     }
 
-    &_type {
-      &_label {
-        padding: 0;
-        height: 24px;
-        border: none;
-        margin-bottom: 7px;
-        font-size: 15px;
-        line-height: 24px;
+    &__input {
+        background: none;
+        height: 51px;
+        margin-bottom: 17px;
+        box-sizing: border-box;
+        padding: 0 26px;
+        border-radius: 10px;
+        border: 1px solid black;
+
+        &:hover {
+            border: 1px solid black;
+        }
 
         &:disabled {
-          &:hover {
-            border: none;
-          }
+            background: none;
+            border-radius: 10px;
+            cursor: grab;
         }
-      }
+
+        &_type {
+            &_label {
+                padding: 0;
+                height: 24px;
+                border: none;
+                margin-bottom: 7px;
+                font-size: 15px;
+                line-height: 24px;
+
+                &:disabled {
+                    &:hover {
+                        border: none;
+                    }
+                }
+            }
+
+            &_checkbox {
+                display: none;
+
+                &:checked + .form-element__checkbox-label {
+                    background: forestgreen;
+                }
+            }
+        }
     }
-  }
 }
