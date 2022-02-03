@@ -17,7 +17,7 @@ interface IFormElement {
     isDisabled: boolean;
 }
 
-const NewFormElement = ({ item, id, index, isDisabled }: IFormElement) => {
+const FormElement = ({ item, id, index, isDisabled }: IFormElement) => {
     const { constructor } = useTypeSelector(state => state.form);
 
     const dispatch = useDispatch();
@@ -81,4 +81,4 @@ const NewFormElement = ({ item, id, index, isDisabled }: IFormElement) => {
     );
 };
 
-export default NewFormElement;
+export default FormElement;
