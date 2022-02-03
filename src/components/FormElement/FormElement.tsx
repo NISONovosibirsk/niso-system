@@ -8,14 +8,7 @@ import {
 } from '../../store/actions/formActions';
 import { useTypeSelector } from '../../hooks/useTypeSelector';
 import { Button } from '..';
-
-// FormElement props types
-interface IFormElement {
-    item: any;
-    id: number;
-    index: number;
-    isDisabled: boolean;
-}
+import { IFormElement } from '../../interfaces';
 
 const FormElement = ({ item, id, index, isDisabled }: IFormElement) => {
     const { constructor } = useTypeSelector(state => state.form);
