@@ -7,6 +7,7 @@ import {
     valueChange,
 } from '../../store/actions/formActions';
 import { useTypeSelector } from '../../hooks/useTypeSelector';
+import { Button } from '..';
 
 // FormElement props types
 interface IFormElement {
@@ -68,13 +69,11 @@ const NewFormElement = ({ item, id, index, isDisabled }: IFormElement) => {
                         ></input>
                     </div>
                     {isDisabled ? null : (
-                        <button
-                            onClick={e => {
-                                handleRemove(e);
-                            }}
-                        >
-                            Delete
-                        </button>
+                        <Button
+                            type='filled'
+                            onClick={handleRemove}
+                            title='Delete'
+                        />
                     )}
                 </div>
             )}
