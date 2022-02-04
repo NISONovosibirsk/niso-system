@@ -46,25 +46,115 @@ const FormElement = ({ item, id, index }: IFormElement) => {
         switch (item.type) {
             case 'checkbox':
                 return (
-                    <label className='form-element__checkbox-label'>
+                    <>
                         <input
-                            className='form-element__input form-element__input_type_checkbox'
-                            type='checkbox'
-                            checked={item.value}
-                            onChange={handleChecked}
+                            className='form-element__input form-element__input_type_label'
+                            value={item.title}
+                            onChange={handleTitleChange}
                             disabled={item.isDisabled}
                         />
-                    </label>
+                        <label className='form-element__checkbox-label'>
+                            <input
+                                className='form-element__input form-element__input_type_checkbox'
+                                type='checkbox'
+                                checked={item.value}
+                                onChange={handleChecked}
+                                disabled={item.isDisabled}
+                            />
+                        </label>
+                    </>
+                );
+            case 'header':
+                return (
+                    <>
+                        <input
+                            className='form-element__input form-element__input_type_label'
+                            value={item.title}
+                            onChange={handleTitleChange}
+                            disabled={item.isDisabled}
+                        />
+                        <input
+                            onChange={handleValueChange}
+                            disabled={item.isDisabled}
+                            name='formTitle'
+                            placeholder='Введите название формы'
+                            className='form-element__input custom-form__form-title'
+                        />
+                    </>
+                );
+            case 'title':
+                return (
+                    <>
+                        <input
+                            className='form-element__input form-element__input_type_label'
+                            value={item.title}
+                            onChange={handleTitleChange}
+                            disabled={item.isDisabled}
+                        />
+                        <input
+                            onChange={handleValueChange}
+                            name='title'
+                            placeholder='Введите заголовок'
+                            className='form-element__input custom-form__title'
+                            disabled={item.isDisabled}
+                        />
+                    </>
+                );
+            case 'subtitle':
+                return (
+                    <>
+                        <input
+                            className='form-element__input form-element__input_type_label'
+                            value={item.title}
+                            onChange={handleTitleChange}
+                            disabled={item.isDisabled}
+                        />
+                        <textarea
+                            onChange={handleValueChange}
+                            name='formSubtitle'
+                            placeholder='Введите подзаголовок формы'
+                            rows={3}
+                            className='form-element__input custom-form__form-subtitle'
+                            disabled={item.isDisabled}
+                        />
+                    </>
+                );
+            case 'textArea':
+                return (
+                    <>
+                        <input
+                            className='form-element__input form-element__input_type_label'
+                            value={item.title}
+                            onChange={handleTitleChange}
+                            disabled={item.isDisabled}
+                        />
+                        <textarea
+                            onChange={handleValueChange}
+                            name='formSubtitle'
+                            placeholder='Поле текста'
+                            rows={10}
+                            // className='form-element__input'
+                            disabled={item.isDisabled}
+                        />
+                    </>
                 );
             default:
                 return (
-                    <input
-                        className='form-element__input'
-                        type={item.type}
-                        value={item.value}
-                        onChange={handleValueChange}
-                        disabled={item.isDisabled}
-                    />
+                    <>
+                        <input
+                            className='form-element__input form-element__input_type_label'
+                            value={item.title}
+                            onChange={handleTitleChange}
+                            disabled={item.isDisabled}
+                        />
+                        <input
+                            className='form-element__input'
+                            type={item.type}
+                            value={item.value}
+                            onChange={handleValueChange}
+                            disabled={item.isDisabled}
+                        />
+                    </>
                 );
         }
     };
@@ -78,12 +168,6 @@ const FormElement = ({ item, id, index }: IFormElement) => {
                     ref={provided.innerRef}
                 >
                     <div className='form-element'>
-                        <input
-                            className='form-element__input form-element__input_type_label'
-                            value={item.title}
-                            onChange={handleTitleChange}
-                            disabled={item.isDisabled}
-                        />
                         {item.isDisabled ? null : (
                             <div
                                 className='form-element__remove-btn'

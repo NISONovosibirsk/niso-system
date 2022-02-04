@@ -32,31 +32,12 @@ const CustomForm = () => {
     return (
         <Droppable droppableId={'customForm'}>
             {provided => (
-                <form className='custom-form'>
-                    <input
-                        onChange={handleChangeInputsValue}
-                        name='title'
-                        placeholder='Введите заголовок'
-                        className='custom-form__title'
-                    />
-                    <input
-                        onChange={handleChangeInputsValue}
-                        name='formTitle'
-                        placeholder='Введите название формы'
-                        className='custom-form__form-title'
-                    />
-                    <textarea
-                        onChange={handleChangeInputsValue}
-                        name='formSubtitle'
-                        placeholder='Введите подзаголовок формы'
-                        rows={3}
-                        className='custom-form__form-subtitle'
-                    />
-                    <div
-                        {...provided.droppableProps}
-                        ref={provided.innerRef}
-                        className='custom-form__field'
-                    >
+                <form
+                    className='custom-form'
+                    {...provided.droppableProps}
+                    ref={provided.innerRef}
+                >
+                    <div className='custom-form__field'>
                         {constructor.map((item: any, index: number) => (
                             <FormElement
                                 item={item}
