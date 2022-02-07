@@ -1,9 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { setLoggedInStatus } from '../../store/actions/headerSidebar';
 import './Sidebar.scss';
-import { ISidebar } from '../../interfaces';
 
-const Sidebar = ({ isOpen }: ISidebar) => {
+const Sidebar = ({ isOpen }: { isOpen: boolean }) => {
     const dispatch = useDispatch();
 
     const handleCloseSidebar = (e: any) =>
