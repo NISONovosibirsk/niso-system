@@ -2,6 +2,7 @@ import {
     ADD_ELEMENT,
     LABLE_CHANGE,
     REMOVE_ELEMENT,
+    SET_REQUIRED,
     SORT_ELEMENTS,
     VALUE_CHANGE,
 } from '../types';
@@ -91,6 +92,8 @@ export const formReducer = (
         case VALUE_CHANGE:
             return { ...state, constructor: action.payload };
         case REMOVE_ELEMENT:
+            return { ...state, constructor: action.payload };
+        case SET_REQUIRED:
             return { ...state, constructor: action.payload };
         default:
             return state;

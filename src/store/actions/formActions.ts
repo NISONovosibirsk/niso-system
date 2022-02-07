@@ -4,6 +4,7 @@ import {
     VALUE_CHANGE,
     ADD_ELEMENT,
     REMOVE_ELEMENT,
+    SET_REQUIRED,
 } from '../types';
 
 export const sortElements = newState => {
@@ -41,6 +42,14 @@ export const valueChange = newState => {
 export const removeElement = newState => {
     try {
         return { type: REMOVE_ELEMENT, payload: newState };
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const setRequired = newState => {
+    try {
+        return { type: SET_REQUIRED, payload: newState };
     } catch (error) {
         console.log(error);
     }

@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import {
     lableChange,
     removeElement,
+    setRequired,
     valueChange,
 } from '../../store/actions/formActions';
 import { useTypeSelector } from '../../hooks/useTypeSelector';
@@ -37,10 +38,17 @@ const FormElement = ({ item, id, index }: IFormElement) => {
         dispatch(removeElement(newState));
     };
 
+    //check element
     const handleChecked = e => {
         const newState: Array<any> = Array.from(constructor);
         newState[index].value = e.target.checked;
         dispatch(valueChange(newState));
+    };
+
+    const handleRequired = () => {
+        const newState: Array<any> = Array.from(constructor);
+        newState[index].isRequired = !newState[index].isRequired;
+        dispatch(setRequired(newState));
     };
 
     //handle ElementType
@@ -133,6 +141,7 @@ const FormElement = ({ item, id, index }: IFormElement) => {
                                 <input
                                     className='form-element__required-checkbox'
                                     type='checkbox'
+                                    onClick={handleRequired}
                                 />
                             </label>
                         )}
