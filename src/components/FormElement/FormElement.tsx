@@ -95,6 +95,7 @@ const FormElement = ({ item, id, index }: IFormElement) => {
                             onChange={handleChecked}
                             disabled={item.isDisabled}
                         />
+                        <div className='form-element__custom-checkbox'></div>
                     </label>
                 );
             case 'textArea':
@@ -143,6 +144,7 @@ const FormElement = ({ item, id, index }: IFormElement) => {
                                     type='checkbox'
                                     onClick={handleRequired}
                                 />
+                                <div className='form-element__required-custom-checkbox'></div>
                             </label>
                         )}
                         {item.isDisabled ? null : (
