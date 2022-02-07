@@ -5,8 +5,8 @@ function App() {
         <div className='App'>
             <div className='container'>
                 <Header />
-                <FormConstructor />
-                {/* <SavedForms /> */}
+                {/* <FormConstructor /> */}
+                <SavedForms />
             </div>
         </div>
     );
