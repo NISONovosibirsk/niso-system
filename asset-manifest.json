@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.347c084b.css",
+    "main.js": "/static/js/main.fd3b49b1.js",
+    "static/media/smoke-background-optimized.mp4": "/static/media/smoke-background-optimized.e09309230e3c80f05cfd.mp4",
+    "static/media/glow.png": "/static/media/glow.2eabcb9438da6e26f1fa.png",
+    "static/media/light.png": "/static/media/light.e27483d672d7a8c133cc.png",
+    "static/media/3.svg": "/static/media/3.82e21be28a7062a68c5d909764263dae.svg",
+    "static/media/2.svg": "/static/media/2.a8f80f751a825bc6b96295e1f2d476d0.svg",
+    "static/media/4.svg": "/static/media/4.747d8f99d3322549b1f81ecb0605271f.svg",
+    "static/media/1.svg": "/static/media/1.0928b7c048acdcbf9292f9410a76d951.svg",
+    "static/media/header__logo.svg": "/static/media/header__logo.ac079b9a0fb124c9f0c216f1bb9498a5.svg",
+    "index.html": "/index.html",
+    "static/media/form-element__remove-btn.svg": "/static/media/form-element__remove-btn.2001e956d267bc9b1a2349ee0a8ee521.svg",
+    "static/media/header__burger-btn.svg": "/static/media/header__burger-btn.78591037f1f4af6978ec.svg",
+    "main.347c084b.css.map": "/static/css/main.347c084b.css.map",
+    "main.fd3b49b1.js.map": "/static/js/main.fd3b49b1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.347c084b.css",
+    "static/js/main.fd3b49b1.js"
+  ]
+}
