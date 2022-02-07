@@ -6,6 +6,7 @@
     gap: 24px;
 
     &__title {
+        height: 20px !important;
         font-weight: 500;
         font-size: 14px;
         line-height: 16px;
@@ -36,6 +37,7 @@
     }
 
     &__form-title {
+        height: 74px !important;
         font-weight: 700;
         font-size: 57px;
         line-height: 74px;

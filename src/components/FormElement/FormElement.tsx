@@ -58,32 +58,33 @@ const FormElement = ({ item, id, index }: IFormElement) => {
             case 'header':
                 return (
                     <input
+                        className='form-element__input custom-form__form-title'
+                        name='formTitle'
                         onChange={handleValueChange}
                         disabled={item.isDisabled}
-                        name='formTitle'
                         // placeholder='Введите название формы'
-                        className='form-element__input custom-form__form-title'
                     />
                 );
             case 'title':
                 return (
                     <input
-                        onChange={handleValueChange}
-                        name='title'
-                        // placeholder='Введите заголовок'
                         className='form-element__input custom-form__title'
+                        name='title'
+                        onChange={handleValueChange}
                         disabled={item.isDisabled}
+                        // placeholder='Введите заголовок'
                     />
                 );
             case 'subtitle':
                 return (
-                    <textarea
-                        onChange={handleValueChange}
-                        name='formSubtitle'
-                        // placeholder='Введите подзаголовок формы'
-                        rows={3}
+                    <TextareaAutosize
                         className='form-element__input custom-form__form-subtitle'
+                        name='formSubtitle'
+                        value={item.value}
+                        onChange={handleValueChange}
                         disabled={item.isDisabled}
+                        minRows={1}
+                        // placeholder='Введите подзаголовок формы'
                     />
                 );
             case 'checkbox':
@@ -137,24 +138,25 @@ const FormElement = ({ item, id, index }: IFormElement) => {
                             onChange={handleTitleChange}
                             disabled={item.isDisabled}
                         />
+                        {item.isDisabled ? null : item.isRequired === undefined ? null : (
+                            <label className='form-element__required-title'>
+                                Объязательное
+                                <input
+                                    className='form-element__required-checkbox'
+                                    type='checkbox'
+                                    onClick={handleRequired}
+                                    checked={item.isRequired}
+                                />
+                                <div className='form-element__required-custom-checkbox'></div>
+                            </label>
+                        )}
                         {item.isDisabled ? null : (
-                            <>
-                                <label className='form-element__required-title'>
-                                    Объязательное
-                                    <input
-                                        className='form-element__required-checkbox'
-                                        type='checkbox'
-                                        onClick={handleRequired}
-                                    />
-                                    <div className='form-element__required-custom-checkbox'></div>
-                                </label>
-                                <img
-                                    className='form-element__remove-btn'
-                                    alt=''
-                                    onClick={handleRemove}
-                                    src={removeButtonIcon}
-                                ></img>
-                            </>
+                            <img
+                                className='form-element__remove-btn'
+                                alt=''
+                                onClick={handleRemove}
+                                src={removeButtonIcon}
+                            ></img>
                         )}
                         {handleElementType()}
                         <img
