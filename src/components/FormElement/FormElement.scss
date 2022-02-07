@@ -12,6 +12,10 @@
     }
 
     &__checkbox-label {
+        grid-column: 1 / 2;
+    }
+
+    &__custom-checkbox {
         cursor: pointer;
         height: 29px;
         width: 29px;
@@ -19,28 +23,45 @@
             radius: 10px;
         }
         margin: {
-            bottom: 17px;
+            top: 7px;
+            bottom: 7px;
         }
         text-align: center;
         line-height: 29px;
         font-size: 29px;
-        grid-column: 1 / 2;
-
-        // &::after {
-        //     content: '\2713';
-        // }
     }
 
     &__required {
         &-title {
+            display: flex;
+            flex-direction: row;
+            cursor: pointer;
             justify-self: center;
             align-self: center;
         }
 
         &-checkbox {
+            display: none;
+
+            &:checked + .form-element__required-custom-checkbox::after {
+                content: '\2713';
+            }
+        }
+
+        &-custom-checkbox {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            border: 1px solid rgba($color: #000, $alpha: 1) {
+                radius: 5px;
+            }
             margin: 0 {
+                top: 4px;
                 left: 10px;
             }
+            text-align: center;
+            line-height: 15px;
+            font-size: 15px;
         }
     }
 
@@ -107,13 +128,12 @@
             &_checkbox {
                 display: none;
 
-                &:checked ~ .form-element__checkbox-label::after {
+                &:checked + .form-element__custom-checkbox::after {
                     content: '\2713';
                 }
 
-                &:disabled ~ .form-element__checkbox-label {
+                &:disabled + .form-element__custom-checkbox {
                     background: none;
-                    border-radius: 10px;
                     cursor: default;
                 }
             }
