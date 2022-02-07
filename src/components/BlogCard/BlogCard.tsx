@@ -1,8 +1,15 @@
 import { Button } from '..';
 import './BlogCard.scss';
-import { IBlogCard } from '../../interfaces';
 
-const BlogCard = ({ title, paragraph, path }: IBlogCard) => {
+const BlogCard = ({
+    title,
+    paragraph,
+    path,
+}: {
+    title: string;
+    paragraph: string;
+    path?: string;
+}) => {
     return (
         <div className='blog-card'>
             <h3 className='blog-card__title'>{title}</h3>
