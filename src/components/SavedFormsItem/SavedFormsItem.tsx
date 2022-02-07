@@ -1,8 +1,17 @@
 import { Button } from '..';
 import './SavedFormsItem.scss';
-import { ISavedFormItem } from '../../interfaces';
 
-const SavedFormsItem = ({ index, item }: ISavedFormItem) => {
+const SavedFormsItem = ({
+    index,
+    item,
+}: {
+    index: number;
+    item: {
+        title: string;
+        subtitle: string;
+        date: string;
+    };
+}) => {
     return (
         <li className='saved-forms-item'>
             <h2 className='saved-forms-item__title'>{`${index + 1}   ${

@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import { customFormReducer } from './customFormReducer';
-import { formReducer } from './formReducer';
+import { dragAndDropReducer } from './dragAndDropReducer';
 import { headerSidebarReducer } from './headerSidebarReducer';
 
 export const rootReducer = combineReducers({
-    form: formReducer,
+    dragAndDrop: dragAndDropReducer,
     headerSidebar: headerSidebarReducer,
     customForm: customFormReducer,
 });
