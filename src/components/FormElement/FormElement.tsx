@@ -45,6 +45,7 @@ const FormElement = ({ item, id, index }: IFormElement) => {
         dispatch(valueChange(newState));
     };
 
+    // mark element as required
     const handleRequired = () => {
         const newState: Array<any> = Array.from(constructor);
         newState[index].isRequired = !newState[index].isRequired;
@@ -136,22 +137,22 @@ const FormElement = ({ item, id, index }: IFormElement) => {
                             disabled={item.isDisabled}
                         />
                         {item.isDisabled ? null : (
-                            <label className='form-element__required-title'>
-                                Объязательное
-                                <input
-                                    className='form-element__required-checkbox'
-                                    type='checkbox'
-                                    onClick={handleRequired}
-                                />
-                            </label>
-                        )}
-                        {item.isDisabled ? null : (
-                            <img
-                                className='form-element__remove-btn'
-                                alt=''
-                                onClick={handleRemove}
-                                src={removeButtonIcon}
-                            ></img>
+                            <>
+                                <label className='form-element__required-title'>
+                                    Объязательное
+                                    <input
+                                        className='form-element__required-checkbox'
+                                        type='checkbox'
+                                        onClick={handleRequired}
+                                    />
+                                </label>
+                                <img
+                                    className='form-element__remove-btn'
+                                    alt=''
+                                    onClick={handleRemove}
+                                    src={removeButtonIcon}
+                                ></img>
+                            </>
                         )}
                         {handleElementType()}
                         <img

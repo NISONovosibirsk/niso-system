@@ -11,23 +11,6 @@ import {
 
 const CustomForm = () => {
     const { constructor } = useTypeSelector(state => state.form);
-    const dispatch = useDispatch();
-
-    const handleChangeInputsValue = (e: any) => {
-        const { name, value } = e.target;
-
-        switch (name) {
-            case 'title':
-                dispatch(changeTitle(value));
-                break;
-            case 'formTitle':
-                dispatch(changeFormTitle(value));
-                break;
-            case 'formSubtitle':
-                dispatch(changeFormSubtitle(value));
-                break;
-        }
-    };
 
     return (
         <Droppable droppableId={'customForm'}>
@@ -49,7 +32,7 @@ const CustomForm = () => {
                             ))
                         ) : (
                             <p className='custom-form__form-placeholder'>
-                                Перетащите сюда нужно поле
+                                Перетащите сюда нужное поле
                             </p>
                         )}
                     </div>
