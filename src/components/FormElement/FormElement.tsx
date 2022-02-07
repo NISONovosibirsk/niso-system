@@ -139,7 +139,7 @@ const FormElement = ({ item, id, index }: IFormElement) => {
                         {item.isDisabled ? null : (
                             <img
                                 className='form-element__remove-btn'
-                                alt='крестик'
+                                alt=''
                                 onClick={handleRemove}
                                 src={removeButtonIcon}
                             ></img>
