@@ -1,20 +1,8 @@
 import { Button } from '..';
 import './Terms.scss';
+import { ITerms } from '../../interfaces';
 
-export interface ButtonsArray {
-    [index: number]: {};
-    title: string;
-    type?: string;
-    onClick?: Function;
-}
-
-const Terms = ({
-    title,
-    buttons,
-}: {
-    title: string;
-    buttons: ButtonsArray[];
-}) => {
+const Terms = ({ title, buttons }: ITerms) => {
     return (
         <div className='terms'>
             <p className='terms__title'>{title}</p>

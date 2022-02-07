@@ -1,11 +1,6 @@
-// separate slide in carousel
+import ISliderItemProps from '../../interfaces';
 
-interface ItemProps {
-    image: any;
-    active: boolean;
-}
-
-const Item = ({ image, active }: ItemProps) => {
+const Item = ({ image, active }: ISliderItemProps) => {
     const handleActive = (active: boolean) => {
         if (active) {
             return 'swiper-slide-active';

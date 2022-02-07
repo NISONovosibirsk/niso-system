@@ -1,78 +1,171 @@
-import { useState } from 'react';
 import './FormElement.scss';
+import { Draggable } from 'react-beautiful-dnd';
+import TextareaAutosize from 'react-textarea-autosize';
+import { useDispatch } from 'react-redux';
+import {
+    lableChange,
+    removeElement,
+    setRequired,
+    valueChange,
+} from '../../store/actions/formActions';
+import { useTypeSelector } from '../../hooks/useTypeSelector';
+import { IFormElement } from '../../interfaces';
+import { dragableIcon, removeButtonIcon } from '../../assets';
 
-const FormElement = ({
-    id,
-    title,
-    type,
-    isDisabled,
-    onChange,
-    drag,
-    drop,
-    item,
-}: {
-    id: any;
-    title: string;
-    type: string;
-    isDisabled: boolean;
-    onChange: Function;
-    drag: Function;
-    drop: Function;
-    item: any;
-}) => {
-    const [value, setValue] = useState({ label: title, input: '' });
-    item.id = id;
+const FormElement = ({ item, id, index }: IFormElement) => {
+    const { constructor } = useTypeSelector(state => state.form);
 
-    const handleChange = (e: any) => {
-        const { target } = e;
-        const { id } = target.parentNode;
+    const dispatch = useDispatch();
 
-        setValue({ ...value, [target.name]: target.value });
-        onChange(id, value);
+    // change title of element
+    const handleTitleChange = e => {
+        const newState: Array<any> = Array.from(constructor);
+        newState[index].title = e.target.value;
+        dispatch(lableChange(newState));
     };
 
-    //drag'n'drop box-shadow handlers
-    const dragOverHandler = (e: any) => {
-        e.preventDefault();
-        if (e.target.className === 'form-element__input') {
-            e.target.style.boxShadow = '0 2px 3px black';
+    // change value of element
+    const handleValueChange = e => {
+        const newState: Array<any> = Array.from(constructor);
+        newState[index].value = e.target.value;
+        dispatch(valueChange(newState));
+    };
+
+    // remove element
+    const handleRemove = e => {
+        const newState = Array.from(constructor);
+        newState.splice(index, 1);
+        dispatch(removeElement(newState));
+    };
+
+    //check element
+    const handleChecked = e => {
+        const newState: Array<any> = Array.from(constructor);
+        newState[index].value = e.target.checked;
+        dispatch(valueChange(newState));
+    };
+
+    // mark element as required
+    const handleRequired = () => {
+        const newState: Array<any> = Array.from(constructor);
+        newState[index].isRequired = !newState[index].isRequired;
+        dispatch(setRequired(newState));
+    };
+
+    //handle ElementType
+    const handleElementType = () => {
+        switch (item.type) {
+            case 'header':
+                return (
+                    <input
+                        onChange={handleValueChange}
+                        disabled={item.isDisabled}
+                        name='formTitle'
+                        // placeholder='Введите название формы'
+                        className='form-element__input custom-form__form-title'
+                    />
+                );
+            case 'title':
+                return (
+                    <input
+                        onChange={handleValueChange}
+                        name='title'
+                        // placeholder='Введите заголовок'
+                        className='form-element__input custom-form__title'
+                        disabled={item.isDisabled}
+                    />
+                );
+            case 'subtitle':
+                return (
+                    <textarea
+                        onChange={handleValueChange}
+                        name='formSubtitle'
+                        // placeholder='Введите подзаголовок формы'
+                        rows={3}
+                        className='form-element__input custom-form__form-subtitle'
+                        disabled={item.isDisabled}
+                    />
+                );
+            case 'checkbox':
+                return (
+                    <label className='form-element__checkbox-label'>
+                        <input
+                            className='form-element__input form-element__input_type_checkbox'
+                            type='checkbox'
+                            checked={item.value}
+                            onChange={handleChecked}
+                            disabled={item.isDisabled}
+                        />
+                        <div className='form-element__custom-checkbox'></div>
+                    </label>
+                );
+            case 'textArea':
+                return (
+                    <TextareaAutosize
+                        className='form-element__input form-element__input_type_textarea'
+                        value={item.value}
+                        onChange={handleValueChange}
+                        disabled={item.isDisabled}
+                        minRows={5}
+                    />
+                );
+            default:
+                return (
+                    <input
+                        className='form-element__input'
+                        type={item.type}
+                        value={item.value}
+                        onChange={handleValueChange}
+                        disabled={item.isDisabled}
+                    />
+                );
         }
     };
 
-    const dragLeaveHandler = (e: any) => {
-        e.target.style.boxShadow = 'none';
-    };
-
-    const dragEndHandler = (e: any) => {
-        e.target.style.boxShadow = 'none';
-    };
-
     return (
-        <div
-            id={item.id}
-            className='form-element'
-            draggable={true}
-            onDragOver={e => dragOverHandler(e)}
-            onDragLeave={e => dragLeaveHandler(e)}
-            onDragEnd={e => dragEndHandler(e)}
-            onDragStart={() => drag(item)}
-        >
-            <input
-                onChange={handleChange}
-                value={value.label}
-                name='label'
-                className='form-element__input form-element__input_type_label'
-                disabled={isDisabled}
-            />
-            <input
-                onChange={handleChange}
-                value={value.input}
-                name='input'
-                type={type}
-                className='form-element__input'
-                disabled={isDisabled}
-            />
-        </div>
+        <Draggable draggableId={String(id)} index={index}>
+            {provided => (
+                <div
+                    {...provided.draggableProps}
+                    {...provided.dragHandleProps}
+                    ref={provided.innerRef}
+                >
+                    <div className='form-element'>
+                        <input
+                            className='form-element__input form-element__input_type_label'
+                            value={item.title}
+                            onChange={handleTitleChange}
+                            disabled={item.isDisabled}
+                        />
+                        {item.isDisabled ? null : (
+                            <>
+                                <label className='form-element__required-title'>
+                                    Объязательное
+                                    <input
+                                        className='form-element__required-checkbox'
+                                        type='checkbox'
+                                        onClick={handleRequired}
+                                    />
+                                    <div className='form-element__required-custom-checkbox'></div>
+                                </label>
+                                <img
+                                    className='form-element__remove-btn'
+                                    alt=''
+                                    onClick={handleRemove}
+                                    src={removeButtonIcon}
+                                ></img>
+                            </>
+                        )}
+                        {handleElementType()}
+                        <img
+                            className='form-element__dragable-img'
+                            src={dragableIcon}
+                            alt=''
+                        />
+                    </div>
+                </div>
+            )}
+        </Draggable>
     );
 };
 
