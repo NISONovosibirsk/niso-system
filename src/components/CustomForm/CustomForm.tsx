@@ -2,12 +2,6 @@ import { useTypeSelector } from '../../hooks/useTypeSelector';
 import './CustomForm.scss';
 import { FormElement } from '..';
 import { Droppable } from 'react-beautiful-dnd';
-import { useDispatch } from 'react-redux';
-import {
-    changeFormSubtitle,
-    changeFormTitle,
-    changeTitle,
-} from '../../store/actions/customForm';
 
 const CustomForm = () => {
     const { constructor } = useTypeSelector(state => state.form);
