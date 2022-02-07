@@ -1,71 +1,66 @@
 .custom-form {
-  padding-left: 13%;
-  padding-right: 10%;
-  display: grid;
-  width: 100%;
-  grid-template: 16px 74px minmax(26px, 78px) minmax(99px, 1fr) / minmax(223px, 1fr);
-  gap: 24px;
+    padding-left: 13%;
+    padding-right: 10%;
+    width: 100%;
+    min-width: 510px;
+    gap: 24px;
 
-  &__title {
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 16px;
-    text-align: center;
-    color: rgba(133, 92, 248, 1);
-    border-radius: 10px;
-    border: 1px solid #eee;
+    &__title {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+        text-align: center;
+        color: rgba(133, 92, 248, 1);
+        border-radius: 10px;
+        border: 1px solid #eee;
 
-    &::placeholder {
-      opacity: .3;
-      color: rgba(133, 92, 248, 1);
+        &::placeholder {
+            opacity: 0.3;
+            color: rgba(133, 92, 248, 1);
+        }
+
+        &:hover {
+            border: 1px solid black;
+        }
     }
 
-    &:hover {
-      border: 1px solid black;
-    }
-  }
+    &__form-title {
+        font-weight: 700;
+        font-size: 57px;
+        line-height: 74px;
+        text-align: center;
+        color: rgba(27, 49, 75, 1);
+        border-radius: 10px;
+        border: 1px solid #eee;
 
-  &__form-title {
-    font-weight: 700;
-    font-size: 57px;
-    line-height: 74px;
-    text-align: center;
-    color: rgba(27, 49, 75, 1);
-    border-radius: 10px;
-    border: 1px solid #eee;
+        &::placeholder {
+            opacity: 0.3;
+            color: rgba(27, 49, 75, 1);
+        }
 
-    &::placeholder {
-      opacity: .3;
-      color: rgba(27, 49, 75, 1);
-    }
-
-    &:hover {
-      border: 1px solid black;
-    }
-  }
-
-  &__form-subtitle {
-    text-align: center;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 25px;
-    resize: none;
-    padding: 0;
-    color: rgba(38, 50, 56, 1);
-    border-radius: 10px;
-    border: 1px solid #eee;
-
-    &::placeholder {
-      color: rgba(38, 50, 56, 1);
-      opacity: .3;
+        &:hover {
+            border: 1px solid black;
+        }
     }
 
-    &:hover {
-      border: 1px solid black;
-    }
-  }
+    &__form-subtitle {
+        text-align: center;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 25px;
+        resize: none;
+        padding: 0;
+        color: rgba(38, 50, 56, 1);
+        border-radius: 10px;
+        border: 1px solid #eee;
 
-  &__field {
-    margin-top: 67px;
-  }
+        &::placeholder {
+            color: rgba(38, 50, 56, 1);
+            opacity: 0.3;
+        }
+
+        &:hover {
+            border: 1px solid black;
+        }
+    }
 }
