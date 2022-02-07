@@ -38,14 +38,20 @@ const CustomForm = () => {
                     ref={provided.innerRef}
                 >
                     <div className='custom-form__field'>
-                        {constructor.map((item: any, index: number) => (
-                            <FormElement
-                                item={item}
-                                id={item.id}
-                                index={index}
-                                key={item.id}
-                            />
-                        ))}
+                        {constructor.length ? (
+                            constructor.map((item: any, index: number) => (
+                                <FormElement
+                                    item={item}
+                                    id={item.id}
+                                    index={index}
+                                    key={item.id}
+                                />
+                            ))
+                        ) : (
+                            <p className='custom-form__form-placeholder'>
+                                Перетащите сюда нужно поле
+                            </p>
+                        )}
                     </div>
                     {provided.placeholder}
                 </form>
