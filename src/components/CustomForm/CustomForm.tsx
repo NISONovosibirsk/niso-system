@@ -1,6 +1,6 @@
 import { useTypeSelector } from '../../hooks/useTypeSelector';
 import './CustomForm.scss';
-import { FormElement } from '..';
+import { Button, FormElement } from '..';
 import { Droppable } from 'react-beautiful-dnd';
 
 const CustomForm = () => {
@@ -30,6 +30,9 @@ const CustomForm = () => {
                             </p>
                         )}
                     </div>
+                    {constructor.length ? (
+                        <Button title='Сохранить форму' />
+                    ) : null}
                     {provided.placeholder}
                 </form>
             )}
