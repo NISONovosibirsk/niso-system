@@ -11,6 +11,12 @@ import {
 import { useTypeSelector } from '../../hooks/useTypeSelector';
 import { IFormElement } from '../../interfaces';
 import { dragableIcon, removeButtonIcon } from '../../assets';
+import {
+    FormElementCheckbox,
+    FormElementInput,
+    FormElementRange,
+    FormElementTextarea,
+} from '..';
 
 const FormElement = ({ item, id, index }: IFormElement) => {
     const { constructor } = useTypeSelector(state => state.form);
@@ -71,7 +77,6 @@ const FormElement = ({ item, id, index }: IFormElement) => {
                 return (
                     <input
                         className='form-element__input custom-form__form-title'
-                        name='formTitle'
                         onChange={handleValueChange}
                         disabled={item.isDisabled}
                         placeholder={`${
@@ -83,7 +88,6 @@ const FormElement = ({ item, id, index }: IFormElement) => {
                 return (
                     <input
                         className='form-element__input custom-form__title'
-                        name='title'
                         onChange={handleValueChange}
                         disabled={item.isDisabled}
                         placeholder={`${
@@ -95,7 +99,6 @@ const FormElement = ({ item, id, index }: IFormElement) => {
                 return (
                     <TextareaAutosize
                         className='form-element__input custom-form__form-subtitle'
-                        name='formSubtitle'
                         value={item.value}
                         onChange={handleValueChange}
                         disabled={item.isDisabled}
@@ -107,57 +110,39 @@ const FormElement = ({ item, id, index }: IFormElement) => {
                 );
             case 'range':
                 return (
-                    <div className='form-element__range-field'>
-                        <input
-                            className='form-element__input  form-element__input_type_range-minmax'
-                            value={item.min}
-                            onChange={handleChangeRangeMinimum}
-                        />
-                        <input
-                            className='form-element__input form-element__input_type_range'
-                            type='range'
-                            min={item.min}
-                            max={item.max}
-                            disabled={item.isDisabled}
-                        />
-                        <input
-                            className='form-element__input form-element__input_type_range-minmax'
-                            value={item.max}
-                            onChange={handleChangeRangeMaximum}
-                        />
-                    </div>
+                    <FormElementRange
+                        valueMaximum={item.max}
+                        valueMinimum={item.min}
+                        value={item.value}
+                        onMaximumChange={handleChangeRangeMaximum}
+                        onMinimumChange={handleChangeRangeMinimum}
+                        onValueChange={handleValueChange}
+                        isDisabled={item.isDisabled}
+                        isFinalForm={false}
+                    />
                 );
             case 'checkbox':
                 return (
-                    <label className='form-element__checkbox-label'>
-                        <input
-                            className='form-element__input form-element__input_type_checkbox'
-                            type='checkbox'
-                            checked={item.value}
-                            onChange={handleChecked}
-                            disabled={item.isDisabled}
-                        />
-                        <div className='form-element__custom-checkbox'></div>
-                    </label>
+                    <FormElementCheckbox
+                        isChecked={item.value}
+                        onChange={handleChecked}
+                        isDisabled={item.isDisabled}
+                    />
                 );
             case 'textArea':
                 return (
-                    <TextareaAutosize
-                        className='form-element__input form-element__input_type_textarea'
+                    <FormElementTextarea
                         value={item.value}
                         onChange={handleValueChange}
-                        disabled={item.isDisabled}
-                        minRows={5}
+                        isDisabled={item.isDisabled}
                     />
                 );
             default:
                 return (
-                    <input
-                        className='form-element__input'
-                        type={item.type}
+                    <FormElementInput
                         value={item.value}
                         onChange={handleValueChange}
-                        disabled={item.isDisabled}
+                        isDisabled={item.isDisabled}
                     />
                 );
         }

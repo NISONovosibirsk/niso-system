@@ -11,26 +11,6 @@
         border-radius: 10px;
     }
 
-    &__checkbox-label {
-        grid-column: 1 / 2;
-    }
-
-    &__custom-checkbox {
-        cursor: pointer;
-        height: 29px;
-        width: 29px;
-        border: 1px solid rgba($color: #000, $alpha: 1) {
-            radius: 10px;
-        }
-        margin: {
-            top: 7px;
-            bottom: 7px;
-        }
-        text-align: center;
-        line-height: 29px;
-        font-size: 29px;
-    }
-
     &__required {
         &-title {
             font-size: 12px;
@@ -131,27 +111,6 @@
                         border: none;
                     }
                 }
-            }
-
-            &_checkbox {
-                display: none;
-
-                &:checked + .form-element__custom-checkbox::after {
-                    content: '\2713';
-                }
-
-                &:disabled + .form-element__custom-checkbox {
-                    background: none;
-                    cursor: default;
-                }
-            }
-
-            &_textarea {
-                padding: {
-                    top: 12px;
-                    bottom: 12px;
-                }
-                resize: none;
             }
 
             &_range {
