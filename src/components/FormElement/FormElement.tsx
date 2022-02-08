@@ -52,6 +52,18 @@ const FormElement = ({ item, id, index }: IFormElement) => {
         dispatch(setRequired(newState));
     };
 
+    const handleChangeRangeMinimum = e => {
+        const newState: Array<any> = Array.from(constructor);
+        newState[index].min = e.target.value;
+        dispatch(valueChange(newState));
+    };
+
+    const handleChangeRangeMaximum = e => {
+        const newState: Array<any> = Array.from(constructor);
+        newState[index].max = e.target.value;
+        dispatch(valueChange(newState));
+    };
+
     //handle ElementType
     const handleElementType = () => {
         switch (item.type) {
@@ -92,6 +104,28 @@ const FormElement = ({ item, id, index }: IFormElement) => {
                             item.isDisabled ? '' : 'Введите подзаголовок формы'
                         }`}
                     />
+                );
+            case 'range':
+                return (
+                    <div className='form-element__range-field'>
+                        <input
+                            className='form-element__input  form-element__input_type_range-minmax'
+                            value={item.min}
+                            onChange={handleChangeRangeMinimum}
+                        />
+                        <input
+                            className='form-element__input form-element__input_type_range'
+                            type='range'
+                            min={item.min}
+                            max={item.max}
+                            disabled={item.isDisabled}
+                        />
+                        <input
+                            className='form-element__input form-element__input_type_range-minmax'
+                            value={item.max}
+                            onChange={handleChangeRangeMaximum}
+                        />
+                    </div>
                 );
             case 'checkbox':
                 return (
@@ -158,7 +192,7 @@ const FormElement = ({ item, id, index }: IFormElement) => {
                                     <input
                                         className='form-element__required-checkbox'
                                         type='checkbox'
-                                        onClick={handleRequired}
+                                        onChange={handleRequired}
                                         checked={item.isRequired}
                                     />
                                     <div className='form-element__required-custom-checkbox'></div>

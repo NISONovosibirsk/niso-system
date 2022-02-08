@@ -23,7 +23,7 @@ const SavedFormsList = () => {
     return (
         <ul className='saved-forms-list'>
             {initialForms.map((item, index) => (
-                <SavedFormsItem index={index} item={item} />
+                <SavedFormsItem key={index} index={index} item={item} />
             ))}
         </ul>
     );

@@ -5,6 +5,8 @@ import {
     ADD_ELEMENT,
     REMOVE_ELEMENT,
     SET_REQUIRED,
+    RANGE_CHANGE_MINIMUM,
+    RANGE_CHANGE_MAXIMUM,
 } from '../types';
 
 export const sortElements = newState => {
@@ -50,6 +52,22 @@ export const removeElement = newState => {
 export const setRequired = newState => {
     try {
         return { type: SET_REQUIRED, payload: newState };
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const rangeChangeMinimum = newState => {
+    try {
+        return { type: RANGE_CHANGE_MINIMUM, payload: newState };
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const rangeChangeMaximum = newState => {
+    try {
+        return { type: RANGE_CHANGE_MAXIMUM, payload: newState };
     } catch (error) {
         console.log(error);
     }
