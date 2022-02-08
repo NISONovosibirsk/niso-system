@@ -6,6 +6,13 @@ import { Droppable } from 'react-beautiful-dnd';
 const CustomForm = () => {
     const { constructor } = useTypeSelector(state => state.form);
 
+    // save form handler
+    const handleSave = e => {
+        e.preventDefault();
+        const id = String(Date.now())
+        localStorage.setItem(id, JSON.stringify(constructor));
+    };
+
     return (
         <Droppable droppableId={'customForm'}>
             {provided => (
@@ -31,7 +38,7 @@ const CustomForm = () => {
                         )}
                     </div>
                     {constructor.length ? (
-                        <Button title='Сохранить форму' />
+                        <Button title='Сохранить форму' onClick={handleSave} />
                     ) : null}
                     {provided.placeholder}
                 </form>
