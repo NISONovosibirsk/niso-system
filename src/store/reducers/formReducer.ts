@@ -1,6 +1,8 @@
 import {
     ADD_ELEMENT,
     LABLE_CHANGE,
+    RANGE_CHANGE_MAXIMUM,
+    RANGE_CHANGE_MINIMUM,
     REMOVE_ELEMENT,
     SET_REQUIRED,
     SORT_ELEMENTS,
@@ -71,6 +73,16 @@ const initialState: IFormState = {
             isDisabled: true,
             isRequired: true,
         },
+        {
+            id: 9,
+            title: 'range',
+            type: 'range',
+            value: 50,
+            min: 0,
+            max: 100,
+            isDisabled: true,
+            isRequired: true,
+        },
     ],
     constructor: [],
 };
@@ -91,6 +103,10 @@ export const formReducer = (
         case REMOVE_ELEMENT:
             return { ...state, constructor: action.payload };
         case SET_REQUIRED:
+            return { ...state, constructor: action.payload };
+        case RANGE_CHANGE_MINIMUM:
+            return { ...state, constructor: action.payload };
+        case RANGE_CHANGE_MAXIMUM:
             return { ...state, constructor: action.payload };
         default:
             return state;

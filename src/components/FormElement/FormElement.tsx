@@ -52,6 +52,18 @@ const FormElement = ({ item, id, index }: IFormElement) => {
         dispatch(setRequired(newState));
     };
 
+    const handleChangeRangeMinimum = e => {
+        const newState: Array<any> = Array.from(constructor);
+        newState[index].min = e.target.value;
+        dispatch(valueChange(newState));
+    };
+
+    const handleChangeRangeMaximum = e => {
+        const newState: Array<any> = Array.from(constructor);
+        newState[index].max = e.target.value;
+        dispatch(valueChange(newState));
+    };
+
     //handle ElementType
     const handleElementType = () => {
         switch (item.type) {
@@ -62,7 +74,9 @@ const FormElement = ({ item, id, index }: IFormElement) => {
                         name='formTitle'
                         onChange={handleValueChange}
                         disabled={item.isDisabled}
-                        // placeholder='Введите название формы'
+                        placeholder={`${
+                            item.isDisabled ? '' : 'Введите название формы'
+                        }`}
                     />
                 );
             case 'title':
@@ -72,7 +86,9 @@ const FormElement = ({ item, id, index }: IFormElement) => {
                         name='title'
                         onChange={handleValueChange}
                         disabled={item.isDisabled}
-                        // placeholder='Введите заголовок'
+                        placeholder={`${
+                            item.isDisabled ? '' : 'Введите заголовок'
+                        }`}
                     />
                 );
             case 'subtitle':
@@ -84,8 +100,32 @@ const FormElement = ({ item, id, index }: IFormElement) => {
                         onChange={handleValueChange}
                         disabled={item.isDisabled}
                         minRows={1}
-                        // placeholder='Введите подзаголовок формы'
+                        placeholder={`${
+                            item.isDisabled ? '' : 'Введите подзаголовок формы'
+                        }`}
                     />
+                );
+            case 'range':
+                return (
+                    <div className='form-element__range-field'>
+                        <input
+                            className='form-element__input  form-element__input_type_range-minmax'
+                            value={item.min}
+                            onChange={handleChangeRangeMinimum}
+                        />
+                        <input
+                            className='form-element__input form-element__input_type_range'
+                            type='range'
+                            min={item.min}
+                            max={item.max}
+                            disabled={item.isDisabled}
+                        />
+                        <input
+                            className='form-element__input form-element__input_type_range-minmax'
+                            value={item.max}
+                            onChange={handleChangeRangeMaximum}
+                        />
+                    </div>
                 );
             case 'checkbox':
                 return (
@@ -132,23 +172,32 @@ const FormElement = ({ item, id, index }: IFormElement) => {
                     ref={provided.innerRef}
                 >
                     <div className='form-element'>
-                        <input
-                            className='form-element__input form-element__input_type_label'
-                            value={item.title}
-                            onChange={handleTitleChange}
-                            disabled={item.isDisabled}
-                        />
-                        {item.isDisabled ? null : item.isRequired === undefined ? null : (
-                            <label className='form-element__required-title'>
-                                Объязательное
+                        {item.isDisabled ? (
+                            <input
+                                className='form-element__input form-element__input_type_label'
+                                value={item.title}
+                                onChange={handleTitleChange}
+                                disabled={item.isDisabled}
+                            />
+                        ) : item.isRequired === undefined ? null : (
+                            <>
                                 <input
-                                    className='form-element__required-checkbox'
-                                    type='checkbox'
-                                    onClick={handleRequired}
-                                    checked={item.isRequired}
+                                    className='form-element__input form-element__input_type_label'
+                                    value={item.title}
+                                    onChange={handleTitleChange}
+                                    disabled={item.isDisabled}
                                 />
-                                <div className='form-element__required-custom-checkbox'></div>
-                            </label>
+                                <label className='form-element__required-title'>
+                                    Объязательное
+                                    <input
+                                        className='form-element__required-checkbox'
+                                        type='checkbox'
+                                        onChange={handleRequired}
+                                        checked={item.isRequired}
+                                    />
+                                    <div className='form-element__required-custom-checkbox'></div>
+                                </label>
+                            </>
                         )}
                         {item.isDisabled ? null : (
                             <img
