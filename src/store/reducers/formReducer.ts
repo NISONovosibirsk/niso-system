@@ -87,7 +87,7 @@ const initialState: IFormState = {
     ],
     constructor: [],
 
-    savedForms: {},
+    savedForms: [],
 };
 
 export const formReducer = (

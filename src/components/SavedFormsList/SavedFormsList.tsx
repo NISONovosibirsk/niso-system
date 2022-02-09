@@ -1,7 +1,10 @@
 import { SavedFormsItem } from '..';
+import { useTypeSelector } from '../../hooks/useTypeSelector';
 import './SavedFormsList.scss';
 
 const SavedFormsList = () => {
+    const { savedForms } = useTypeSelector(state => state.form);
+
     const initialForms = [
         {
             title: 'Отчет № #',

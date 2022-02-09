@@ -8,29 +8,34 @@ import { getSavedForms } from '../../store/actions/formActions';
 
 const CustomForm = () => {
     useEffect(() => {
-        const newState = {};
-        Object.keys(localStorage).map(key => {
-            const json = localStorage.getItem(key);
-
-            if (json !== null) {
-                // console.log(JSON.parse(json));
-                const form = JSON.parse(json);
-                newState[key] = form;
-            }
-
-            dispatch(getSavedForms(newState));
-        });
+        handleStorage();
     }, []);
 
-    const dispatch = useDispatch();
-    const { constructor } = useTypeSelector(state => state.form);
-
-    // save form handler
     const handleSave = e => {
         e.preventDefault();
         const id = String(Date.now());
         localStorage.setItem(id, JSON.stringify(constructor));
+
+        handleStorage();
     };
+
+    const handleStorage = () => {
+        const newState: any[] = [];
+        Object.keys(localStorage).map(key => {
+            const json = localStorage.getItem(key);
+
+            if (json !== null) {
+                const form = JSON.parse(json);
+
+                newState.push(form);
+            }
+
+            dispatch(getSavedForms(newState));
+        });
+    };
+
+    const dispatch = useDispatch();
+    const { constructor } = useTypeSelector(state => state.form);
 
     return (
         <Droppable droppableId={'customForm'}>
