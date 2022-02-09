@@ -13,20 +13,32 @@ const CustomForm = () => {
 
     const handleSave = e => {
         e.preventDefault();
-        const id = String(Date.now());
-        localStorage.setItem(id, JSON.stringify(constructor));
+        const key = String(Date.now());
+        localStorage.setItem(key, JSON.stringify(constructor));
 
         handleStorage();
     };
+
+    console.log(new Date(Number('1644399551389')))
+
+    // convert timestamp to human time
+    const handleTime = (key) => {
+        const date = new Date(Number(key));
+
+        return `${date.getDate()}.0${date.getMonth() + 1}.${date.getFullYear()}`
+    }
 
     const handleStorage = () => {
         const newState: any[] = [];
         Object.keys(localStorage).map(key => {
             const json = localStorage.getItem(key);
-
             if (json !== null) {
-                const form = JSON.parse(json);
+                const form: any = {};
 
+                form.title = 'test title';
+                form.description = 'test description';
+                form.date = handleTime(key);
+                form.content = JSON.parse(json);
                 newState.push(form);
             }
 

@@ -33,7 +33,7 @@ export interface ISavedFormItem {
     index: number;
     item: {
         title: string;
-        subtitle: string;
+        description: string;
         date: string;
     };
 }
