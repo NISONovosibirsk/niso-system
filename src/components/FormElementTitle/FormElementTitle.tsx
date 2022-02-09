@@ -1,0 +1,28 @@
+import './FormElementTitle.scss';
+
+const FormElementTitle = ({
+    value,
+    isDisabled,
+    onChange,
+    isFinalForm,
+}: {
+    value: string;
+    isDisabled?: boolean;
+    onChange: any;
+    isFinalForm: boolean;
+}) => {
+    return isFinalForm ? (
+        <h2 className='form-element-title form-element-title_title'>
+            {value}
+        </h2>
+    ) : (
+        <input
+            className='form-element-title form-element-title_input'
+            onChange={onChange}
+            disabled={isDisabled}
+            placeholder={'Название формы'}
+        />
+    );
+};
+
+export default FormElementTitle;

@@ -15,14 +15,14 @@ const initialState: IFormState = {
         {
             id: 1,
             title: 'Заголовок',
-            type: 'title',
+            type: 'header',
             value: '',
             isDisabled: true,
         },
         {
             id: 2,
             title: 'Название формы',
-            type: 'header',
+            type: 'title',
             value: '',
             isDisabled: true,
         },

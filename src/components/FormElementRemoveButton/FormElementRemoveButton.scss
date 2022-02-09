@@ -1,0 +1,10 @@
+.form-element-remove-button {
+    cursor: pointer;
+    justify-self: end;
+    height: 20px;
+    grid-column: 3 / 4;
+
+    &::after {
+        content: '\274c';
+    }
+}

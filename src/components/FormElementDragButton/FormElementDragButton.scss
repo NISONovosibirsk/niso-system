@@ -1,0 +1,10 @@
+.form-element-drag-button {
+    height: 20px;
+    margin: {
+        left: 5px;
+    }
+    justify-self: end;
+    align-self: center;
+    grid-column: 3 / 4;
+    cursor: grab;
+}

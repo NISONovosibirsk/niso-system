@@ -1,8 +1,11 @@
 import {
     FormElementCheckbox,
+    FormElementHeader,
     FormElementInput,
     FormElementRange,
+    FormElementSubtitle,
     FormElementTextarea,
+    FormElementTitle,
 } from '..';
 import { useTypeSelector } from '../../hooks/useTypeSelector';
 import './SavedForm.scss';
@@ -13,6 +16,32 @@ const SavedForm = () => {
         <form className='saved-form'>
             {constructor.map(item => {
                 switch (item.type) {
+                    case 'header':
+                        return (
+                            <FormElementHeader
+                                value={item.value}
+                                onChange={() => {}}
+                                isDisabled={item.isDisabled}
+                                isFinalForm={true}
+                            />
+                        );
+                    case 'title':
+                        return (
+                            <FormElementTitle
+                                value={item.value}
+                                onChange={() => {}}
+                                isDisabled={item.isDisabled}
+                                isFinalForm={true}
+                            />
+                        );
+                    case 'subtitle':
+                        return (
+                            <FormElementSubtitle
+                                value={item.value}
+                                onChange={() => {}}
+                                isFinalForm={true}
+                            />
+                        );
                     case 'range':
                         return (
                             <label>
@@ -21,8 +50,6 @@ const SavedForm = () => {
                                     valueMaximum={item.max}
                                     valueMinimum={item.min}
                                     value={item.value}
-                                    onMaximumChange={() => {}}
-                                    onMinimumChange={() => {}}
                                     onValueChange={() => {}}
                                     isFinalForm={true}
                                 />

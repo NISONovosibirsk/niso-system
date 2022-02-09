@@ -14,26 +14,6 @@
         align-self: stretch;
     }
 
-    &__title {
-        height: 20px !important;
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 16px;
-        text-align: center;
-        color: rgba(133, 92, 248, 1);
-        border-radius: 10px;
-        border: 1px solid #eee;
-
-        &::placeholder {
-            opacity: 0.3;
-            color: rgba(133, 92, 248, 1);
-        }
-
-        &:hover {
-            border: 1px solid black;
-        }
-    }
-
     &__form-placeholder {
         text-align: center;
         margin: 0;
@@ -43,46 +23,6 @@
         font-size: 40px;
         font-weight: 600;
         text-decoration: underline;
-    }
-
-    &__form-title {
-        height: 74px !important;
-        font-weight: 700;
-        font-size: 57px;
-        line-height: 74px;
-        text-align: center;
-        color: rgba(27, 49, 75, 1);
-        border-radius: 10px;
-        border: 1px solid #eee;
-
-        &::placeholder {
-            opacity: 0.3;
-            color: rgba(27, 49, 75, 1);
-        }
-
-        &:hover {
-            border: 1px solid black;
-        }
-    }
-
-    &__form-subtitle {
-        text-align: center;
-        font-weight: 500;
-        font-size: 20px;
-        line-height: 25px;
-        resize: none;
-        padding: 0;
-        color: rgba(38, 50, 56, 1);
-        border-radius: 10px;
-        border: 1px solid #eee;
-
-        &::placeholder {
-            color: rgba(38, 50, 56, 1);
-            opacity: 0.3;
-        }
-
-        &:hover {
-            border: 1px solid black;
-        }
+        cursor: default;
     }
 }

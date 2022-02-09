@@ -1,11 +1,12 @@
+import { useDispatch } from 'react-redux';
+import { useTypeSelector } from '../../hooks/useTypeSelector';
+import { valueChange } from '../../store/actions/formActions';
 import './FormElementRange.scss';
 
 const FormElementRange = ({
     valueMaximum,
     valueMinimum,
     value,
-    onMaximumChange,
-    onMinimumChange,
     onValueChange,
     isDisabled,
     isFinalForm,
@@ -13,12 +14,25 @@ const FormElementRange = ({
     valueMaximum: string;
     valueMinimum: string;
     value: string;
-    onMaximumChange: any;
-    onMinimumChange: any;
     onValueChange: any;
     isDisabled?: boolean;
     isFinalForm: boolean;
 }) => {
+    const { constructor } = useTypeSelector(state => state.form);
+    const dispatch = useDispatch();
+
+    const handleMaxRangeValueChange = e => {
+        const newState: Array<any> = Array.from(constructor);
+        newState[e.target.parentNode.parentNode.id].max = e.target.value;
+        dispatch(valueChange(newState));
+    };
+
+    const handleMinRangeValueChange = e => {
+        const newState: Array<any> = Array.from(constructor);
+        newState[e.target.parentNode.parentNode.id].min = e.target.value;
+        dispatch(valueChange(newState));
+    };
+
     return (
         <div className='form-element-range__field'>
             {!isFinalForm && (
@@ -26,7 +40,7 @@ const FormElementRange = ({
                     className='form-element-range__input form-element-range__input_minmax'
                     type='number'
                     value={valueMinimum}
-                    onChange={onMinimumChange}
+                    onChange={handleMinRangeValueChange}
                 />
             )}
             <input
@@ -38,13 +52,15 @@ const FormElementRange = ({
                 max={valueMaximum}
                 disabled={isDisabled}
             />
-            {isFinalForm && <p>{value}</p>}
+            {isFinalForm && (
+                <p className='form-element-range__value'>{`${value} (${valueMinimum} - ${valueMaximum})`}</p>
+            )}
             {!isFinalForm && (
                 <input
                     className='form-element-range__input form-element-range__input_minmax'
                     type='number'
                     value={valueMaximum}
-                    onChange={onMaximumChange}
+                    onChange={handleMaxRangeValueChange}
                 />
             )}
         </div>

@@ -11,53 +11,6 @@
         border-radius: 10px;
     }
 
-    &__required {
-        &-title {
-            font-size: 12px;
-            color: rgba($color: #999, $alpha: 1);
-            display: flex;
-            flex-direction: row;
-            cursor: pointer;
-            justify-self: center;
-            align-self: center;
-        }
-
-        &-checkbox {
-            display: none;
-
-            &:checked + .form-element__required-custom-checkbox::after {
-                content: '\2713';
-            }
-        }
-
-        &-custom-checkbox {
-            cursor: pointer;
-            height: 15px;
-            width: 15px;
-            border: 1px solid rgba($color: #999, $alpha: 1) {
-                radius: 5px;
-            }
-            margin: 0 {
-                top: 1px;
-                left: 10px;
-            }
-            text-align: center;
-            line-height: 15px;
-            font-size: 15px;
-        }
-    }
-
-    &__remove-btn {
-        cursor: pointer;
-        justify-self: end;
-        height: 20px;
-        grid-column: 3 / 4;
-
-        &::after {
-            content: '\274c';
-        }
-    }
-
     &__dragable-img {
         height: 20px;
         margin: {
@@ -67,64 +20,5 @@
         align-self: center;
         grid-column: 3 / 4;
         cursor: grab;
-    }
-
-    &__range-field {
-        display: flex;
-        grid-column: 1 / 3;
-    }
-
-    &__input {
-        background: none;
-        height: 51px;
-        margin: {
-            top: 7px;
-            bottom: 7px;
-        }
-        box-sizing: border-box;
-        padding: 0 26px;
-        border-radius: 10px;
-        border: 1px solid black;
-        grid-column: 1 / 3;
-
-        &:hover {
-            border: 1px solid black;
-        }
-
-        &:disabled {
-            background: none;
-            border-radius: 10px;
-        }
-
-        &_type {
-            &_label {
-                padding: 0;
-                height: 24px;
-                border: none;
-                font-size: 15px;
-                line-height: 24px;
-                grid-column: 1 / 2;
-                margin: 0;
-
-                &:disabled {
-                    &:hover {
-                        border: none;
-                    }
-                }
-            }
-
-            &_range {
-                padding: 0;
-                width: 80%;
-                height: 40px;
-
-                &-minmax {
-                    text-align: center;
-                    height: 40px;
-                    padding: 5px;
-                    width: 10%;
-                }
-            }
-        }
     }
 }
