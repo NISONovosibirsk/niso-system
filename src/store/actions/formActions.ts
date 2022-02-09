@@ -7,6 +7,7 @@ import {
     SET_REQUIRED,
     RANGE_CHANGE_MINIMUM,
     RANGE_CHANGE_MAXIMUM,
+    GET_SAVED_FORMS,
 } from '../types';
 
 export const sortElements = newState => {
@@ -68,6 +69,14 @@ export const rangeChangeMinimum = newState => {
 export const rangeChangeMaximum = newState => {
     try {
         return { type: RANGE_CHANGE_MAXIMUM, payload: newState };
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const getSavedForms = newState => {
+    try {
+        return { type: GET_SAVED_FORMS, payload: newState };
     } catch (error) {
         console.log(error);
     }

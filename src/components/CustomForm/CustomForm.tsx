@@ -1,15 +1,34 @@
 import { useTypeSelector } from '../../hooks/useTypeSelector';
 import './CustomForm.scss';
-import { Button, FormElement } from '..';
+import { Button, FormElement, Item } from '..';
 import { Droppable } from 'react-beautiful-dnd';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { getSavedForms } from '../../store/actions/formActions';
 
 const CustomForm = () => {
+    useEffect(() => {
+        const newState = {};
+        Object.keys(localStorage).map(key => {
+            const json = localStorage.getItem(key);
+
+            if (json !== null) {
+                // console.log(JSON.parse(json));
+                const form = JSON.parse(json);
+                newState[key] = form;
+            }
+
+            dispatch(getSavedForms(newState));
+        });
+    }, []);
+
+    const dispatch = useDispatch();
     const { constructor } = useTypeSelector(state => state.form);
 
     // save form handler
     const handleSave = e => {
         e.preventDefault();
-        const id = String(Date.now())
+        const id = String(Date.now());
         localStorage.setItem(id, JSON.stringify(constructor));
     };
 
