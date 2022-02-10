@@ -20,7 +20,7 @@ const FormElementHeader = ({
             className='form-element-header form-element-header_input'
             onChange={onChange}
             disabled={isDisabled}
-            placeholder={'Название формы'}
+            placeholder={'Заголовок формы'}
         />
     );
 };
