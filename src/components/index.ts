@@ -21,6 +21,7 @@ export { default as FormElement } from './FormElement/FormElement';
 export { default as FormElementHeader } from './FormElementHeader/FormElementHeader';
 export { default as FormElementTitle } from './FormElementTitle/FormElementTitle';
 export { default as FormElementSubtitle } from './FormElementSubtitle/FormElementSubtitle';
+export { default as FormElementTel } from './FormElementTel/FormElementTel';
 export { default as FormElementCheckbox } from './FormElementCheckbox/FormElementCheckbox';
 export { default as FormElementInput } from './FormElementInput/FormElementInput';
 export { default as FormElementLabelInput } from './FormElementLabelInput/FormElementLabelInput';

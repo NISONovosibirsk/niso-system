@@ -1,15 +1,13 @@
-import './FormElementInput.scss';
+import './FormElementTel.scss';
 
-const FormElementInput = ({
+const FormElementTel = ({
     value,
-    type,
     placeholder,
     isDisabled,
     isRequired,
     onChange,
 }: {
     value: string;
-    type: string
     placeholder?: string;
     isDisabled?: boolean;
     isRequired?: boolean;
@@ -17,8 +15,8 @@ const FormElementInput = ({
 }) => {
     return (
         <input
-            className='form-element-input'
-            type={type}
+            className='form-element-tel'
+            pattern='^((\+7|7|8)+([0-9]){10})$'
             value={value}
             placeholder={placeholder || ''}
             onChange={onChange}
@@ -28,4 +26,4 @@ const FormElementInput = ({
     );
 };
 
-export default FormElementInput;
+export default FormElementTel;

@@ -4,6 +4,7 @@ import {
     FormElementInput,
     FormElementRange,
     FormElementSubtitle,
+    FormElementTel,
     FormElementTextarea,
     FormElementTitle,
 } from '../components';
@@ -45,6 +46,14 @@ const formElementTypeHandler = ({
                     isFinalForm={isFinalForm}
                 />
             );
+        case 'tel':
+            return (
+                <FormElementTel
+                    value={element.placeholder}
+                    onChange={onValueChange}
+                    isDisabled={element.isDisabled}
+                />
+            );
         case 'range':
             return (
                 <FormElementRange
@@ -75,6 +84,7 @@ const formElementTypeHandler = ({
         default:
             return (
                 <FormElementInput
+                    type={element.type}
                     value={element.placeholder}
                     onChange={onValueChange}
                     isDisabled={element.isDisabled}

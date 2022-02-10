@@ -58,6 +58,15 @@ const initialState: IFormState = {
         },
         {
             id: 8,
+            label: 'Номер телефона поле',
+            type: 'tel',
+            placeholder: '',
+            value: '',
+            isDisabled: true,
+            isRequired: true,
+        },
+        {
+            id: 9,
             label: 'Поле для галочки (checkbox)',
             type: 'checkbox',
             placeholder: false,
@@ -66,7 +75,7 @@ const initialState: IFormState = {
             isRequired: true,
         },
         {
-            id: 9,
+            id: 10,
             label: 'range',
             type: 'range',
             placeholder: '',

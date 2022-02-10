@@ -4,6 +4,7 @@ import {
     FormElementInput,
     FormElementRange,
     FormElementSubtitle,
+    FormElementTel,
     FormElementTextarea,
     FormElementTitle,
 } from '../components';
@@ -39,6 +40,21 @@ export const savedFormTypeHandler = formElements => {
                         onChange={() => {}}
                         isFinalForm={true}
                     />
+                );
+            case 'tel':
+                return (
+                    <label key={index} className='saved-form__label'>
+                        {item.label}
+                        {item.isRequired && (
+                            <p className='saved-form__sign-required'>*</p>
+                        )}
+                        <FormElementTel
+                            placeholder={item.placeholder}
+                            value={''}
+                            onChange={() => {}}
+                            isRequired={item.isRequired}
+                        />
+                    </label>
                 );
             case 'range':
                 return (
@@ -93,6 +109,7 @@ export const savedFormTypeHandler = formElements => {
                             <p className='saved-form__sign-required'>*</p>
                         )}
                         <FormElementInput
+                            type={item.type}
                             placeholder={item.placeholder}
                             value={''}
                             onChange={() => {}}
