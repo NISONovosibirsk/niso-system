@@ -9,7 +9,7 @@ const FormElementLabelInput = ({ value, isDisabled }) => {
 
     const handleValueChange = e => {
         const newState: Array<any> = Array.from(constructor);
-        newState[e.target.parentNode.id].title = e.target.value;
+        newState[e.target.parentNode.id].label = e.target.value;
         dispatch(lableChange(newState));
     };
 

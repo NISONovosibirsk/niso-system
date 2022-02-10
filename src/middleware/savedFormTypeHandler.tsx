@@ -15,7 +15,7 @@ export const savedFormTypeHandler = formElements => {
                 return (
                     <FormElementHeader
                         key={index}
-                        value={item.value}
+                        value={item.placeholder}
                         onChange={() => {}}
                         isDisabled={item.isDisabled}
                         isFinalForm={true}
@@ -25,7 +25,7 @@ export const savedFormTypeHandler = formElements => {
                 return (
                     <FormElementTitle
                         key={index}
-                        value={item.value}
+                        value={item.placeholder}
                         onChange={() => {}}
                         isDisabled={item.isDisabled}
                         isFinalForm={true}
@@ -35,7 +35,7 @@ export const savedFormTypeHandler = formElements => {
                 return (
                     <FormElementSubtitle
                         key={index}
-                        value={item.value}
+                        value={item.placeholder}
                         onChange={() => {}}
                         isFinalForm={true}
                     />
@@ -43,7 +43,7 @@ export const savedFormTypeHandler = formElements => {
             case 'range':
                 return (
                     <label key={index} className='saved-form__label'>
-                        {item.title}
+                        {item.label}
                         {item.isRequired && (
                             <p className='saved-form__sign-required'>*</p>
                         )}
@@ -59,7 +59,7 @@ export const savedFormTypeHandler = formElements => {
             case 'checkbox':
                 return (
                     <label key={index} className='saved-form__label'>
-                        {item.title}
+                        {item.label}
                         {item.isRequired && (
                             <p className='saved-form__sign-required'>*</p>
                         )}
@@ -73,12 +73,12 @@ export const savedFormTypeHandler = formElements => {
             case 'textArea':
                 return (
                     <label key={index} className='saved-form__label'>
-                        {item.title}
+                        {item.label}
                         {item.isRequired && (
                             <p className='saved-form__sign-required'>*</p>
                         )}
                         <FormElementTextarea
-                            placeholder={item.value}
+                            placeholder={item.placeholder}
                             value={''}
                             onChange={() => {}}
                             isRequired={item.isRequired}
@@ -88,12 +88,12 @@ export const savedFormTypeHandler = formElements => {
             default:
                 return (
                     <label key={index} className='saved-form__label'>
-                        {item.title}
+                        {item.label}
                         {item.isRequired && (
                             <p className='saved-form__sign-required'>*</p>
                         )}
                         <FormElementInput
-                            placeholder={item.value}
+                            placeholder={item.placeholder}
                             value={''}
                             onChange={() => {}}
                             isRequired={item.isRequired}

@@ -1,20 +1,18 @@
 import { useTypeSelector } from '../../hooks/useTypeSelector';
 import './CustomForm.scss';
-import { Button, FormElement, Item } from '..';
+import { Button, FormElement } from '..';
 import { Droppable } from 'react-beautiful-dnd';
 import { useState } from 'react';
 import { savedFormTypeHandler } from '../../middleware/savedFormTypeHandler';
-
-const CustomForm = () => {
-    const [isPreview, setIsPreview] = useState(false);
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getSavedForms } from '../../store/actions/formActions';
 
 const CustomForm = () => {
+    const [isPreview, setIsPreview] = useState(false);
     const { constructor } = useTypeSelector(state => state.form);
     const dispatch = useDispatch();
-  
+
     useEffect(() => {
         handleStorage();
     }, []);
@@ -52,7 +50,6 @@ const CustomForm = () => {
             dispatch(getSavedForms(newState));
         });
     };
-
 
     const handleShowPreview = () => {
         setIsPreview(true);

@@ -18,6 +18,7 @@ const FormElementHeader = ({
     ) : (
         <input
             className='form-element-header form-element-header_input'
+            value={value}
             onChange={onChange}
             disabled={isDisabled}
             placeholder={'Заголовок формы'}

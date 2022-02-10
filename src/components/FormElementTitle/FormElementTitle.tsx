@@ -12,12 +12,11 @@ const FormElementTitle = ({
     isFinalForm: boolean;
 }) => {
     return isFinalForm ? (
-        <h2 className='form-element-title form-element-title_title'>
-            {value}
-        </h2>
+        <h2 className='form-element-title form-element-title_title'>{value}</h2>
     ) : (
         <input
             className='form-element-title form-element-title_input'
+            value={value}
             onChange={onChange}
             disabled={isDisabled}
             placeholder={'Название формы'}

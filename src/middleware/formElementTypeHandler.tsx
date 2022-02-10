@@ -21,7 +21,7 @@ const formElementTypeHandler = ({
         case 'header':
             return (
                 <FormElementHeader
-                    value={element.value}
+                    value={element.placeholder}
                     onChange={onValueChange}
                     isDisabled={element.isDisabled}
                     isFinalForm={isFinalForm}
@@ -30,7 +30,7 @@ const formElementTypeHandler = ({
         case 'title':
             return (
                 <FormElementTitle
-                    value={element.value}
+                    value={element.placeholder}
                     onChange={onValueChange}
                     isDisabled={element.isDisabled}
                     isFinalForm={isFinalForm}
@@ -39,7 +39,7 @@ const formElementTypeHandler = ({
         case 'subtitle':
             return (
                 <FormElementSubtitle
-                    value={element.value}
+                    value={element.placeholder}
                     onChange={onValueChange}
                     isDisabled={element.isDisabled}
                     isFinalForm={isFinalForm}
@@ -50,7 +50,7 @@ const formElementTypeHandler = ({
                 <FormElementRange
                     valueMaximum={element.max}
                     valueMinimum={element.min}
-                    value={element.value}
+                    value={element.placeholder}
                     onValueChange={onValueChange}
                     isDisabled={element.isDisabled}
                     isFinalForm={isFinalForm}
@@ -59,7 +59,7 @@ const formElementTypeHandler = ({
         case 'checkbox':
             return (
                 <FormElementCheckbox
-                    isChecked={element.value}
+                    isChecked={element.placeholder}
                     onChange={onValueChange}
                     isDisabled={element.isDisabled}
                 />
@@ -67,7 +67,7 @@ const formElementTypeHandler = ({
         case 'textArea':
             return (
                 <FormElementTextarea
-                    value={element.value}
+                    value={element.placeholder}
                     onChange={onValueChange}
                     isDisabled={element.isDisabled}
                 />
@@ -75,7 +75,7 @@ const formElementTypeHandler = ({
         default:
             return (
                 <FormElementInput
-                    value={element.value}
+                    value={element.placeholder}
                     onChange={onValueChange}
                     isDisabled={element.isDisabled}
                 />

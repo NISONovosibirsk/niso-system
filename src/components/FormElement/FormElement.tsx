@@ -18,7 +18,7 @@ const FormElement = ({ item, id, index }: IFormElement) => {
 
     const handleValueChange = e => {
         const newState: Array<any> = Array.from(constructor);
-        newState[index].value =
+        newState[index].placeholder =
             e.target.type === 'checkbox' ? e.target.checked : e.target.value;
         dispatch(valueChange(newState));
     };
@@ -36,14 +36,14 @@ const FormElement = ({ item, id, index }: IFormElement) => {
                     {item.isDisabled ? (
                         item.isRequired === undefined ? null : (
                             <FormElementLabelInput
-                                value={item.title}
+                                value={item.label}
                                 isDisabled={item.isDisabled}
                             />
                         )
                     ) : item.isRequired === undefined ? null : (
                         <>
                             <FormElementLabelInput
-                                value={item.title}
+                                value={item.label}
                                 isDisabled={item.isDisabled}
                             />
                             <FormElementCheckboxRequired
