@@ -1,6 +1,8 @@
 .custom-form {
-    padding-left: 13%;
-    padding-right: 10%;
+    padding: 60px {
+        left: 13%;
+        right: 10%;
+    }
     width: 100%;
     min-width: 510px;
     display: flex;
@@ -8,6 +10,7 @@
     align-items: flex-end;
 
     &__field {
+        padding: 20px 0;
         margin: {
             bottom: auto;
         }

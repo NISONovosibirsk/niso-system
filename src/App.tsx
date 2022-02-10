@@ -1,11 +1,10 @@
-import { FormConstructor, Header, SavedForm } from './components';
+import { FormConstructor, Header } from './components';
 
 function App() {
     return (
         <div className='App'>
             <div className='container'>
                 <Header />
-                <SavedForm />
                 <FormConstructor />
             </div>
         </div>
