@@ -1,13 +1,58 @@
 import { useTypeSelector } from '../../hooks/useTypeSelector';
 import './CustomForm.scss';
-import { Button, FormElement } from '..';
+import { Button, FormElement, Item } from '..';
 import { Droppable } from 'react-beautiful-dnd';
 import { useState } from 'react';
 import { savedFormTypeHandler } from '../../middleware/savedFormTypeHandler';
 
 const CustomForm = () => {
     const [isPreview, setIsPreview] = useState(false);
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { getSavedForms } from '../../store/actions/formActions';
+
+const CustomForm = () => {
     const { constructor } = useTypeSelector(state => state.form);
+    const dispatch = useDispatch();
+  
+    useEffect(() => {
+        handleStorage();
+    }, []);
+
+    // save element to storage by button
+    const handleSave = e => {
+        e.preventDefault();
+        const key = String(Date.now());
+        localStorage.setItem(key, JSON.stringify(constructor));
+
+        handleStorage();
+    };
+
+    // convert timestamp to human time
+    const handleTime = key => {
+        const date = new Date(Number(key));
+        return `${date.getDate()}.0${
+            date.getMonth() + 1
+        }.${date.getFullYear()}`;
+    };
+
+    // add elements from storage to state
+    const handleStorage = () => {
+        const newState: any[] = [];
+        Object.keys(localStorage).map(key => {
+            const json = localStorage.getItem(key);
+            if (json !== null) {
+                const form: any = {};
+                form.date = handleTime(key);
+                form.content = JSON.parse(json);
+
+                newState.push(form);
+            }
+
+            dispatch(getSavedForms(newState));
+        });
+    };
+
 
     const handleShowPreview = () => {
         setIsPreview(true);
@@ -62,7 +107,7 @@ const CustomForm = () => {
                         )}
                     </div>
                     {constructor.length ? (
-                        <Button title='Сохранить форму' />
+                        <Button title='Сохранить форму' onClick={handleSave} />
                     ) : null}
                     {provided.placeholder}
                 </form>
