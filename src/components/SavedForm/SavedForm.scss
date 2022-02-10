@@ -1,0 +1,18 @@
+.saved-form {
+    max-width: 920px;
+    margin: auto;
+    padding: 50px 0;
+
+    &__label {
+        display: grid;
+        width: 100%;
+    }
+
+    &__sign-required {
+        height: 20px;
+        margin: 0;
+        justify-self: end;
+        font-size: 35px;
+        grid-column: 2 / 3;
+    }
+}
