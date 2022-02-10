@@ -6,6 +6,7 @@ import {
     REMOVE_ELEMENT,
     SET_REQUIRED,
     SORT_ELEMENTS,
+    GET_SAVED_FORMS,
     VALUE_CHANGE,
 } from '../types';
 import { IFormState, IDragAndDropActions } from '../../interfaces';
@@ -85,6 +86,8 @@ const initialState: IFormState = {
         },
     ],
     constructor: [],
+
+    savedForms: [],
 };
 
 export const formReducer = (
@@ -108,6 +111,8 @@ export const formReducer = (
             return { ...state, constructor: action.payload };
         case RANGE_CHANGE_MAXIMUM:
             return { ...state, constructor: action.payload };
+        case GET_SAVED_FORMS:
+            return { ...state, savedForms: action.payload };
         default:
             return state;
     }

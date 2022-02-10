@@ -69,6 +69,7 @@ export interface ITerms {
 export interface IFormState {
     elements?: any;
     constructor: any;
+    savedForms: any;
 }
 
 export interface IDragAndDropActions {
