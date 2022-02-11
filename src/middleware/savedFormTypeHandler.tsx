@@ -73,6 +73,7 @@ export const savedFormTypeHandler = ({
                     <FormElementRange
                         valueMaximum={element.max}
                         valueMinimum={element.min}
+                        valueStep={element.step}
                         value={element.value}
                         defaultValue={element.placeholder}
                         onValueChange={onValueChange}

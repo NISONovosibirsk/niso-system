@@ -59,6 +59,7 @@ const formElementTypeHandler = ({
                 <FormElementRange
                     valueMaximum={element.max}
                     valueMinimum={element.min}
+                    valueStep={element.step}
                     value={element.placeholder}
                     onValueChange={onValueChange}
                     isDisabled={element.isDisabled}
