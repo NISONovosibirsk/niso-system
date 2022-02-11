@@ -18,12 +18,14 @@
             opacity: 0.3;
         }
 
-        & + .form-element-drag-button {
-            grid-row: span 2;
-        }
+        &:disabled {
+            & + .form-element-drag-button {
+                grid-row: span 2;
+            }
 
-        &:disabled::placeholder {
-            opacity: 1;
+            &::placeholder {
+                opacity: 1;
+            }
         }
     }
 

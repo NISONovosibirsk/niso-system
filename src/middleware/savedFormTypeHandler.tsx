@@ -67,6 +67,7 @@ export const savedFormTypeHandler = formElements => {
                             valueMaximum={item.max}
                             valueMinimum={item.min}
                             value={item.value}
+                            defaultValue={item.placeholder}
                             onValueChange={() => {}}
                             isFinalForm={true}
                         />

@@ -7,6 +7,7 @@ const FormElementRange = ({
     valueMaximum,
     valueMinimum,
     value,
+    defaultValue,
     onValueChange,
     isDisabled,
     isFinalForm,
@@ -14,6 +15,7 @@ const FormElementRange = ({
     valueMaximum: string;
     valueMinimum: string;
     value: string;
+    defaultValue?: string;
     onValueChange: any;
     isDisabled?: boolean;
     isFinalForm: boolean;
@@ -41,19 +43,23 @@ const FormElementRange = ({
                     type='number'
                     value={valueMinimum}
                     onChange={handleMinRangeValueChange}
+                    disabled={isDisabled}
                 />
             )}
             <input
                 className='form-element-range__input'
                 type='range'
-                value={value}
+                defaultValue={defaultValue}
+                value={value || defaultValue}
                 onChange={onValueChange}
                 min={valueMinimum}
                 max={valueMaximum}
                 disabled={isDisabled}
             />
             {isFinalForm && (
-                <p className='form-element-range__value'>{`${value} (${valueMinimum} - ${valueMaximum})`}</p>
+                <p className='form-element-range__value'>{`${
+                    value || defaultValue
+                } (${valueMinimum} - ${valueMaximum})`}</p>
             )}
             {!isFinalForm && (
                 <input
@@ -61,6 +67,7 @@ const FormElementRange = ({
                     type='number'
                     value={valueMaximum}
                     onChange={handleMaxRangeValueChange}
+                    disabled={isDisabled}
                 />
             )}
         </div>

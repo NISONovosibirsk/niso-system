@@ -23,6 +23,35 @@ const FormElement = ({ item, id, index }: IFormElement) => {
         dispatch(valueChange(newState));
     };
 
+    const handleRenderLabelInput = () => {
+        switch (item.type) {
+            case 'header':
+                break;
+            case 'title':
+                break;
+            case 'subtitle':
+                break;
+            default:
+                return (
+                    <FormElementLabelInput
+                        value={item.label}
+                        isDisabled={item.isDisabled}
+                    />
+                );
+        }
+    };
+
+    const handleRenderRemoveButton = () => {
+        switch (item.type) {
+            case 'header':
+                break;
+            case 'title':
+                break;
+            default:
+                return <FormElementRemoveButton />;
+        }
+    };
+
     return (
         <Draggable draggableId={String(id)} index={index}>
             {provided => (
@@ -33,26 +62,14 @@ const FormElement = ({ item, id, index }: IFormElement) => {
                     {...provided.dragHandleProps}
                     ref={provided.innerRef}
                 >
-                    {item.isDisabled ? (
-                        item.isRequired === undefined ? null : (
-                            <FormElementLabelInput
-                                value={item.label}
-                                isDisabled={item.isDisabled}
-                            />
-                        )
-                    ) : item.isRequired === undefined ? null : (
-                        <>
-                            <FormElementLabelInput
-                                value={item.label}
-                                isDisabled={item.isDisabled}
-                            />
-                            <FormElementCheckboxRequired
-                                index={index}
-                                isChecked={item.isRequired}
-                            />
-                        </>
+                    {handleRenderLabelInput()}
+                    {!item.isDisabled && item.isRequired === !undefined && (
+                        <FormElementCheckboxRequired
+                            index={index}
+                            isChecked={item.isRequired}
+                        />
                     )}
-                    {item.isDisabled ? null : <FormElementRemoveButton />}
+                    {!item.isDisabled && handleRenderRemoveButton()}
                     {formElementTypeHandler({
                         onValueChange: handleValueChange,
                         element: item,

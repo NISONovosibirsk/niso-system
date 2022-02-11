@@ -9,7 +9,6 @@
     &_input {
         border-radius: 10px;
         grid-column: 1 / 3;
-        grid-row: 1 / 3;
         border: 1px solid black;
 
         &::placeholder {
@@ -17,19 +16,15 @@
             opacity: 0.3;
         }
 
-        &:disabled {
-            height: 40px;
-            font-size: 26px;
-            line-height: 30px;
+        // &:disabled {
+        //     height: 40px;
+        //     font-size: 26px;
+        //     line-height: 30px;
 
-            & + .form-element-drag-button {
-                grid-row: span 2;
-            }
-
-            &::placeholder {
-                opacity: 1;
-            }
-        }
+        //     &::placeholder {
+        //         opacity: 1;
+        //     }
+        // }
     }
 
     &_title {
