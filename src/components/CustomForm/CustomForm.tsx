@@ -9,7 +9,6 @@ import { useDispatch } from 'react-redux';
 import { getSavedForms } from '../../store/actions/formActions';
 
 const CustomForm = () => {
-
     // temporary states must be removed to redux
     const [isPreview, setIsPreview] = useState(false);
 
@@ -87,8 +86,8 @@ const CustomForm = () => {
                     {...provided.droppableProps}
                     ref={provided.innerRef}
                 >
-                    {constructor.length ? (
-                        isPreview ? (
+                    {constructor.length &&
+                        (isPreview ? (
                             <Button
                                 title='Показать конструктор'
                                 onClick={handleHidePreview}
@@ -98,8 +97,7 @@ const CustomForm = () => {
                                 title='Показать результат'
                                 onClick={handleShowPreview}
                             />
-                        )
-                    ) : null}
+                        ))}
                     <div className='custom-form__field'>
                         {constructor.length ? (
                             isPreview ? (
@@ -120,9 +118,9 @@ const CustomForm = () => {
                             </p>
                         )}
                     </div>
-                    {constructor.length ? (
+                    {constructor.length && (
                         <Button title='Сохранить форму' onClick={handleSave} />
-                    ) : null}
+                    )}
                     {provided.placeholder}
                 </form>
             )}
