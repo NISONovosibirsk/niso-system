@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux';
 import { getSavedForms } from '../../store/actions/formActions';
 
 const CustomForm = () => {
+    console.log('rendered')
     // temporary states must be removed to redux
     const [isPreview, setIsPreview] = useState(false);
 
@@ -37,7 +38,7 @@ const CustomForm = () => {
     };
 
     // add elements from storage to state
-    const handleStorage = () => {
+    const handleStorage: any = () => {
         const newState: any[] = [];
         Object.keys(localStorage).map(key => {
             const json = localStorage.getItem(key);
@@ -45,7 +46,7 @@ const CustomForm = () => {
                 const form: any = {};
                 form.date = handleTime(key);
                 form.content = JSON.parse(json);
-                form.id = key;
+                form._id = Number(key);
 
                 form.content.find(item => {
                     switch (item.type) {

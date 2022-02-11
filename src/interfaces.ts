@@ -35,6 +35,7 @@ export interface ISavedFormItem {
         title: string;
         subtitle: string;
         date: string;
+        _id: number;
     };
 }
 

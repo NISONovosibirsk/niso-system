@@ -1,14 +1,25 @@
 import { Button } from '..';
 import './SavedFormsItem.scss';
 import { ISavedFormItem } from '../../interfaces';
+import { useTypeSelector } from '../../hooks/useTypeSelector';
+import { getSavedForms } from '../../store/actions/formActions';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 const SavedFormsItem = ({ index, item }: ISavedFormItem) => {
+    const { savedForms } = useTypeSelector(state => state.form);
+    const dispatch = useDispatch();
+
     const handleEdit = () => {
         console.log('EDIT');
     };
 
     const handleRemove = () => {
-        console.log('REMOVE');
+        localStorage.removeItem(String(item._id))
+        const newState = Array.from(savedForms);
+        newState.splice(index, 1);
+        dispatch(getSavedForms(newState));
+
     };
 
     return (
@@ -19,7 +30,7 @@ const SavedFormsItem = ({ index, item }: ISavedFormItem) => {
             <p className='saved-forms-item__subtitle'>{`${item.subtitle}  |  дата создания: ${item.date}`}</p>
             <p className='saved-forms-item__status'>сдан</p>
             <Button title='Редактировать' type='filled' onClick={handleEdit} />
-            <Button title='Удалить' type='filled' onClick={handleRemove}/>
+            <Button title='Удалить' type='filled' onClick={handleRemove} />
             <Button title='Отправить' type='filled' />
         </li>
     );
