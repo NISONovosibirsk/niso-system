@@ -7,7 +7,13 @@ const SavedForm = () => {
     const { constructor } = useTypeSelector(state => state.form);
     return (
         <form className='saved-form'>
-            {savedFormTypeHandler(constructor)}
+            {constructor.map(item =>
+                savedFormTypeHandler({
+                    onValueChange: () => {},
+                    element: item,
+                    isFinalForm: true,
+                })
+            )}
 
             <Button title='Отправить' />
         </form>
