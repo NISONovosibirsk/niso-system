@@ -45,6 +45,7 @@ const CustomForm = () => {
                 const form: any = {};
                 form.date = handleTime(key);
                 form.content = JSON.parse(json);
+                form.id = key;
 
                 form.content.find(item => {
                     switch (item.type) {
