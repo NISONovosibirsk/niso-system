@@ -1,4 +1,5 @@
 export interface IFormElementCheckbox {
+    defaultChecked: boolean;
     isChecked: boolean;
     isDisabled?: boolean;
     isRequired?: boolean;
