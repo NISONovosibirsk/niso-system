@@ -9,7 +9,7 @@ import { useDispatch } from 'react-redux';
 import { getSavedForms } from '../../store/actions/formActions';
 
 const CustomForm = () => {
-    console.log('rendered')
+
     // temporary states must be removed to redux
     const [isPreview, setIsPreview] = useState(false);
 

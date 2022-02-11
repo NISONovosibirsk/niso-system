@@ -3,7 +3,6 @@ import './SavedFormsItem.scss';
 import { ISavedFormItem } from '../../interfaces';
 import { useTypeSelector } from '../../hooks/useTypeSelector';
 import { getSavedForms } from '../../store/actions/formActions';
-import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 const SavedFormsItem = ({ index, item }: ISavedFormItem) => {
@@ -15,11 +14,10 @@ const SavedFormsItem = ({ index, item }: ISavedFormItem) => {
     };
 
     const handleRemove = () => {
-        localStorage.removeItem(String(item._id))
+        localStorage.removeItem(String(item._id));
         const newState = Array.from(savedForms);
         newState.splice(index, 1);
         dispatch(getSavedForms(newState));
-
     };
 
     return (
