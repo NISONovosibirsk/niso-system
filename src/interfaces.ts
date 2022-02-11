@@ -63,7 +63,6 @@ export interface ITerms {
     buttons: ButtonsArray[];
 }
 
-
 // REDUX //
 
 // Form state and actions
@@ -71,6 +70,7 @@ export interface IFormState {
     elements?: any;
     constructor: any;
     savedForms: any;
+    currentForm: any;
 }
 
 export interface IDragAndDropActions {

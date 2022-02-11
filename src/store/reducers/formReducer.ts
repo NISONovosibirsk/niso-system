@@ -9,6 +9,7 @@ import {
     GET_SAVED_FORMS,
     VALUE_CHANGE,
     UPDATE_CONSTRUCTOR,
+    SET_CURRENT_FORM,
 } from '../types';
 import { IFormState, IDragAndDropActions } from '../../interfaces';
 
@@ -102,6 +103,7 @@ const initialState: IFormState = {
     ],
 
     savedForms: [],
+    currentForm: [],
 };
 
 export const formReducer = (
@@ -129,6 +131,8 @@ export const formReducer = (
             return { ...state, savedForms: action.payload };
         case UPDATE_CONSTRUCTOR:
             return { ...state, constructor: action.payload };
+        case SET_CURRENT_FORM:
+            return { ...state, currentForm: action.payload };
         default:
             return state;
     }

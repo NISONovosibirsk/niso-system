@@ -9,6 +9,7 @@ import {
     RANGE_CHANGE_MAXIMUM,
     GET_SAVED_FORMS,
     UPDATE_CONSTRUCTOR,
+    SET_CURRENT_FORM,
 } from '../types';
 
 export const sortElements = newState => {
@@ -86,6 +87,14 @@ export const getSavedForms = newState => {
 export const updateConstructor = newState => {
     try {
         return { type: UPDATE_CONSTRUCTOR, payload: newState };
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const setCurrentForm = newState => {
+    try {
+        return { type: SET_CURRENT_FORM, payload: newState };
     } catch (error) {
         console.log(error);
     }
