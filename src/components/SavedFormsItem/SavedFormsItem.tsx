@@ -2,15 +2,17 @@ import { Button } from '..';
 import './SavedFormsItem.scss';
 import { ISavedFormItem } from '../../interfaces';
 import { useTypeSelector } from '../../hooks/useTypeSelector';
-import { getSavedForms } from '../../store/actions/formActions';
+import { getSavedForms, updateConstructor } from '../../store/actions/formActions';
 import { useDispatch } from 'react-redux';
 
 const SavedFormsItem = ({ index, item }: ISavedFormItem) => {
-    const { savedForms } = useTypeSelector(state => state.form);
+    const { savedForms, constructor } = useTypeSelector(state => state.form);
     const dispatch = useDispatch();
 
     const handleEdit = () => {
-        console.log('EDIT');
+        const newState = Array.from(savedForms[index].content);
+        console.log(newState);
+        dispatch(updateConstructor(newState));
     };
 
     const handleRemove = () => {
