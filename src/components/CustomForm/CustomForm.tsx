@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { savedFormTypeHandler } from '../../middleware/savedFormTypeHandler';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { getSavedForms } from '../../store/actions/formActions';
+import { getSavedForms, resetConstructor } from '../../store/actions/formActions';
 
 const CustomForm = () => {
     // temporary states must be removed to redux
@@ -64,6 +64,7 @@ const CustomForm = () => {
             }
 
             dispatch(getSavedForms(newState));
+            dispatch(resetConstructor());
         });
     };
 
