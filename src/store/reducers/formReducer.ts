@@ -8,6 +8,7 @@ import {
     SORT_ELEMENTS,
     GET_SAVED_FORMS,
     VALUE_CHANGE,
+    UPDATE_CONSTRUCTOR,
 } from '../types';
 import { IFormState, IDragAndDropActions } from '../../interfaces';
 
@@ -126,6 +127,8 @@ export const formReducer = (
             return { ...state, constructor: action.payload };
         case GET_SAVED_FORMS:
             return { ...state, savedForms: action.payload };
+        case UPDATE_CONSTRUCTOR:
+            return { ...state, constructor: action.payload };
         default:
             return state;
     }
