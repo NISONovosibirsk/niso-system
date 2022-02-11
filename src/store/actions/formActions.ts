@@ -10,6 +10,7 @@ import {
     GET_SAVED_FORMS,
     UPDATE_CONSTRUCTOR,
     SET_CURRENT_FORM,
+    RESET_CONSTRUCTOR,
 } from '../types';
 
 export const sortElements = newState => {
@@ -95,6 +96,14 @@ export const updateConstructor = newState => {
 export const setCurrentForm = newState => {
     try {
         return { type: SET_CURRENT_FORM, payload: newState };
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const resetConstructor = () => {
+    try {
+        return { type: RESET_CONSTRUCTOR };
     } catch (error) {
         console.log(error);
     }
