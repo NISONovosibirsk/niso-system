@@ -1,4 +1,5 @@
 import TextareaAutosize from 'react-textarea-autosize';
+import { IFormElementSubtitle } from '../interfaces';
 import './FormElementSubtitle.scss';
 
 const FormElementSubtitle = ({
@@ -6,12 +7,7 @@ const FormElementSubtitle = ({
     isDisabled,
     onChange,
     isFinalForm,
-}: {
-    value: string;
-    isDisabled?: boolean;
-    onChange: any;
-    isFinalForm: boolean;
-}) => {
+}: IFormElementSubtitle) => {
     return isFinalForm ? (
         <p className='form-element-subtitle form-element-subtitle_title'>
             {value}

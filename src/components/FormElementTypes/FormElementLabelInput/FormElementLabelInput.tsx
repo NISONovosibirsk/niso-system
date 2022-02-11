@@ -1,9 +1,13 @@
 import { useDispatch } from 'react-redux';
-import { useTypeSelector } from '../../hooks/useTypeSelector';
-import { lableChange } from '../../store/actions/formActions';
+import { useTypeSelector } from '../../../hooks/useTypeSelector';
+import { lableChange } from '../../../store/actions/formActions';
+import { IFormElementLabelInput } from '../interfaces';
 import './FormElementLabelInput.scss';
 
-const FormElementLabelInput = ({ value, isDisabled }) => {
+const FormElementLabelInput = ({
+    value,
+    isDisabled,
+}: IFormElementLabelInput) => {
     const { constructor } = useTypeSelector(state => state.form);
     const dispatch = useDispatch();
 

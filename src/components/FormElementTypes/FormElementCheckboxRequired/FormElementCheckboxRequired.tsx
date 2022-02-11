@@ -1,15 +1,13 @@
 import { useDispatch } from 'react-redux';
-import { useTypeSelector } from '../../hooks/useTypeSelector';
-import { setRequired } from '../../store/actions/formActions';
+import { useTypeSelector } from '../../../hooks/useTypeSelector';
+import { setRequired } from '../../../store/actions/formActions';
+import { IFormElementCheckboxRequired } from '../interfaces';
 import './FormElementCheckboxRequired.scss';
 
 const FormElementCheckboxRequired = ({
     index,
     isChecked,
-}: {
-    index: number;
-    isChecked: boolean;
-}) => {
+}: IFormElementCheckboxRequired) => {
     const { constructor } = useTypeSelector(state => state.form);
 
     const dispatch = useDispatch();

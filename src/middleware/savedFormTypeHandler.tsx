@@ -10,64 +10,64 @@ import {
 } from '../components';
 
 export const savedFormTypeHandler = formElements => {
-    return formElements.map((item, index) => {
-        switch (item.type) {
+    return formElements.map(element => {
+        switch (element.type) {
             case 'header':
                 return (
                     <FormElementHeader
-                        key={index}
-                        value={item.placeholder}
+                        key={element.id}
+                        value={element.placeholder}
                         onChange={() => {}}
-                        isDisabled={item.isDisabled}
+                        isDisabled={element.isDisabled}
                         isFinalForm={true}
                     />
                 );
             case 'title':
                 return (
                     <FormElementTitle
-                        key={index}
-                        value={item.placeholder}
+                        key={element.id}
+                        value={element.placeholder}
                         onChange={() => {}}
-                        isDisabled={item.isDisabled}
+                        isDisabled={element.isDisabled}
                         isFinalForm={true}
                     />
                 );
             case 'subtitle':
                 return (
                     <FormElementSubtitle
-                        key={index}
-                        value={item.placeholder}
+                        key={element.id}
+                        value={element.placeholder}
                         onChange={() => {}}
                         isFinalForm={true}
                     />
                 );
             case 'tel':
                 return (
-                    <label key={index} className='saved-form__label'>
-                        {item.label}
-                        {item.isRequired && (
+                    <label key={element.id} className='saved-form__label'>
+                        {element.label}
+                        {element.isRequired && (
                             <p className='saved-form__sign-required'>*</p>
                         )}
                         <FormElementTel
-                            placeholder={item.placeholder}
+                            placeholder={element.placeholder}
                             value={''}
                             onChange={() => {}}
-                            isRequired={item.isRequired}
+                            isRequired={element.isRequired}
                         />
                     </label>
                 );
             case 'range':
                 return (
-                    <label key={index} className='saved-form__label'>
-                        {item.label}
-                        {item.isRequired && (
+                    <label key={element.id} className='saved-form__label'>
+                        {element.label}
+                        {element.isRequired && (
                             <p className='saved-form__sign-required'>*</p>
                         )}
                         <FormElementRange
-                            valueMaximum={item.max}
-                            valueMinimum={item.min}
-                            value={item.value}
-                            defaultValue={item.placeholder}
+                            valueMaximum={element.max}
+                            valueMinimum={element.min}
+                            value={element.value}
+                            defaultValue={element.placeholder}
                             onValueChange={() => {}}
                             isFinalForm={true}
                         />
@@ -75,46 +75,46 @@ export const savedFormTypeHandler = formElements => {
                 );
             case 'checkbox':
                 return (
-                    <label key={index} className='saved-form__label'>
-                        {item.label}
-                        {item.isRequired && (
+                    <label key={element.id} className='saved-form__label'>
+                        {element.label}
+                        {element.isRequired && (
                             <p className='saved-form__sign-required'>*</p>
                         )}
                         <FormElementCheckbox
-                            isChecked={item.value}
+                            isChecked={element.value}
                             onChange={() => {}}
-                            isRequired={item.isRequired}
+                            isRequired={element.isRequired}
                         />
                     </label>
                 );
             case 'textArea':
                 return (
-                    <label key={index} className='saved-form__label'>
-                        {item.label}
-                        {item.isRequired && (
+                    <label key={element.id} className='saved-form__label'>
+                        {element.label}
+                        {element.isRequired && (
                             <p className='saved-form__sign-required'>*</p>
                         )}
                         <FormElementTextarea
-                            placeholder={item.placeholder}
+                            placeholder={element.placeholder}
                             value={''}
                             onChange={() => {}}
-                            isRequired={item.isRequired}
+                            isRequired={element.isRequired}
                         />
                     </label>
                 );
             default:
                 return (
-                    <label key={index} className='saved-form__label'>
-                        {item.label}
-                        {item.isRequired && (
+                    <label key={element.id} className='saved-form__label'>
+                        {element.label}
+                        {element.isRequired && (
                             <p className='saved-form__sign-required'>*</p>
                         )}
                         <FormElementInput
-                            type={item.type}
-                            placeholder={item.placeholder}
+                            type={element.type}
+                            placeholder={element.placeholder}
                             value={''}
                             onChange={() => {}}
-                            isRequired={item.isRequired}
+                            isRequired={element.isRequired}
                         />
                     </label>
                 );

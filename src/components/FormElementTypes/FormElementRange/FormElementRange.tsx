@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
-import { useTypeSelector } from '../../hooks/useTypeSelector';
-import { valueChange } from '../../store/actions/formActions';
+import { useTypeSelector } from '../../../hooks/useTypeSelector';
+import { valueChange } from '../../../store/actions/formActions';
+import { IFormElementRange } from '../interfaces';
 import './FormElementRange.scss';
 
 const FormElementRange = ({
@@ -11,15 +12,7 @@ const FormElementRange = ({
     onValueChange,
     isDisabled,
     isFinalForm,
-}: {
-    valueMaximum: string;
-    valueMinimum: string;
-    value: string;
-    defaultValue?: string;
-    onValueChange: any;
-    isDisabled?: boolean;
-    isFinalForm: boolean;
-}) => {
+}: IFormElementRange) => {
     const { constructor } = useTypeSelector(state => state.form);
     const dispatch = useDispatch();
 

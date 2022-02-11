@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
-import { removeButtonIcon } from '../../assets';
-import { useTypeSelector } from '../../hooks/useTypeSelector';
-import { removeElement } from '../../store/actions/formActions';
+import { removeButtonIcon } from '../../../assets';
+import { useTypeSelector } from '../../../hooks/useTypeSelector';
+import { removeElement } from '../../../store/actions/formActions';
 import './FormElementRemoveButton.scss';
 
 const FormElementRemoveButton = () => {

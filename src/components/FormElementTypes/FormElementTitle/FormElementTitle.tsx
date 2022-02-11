@@ -1,3 +1,4 @@
+import { IFormElementTitle } from '../interfaces';
 import './FormElementTitle.scss';
 
 const FormElementTitle = ({
@@ -5,12 +6,7 @@ const FormElementTitle = ({
     isDisabled,
     onChange,
     isFinalForm,
-}: {
-    value: string;
-    isDisabled?: boolean;
-    onChange: any;
-    isFinalForm: boolean;
-}) => {
+}: IFormElementTitle) => {
     return isFinalForm ? (
         <h2 className='form-element-title form-element-title_title'>{value}</h2>
     ) : (

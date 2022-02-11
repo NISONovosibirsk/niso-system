@@ -1,3 +1,4 @@
+import { IFormElementCheckbox } from '../interfaces';
 import './FormElementCheckbox.scss';
 
 const FormElementCheckbox = ({
@@ -5,12 +6,7 @@ const FormElementCheckbox = ({
     isDisabled,
     isRequired,
     onChange,
-}: {
-    isChecked: boolean;
-    isDisabled?: boolean;
-    isRequired?: boolean;
-    onChange: any;
-}) => {
+}: IFormElementCheckbox) => {
     return (
         <label className='form-element-checkbox'>
             <input
