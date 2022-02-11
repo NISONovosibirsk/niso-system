@@ -7,6 +7,7 @@ import './FormElementRange.scss';
 const FormElementRange = ({
     valueMaximum,
     valueMinimum,
+    valueStep,
     value,
     defaultValue,
     onValueChange,
@@ -15,6 +16,8 @@ const FormElementRange = ({
 }: IFormElementRange) => {
     const { constructor } = useTypeSelector(state => state.form);
     const dispatch = useDispatch();
+
+    const currentValue = value.length ? value : defaultValue;
 
     const handleMaxRangeValueChange = e => {
         const newState: Array<any> = Array.from(constructor);
@@ -28,41 +31,62 @@ const FormElementRange = ({
         dispatch(valueChange(newState));
     };
 
+    const handleStepRangeValueChange = e => {
+        const newState: Array<any> = Array.from(constructor);
+        newState[e.target.parentNode.parentNode.id].step = e.target.value;
+        dispatch(valueChange(newState));
+    };
+
     return (
         <div className='form-element-range__field'>
-            {!isFinalForm && (
-                <input
-                    className='form-element-range__input form-element-range__input_minmax'
-                    type='number'
-                    value={valueMinimum}
-                    onChange={handleMinRangeValueChange}
-                    disabled={isDisabled}
-                />
-            )}
+            {!isFinalForm ? (
+                !isDisabled ? (
+                    <input
+                        className='form-element-range__input form-element-range__input_minmaxstep'
+                        type='number'
+                        value={valueStep}
+                        onChange={handleStepRangeValueChange}
+                        disabled={isDisabled}
+                    />
+                ) : null
+            ) : null}
             <input
-                className='form-element-range__input'
+                className={`form-element-range__input ${
+                    isFinalForm && 'form-element-range__input_final-form'
+                }`}
                 type='range'
-                defaultValue={defaultValue}
-                value={value || defaultValue}
+                value={currentValue}
                 onChange={onValueChange}
                 min={valueMinimum}
                 max={valueMaximum}
+                step={valueStep}
                 disabled={isDisabled}
             />
-            {isFinalForm && (
-                <p className='form-element-range__value'>{`${
-                    value || defaultValue
-                } (${valueMinimum} - ${valueMaximum})`}</p>
+            {!isDisabled && (
+                <p className='form-element-range__value'>{`${currentValue} ${
+                    isFinalForm ? `( ${valueMinimum} - ${valueMaximum} )` : ''
+                }`}</p>
             )}
-            {!isFinalForm && (
-                <input
-                    className='form-element-range__input form-element-range__input_minmax'
-                    type='number'
-                    value={valueMaximum}
-                    onChange={handleMaxRangeValueChange}
-                    disabled={isDisabled}
-                />
-            )}
+            {!isFinalForm ? (
+                !isDisabled ? (
+                    <>
+                        <input
+                            className='form-element-range__input form-element-range__input_minmaxstep'
+                            type='number'
+                            value={valueMinimum}
+                            onChange={handleMinRangeValueChange}
+                            disabled={isDisabled}
+                        />
+                        <input
+                            className='form-element-range__input form-element-range__input_minmaxstep'
+                            type='number'
+                            value={valueMaximum}
+                            onChange={handleMaxRangeValueChange}
+                            disabled={isDisabled}
+                        />
+                    </>
+                ) : null
+            ) : null}
         </div>
     );
 };
