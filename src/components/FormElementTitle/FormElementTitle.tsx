@@ -20,6 +20,7 @@ const FormElementTitle = ({
             onChange={onChange}
             disabled={isDisabled}
             placeholder={'Название формы'}
+            required={true}
         />
     );
 };

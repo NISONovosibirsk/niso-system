@@ -22,6 +22,7 @@ const FormElementHeader = ({
             onChange={onChange}
             disabled={isDisabled}
             placeholder={'Заголовок формы'}
+            required={true}
         />
     );
 };
