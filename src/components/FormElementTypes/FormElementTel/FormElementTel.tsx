@@ -1,3 +1,4 @@
+import { IFormElementTel } from '../interfaces';
 import './FormElementTel.scss';
 
 const FormElementTel = ({
@@ -6,13 +7,7 @@ const FormElementTel = ({
     isDisabled,
     isRequired,
     onChange,
-}: {
-    value: string;
-    placeholder?: string;
-    isDisabled?: boolean;
-    isRequired?: boolean;
-    onChange: any;
-}) => {
+}: IFormElementTel) => {
     return (
         <input
             className='form-element-tel'

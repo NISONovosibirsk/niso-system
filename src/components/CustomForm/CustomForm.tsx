@@ -101,7 +101,13 @@ const CustomForm = () => {
                     <div className='custom-form__field'>
                         {constructor.length ? (
                             isPreview ? (
-                                savedFormTypeHandler(constructor)
+                                constructor.map(item =>
+                                    savedFormTypeHandler({
+                                        onValueChange: () => {},
+                                        element: item,
+                                        isFinalForm: true,
+                                    })
+                                )
                             ) : (
                                 constructor.map((item: any, index: number) => (
                                     <FormElement

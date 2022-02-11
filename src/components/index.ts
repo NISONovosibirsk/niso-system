@@ -18,19 +18,19 @@ export { default as FormElements } from './FormElements/FormElements';
 //main
 export { default as FormElement } from './FormElement/FormElement';
 //constructor
-export { default as FormElementHeader } from './FormElementHeader/FormElementHeader';
-export { default as FormElementTitle } from './FormElementTitle/FormElementTitle';
-export { default as FormElementSubtitle } from './FormElementSubtitle/FormElementSubtitle';
-export { default as FormElementTel } from './FormElementTel/FormElementTel';
-export { default as FormElementCheckbox } from './FormElementCheckbox/FormElementCheckbox';
-export { default as FormElementInput } from './FormElementInput/FormElementInput';
-export { default as FormElementLabelInput } from './FormElementLabelInput/FormElementLabelInput';
-export { default as FormElementRange } from './FormElementRange/FormElementRange';
-export { default as FormElementTextarea } from './FormElementTextarea/FormElementTextarea';
+export { default as FormElementHeader } from './FormElementTypes/FormElementHeader/FormElementHeader';
+export { default as FormElementTitle } from './FormElementTypes/FormElementTitle/FormElementTitle';
+export { default as FormElementSubtitle } from './FormElementTypes/FormElementSubtitle/FormElementSubtitle';
+export { default as FormElementTel } from './FormElementTypes/FormElementTel/FormElementTel';
+export { default as FormElementCheckbox } from './FormElementTypes/FormElementCheckbox/FormElementCheckbox';
+export { default as FormElementInput } from './FormElementTypes/FormElementInput/FormElementInput';
+export { default as FormElementLabelInput } from './FormElementTypes/FormElementLabelInput/FormElementLabelInput';
+export { default as FormElementRange } from './FormElementTypes/FormElementRange/FormElementRange';
+export { default as FormElementTextarea } from './FormElementTypes/FormElementTextarea/FormElementTextarea';
 //support
-export { default as FormElementCheckboxRequired } from './FormElementCheckboxRequired/FormElementCheckboxRequired';
-export { default as FormElementRemoveButton } from './FormElementRemoveButton/FormElementRemoveButton';
-export { default as FormElementDragButton } from './FormElementDragButton/FormElementDragButton';
+export { default as FormElementCheckboxRequired } from './FormElementTypes/FormElementCheckboxRequired/FormElementCheckboxRequired';
+export { default as FormElementRemoveButton } from './FormElement/FormElementRemoveButton/FormElementRemoveButton';
+export { default as FormElementDragButton } from './FormElement/FormElementDragButton/FormElementDragButton';
 
 //slider
 export { default as Slider } from './Slider/Slider';

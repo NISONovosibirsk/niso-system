@@ -1,5 +1,6 @@
 import './FormElementTextarea.scss';
 import TextareaAutosize from 'react-textarea-autosize';
+import { IFormElementTextarea } from '../interfaces';
 
 const FormElementTextarea = ({
     value,
@@ -7,13 +8,7 @@ const FormElementTextarea = ({
     isDisabled,
     isRequired,
     onChange,
-}: {
-    value: string;
-    placeholder?: string;
-    isDisabled?: boolean;
-    isRequired?: boolean;
-    onChange: any;
-}) => {
+}: IFormElementTextarea) => {
     return (
         <TextareaAutosize
             className='form-element-textarea'

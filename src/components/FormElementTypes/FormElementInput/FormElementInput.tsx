@@ -1,3 +1,4 @@
+import { IFormElementInput } from '../interfaces';
 import './FormElementInput.scss';
 
 const FormElementInput = ({
@@ -7,14 +8,7 @@ const FormElementInput = ({
     isDisabled,
     isRequired,
     onChange,
-}: {
-    value: string;
-    type: string
-    placeholder?: string;
-    isDisabled?: boolean;
-    isRequired?: boolean;
-    onChange: any;
-}) => {
+}: IFormElementInput) => {
     return (
         <input
             className='form-element-input'

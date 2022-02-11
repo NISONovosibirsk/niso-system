@@ -1,4 +1,4 @@
-import { dragableIcon } from '../../assets';
+import { dragableIcon } from '../../../assets';
 import './FormElementDragButton.scss';
 
 const FormElementDragButton = () => {

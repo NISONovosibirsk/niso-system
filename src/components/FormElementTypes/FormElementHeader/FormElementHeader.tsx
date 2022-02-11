@@ -1,3 +1,4 @@
+import { IFormElementHeader } from '../interfaces';
 import './FormElementHeader.scss';
 
 const FormElementHeader = ({
@@ -5,12 +6,7 @@ const FormElementHeader = ({
     isDisabled,
     onChange,
     isFinalForm,
-}: {
-    value: string;
-    isDisabled?: boolean;
-    onChange: any;
-    isFinalForm: boolean;
-}) => {
+}: IFormElementHeader) => {
     return isFinalForm ? (
         <h3 className='form-element-header form-element-header_title'>
             {value}
