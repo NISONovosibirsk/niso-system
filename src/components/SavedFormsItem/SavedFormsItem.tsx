@@ -19,7 +19,7 @@ const SavedFormsItem = ({ index, item }: ISavedFormItem) => {
             <p className='saved-forms-item__subtitle'>{`${item.subtitle}  |  дата создания: ${item.date}`}</p>
             <p className='saved-forms-item__status'>сдан</p>
             <Button title='Редактировать' type='filled' onClick={handleEdit} />
-            <Button title='Удалить' type='filled' />
+            <Button title='Удалить' type='filled' onClick={handleRemove}/>
             <Button title='Отправить' type='filled' />
         </li>
     );

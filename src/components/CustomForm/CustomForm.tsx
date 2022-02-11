@@ -9,7 +9,9 @@ import { useDispatch } from 'react-redux';
 import { getSavedForms } from '../../store/actions/formActions';
 
 const CustomForm = () => {
+    // temporary states must be removed to redux
     const [isPreview, setIsPreview] = useState(false);
+
     const { constructor } = useTypeSelector(state => state.form);
     const dispatch = useDispatch();
 
@@ -17,21 +19,21 @@ const CustomForm = () => {
         handleStorage();
     }, []);
 
-    // save element to storage by button
-    const handleSave = e => {
-        e.preventDefault();
-        const key = String(Date.now());
-        localStorage.setItem(key, JSON.stringify(constructor));
-
-        handleStorage();
-    };
-
     // convert timestamp to human time
     const handleTime = key => {
         const date = new Date(Number(key));
         return `${date.getDate()}.0${
             date.getMonth() + 1
         }.${date.getFullYear()}`;
+    };
+
+    // save element to storage by button
+    const handleSave = e => {
+        e.preventDefault();
+        const isValid = e.target.closest('form').checkValidity();
+        const key = String(Date.now());
+        isValid && localStorage.setItem(key, JSON.stringify(constructor));
+        handleStorage();
     };
 
     // add elements from storage to state
@@ -43,6 +45,19 @@ const CustomForm = () => {
                 const form: any = {};
                 form.date = handleTime(key);
                 form.content = JSON.parse(json);
+
+                form.content.find(item => {
+                    switch (item.type) {
+                        case 'title':
+                            form.title = item.placeholder;
+                            break;
+                        case 'header':
+                            form.subtitle = item.placeholder;
+                            break;
+                        default:
+                            break;
+                    }
+                });
 
                 newState.push(form);
             }
