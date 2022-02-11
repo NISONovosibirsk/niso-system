@@ -72,6 +72,7 @@ const initialState: IFormState = {
             placeholder: false,
             value: false,
             isDisabled: true,
+            isRequired: true,
         },
         {
             id: 10,
