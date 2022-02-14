@@ -1,7 +1,7 @@
 import './FormElement.scss';
 import { Draggable } from 'react-beautiful-dnd';
 import { useDispatch } from 'react-redux';
-import { valueChange } from '../../store/actions/formActions';
+import { removeElement, valueChange } from '../../store/actions/formActions';
 import { useTypeSelector } from '../../hooks/useTypeSelector';
 import { IFormElement } from '../../interfaces';
 import {
@@ -21,6 +21,12 @@ const FormElement = ({ item, id, index }: IFormElement) => {
         newState[index].placeholder =
             e.target.type === 'checkbox' ? e.target.checked : e.target.value;
         dispatch(valueChange(newState));
+    };
+
+    const handleRemoveElement = e => {
+        const newState = Array.from(constructor);
+        newState.splice(e.target.parentNode.id, 1);
+        dispatch(removeElement(newState));
     };
 
     const handleRenderLabelInput = () => {
@@ -48,7 +54,9 @@ const FormElement = ({ item, id, index }: IFormElement) => {
             case 'title':
                 break;
             default:
-                return <FormElementRemoveButton />;
+                return (
+                    <FormElementRemoveButton onClick={handleRemoveElement} />
+                );
         }
     };
 
@@ -63,7 +71,7 @@ const FormElement = ({ item, id, index }: IFormElement) => {
                     ref={provided.innerRef}
                 >
                     {handleRenderLabelInput()}
-                    {!item.isDisabled && item.isRequired === !undefined && (
+                    {!item.isDisabled && item.isRequired !== undefined && (
                         <FormElementCheckboxRequired
                             index={index}
                             isChecked={item.isRequired}

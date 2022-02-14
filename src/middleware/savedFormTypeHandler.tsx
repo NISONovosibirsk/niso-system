@@ -2,6 +2,7 @@ import {
     FormElementCheckbox,
     FormElementHeader,
     FormElementInput,
+    FormElementList,
     FormElementRange,
     FormElementSubtitle,
     FormElementTel,
@@ -108,6 +109,25 @@ export const savedFormTypeHandler = ({
                         value={element.value}
                         onChange={onValueChange}
                         isRequired={element.isRequired}
+                    />
+                </label>
+            );
+        case 'list':
+            return (
+                <label key={element.id} className='saved-form__label'>
+                    {element.label}
+                    {element.isRequired && (
+                        <p className='saved-form__sign-required'>*</p>
+                    )}
+                    <FormElementList
+                        id={element.id}
+                        value={element.value}
+                        placeholder={element.placeholder}
+                        datalist={element.datalist}
+                        onChange={onValueChange}
+                        isDisabled={element.isDisabled}
+                        isRequired={element.isRequired}
+                        isFinalForm={isFinalForm}
                     />
                 </label>
             );

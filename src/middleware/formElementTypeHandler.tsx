@@ -2,6 +2,7 @@ import {
     FormElementCheckbox,
     FormElementHeader,
     FormElementInput,
+    FormElementList,
     FormElementRange,
     FormElementSubtitle,
     FormElementTel,
@@ -81,6 +82,17 @@ const formElementTypeHandler = ({
                     value={element.placeholder}
                     onChange={onValueChange}
                     isDisabled={element.isDisabled}
+                />
+            );
+        case 'list':
+            return (
+                <FormElementList
+                    id={element.id}
+                    value={element.placeholder}
+                    datalist={element.datalist}
+                    onChange={onValueChange}
+                    isDisabled={element.isDisabled}
+                    isFinalForm={isFinalForm}
                 />
             );
         default:

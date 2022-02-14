@@ -25,6 +25,7 @@ export { default as FormElementTel } from './FormElementTypes/FormElementTel/For
 export { default as FormElementCheckbox } from './FormElementTypes/FormElementCheckbox/FormElementCheckbox';
 export { default as FormElementInput } from './FormElementTypes/FormElementInput/FormElementInput';
 export { default as FormElementLabelInput } from './FormElementTypes/FormElementLabelInput/FormElementLabelInput';
+export { default as FormElementList } from './FormElementTypes/FormElementList/FormElementList';
 export { default as FormElementRange } from './FormElementTypes/FormElementRange/FormElementRange';
 export { default as FormElementTextarea } from './FormElementTypes/FormElementTextarea/FormElementTextarea';
 //support
