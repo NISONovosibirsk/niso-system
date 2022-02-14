@@ -2,7 +2,6 @@ import { useTypeSelector } from '../../hooks/useTypeSelector';
 import './CustomForm.scss';
 import { Button, FormElement } from '..';
 import { Droppable } from 'react-beautiful-dnd';
-import { useState } from 'react';
 import { savedFormTypeHandler } from '../../middleware/savedFormTypeHandler';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
@@ -20,6 +19,8 @@ const CustomForm = () => {
         handleStorage();
     }, []);
 
+    console.log('rerender')
+
     // convert timestamp to human time
     const handleTime = key => {
         const date = new Date(Number(key));
@@ -34,8 +35,9 @@ const CustomForm = () => {
         const isValid = e.target.closest('form').checkValidity();
         const key = String(Date.now());
         isValid && localStorage.setItem(key, JSON.stringify(constructor));
-        handleStorage();
         dispatch(resetConstructor());
+
+        handleStorage();
     };
 
     // add elements from storage to state
@@ -66,7 +68,6 @@ const CustomForm = () => {
             }
 
             dispatch(getSavedForms(newState));
-            dispatch(resetConstructor());
         });
     };
 
