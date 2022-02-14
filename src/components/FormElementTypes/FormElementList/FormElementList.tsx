@@ -86,13 +86,13 @@ const FormElementList = ({
                     >
                         Добавить пункт
                     </p>
-                    <datalist id={id}>
-                        {datalist.map((list, index) => (
-                            <option key={index} value={list} />
-                        ))}
-                    </datalist>
                 </>
             )}
+            <datalist id={id}>
+                {datalist.map((list, index) => (
+                    <option key={index} value={list} />
+                ))}
+            </datalist>
         </div>
     );
 };
