@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useTypeSelector } from '../../../hooks/useTypeSelector';
-import { lableChange } from '../../../store/actions/formActions';
+import { updateConstructor } from '../../../store/actions/formActions';
 import { IFormElementLabelInput } from '../interfaces';
 import './FormElementLabelInput.scss';
 
@@ -14,7 +14,7 @@ const FormElementLabelInput = ({
     const handleValueChange = e => {
         const newState: Array<any> = Array.from(constructor);
         newState[e.target.parentNode.id].label = e.target.value;
-        dispatch(lableChange(newState));
+        dispatch(updateConstructor(newState));
     };
 
     return (

@@ -53,13 +53,12 @@ const CustomForm = () => {
         const key = String(Date.now());
         isValid && localStorage.setItem(key, JSON.stringify(constructor));
         handleReset();
-
         handleStorage();
     };
 
     // add elements from storage to state
     const handleStorage: any = () => {
-        const newState: any[] = [];
+        const newState: Array<any> = [];
         Object.keys(localStorage).map(key => {
             const json = localStorage.getItem(key);
             if (json !== null) {
@@ -76,14 +75,11 @@ const CustomForm = () => {
                         case 'header':
                             form.subtitle = item.placeholder;
                             break;
-                        default:
-                            break;
                     }
                 });
 
                 newState.push(form);
             }
-
             dispatch(getSavedForms(newState));
         });
     };
