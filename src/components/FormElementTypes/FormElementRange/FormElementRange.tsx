@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useTypeSelector } from '../../../hooks/useTypeSelector';
-import { valueChange } from '../../../store/actions/formActions';
+import { updateConstructor } from '../../../store/actions/formActions';
 import { IFormElementRange } from '../interfaces';
 import './FormElementRange.scss';
 
@@ -22,19 +22,19 @@ const FormElementRange = ({
     const handleMaxRangeValueChange = e => {
         const newState: Array<any> = Array.from(constructor);
         newState[e.target.parentNode.parentNode.id].max = e.target.value;
-        dispatch(valueChange(newState));
+        dispatch(updateConstructor(newState));
     };
 
     const handleMinRangeValueChange = e => {
         const newState: Array<any> = Array.from(constructor);
         newState[e.target.parentNode.parentNode.id].min = e.target.value;
-        dispatch(valueChange(newState));
+        dispatch(updateConstructor(newState));
     };
 
     const handleStepRangeValueChange = e => {
         const newState: Array<any> = Array.from(constructor);
         newState[e.target.parentNode.parentNode.id].step = e.target.value;
-        dispatch(valueChange(newState));
+        dispatch(updateConstructor(newState));
     };
 
     return (
