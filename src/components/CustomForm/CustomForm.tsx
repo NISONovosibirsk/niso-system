@@ -52,7 +52,6 @@ const CustomForm = () => {
         const isValid = e.target.closest('form').checkValidity();
         const key = String(Date.now());
         isValid && localStorage.setItem(key, JSON.stringify(constructor));
-        // dispatch(resetConstructor());
         handleReset();
 
         handleStorage();
