@@ -11,6 +11,7 @@ import {
     UPDATE_CONSTRUCTOR,
     SET_CURRENT_FORM,
     RESET_CONSTRUCTOR,
+    SET_PREVIEW,
 } from '../types';
 import { IFormState, IDragAndDropActions } from '../../interfaces';
 
@@ -105,6 +106,7 @@ const initialState: IFormState = {
 
     savedForms: [],
     currentForm: [],
+    isPreview: false,
 };
 
 export const formReducer = (
@@ -136,6 +138,8 @@ export const formReducer = (
             return { ...state, currentForm: action.payload };
         case RESET_CONSTRUCTOR:
             return { ...state, constructor: initialState.constructor };
+        case SET_PREVIEW:
+            return { ...state, isPreview: action.payload };
         default:
             return state;
     }

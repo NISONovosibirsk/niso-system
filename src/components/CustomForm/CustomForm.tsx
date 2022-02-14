@@ -6,13 +6,14 @@ import { useState } from 'react';
 import { savedFormTypeHandler } from '../../middleware/savedFormTypeHandler';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { getSavedForms, resetConstructor } from '../../store/actions/formActions';
+import {
+    getSavedForms,
+    resetConstructor,
+    setPreview,
+} from '../../store/actions/formActions';
 
 const CustomForm = () => {
-    // temporary states must be removed to redux
-    const [isPreview, setIsPreview] = useState(false);
-
-    const { constructor } = useTypeSelector(state => state.form);
+    const { constructor, isPreview } = useTypeSelector(state => state.form);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -34,6 +35,7 @@ const CustomForm = () => {
         const key = String(Date.now());
         isValid && localStorage.setItem(key, JSON.stringify(constructor));
         handleStorage();
+        dispatch(resetConstructor());
     };
 
     // add elements from storage to state
@@ -69,11 +71,11 @@ const CustomForm = () => {
     };
 
     const handleShowPreview = () => {
-        setIsPreview(true);
+        dispatch(setPreview(true));
     };
 
     const handleHidePreview = () => {
-        setIsPreview(false);
+        dispatch(setPreview(false));
     };
 
     return (

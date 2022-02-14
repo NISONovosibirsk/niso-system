@@ -11,6 +11,7 @@ import {
     UPDATE_CONSTRUCTOR,
     SET_CURRENT_FORM,
     RESET_CONSTRUCTOR,
+    SET_PREVIEW,
 } from '../types';
 
 export const sortElements = newState => {
@@ -104,6 +105,14 @@ export const setCurrentForm = newState => {
 export const resetConstructor = () => {
     try {
         return { type: RESET_CONSTRUCTOR };
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const setPreview = payload => {
+    try {
+        return { type: SET_PREVIEW, payload: payload };
     } catch (error) {
         console.log(error);
     }

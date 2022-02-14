@@ -71,6 +71,7 @@ export interface IFormState {
     constructor: any;
     savedForms: any;
     currentForm: any;
+    isPreview: boolean;
 }
 
 export interface IDragAndDropActions {
