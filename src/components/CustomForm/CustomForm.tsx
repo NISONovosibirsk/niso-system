@@ -43,7 +43,9 @@ const CustomForm = () => {
         const date = new Date(Number(key));
         return `${date.getDate()}.0${
             date.getMonth() + 1
-        }.${date.getFullYear()}`;
+        }.${date.getFullYear()} ${date.getHours()}:${
+            (date.getMinutes() < 10 ? '0' : '') + date.getMinutes()
+        }`;
     };
 
     // save element to storage by button
