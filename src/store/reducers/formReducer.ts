@@ -1,17 +1,8 @@
 import {
-    ADD_ELEMENT,
-    LABLE_CHANGE,
-    RANGE_CHANGE_MAXIMUM,
-    RANGE_CHANGE_MINIMUM,
-    REMOVE_ELEMENT,
-    SET_REQUIRED,
-    SORT_ELEMENTS,
-    GET_SAVED_FORMS,
-    VALUE_CHANGE,
     UPDATE_CONSTRUCTOR,
     SET_CURRENT_FORM,
-    RESET_CONSTRUCTOR,
     SET_PREVIEW,
+    GET_SAVED_FORMS,
 } from '../types';
 import { IFormState, IDragAndDropActions } from '../../interfaces';
 
@@ -125,32 +116,14 @@ export const formReducer = (
     action: IDragAndDropActions
 ): IFormState => {
     switch (action.type) {
-        case SORT_ELEMENTS:
-            return { ...state, constructor: action.payload };
-        case ADD_ELEMENT:
-            return { ...state, constructor: action.payload };
-        case LABLE_CHANGE:
-            return { ...state, constructor: action.payload };
-        case VALUE_CHANGE:
-            return { ...state, constructor: action.payload };
-        case REMOVE_ELEMENT:
-            return { ...state, constructor: action.payload };
-        case SET_REQUIRED:
-            return { ...state, constructor: action.payload };
-        case RANGE_CHANGE_MINIMUM:
-            return { ...state, constructor: action.payload };
-        case RANGE_CHANGE_MAXIMUM:
-            return { ...state, constructor: action.payload };
-        case GET_SAVED_FORMS:
-            return { ...state, savedForms: action.payload };
         case UPDATE_CONSTRUCTOR:
             return { ...state, constructor: action.payload };
         case SET_CURRENT_FORM:
             return { ...state, currentForm: action.payload };
-        case RESET_CONSTRUCTOR:
-            return { ...state, constructor: initialState.constructor };
         case SET_PREVIEW:
             return { ...state, isPreview: action.payload };
+        case GET_SAVED_FORMS:
+            return { ...state, savedForms: action.payload };
         default:
             return state;
     }

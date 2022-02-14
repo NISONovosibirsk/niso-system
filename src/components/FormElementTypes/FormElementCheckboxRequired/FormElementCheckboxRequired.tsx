@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useTypeSelector } from '../../../hooks/useTypeSelector';
-import { setRequired } from '../../../store/actions/formActions';
+import { updateConstructor } from '../../../store/actions/formActions';
 import { IFormElementCheckboxRequired } from '../interfaces';
 import './FormElementCheckboxRequired.scss';
 
@@ -15,7 +15,7 @@ const FormElementCheckboxRequired = ({
     const handleChange = () => {
         const newState: Array<any> = Array.from(constructor);
         newState[index].isRequired = !newState[index].isRequired;
-        dispatch(setRequired(newState));
+        dispatch(updateConstructor(newState));
     };
 
     return (

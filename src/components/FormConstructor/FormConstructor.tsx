@@ -1,7 +1,7 @@
 import { CustomForm, FormElements } from '..';
 import './FormConstructor.scss';
 import { DragDropContext } from 'react-beautiful-dnd';
-import { addElement, sortElements } from '../../store/actions/formActions';
+import { updateConstructor } from '../../store/actions/formActions';
 import { useDispatch } from 'react-redux';
 import { useTypeSelector } from '../../hooks/useTypeSelector';
 
@@ -24,7 +24,7 @@ const FormConstructor = () => {
             const spliced = newState.splice(source.index, 1);
             newState.splice(destination.index, 0, ...spliced);
 
-            dispatch(sortElements(newState));
+            dispatch(updateConstructor(newState));
         }
 
         // drag element to constructor
@@ -35,7 +35,7 @@ const FormConstructor = () => {
             card.id = Date.now();
             newState.splice(destination.index, 0, card);
 
-            dispatch(addElement(newState));
+            dispatch(updateConstructor(newState));
         }
     };
 
