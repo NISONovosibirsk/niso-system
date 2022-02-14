@@ -7,8 +7,8 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import {
     getSavedForms,
-    resetConstructor,
     setPreview,
+    updateConstructor,
 } from '../../store/actions/formActions';
 
 const CustomForm = () => {
@@ -19,7 +19,24 @@ const CustomForm = () => {
         handleStorage();
     }, []);
 
-    console.log('rerender')
+    const handleReset = () => {
+        dispatch(
+            updateConstructor([
+                {
+                    id: 1,
+                    type: 'header',
+                    placeholder: '',
+                    isDisabled: false,
+                },
+                {
+                    id: 2,
+                    type: 'title',
+                    placeholder: '',
+                    isDisabled: false,
+                },
+            ])
+        );
+    };
 
     // convert timestamp to human time
     const handleTime = key => {
@@ -35,7 +52,8 @@ const CustomForm = () => {
         const isValid = e.target.closest('form').checkValidity();
         const key = String(Date.now());
         isValid && localStorage.setItem(key, JSON.stringify(constructor));
-        dispatch(resetConstructor());
+        // dispatch(resetConstructor());
+        handleReset();
 
         handleStorage();
     };
