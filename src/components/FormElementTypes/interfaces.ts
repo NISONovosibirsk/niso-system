@@ -1,4 +1,5 @@
 export interface IFormElementCheckbox {
+    defaultChecked: boolean;
     isChecked: boolean;
     isDisabled?: boolean;
     isRequired?: boolean;
@@ -34,6 +35,7 @@ export interface IFormElementLabelInput {
 export interface IFormElementRange {
     valueMaximum: string;
     valueMinimum: string;
+    valueStep: string;
     value: string;
     defaultValue?: string;
     onValueChange: any;

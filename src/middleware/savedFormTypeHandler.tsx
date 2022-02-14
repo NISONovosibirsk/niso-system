@@ -73,6 +73,7 @@ export const savedFormTypeHandler = ({
                     <FormElementRange
                         valueMaximum={element.max}
                         valueMinimum={element.min}
+                        valueStep={element.step}
                         value={element.value}
                         defaultValue={element.placeholder}
                         onValueChange={onValueChange}
@@ -88,6 +89,7 @@ export const savedFormTypeHandler = ({
                         <p className='saved-form__sign-required'>*</p>
                     )}
                     <FormElementCheckbox
+                        defaultChecked={element.placeholder}
                         isChecked={element.value}
                         onChange={onValueChange}
                         isRequired={element.isRequired}
