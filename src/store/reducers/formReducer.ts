@@ -80,7 +80,7 @@ const initialState: IFormState = {
         },
         {
             id: 10,
-            label: 'range',
+            label: 'Ползунок',
             type: 'range',
             placeholder: '50',
             value: '',
@@ -88,6 +88,16 @@ const initialState: IFormState = {
             max: '100',
             step: '1',
             isDisabled: true,
+        },
+        {
+            id: 11,
+            label: 'Выпадающий список',
+            type: 'list',
+            placeholder: '',
+            value: '',
+            datalist: [],
+            isDisabled: true,
+            isRequired: true,
         },
     ],
     constructor: [
