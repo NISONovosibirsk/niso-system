@@ -3,6 +3,7 @@ import {
     FormElementHeader,
     FormElementInput,
     FormElementList,
+    FormElementRadio,
     FormElementRange,
     FormElementSubtitle,
     FormElementTel,
@@ -90,6 +91,16 @@ const formElementTypeHandler = ({
                     id={element.id}
                     value={element.placeholder}
                     datalist={element.datalist}
+                    onChange={onValueChange}
+                    isDisabled={element.isDisabled}
+                    isFinalForm={isFinalForm}
+                />
+            );
+        case 'radio':
+            return (
+                <FormElementRadio
+                    id={element.id}
+                    radiolist={element.radiolist}
                     onChange={onValueChange}
                     isDisabled={element.isDisabled}
                     isFinalForm={isFinalForm}
