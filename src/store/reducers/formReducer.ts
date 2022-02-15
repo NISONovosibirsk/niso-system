@@ -90,12 +90,19 @@ const initialState: IFormState = {
             isDisabled: true,
             isRequired: true,
         },
+        {
+            id: 12,
+            label: 'Выбор варианта',
+            type: 'radio',
+            radiolist: [],
+            isDisabled: true,
+        },
     ],
     constructor: [
         {
             id: 1,
             type: 'header',
-            placeholder: '',
+            placeholder: '123',
             isDisabled: false,
         },
         {

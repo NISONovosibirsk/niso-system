@@ -7,12 +7,32 @@ import './SavedForm.scss';
 
 const SavedForm = () => {
     const { currentForm } = useTypeSelector(state => state.form);
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
     const handleValueChange = (e, index) => {
+        const { type, id, checked, value } = e.target;
+
         const newState: Array<any> = Array.from(currentForm);
-        newState[index].value = 
-            e.target.type === 'checkbox' ? e.target.checked : e.target.value;
+
+        switch (type) {
+            case 'radio':
+                const newRadiolist: Array<any> = Array.from(
+                    newState[index].radiolist
+                );
+
+                newRadiolist.forEach(radio => (radio.isChecked = false));
+                newRadiolist[id].isChecked = true;
+                newState[index].radiolist = newRadiolist;
+                break;
+
+            case 'checkbox':
+                newState[index].value = checked;
+                break;
+
+            default:
+                newState[index].value = value;
+                break;
+        }
         dispatch(setCurrentForm(newState));
     };
 
@@ -20,7 +40,9 @@ const SavedForm = () => {
         <form className='saved-form'>
             {currentForm.map((item, index) =>
                 savedFormTypeHandler({
-                    onValueChange: (e) => {handleValueChange(e, index)},
+                    onValueChange: e => {
+                        handleValueChange(e, index);
+                    },
                     element: item,
                     isFinalForm: true,
                 })

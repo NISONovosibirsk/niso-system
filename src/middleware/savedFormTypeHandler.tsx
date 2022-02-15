@@ -3,6 +3,7 @@ import {
     FormElementHeader,
     FormElementInput,
     FormElementList,
+    FormElementRadio,
     FormElementRange,
     FormElementSubtitle,
     FormElementTel,
@@ -68,9 +69,6 @@ export const savedFormTypeHandler = ({
             return (
                 <label key={element.id} className='saved-form__label'>
                     {element.label}
-                    {element.isRequired && (
-                        <p className='saved-form__sign-required'>*</p>
-                    )}
                     <FormElementRange
                         valueMaximum={element.max}
                         valueMinimum={element.min}
@@ -127,6 +125,19 @@ export const savedFormTypeHandler = ({
                         onChange={onValueChange}
                         isDisabled={element.isDisabled}
                         isRequired={element.isRequired}
+                        isFinalForm={isFinalForm}
+                    />
+                </label>
+            );
+        case 'radio':
+            return (
+                <label key={element.id} className='saved-form__label'>
+                    {element.label}
+                    <FormElementRadio
+                        id={element.id}
+                        radiolist={element.radiolist}
+                        onChange={onValueChange}
+                        isDisabled={element.isDisabled}
                         isFinalForm={isFinalForm}
                     />
                 </label>

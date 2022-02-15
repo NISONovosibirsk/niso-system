@@ -26,6 +26,7 @@ export { default as FormElementCheckbox } from './FormElementTypes/FormElementCh
 export { default as FormElementInput } from './FormElementTypes/FormElementInput/FormElementInput';
 export { default as FormElementLabelInput } from './FormElementTypes/FormElementLabelInput/FormElementLabelInput';
 export { default as FormElementList } from './FormElementTypes/FormElementList/FormElementList';
+export { default as FormElementRadio } from './FormElementTypes/FormElementRadio/FormElementRadio';
 export { default as FormElementRange } from './FormElementTypes/FormElementRange/FormElementRange';
 export { default as FormElementTextarea } from './FormElementTypes/FormElementTextarea/FormElementTextarea';
 //support
