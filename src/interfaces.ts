@@ -17,7 +17,7 @@ export interface IBlogCard {
 // Button
 export interface IButton {
     title?: string;
-    type?: string;
+    mod?: string;
     onClick?: any;
 }
 

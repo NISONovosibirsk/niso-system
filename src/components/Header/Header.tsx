@@ -27,7 +27,7 @@ const Header = () => {
             </nav>
             <div className='header__buttons-field'>
                 <Button title='Войти'></Button>
-                <Button title='Регистрация' type='filled'></Button>
+                <Button title='Регистрация' mod='filled'></Button>
             </div>
             <Sidebar isOpen={isOpen} />
         </header>

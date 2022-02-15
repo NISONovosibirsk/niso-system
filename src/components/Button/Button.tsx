@@ -1,9 +1,12 @@
 import './Button.scss';
 import { IButton } from '../../interfaces';
 
-const Button = ({ title = '', type = '', onClick }: IButton) => {
+const Button = ({ title, mod, onClick }: IButton) => {
     return (
-        <button onClick={onClick} className={`button button_type_${type}`}>
+        <button
+            onClick={onClick}
+            className={`button button_type_${mod}`}
+        >
             {title}
         </button>
     );

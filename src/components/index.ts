@@ -14,6 +14,7 @@ export { default as SavedFormsList } from './SavedFormsList/SavedFormsList';
 export { default as Sidebar } from './Sidebar/Sidebar';
 export { default as FormElements } from './FormElements/FormElements';
 export { default as RemoveButton } from './RemoveButton/RemoveButton';
+export { default as ShowHideButton } from './ShowHideButton/ShowHideButton';
 
 //form elements
 //main

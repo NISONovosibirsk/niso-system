@@ -14,7 +14,7 @@ const Form = ({ title, onSubmit, children }: IForm) => {
         <form onSubmit={handleSubmit} className='form'>
             <h2 className='form__title'>{title}</h2>
             {children}
-            <Button title='Зарегистрироваться' type='filled'></Button>
+            <Button title='Зарегистрироваться' mod='filled'></Button>
         </form>
     );
 };

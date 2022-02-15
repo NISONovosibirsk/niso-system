@@ -1,6 +1,6 @@
 import { useTypeSelector } from '../../hooks/useTypeSelector';
 import './CustomForm.scss';
-import { Button, FormElement } from '..';
+import { Button, FormElement, ShowHideButton } from '..';
 import { Droppable } from 'react-beautiful-dnd';
 import { savedFormTypeHandler } from '../../middleware/savedFormTypeHandler';
 import { useEffect } from 'react';
@@ -17,6 +17,7 @@ const CustomForm = () => {
 
     useEffect(() => {
         handleStorage();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const handleReset = () => {
@@ -51,9 +52,8 @@ const CustomForm = () => {
     // save element to storage by button
     const handleSave = e => {
         e.preventDefault();
-        const isValid = e.target.closest('form').checkValidity();
         const key = String(Date.now());
-        isValid && localStorage.setItem(key, JSON.stringify(constructor));
+        localStorage.setItem(key, JSON.stringify(constructor));
         handleReset();
         handleStorage();
     };
@@ -86,65 +86,43 @@ const CustomForm = () => {
         });
     };
 
-    const handleShowPreview = () => {
-        dispatch(setPreview(true));
-    };
-
-    const handleHidePreview = () => {
-        dispatch(setPreview(false));
+    const handleIsPreview = () => {
+        dispatch(setPreview(!isPreview));
     };
 
     return (
         <Droppable droppableId={'customForm'}>
             {provided => (
                 <form
-                    onSubmit={e => {
-                        e.preventDefault();
-                    }}
+                    onSubmit={handleSave}
                     className='custom-form'
                     {...provided.droppableProps}
                     ref={provided.innerRef}
                 >
-                    {constructor.length &&
-                        (isPreview ? (
-                            <Button
-                                title='Показать конструктор'
-                                onClick={handleHidePreview}
-                            />
-                        ) : (
-                            <Button
-                                title='Показать результат'
-                                onClick={handleShowPreview}
-                            />
-                        ))}
+                    <ShowHideButton
+                        isShow={isPreview}
+                        onClick={handleIsPreview}
+                    />
                     <div className='custom-form__field'>
-                        {constructor.length ? (
-                            isPreview ? (
-                                constructor.map(item =>
-                                    savedFormTypeHandler({
-                                        onValueChange: () => {},
-                                        element: item,
-                                        isFinalForm: true,
-                                    })
-                                )
-                            ) : (
-                                constructor.map((item: any, index: number) => (
-                                    <FormElement
-                                        item={item}
-                                        id={item.id}
-                                        index={index}
-                                        key={item.id}
-                                    />
-                                ))
-                            )
-                        ) : (
-                            <p className='custom-form__form-placeholder'>
-                                Перетащите сюда нужное поле
-                            </p>
-                        )}
+                        {isPreview
+                            ? constructor.map(item =>
+                                  savedFormTypeHandler({
+                                      onValueChange: () => {},
+                                      element: item,
+                                      isFinalForm: true,
+                                  })
+                              )
+                            : constructor.map((item: any, index: number) => (
+                                  <FormElement
+                                      item={item}
+                                      id={item.id}
+                                      index={index}
+                                      key={item.id}
+                                  />
+                              ))}
                     </div>
-                    {constructor.length && (
-                        <Button title='Сохранить форму' onClick={handleSave} />
+                    {constructor.length > 2 && (
+                        <Button title='Сохранить форму' />
                     )}
                     {provided.placeholder}
                 </form>

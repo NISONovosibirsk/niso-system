@@ -11,3 +11,7 @@ export { default as nisoLogo } from './icons/header__logo.svg';
 //formElement
 export { default as dragableIcon } from './icons/form-element__dragable-img.png';
 export { default as removeButtonIcon } from './icons/form-element__remove-btn.svg';
+
+//show hide
+export { default as ShowResults } from './icons/show-results.svg';
+export { default as HideResults } from './icons/hide-results.svg';
