@@ -27,28 +27,35 @@ const FormElementList = ({
     const dispatch = useDispatch();
 
     const handleChangeOptionsValue = e => {
-        const { parentNode, id, value } = e.target;
+        const { id: formElementId } = e.target.parentNode.parentNode.parentNode;
+        const { id: targetId, value } = e.target;
 
         const newState: Array<any> = Array.from(constructor);
-        newState[parentNode.parentNode.parentNode.id].datalist[id] = value;
+        newState[formElementId].datalist[targetId] = value;
+
         dispatch(updateConstructor(newState));
     };
 
     const handleAddOption = e => {
+        const { id: formElementId } = e.target.parentNode.parentNode;
+
         const newState: Array<any> = Array.from(constructor);
         const newDatalist: Array<any> = Array.from(
-            newState[e.target.parentNode.parentNode.id].datalist
+            newState[formElementId].datalist
         );
+
         newDatalist.push('');
-        newState[e.target.parentNode.parentNode.id].datalist = newDatalist;
+        newState[formElementId].datalist = newDatalist;
+
         dispatch(updateConstructor(newState));
     };
 
     const handleRemoveElement = e => {
-        const { parentNode, id } = e.target.parentNode;
+        const { id: formElementId } = e.target.parentNode.parentNode.parentNode;
+        const { id: optionId } = e.target.parentNode;
 
         const newState: Array<any> = Array.from(constructor);
-        newState[parentNode.parentNode.id].datalist.splice(id, 1);
+        newState[formElementId].datalist.splice(optionId, 1);
         dispatch(updateConstructor(newState));
     };
 
