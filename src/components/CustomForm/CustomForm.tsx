@@ -61,15 +61,17 @@ const CustomForm = () => {
     // add elements from storage to state
     const handleStorage: any = () => {
         const newState: Array<any> = [];
-        Object.keys(localStorage).map(key => {
+
+        Object.keys(localStorage).forEach(key => {
             const json = localStorage.getItem(key);
+
             if (json !== null) {
                 const form: any = {};
                 form.date = handleTime(key);
                 form.content = JSON.parse(json);
                 form._id = Number(key);
 
-                form.content.find(item => {
+                form.content.forEach(item => {
                     switch (item.type) {
                         case 'title':
                             form.title = item.placeholder;
