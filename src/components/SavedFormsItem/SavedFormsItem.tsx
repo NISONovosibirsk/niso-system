@@ -1,12 +1,16 @@
-import { Button } from '..';
+import { Button, RemoveButton } from '..';
 import './SavedFormsItem.scss';
 import { ISavedFormItem } from '../../interfaces';
 import { useTypeSelector } from '../../hooks/useTypeSelector';
-import { getSavedForms, setCurrentForm, updateConstructor } from '../../store/actions/formActions';
+import {
+    getSavedForms,
+    setCurrentForm,
+    updateConstructor,
+} from '../../store/actions/formActions';
 import { useDispatch } from 'react-redux';
 
 const SavedFormsItem = ({ index, item }: ISavedFormItem) => {
-    const { savedForms, constructor } = useTypeSelector(state => state.form);
+    const { savedForms } = useTypeSelector(state => state.form);
     const dispatch = useDispatch();
 
     const handleEdit = () => {
@@ -24,7 +28,7 @@ const SavedFormsItem = ({ index, item }: ISavedFormItem) => {
     const handleSend = () => {
         const newState = Array.from(savedForms[index].content);
         dispatch(setCurrentForm(newState));
-    }
+    };
 
     return (
         <li className='saved-forms-item'>
@@ -34,8 +38,8 @@ const SavedFormsItem = ({ index, item }: ISavedFormItem) => {
             <p className='saved-forms-item__subtitle'>{`${item.subtitle}  |  дата создания: ${item.date}`}</p>
             <p className='saved-forms-item__status'>сдан</p>
             <Button title='Редактировать' type='filled' onClick={handleEdit} />
-            <Button title='Удалить' type='filled' onClick={handleRemove} />
-            <Button title='Отправить' type='filled' onClick={handleSend}/>
+            <Button title='Отправить' type='filled' onClick={handleSend} />
+            <RemoveButton onClick={handleRemove} type='saved-forms' />
         </li>
     );
 };

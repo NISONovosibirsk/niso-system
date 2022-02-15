@@ -1,4 +1,4 @@
-.form-element-remove-button {
+.remove-button {
     cursor: pointer;
     justify-self: end;
     height: 20px;
@@ -6,5 +6,10 @@
 
     &::after {
         content: '\274c';
+    }
+
+    &_saved-forms {
+        grid-column: 6 / 7;
+        height: 40px;
     }
 }

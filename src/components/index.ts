@@ -13,6 +13,7 @@ export { default as SavedFormsItem } from './SavedFormsItem/SavedFormsItem';
 export { default as SavedFormsList } from './SavedFormsList/SavedFormsList';
 export { default as Sidebar } from './Sidebar/Sidebar';
 export { default as FormElements } from './FormElements/FormElements';
+export { default as RemoveButton } from './RemoveButton/RemoveButton';
 
 //form elements
 //main
@@ -31,7 +32,6 @@ export { default as FormElementRange } from './FormElementTypes/FormElementRange
 export { default as FormElementTextarea } from './FormElementTypes/FormElementTextarea/FormElementTextarea';
 //support
 export { default as FormElementCheckboxRequired } from './FormElementTypes/FormElementCheckboxRequired/FormElementCheckboxRequired';
-export { default as FormElementRemoveButton } from './FormElement/FormElementRemoveButton/FormElementRemoveButton';
 export { default as FormElementDragButton } from './FormElement/FormElementDragButton/FormElementDragButton';
 
 //slider

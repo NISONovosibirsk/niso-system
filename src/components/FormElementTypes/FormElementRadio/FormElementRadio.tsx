@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { FormElementRemoveButton } from '../..';
+import { RemoveButton } from '../..';
 import { useTypeSelector } from '../../../hooks/useTypeSelector';
 import { updateConstructor } from '../../../store/actions/formActions';
 import { IFormElementRadio } from '../interfaces';
@@ -104,7 +104,7 @@ const FormElementRadio = ({
                                         value={radio.title}
                                         onChange={handleOptionTitleChange}
                                     />
-                                    <FormElementRemoveButton
+                                    <RemoveButton
                                         onClick={handleRemoveElement}
                                     />
                                 </>

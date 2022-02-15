@@ -8,7 +8,7 @@ import {
     FormElementCheckboxRequired,
     FormElementDragButton,
     FormElementLabelInput,
-    FormElementRemoveButton,
+    RemoveButton,
 } from '..';
 import formElementTypeHandler from '../../middleware/formElementTypeHandler';
 
@@ -74,9 +74,7 @@ const FormElement = ({ item, id, index }: IFormElement) => {
             case 'title':
                 break;
             default:
-                return (
-                    <FormElementRemoveButton onClick={handleRemoveElement} />
-                );
+                return <RemoveButton onClick={handleRemoveElement} />;
         }
     };
 

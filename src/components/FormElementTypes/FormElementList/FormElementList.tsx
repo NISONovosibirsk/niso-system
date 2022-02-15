@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { FormElementRemoveButton } from '../..';
+import { RemoveButton } from '../..';
 import { useTypeSelector } from '../../../hooks/useTypeSelector';
 import { updateConstructor } from '../../../store/actions/formActions';
 import { IFormElementList } from '../interfaces';
@@ -74,9 +74,7 @@ const FormElementList = ({
                                 onChange={handleChangeOptionsValue}
                                 disabled={isDisabled}
                             />
-                            <FormElementRemoveButton
-                                onClick={handleRemoveElement}
-                            />
+                            <RemoveButton onClick={handleRemoveElement} />
                         </div>
                     ))}
                     <p
