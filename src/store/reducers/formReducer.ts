@@ -102,7 +102,7 @@ const initialState: IFormState = {
         {
             id: 1,
             type: 'header',
-            placeholder: '123',
+            placeholder: '',
             isDisabled: false,
         },
         {
