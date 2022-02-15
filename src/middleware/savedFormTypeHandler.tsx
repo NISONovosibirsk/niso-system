@@ -88,7 +88,6 @@ export const savedFormTypeHandler = ({
                         <p className='saved-form__sign-required'>*</p>
                     )}
                     <FormElementCheckbox
-                        defaultChecked={element.placeholder}
                         isChecked={element.value}
                         onChange={onValueChange}
                         isRequired={element.isRequired}

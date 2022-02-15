@@ -71,8 +71,7 @@ const formElementTypeHandler = ({
         case 'checkbox':
             return (
                 <FormElementCheckbox
-                    defaultChecked={element.placeholder}
-                    isChecked={element.placeholder}
+                    isChecked={element.value}
                     onChange={onValueChange}
                     isDisabled={element.isDisabled}
                 />

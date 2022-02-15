@@ -1,5 +1,4 @@
 export interface IFormElementCheckbox {
-    defaultChecked: boolean;
     isChecked: boolean;
     isDisabled?: boolean;
     isRequired?: boolean;
@@ -30,6 +29,25 @@ export interface IFormElementInput {
 export interface IFormElementLabelInput {
     value: string;
     isDisabled: boolean;
+}
+
+export interface IFormElementList {
+    id: string;
+    value: string;
+    placeholder?: string;
+    datalist: [string];
+    onChange: any;
+    isDisabled: boolean;
+    isRequired?: boolean;
+    isFinalForm: boolean;
+}
+
+export interface IFormElementRadio {
+    id: string;
+    radiolist: [];
+    onChange: any;
+    isDisabled: boolean;
+    isFinalForm: boolean;
 }
 
 export interface IFormElementRange {

@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { FormElementRemoveButton } from '../..';
 import { useTypeSelector } from '../../../hooks/useTypeSelector';
 import { updateConstructor } from '../../../store/actions/formActions';
+import { IFormElementRadio } from '../interfaces';
 import './FormElementRadio.scss';
 
 const FormElementRadio = ({
@@ -10,13 +11,7 @@ const FormElementRadio = ({
     onChange,
     isDisabled,
     isFinalForm,
-}: {
-    id: string;
-    radiolist: [];
-    onChange: any;
-    isDisabled: boolean;
-    isFinalForm: boolean;
-}) => {
+}: IFormElementRadio) => {
     const { constructor } = useTypeSelector(state => state.form);
     const dispatch = useDispatch();
 
@@ -102,16 +97,18 @@ const FormElementRadio = ({
                                     {radio.title}
                                 </p>
                             ) : (
-                                <input
-                                    className='form-element-radio__title-input'
-                                    id={index.toString()}
-                                    value={radio.title}
-                                    onChange={handleOptionTitleChange}
-                                />
+                                <>
+                                    <input
+                                        className='form-element-radio__title-input'
+                                        id={index.toString()}
+                                        value={radio.title}
+                                        onChange={handleOptionTitleChange}
+                                    />
+                                    <FormElementRemoveButton
+                                        onClick={handleRemoveElement}
+                                    />
+                                </>
                             )}
-                            <FormElementRemoveButton
-                                onClick={handleRemoveElement}
-                            />
                         </label>
                     )
                 )

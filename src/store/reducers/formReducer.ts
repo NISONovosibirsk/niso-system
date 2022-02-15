@@ -64,7 +64,6 @@ const initialState: IFormState = {
             id: 9,
             label: 'Поле для галочки (checkbox)',
             type: 'checkbox',
-            placeholder: false,
             value: false,
             isDisabled: true,
             isRequired: true,

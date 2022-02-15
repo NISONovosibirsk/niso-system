@@ -20,7 +20,7 @@ const FormElement = ({ item, id, index }: IFormElement) => {
         const { type, id, checked, value } = e.target;
 
         const newState: Array<any> = Array.from(constructor);
-      
+
         switch (type) {
             case 'radio':
                 const newRadiolist: Array<any> = Array.from(
@@ -33,7 +33,7 @@ const FormElement = ({ item, id, index }: IFormElement) => {
                 break;
 
             case 'checkbox':
-                newState[index].placeholder = checked;
+                newState[index].value = checked;
                 break;
 
             default:

@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { FormElementRemoveButton } from '../..';
 import { useTypeSelector } from '../../../hooks/useTypeSelector';
 import { updateConstructor } from '../../../store/actions/formActions';
+import { IFormElementList } from '../interfaces';
 import './FormElementList.scss';
 
 const FormElementList = ({
@@ -13,16 +14,7 @@ const FormElementList = ({
     isDisabled,
     isRequired,
     isFinalForm,
-}: {
-    id: string;
-    value: string;
-    placeholder?: string;
-    datalist: [string];
-    onChange: any;
-    isDisabled: boolean;
-    isRequired?: boolean;
-    isFinalForm: boolean;
-}) => {
+}: IFormElementList) => {
     const { constructor } = useTypeSelector(state => state.form);
     const dispatch = useDispatch();
 
