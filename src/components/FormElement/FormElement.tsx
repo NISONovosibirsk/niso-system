@@ -1,7 +1,7 @@
 import './FormElement.scss';
 import { Draggable } from 'react-beautiful-dnd';
 import { useDispatch } from 'react-redux';
-import { removeElement, valueChange } from '../../store/actions/formActions';
+import { updateConstructor } from '../../store/actions/formActions';
 import { useTypeSelector } from '../../hooks/useTypeSelector';
 import { IFormElement } from '../../interfaces';
 import {
@@ -20,7 +20,7 @@ const FormElement = ({ item, id, index }: IFormElement) => {
         const { type, id, checked, value } = e.target;
 
         const newState: Array<any> = Array.from(constructor);
-
+      
         switch (type) {
             case 'radio':
                 const newRadiolist: Array<any> = Array.from(
@@ -40,13 +40,13 @@ const FormElement = ({ item, id, index }: IFormElement) => {
                 newState[index].placeholder = value;
                 break;
         }
-        dispatch(valueChange(newState));
+        dispatch(updateConstructor(newState));
     };
 
     const handleRemoveElement = e => {
         const newState = Array.from(constructor);
         newState.splice(e.target.parentNode.id, 1);
-        dispatch(removeElement(newState));
+        dispatch(updateConstructor(newState));
     };
 
     const handleRenderLabelInput = () => {

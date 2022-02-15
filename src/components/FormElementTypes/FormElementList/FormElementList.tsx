@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { FormElementRemoveButton } from '../..';
 import { useTypeSelector } from '../../../hooks/useTypeSelector';
-import { valueChange } from '../../../store/actions/formActions';
+import { updateConstructor } from '../../../store/actions/formActions';
 import './FormElementList.scss';
 
 const FormElementList = ({
@@ -31,7 +31,7 @@ const FormElementList = ({
 
         const newState: Array<any> = Array.from(constructor);
         newState[parentNode.parentNode.parentNode.id].datalist[id] = value;
-        dispatch(valueChange(newState));
+        dispatch(updateConstructor(newState));
     };
 
     const handleAddOption = e => {
@@ -41,7 +41,7 @@ const FormElementList = ({
         );
         newDatalist.push('');
         newState[e.target.parentNode.parentNode.id].datalist = newDatalist;
-        dispatch(valueChange(newState));
+        dispatch(updateConstructor(newState));
     };
 
     const handleRemoveElement = e => {
@@ -49,7 +49,7 @@ const FormElementList = ({
 
         const newState: Array<any> = Array.from(constructor);
         newState[parentNode.parentNode.id].datalist.splice(id, 1);
-        dispatch(valueChange(newState));
+        dispatch(updateConstructor(newState));
     };
 
     return (
