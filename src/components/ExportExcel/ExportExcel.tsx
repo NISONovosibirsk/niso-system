@@ -9,7 +9,12 @@ const ExportExcel = ({ savedForm }) => {
             case 'subtitle':
                 return (
                     <tr>
-                        <td>{element.placeholder}</td>
+                        <th
+                            style={{ background: '#0f0', fontSize: '24px' }}
+                            colSpan={2}
+                        >
+                            {element.placeholder}
+                        </th>
                     </tr>
                 );
             case 'range':
@@ -34,18 +39,14 @@ const ExportExcel = ({ savedForm }) => {
     return (
         <>
             <table className='export-excel' id='table'>
-                <tbody>
-                    {savedForm.content.map(element =>
-                        handleElementsType(element)
-                    )}
-                </tbody>
+                {savedForm.content.map(element => handleElementsType(element))}
             </table>
             <ReactHTMLTableToExcel
                 className='export-excel__button'
                 table='table'
                 buttonText=''
-                filename={savedForm.title}
-                sheet={savedForm.title}
+                filename={savedForm.subtitle}
+                sheet={savedForm.subtitle}
             />
         </>
     );
