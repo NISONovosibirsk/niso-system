@@ -1,142 +1,262 @@
-{
-    "МАОУ «Гимназия № 3 в Академгородке»": {
+[
+    {
         "id": 1,
+        "name": "МАОУ «Гимназия № 3 в Академгородке»",
         "code": 7886,
         "phone": "+73833302474",
         "email": "g_3@edu54.ru",
-        "site": "www.gy3.ru"
+        "site": "www.gy3.ru",
+        "address": {
+            "street": "Детский проезд, 10",
+            "city": "Новосибирск",
+            "zipcode" : 630090 
+        }
     },
-    "МАОУ «Гимназия № 12»": {
+    {
         "id": 2,
+        "name": "МАОУ «Гимназия № 12»",
         "code": 7748,
         "phone": "+73832713334",
         "email": "gimnazia12nsk@gmail.com",
-        "site": "g-12.edusite.ru"
+        "site": "g-12.edusite.ru",
+        "address": {
+            "street": "Богдана Хмельницкого, 37",
+            "city": "Новосибирск",
+            "zipcode" : 630075 
+        }
     },
-    "МАОУ «Гимназия № 15»": {
+    {
         "id": 3,
+        "name": "МАОУ «Гимназия № 15»",
         "code": 7741,
         "phone": "+73832781278",
         "email": "g_15@edu54.ru",
-        "site": "g_15@edu54.ru"
+        "site": "s-15-sodr.edusite.ru",
+        "address": {
+            "street": "Гоголя, 188/1",
+            "city": "Новосибирск",
+            "zipcode" : 630112 
+        }
     },
-    "МАОУ «Гимназия № 7 «Сибирская»": {
+    {
         "id": 4,
+        "name": "МАОУ «Гимназия № 7 «Сибирская»",
         "code": 7778,
         "phone": "+73833422344",
         "email": "g_7@edu.54.ru",
-        "site": "www.gym7sib.edusite.ru"
+        "site": "www.gym7sib.edusite.ru",
+        "address": {
+            "street": "Зорге, 42а",
+            "city": "Новосибирск",
+            "zipcode" : 630106 
+        }
     },
-    "МАОУ «Лицей № 176»": {
+    {
         "id": 5,
+        "name": "МАОУ «Лицей № 176»",
         "code": 7794,
         "phone": ["+73833465702", "+73833464798"],
         "email": "l_176@edu54.ru",
-        "site": "www.лицей176.рф"
+        "site": "www.лицей176.рф",
+        "address": {
+            "street": "Новогодняя, 20/2",
+            "city": "Новосибирск",
+            "zipcode" : 630064 
+        }
     },
-    "МАОУ «Лицей № 9»": {
+    {
         "id": 6,
+        "name": "МАОУ «Лицей № 9»",
         "code": 7689,
         "phone": "+73832203691",
         "email": "l_9@edu54.ru",
-        "site": "лицей9.рф"
+        "site": "лицей9.рф",
+        "address": {
+            "street": "1905 года, 41",
+            "city": "Новосибирск",
+            "zipcode" : 630132 
+        }
     },
-    "МАОУ СОШ «Диалог»": {
+    {
         "id": 7,
+        "name": "МАОУ СОШ «Диалог»",
         "code": 7684,
         "phone": ["+73832185184", "+73832092699"],
         "email": "s_dialog@edu54.ru",
-        "site": "dialog-school54.ru"
+        "site": "dialog-school54.ru",
+        "address": {
+            "street": "Красный проспект, 67а",
+            "city": "Новосибирск",
+            "zipcode" : 630091 
+        }
     },
-    "МАОУ СОШ № 212": {
+    {
         "id": 8,
+        "name": "МАОУ СОШ № 212",
         "code": 116653,
         "phone": "+73832408529",
         "email": "s_212@edu54.ru",
-        "site": "школа212.рф"
+        "site": "школа212.рф",
+        "address": {
+            "street": "Горский микрорайон, 71",
+            "city": "Новосибирск",
+            "zipcode" : 630032 
+        }
     },
-    "МАОУ СОШ № 213 «Открытие»": {
+    {
         "id": 9,
+        "name": "МАОУ СОШ № 213 «Открытие»",
         "code": 123861,
         "phone": ["+73833493630", "+73833493622"],
         "email": "s_213@edu54.ru",
-        "site": "школа213.рф"
+        "site": "школа213.рф",
+        "address": {
+            "street": "Одоевского, 1/5",
+            "city": "Новосибирск",
+            "zipcode" : 630034 
+        }
     },
-    "МБОУ «Гимназия № 1»": {
+    {
         "id": 10,
+        "name": "МБОУ «Гимназия № 1»",
         "code": 7674,
         "phone": ["+73832222562", "+73832225230"],
         "email": "g_1@edu54.ru",
-        "site": "www.gmsib.ru"
+        "site": "www.gmsib.ru",
+        "address": {
+            "street": "Красный проспект, 48",
+            "city": "Новосибирск",
+            "zipcode" : 630091 
+        }
     },
-    "МБОУ «Инженерный лицей НГТУ»": {
+    {
         "id": 11,
+        "name": "МБОУ «Инженерный лицей НГТУ»",
         "code": 7849,
         "phone": "+73833463506",
         "email": "l_ngtu@edu54.ru",
-        "site": "lyceum.nstu.ru"
+        "site": "lyceum.nstu.ru",
+        "address": {
+            "street": "Выставочная, 36",
+            "city": "Новосибирск",
+            "zipcode" : 630073 
+        }
     },
-    "МБОУ «СОШ № 175»": {
+    {
         "id": 12,
+        "name": "МБОУ «СОШ № 175»",
         "code": 7877,
         "phone": "+73833529391",
         "email": "sch_175_nsk@nios.ru",
-        "site": "175nsk.edusite.ru"
+        "site": "175nsk.edusite.ru",
+        "address": {
+            "street": "Титова, 43/2",
+            "city": "Новосибирск",
+            "zipcode" : 630079 
+        }
     },
-    "МБОУ ВСШ № 27 Новосибирска": {
+    {
         "id": 13,
+        "name": "МБОУ ВСШ № 27 Новосибирска",
         "code": 7774,
         "phone": "+73832763518",
         "email": "vs_27@edu54.ru",
-        "site": "s-27-osh.edusite.ru"
+        "site": "s-27-osh.edusite.ru",
+        "address": {
+            "street": "Народная, 13/2",
+            "city": "Новосибирск",
+            "zipcode" : 630075 
+        }
     },
-    "МБОУ «Гимназия № 9»": {
+    {
         "id": 14,
+        "name": "МБОУ «Гимназия № 9»",
         "code": 7700,
         "phone": ["+73832257845", "+73832264886"],
         "email": "g_9@edu54.ru",
-        "site": "g_9.edu54.ru"
+        "site": "g_9.edu54.ru",
+        "address": {
+            "street": "Линейная, 33/4",
+            "city": "Новосибирск",
+            "zipcode" : 630049 
+        }
     },
-    "МБОУ Лицей № 113": {
+    {
         "id": 15,
+        "name": "МБОУ Лицей № 113",
         "code": 7734,
         "phone": ["+73832676907", "+73832677401"],
         "email": "l_113@edu54.ru",
-        "site": "licey113.edusite.ru"
+        "site": "licey113.edusite.ru",
+        "address": {
+            "street": "Бориса Богаткова, 241/1",
+            "city": "Новосибирск",
+            "zipcode" : 630089 
+        }
     },
-    "МБОУ НГПЛ": {
+    {
         "id": 16,
+        "name": "МБОУ НГПЛ",
         "code": 7846,
         "phone": ["+73832625425", "+73832625436", "+73832625447"],
         "email": "ngpl@edu54.ru",
-        "site": "ngpl.schoolsite.ru"
+        "site": "ngpl.schoolsite.ru",
+        "address": {
+            "street": "Добролюбова, 100",
+            "city": "Новосибирск",
+            "zipcode" : 630017 
+        }
     },
-    "МБОУ ООШ № 84": {
+    {
         "id": 17,
+        "name": "МБОУ ООШ № 84",
         "code": 7694,
         "phone": "+73832206283",
         "email": "s_84@edu54.ru",
-        "site": "school84nsk.edusite.ru"
+        "site": "school84nsk.edusite.ru",
+        "address": {
+            "street": "Кубановская, 17а",
+            "city": "Новосибирск",
+            "zipcode" : 630003 
+        }
     },
-    "МБОУ СОШ № 1": {
+    {
         "id": 18,
+        "name": "МБОУ СОШ № 1",
         "code": 7697,
         "phone": "+73832293632",
         "email": "s_1@edu54.ru",
-        "site": "s-intern-1.edusite.ru"
+        "site": "s-intern-1.edusite.ru",
+        "address": {
+            "street": "Владимировская, 15",
+            "city": "Новосибирск",
+            "zipcode" : 630003 
+        }
     },
-    "МБОУ СОШ № 102": {
+    {
         "id": 19,
+        "name": "МБОУ СОШ № 102",
         "code": 7896,
         "phone": "+73833359803",
         "email": "s_102@edu54.ru",
-        "site": "s-102.edusite.ru/"
+        "site": "s-102.edusite.ru",
+        "address": {
+            "street": "Экваторная, 5",
+            "city": "Новосибирск",
+            "zipcode" : 630060 
+        }
     },
-    "МБОУ СОШ № 105": {
+    {
         "id": 20,
+        "name": "МБОУ СОШ № 105",
         "code": 7760,
         "phone": ["+73832706605", "+73832706679", "+73832706573"],
         "email": "s_105@edu54.ru",
-        "site": "s-105.edusite.ru"
+        "site": "s-105.edusite.ru",
+        "address": {
+            "street": "Красных Зорь, 7",
+            "city": "Новосибирск",
+            "zipcode" : 630129 
+        }
     }
-}
+]
