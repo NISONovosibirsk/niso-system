@@ -5,17 +5,7 @@ const ExportExcel = ({ savedForm }) => {
     const handleElementsType = element => {
         switch (element.type) {
             case 'header':
-                return (
-                    <tr>
-                        <td>{element.placeholder}</td>
-                    </tr>
-                );
             case 'title':
-                return (
-                    <tr>
-                        <td>{element.placeholder}</td>
-                    </tr>
-                );
             case 'subtitle':
                 return (
                     <tr>
@@ -23,9 +13,7 @@ const ExportExcel = ({ savedForm }) => {
                     </tr>
                 );
             case 'range':
-                return null;
             case 'checkbox':
-                return null;
             case 'radio':
                 return null;
             default:
