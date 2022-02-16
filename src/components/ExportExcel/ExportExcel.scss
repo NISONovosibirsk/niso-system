@@ -1,0 +1,9 @@
+.export-excel {
+    cursor: pointer;
+    width: 28px;
+    transition: width linear 0.2s;
+
+    &:hover {
+        width: 30px;
+    }
+}

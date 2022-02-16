@@ -1,4 +1,4 @@
-import { Button, RemoveButton } from '..';
+import { Button, ExportExcel, RemoveButton } from '..';
 import './SavedFormsItem.scss';
 import { ISavedFormItem } from '../../interfaces';
 import { useTypeSelector } from '../../hooks/useTypeSelector';
@@ -39,6 +39,10 @@ const SavedFormsItem = ({ index, item }: ISavedFormItem) => {
             <p className='saved-forms-item__status'>сдан</p>
             <Button title='Редактировать' mod='filled' onClick={handleEdit} />
             <Button title='Отправить' mod='filled' onClick={handleSend} />
+            <ExportExcel
+                csvData={[{ 'Название школы': '' }]}
+                fileName={'file'}
+            />
             <RemoveButton onClick={handleRemove} type='saved-forms' />
         </li>
     );

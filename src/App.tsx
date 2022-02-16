@@ -12,7 +12,6 @@ function App() {
                 <FormConstructor />
                 <SavedForms />
                 {currentForm.length && <SavedForm />}
-                
             </div>
         </div>
     );

@@ -2,6 +2,7 @@ export { default as Blog } from './Blog/Blog';
 export { default as BlogCard } from './BlogCard/BlogCard';
 export { default as Button } from './Button/Button';
 export { default as CustomForm } from './CustomForm/CustomForm';
+export { default as ExportExcel } from './ExportExcel/ExportExcel';
 export { default as Filter } from './Filter/Filter';
 export { default as Form } from './Form/Form';
 export { default as FormConstructor } from './FormConstructor/FormConstructor';

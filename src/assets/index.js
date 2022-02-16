@@ -15,3 +15,6 @@ export { default as removeButtonIcon } from './icons/form-element__remove-btn.sv
 //show hide
 export { default as ShowResults } from './icons/show-results.svg';
 export { default as HideResults } from './icons/hide-results.svg';
+
+//download
+export { default as DownloadIcon } from './icons/download.svg';

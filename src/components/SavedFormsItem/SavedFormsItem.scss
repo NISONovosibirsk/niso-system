@@ -3,7 +3,7 @@
     width: 100%;
     border-bottom: 1px solid #d0d0d0;
     display: grid;
-    grid-template: 1fr / 26% calc(36% - 40px) 10% 14% 14% 40px;
+    grid-template: 1fr / 26% calc(36% - 40px - 40px) 10% 14% 14% 40px 40px;
     align-items: center;
 
     &__title {
