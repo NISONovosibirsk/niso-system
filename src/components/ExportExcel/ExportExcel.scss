@@ -1,9 +1,19 @@
 .export-excel {
-    cursor: pointer;
-    width: 28px;
-    transition: width linear 0.2s;
+    display: none;
 
-    &:hover {
-        width: 30px;
+    &__button {
+        cursor: pointer;
+        width: 28px;
+        height: 28px;
+        background: center / contain no-repeat
+            url(../../assets/icons/download.svg);
+        border: none;
+        padding: 0;
+        transition: width linear 0.2s;
+
+        &:hover {
+            width: 30px;
+            height: 30px;
+        }
     }
 }

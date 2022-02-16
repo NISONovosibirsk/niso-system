@@ -1,28 +1,65 @@
-import * as FileSaver from 'file-saver';
-import * as XLSX from 'xlsx';
-import { DownloadIcon } from '../../assets';
+import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 import './ExportExcel.scss';
 
-const ExportExcel = ({ csvData, fileName }) => {
-    const fileType =
-        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
-    const fileExtension = '.xlsx';
-
-    const exportToCSV = () => {
-        const ws = XLSX.utils.json_to_sheet(csvData);
-        const wb = { Sheets: { data: ws }, SheetNames: ['data'] };
-        const excelBuffer = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
-        const data = new Blob([excelBuffer], { type: fileType });
-        FileSaver.saveAs(data, fileName + fileExtension);
+const ExportExcel = ({ savedForm }) => {
+    const handleElementsType = element => {
+        switch (element.type) {
+            case 'header':
+                return (
+                    <tr>
+                        <td>{element.placeholder}</td>
+                    </tr>
+                );
+            case 'title':
+                return (
+                    <tr>
+                        <td>{element.placeholder}</td>
+                    </tr>
+                );
+            case 'subtitle':
+                return (
+                    <tr>
+                        <td>{element.placeholder}</td>
+                    </tr>
+                );
+            case 'range':
+                return null;
+            case 'checkbox':
+                return null;
+            case 'radio':
+                return null;
+            default:
+                return (
+                    <>
+                        <tr>
+                            <td>{element.label}</td>
+                            {element.isRequired ? <td>*</td> : null}
+                        </tr>
+                        <tr>
+                            <td>{''}</td>
+                        </tr>
+                    </>
+                );
+        }
     };
 
     return (
-        <img
-            className='export-excel'
-            alt=''
-            src={DownloadIcon}
-            onClick={exportToCSV}
-        ></img>
+        <>
+            <table className='export-excel' id='table'>
+                <tbody>
+                    {savedForm.content.map(element =>
+                        handleElementsType(element)
+                    )}
+                </tbody>
+            </table>
+            <ReactHTMLTableToExcel
+                className='export-excel__button'
+                table='table'
+                buttonText=''
+                filename={savedForm.title}
+                sheet={savedForm.title}
+            />
+        </>
     );
 };
 

@@ -39,10 +39,7 @@ const SavedFormsItem = ({ index, item }: ISavedFormItem) => {
             <p className='saved-forms-item__status'>сдан</p>
             <Button title='Редактировать' mod='filled' onClick={handleEdit} />
             <Button title='Отправить' mod='filled' onClick={handleSend} />
-            <ExportExcel
-                csvData={[{ 'Название школы': '' }]}
-                fileName={'file'}
-            />
+            <ExportExcel savedForm={item} />
             <RemoveButton onClick={handleRemove} type='saved-forms' />
         </li>
     );

@@ -1,8 +1,12 @@
-import { FormConstructor, Header, SavedForms, SavedForm } from './components';
+import {
+    FormConstructor,
+    Header,
+    SavedForms,
+    SavedForm,
+} from './components';
 import { useTypeSelector } from './hooks/useTypeSelector';
 
 function App() {
-
     const { currentForm } = useTypeSelector(state => state.form);
 
     return (
@@ -11,7 +15,7 @@ function App() {
                 <Header />
                 <FormConstructor />
                 <SavedForms />
-                {currentForm.length && <SavedForm />}
+                {currentForm.length ? <SavedForm /> : null}
             </div>
         </div>
     );
