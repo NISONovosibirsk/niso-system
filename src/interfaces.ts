@@ -76,7 +76,11 @@ export interface IConstructorState {
     searchInput: string;
 }
 
-export interface IDragAndDropActions {
+export interface IHeaderSidebarState {
+    isOpen: boolean;
+}
+
+export interface IReduxActions {
     type: string;
     payload: any;
 }

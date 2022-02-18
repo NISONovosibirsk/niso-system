@@ -6,7 +6,7 @@ import {
     UPDATE_STATUS,
     SET_SEARCH_INPUT,
 } from '../types';
-import { IConstructorState, IDragAndDropActions } from '../../interfaces';
+import { IConstructorState, IReduxActions } from '../../interfaces';
 
 const initialState: IConstructorState = {
     initialElements: [
@@ -122,23 +122,45 @@ const initialState: IConstructorState = {
 
 export const formConstructorReducer = (
     state = initialState,
-    action: IDragAndDropActions
+    action: IReduxActions
 ): IConstructorState => {
     switch (action.type) {
         case UPDATE_ADDED_ELEMENTS:
-            return { ...state, addedElements: action.payload };
+            return {
+                ...state,
+                addedElements: action.payload,
+            };
+
         case SET_CURRENT_FORM:
-            return { ...state, currentForm: action.payload };
+            return {
+                ...state,
+                currentForm: action.payload,
+            };
+
         case SET_PREVIEW:
-            return { ...state, isPreview: action.payload };
+            return {
+                ...state,
+                isPreview: action.payload,
+            };
+
         case GET_SAVED_FORMS:
-            return { ...state, savedForms: action.payload };
-        case UPDATE_STATUS: {
-            return { ...state, isActive: action.payload };
-        }
-        case SET_SEARCH_INPUT: {
-            return { ...state, searchInput: action.payload };
-        }
+            return {
+                ...state,
+                savedForms: action.payload,
+            };
+
+        case UPDATE_STATUS:
+            return {
+                ...state,
+                isActive: action.payload,
+            };
+
+        case SET_SEARCH_INPUT:
+            return {
+                ...state,
+                searchInput: action.payload,
+            };
+
         default:
             return state;
     }
