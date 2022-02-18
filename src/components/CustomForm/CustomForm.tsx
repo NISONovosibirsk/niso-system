@@ -9,10 +9,11 @@ import {
     getSavedForms,
     setPreview,
     updateConstructor,
+    updateStatus,
 } from '../../store/actions/formActions';
 
 const CustomForm = () => {
-    const { constructor, isPreview } = useTypeSelector(state => state.form);
+    const { constructor, isActive } = useTypeSelector(state => state.form);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -89,7 +90,9 @@ const CustomForm = () => {
     };
 
     const handleIsPreview = () => {
-        dispatch(setPreview(!isPreview));
+        const newState = {...isActive}
+        newState.preview = !newState.preview;
+        dispatch(updateStatus(newState));
     };
 
     return (
@@ -102,11 +105,11 @@ const CustomForm = () => {
                     ref={provided.innerRef}
                 >
                     <ShowHideButton
-                        isShow={isPreview}
+                        isShow={isActive.preview}
                         onClick={handleIsPreview}
                     />
                     <div className='custom-form__field'>
-                        {isPreview
+                        {isActive.preview
                             ? constructor.map(item =>
                                   savedFormTypeHandler({
                                       onValueChange: () => {},

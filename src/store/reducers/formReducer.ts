@@ -117,7 +117,7 @@ const initialState: IFormState = {
     savedForms: [],
     currentForm: [],
     isPreview: false,
-    isActive: { searchModal: false },
+    isActive: { searchModal: false, preview: false },
     searchInput: '',
 };
 

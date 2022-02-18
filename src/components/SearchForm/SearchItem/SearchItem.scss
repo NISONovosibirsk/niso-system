@@ -1,9 +1,8 @@
 .search-element {
     display: flex;
     justify-content: space-between;
-    margin: {
-        top: 20px;
-    }
+    padding: 10px 0;
+    border-bottom: 1px solid rgba($color: #000, $alpha: 0.2);
     cursor: default;
 
     &__content {
