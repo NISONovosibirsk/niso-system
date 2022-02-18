@@ -4,6 +4,7 @@ import { setSearchInput, updateStatus } from '../../store/actions/formActions';
 import './SearchForm.scss';
 import schoolList from '../../assets/mock.json';
 import SearchItem from './SearchItem/SearchItem';
+import { Popup } from '..';
 
 const SearchForm = () => {
     const dispatch = useDispatch();
@@ -26,28 +27,18 @@ const SearchForm = () => {
     });
 
     return (
-        <div
-            className={`search-form ${
-                isActive.searchModal && 'search-form_active'
-            }`}
-            onClick={handleClose}
-        >
-            <div
-                className='search-form__content'
-                onClick={e => e.stopPropagation()}
-            >
-                <input
-                    className='search-form__input'
-                    placeholder='Поиск по школам'
-                    onChange={handleSearchInput}
-                />
-                <div className='search-form__field'>
-                    {handleFilter.map((school, index) => (
-                        <SearchItem school={school} key={index} />
-                    ))}
-                </div>
+        <Popup onClose={handleClose} isOpen={isActive.searchModal}>
+            <input
+                className='search-form__input'
+                placeholder='Поиск по школам'
+                onChange={handleSearchInput}
+            />
+            <div className='search-form__field'>
+                {handleFilter.map((school, index) => (
+                    <SearchItem school={school} key={index} />
+                ))}
             </div>
-        </div>
+        </Popup>
     );
 };
 

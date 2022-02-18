@@ -17,6 +17,7 @@ export { default as FormElements } from './FormElements/FormElements';
 export { default as RemoveButton } from './RemoveButton/RemoveButton';
 export { default as ShowHideButton } from './ShowHideButton/ShowHideButton';
 export { default as SearchForm } from './SearchForm/SearchForm';
+export { default as Popup } from './Popup/Popup';
 
 //form elements
 //main
