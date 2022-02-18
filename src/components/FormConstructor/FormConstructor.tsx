@@ -7,7 +7,7 @@ import { useTypeSelector } from '../../hooks/useTypeSelector';
 
 const FormConstructor = () => {
     const { addedElements, initialElements } = useTypeSelector(
-        state => state.constructor
+        state => state.formConstructor
     );
 
     const dispatch = useDispatch();

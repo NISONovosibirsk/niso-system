@@ -8,7 +8,7 @@ const FormElementCheckboxRequired = ({
     index,
     isChecked,
 }: IFormElementCheckboxRequired) => {
-    const { addedElements } = useTypeSelector(state => state.constructor);
+    const { addedElements } = useTypeSelector(state => state.formConstructor);
 
     const dispatch = useDispatch();
 

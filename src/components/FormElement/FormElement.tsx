@@ -13,7 +13,7 @@ import {
 import formElementTypeHandler from '../../middleware/formElementTypeHandler';
 
 const FormElement = ({ element, id, index }: IFormElement) => {
-    const { addedElements } = useTypeSelector(state => state.constructor);
+    const { addedElements } = useTypeSelector(state => state.formConstructor);
     const dispatch = useDispatch();
 
     const handleValueChange = e => {

@@ -8,7 +8,7 @@ import { Popup } from '..';
 
 const SearchForm = () => {
     const dispatch = useDispatch();
-    const { isActive, searchInput } = useTypeSelector(state => state.constructor);
+    const { isActive, searchInput } = useTypeSelector(state => state.formConstructor);
 
     const handleClose = () => {
         const newState = { ...isActive };

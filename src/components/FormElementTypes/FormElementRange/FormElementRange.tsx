@@ -14,7 +14,7 @@ const FormElementRange = ({
     isDisabled,
     isFinalForm,
 }: IFormElementRange) => {
-    const { addedElements } = useTypeSelector(state => state.constructor);
+    const { addedElements } = useTypeSelector(state => state.formConstructor);
     const dispatch = useDispatch();
 
     const currentValue = value.length ? value : defaultValue;

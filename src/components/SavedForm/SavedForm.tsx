@@ -6,7 +6,7 @@ import { setCurrentForm } from '../../store/actions/constructorActions';
 import './SavedForm.scss';
 
 const SavedForm = () => {
-    const { currentForm } = useTypeSelector(state => state.constructor);
+    const { currentForm } = useTypeSelector(state => state.formConstructor);
     const dispatch = useDispatch();
 
     const handleValueChange = (e, index) => {

@@ -120,7 +120,7 @@ const initialState: IConstructorState = {
     searchInput: '',
 };
 
-export const constructorReducer = (
+export const formConstructorReducer = (
     state = initialState,
     action: IDragAndDropActions
 ): IConstructorState => {

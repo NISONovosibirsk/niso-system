@@ -11,7 +11,7 @@ import { useDispatch } from 'react-redux';
 
 const SavedFormsItem = ({ index, savedForm }: ISavedFormItem) => {
     const { savedForms, isActive } = useTypeSelector(
-        state => state.constructor
+        state => state.formConstructor
     );
     const dispatch = useDispatch();
 

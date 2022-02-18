@@ -15,7 +15,7 @@ const FormElementList = ({
     isRequired,
     isFinalForm,
 }: IFormElementList) => {
-    const { addedElements } = useTypeSelector(state => state.constructor);
+    const { addedElements } = useTypeSelector(state => state.formConstructor);
     const dispatch = useDispatch();
 
     const handleChangeOptionsValue = e => {

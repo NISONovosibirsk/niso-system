@@ -13,7 +13,7 @@ import {
 
 const CustomForm = () => {
     const { addedElements, isPreview } = useTypeSelector(
-        state => state.constructor
+        state => state.formConstructor
     );
     const dispatch = useDispatch();
 

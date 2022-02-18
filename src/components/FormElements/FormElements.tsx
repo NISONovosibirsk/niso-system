@@ -4,7 +4,7 @@ import { Droppable } from 'react-beautiful-dnd';
 import { FormElement } from '..';
 
 const FormElements = () => {
-    const { addedElements } = useTypeSelector(state => state.constructor);
+    const { initialElements } = useTypeSelector(state => state.formConstructor);
 
     return (
         <Droppable droppableId={'formElements'} isDropDisabled={true}>
@@ -18,12 +18,12 @@ const FormElements = () => {
                         {...provided.droppableProps}
                         ref={provided.innerRef}
                     >
-                        {addedElements.map((addedElement, index) => (
+                        {initialElements.map((initialElement, index) => (
                             <FormElement
-                                element={addedElement}
-                                id={addedElement.id}
+                                element={initialElement}
+                                id={initialElement.id}
                                 index={index}
-                                key={addedElement.id}
+                                key={initialElement.id}
                             />
                         ))}
                     </div>
