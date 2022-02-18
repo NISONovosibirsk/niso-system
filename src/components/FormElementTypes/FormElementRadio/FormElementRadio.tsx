@@ -19,11 +19,8 @@ const FormElementRadio = ({
         const { id: formElementId } = e.target.parentNode.parentNode.parentNode;
         const { id: targetId } = e.target;
 
-        const newState: Array<any> = Array.from(constructor);
-        const newRadiolist: Array<any> = Array.from(
-            newState[formElementId].radiolist
-        );
-
+        const newState = [...constructor];
+        const newRadiolist = [...newState[formElementId].radiolist];
         newRadiolist[targetId].title = e.target.value;
         newState[formElementId].radiolist = newRadiolist;
 
@@ -33,10 +30,8 @@ const FormElementRadio = ({
     const handleAddOption = e => {
         const { id: formElementId } = e.target.parentNode.parentNode;
 
-        const newState: Array<any> = Array.from(constructor);
-        const newRadiolist: Array<any> = Array.from(
-            newState[formElementId].radiolist
-        );
+        const newState = [...constructor];
+        const newRadiolist = [...newState[formElementId].radiolist];
 
         newRadiolist.push({
             title: `${newRadiolist.length + 1} Вариант`,
@@ -51,10 +46,8 @@ const FormElementRadio = ({
         const { id: formElementId } = e.target.parentNode.parentNode.parentNode;
         const { id: optionId } = e.target.parentNode;
 
-        const newState: Array<any> = Array.from(constructor);
-        const newRadiolist: Array<any> = Array.from(
-            newState[formElementId].radiolist
-        );
+        const newState = [...constructor];
+        const newRadiolist = [...newState[formElementId].radiolist];
 
         newRadiolist.splice(optionId, 1);
         newState[formElementId].radiolist = newRadiolist;

@@ -13,7 +13,7 @@ const FormElementCheckboxRequired = ({
     const dispatch = useDispatch();
 
     const handleChange = () => {
-        const newState: Array<any> = Array.from(constructor);
+        const newState = [...constructor];
         newState[index].isRequired = !newState[index].isRequired;
         dispatch(updateConstructor(newState));
     };

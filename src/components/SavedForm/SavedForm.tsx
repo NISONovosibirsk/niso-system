@@ -12,13 +12,11 @@ const SavedForm = () => {
     const handleValueChange = (e, index) => {
         const { type, id, checked, value } = e.target;
 
-        const newState: Array<any> = Array.from(currentForm);
+        const newState = [...currentForm];
 
         switch (type) {
             case 'radio':
-                const newRadiolist: Array<any> = Array.from(
-                    newState[index].radiolist
-                );
+                const newRadiolist = [...newState[index].radiolist];
 
                 newRadiolist.forEach(radio => (radio.isChecked = false));
                 newRadiolist[id].isChecked = true;

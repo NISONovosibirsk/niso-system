@@ -12,7 +12,7 @@ const FormElementLabelInput = ({
     const dispatch = useDispatch();
 
     const handleValueChange = e => {
-        const newState: Array<any> = Array.from(constructor);
+        const newState = [...constructor];
         newState[e.target.parentNode.id].label = e.target.value;
         dispatch(updateConstructor(newState));
     };

@@ -20,19 +20,19 @@ const FormElementRange = ({
     const currentValue = value.length ? value : defaultValue;
 
     const handleMaxRangeValueChange = e => {
-        const newState: Array<any> = Array.from(constructor);
+        const newState = [...constructor];
         newState[e.target.parentNode.parentNode.id].max = e.target.value;
         dispatch(updateConstructor(newState));
     };
 
     const handleMinRangeValueChange = e => {
-        const newState: Array<any> = Array.from(constructor);
+        const newState = [...constructor];
         newState[e.target.parentNode.parentNode.id].min = e.target.value;
         dispatch(updateConstructor(newState));
     };
 
     const handleStepRangeValueChange = e => {
-        const newState: Array<any> = Array.from(constructor);
+        const newState = [...constructor];
         newState[e.target.parentNode.parentNode.id].step = e.target.value;
         dispatch(updateConstructor(newState));
     };

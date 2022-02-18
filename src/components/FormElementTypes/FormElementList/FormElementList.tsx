@@ -22,7 +22,7 @@ const FormElementList = ({
         const { id: formElementId } = e.target.parentNode.parentNode.parentNode;
         const { id: targetId, value } = e.target;
 
-        const newState: Array<any> = Array.from(constructor);
+        const newState = [...constructor];
         newState[formElementId].datalist[targetId] = value;
 
         dispatch(updateConstructor(newState));
@@ -31,10 +31,9 @@ const FormElementList = ({
     const handleAddOption = e => {
         const { id: formElementId } = e.target.parentNode.parentNode;
 
-        const newState: Array<any> = Array.from(constructor);
-        const newDatalist: Array<any> = Array.from(
-            newState[formElementId].datalist
-        );
+        const newState = [...constructor];
+
+        const newDatalist = [...newState[formElementId].datalist];
 
         newDatalist.push('');
         newState[formElementId].datalist = newDatalist;
@@ -46,7 +45,7 @@ const FormElementList = ({
         const { id: formElementId } = e.target.parentNode.parentNode.parentNode;
         const { id: optionId } = e.target.parentNode;
 
-        const newState: Array<any> = Array.from(constructor);
+        const newState = [...constructor];
         newState[formElementId].datalist.splice(optionId, 1);
         dispatch(updateConstructor(newState));
     };

@@ -14,22 +14,22 @@ const SavedFormsItem = ({ index, item }: ISavedFormItem) => {
     const dispatch = useDispatch();
 
     const handleEdit = () => {
-        const newState = Array.from(savedForms[index].content);
+        const newState = [...savedForms[index].content];
         dispatch(updateConstructor(newState));
     };
 
     const handleRemove = () => {
         localStorage.removeItem(String(item._id));
-        const newState = Array.from(savedForms);
+        const newState = [...savedForms];
         newState.splice(index, 1);
         dispatch(getSavedForms(newState));
     };
 
     const handleSend = () => {
-        const newState = {...isActive}
+        const newState = { ...isActive };
         newState.searchModal = true;
-        dispatch(updateStatus(newState))
-    }
+        dispatch(updateStatus(newState));
+    };
 
     return (
         <li className='saved-forms-item'>

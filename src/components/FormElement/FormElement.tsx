@@ -18,14 +18,11 @@ const FormElement = ({ item, id, index }: IFormElement) => {
 
     const handleValueChange = e => {
         const { type, id, checked, value } = e.target;
-
-        const newState: Array<any> = Array.from(constructor);
+        const newState = [...constructor];
 
         switch (type) {
             case 'radio':
-                const newRadiolist: Array<any> = Array.from(
-                    newState[index].radiolist
-                );
+                const newRadiolist = [...newState[index].radiolist];
 
                 newRadiolist.forEach(radio => (radio.isChecked = false));
                 newRadiolist[id].isChecked = true;
@@ -44,7 +41,7 @@ const FormElement = ({ item, id, index }: IFormElement) => {
     };
 
     const handleRemoveElement = e => {
-        const newState = Array.from(constructor);
+        const newState = [...constructor];
         newState.splice(e.target.parentNode.id, 1);
         dispatch(updateConstructor(newState));
     };

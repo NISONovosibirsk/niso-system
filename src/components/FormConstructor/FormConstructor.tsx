@@ -20,7 +20,7 @@ const FormConstructor = () => {
 
         // moving elements in constructor
         if (source.droppableId === destination.droppableId) {
-            const newState = Array.from(constructor);
+            const newState = [...constructor];
             const spliced = newState.splice(source.index, 1);
             newState.splice(destination.index, 0, ...spliced);
 
@@ -29,7 +29,7 @@ const FormConstructor = () => {
 
         // drag element to constructor
         if (source.droppableId === 'formElements') {
-            const newState: Array<any> = Array.from(constructor);
+            const newState = [...constructor];
             const card = { ...elements[source.index] };
             card.isDisabled = !card.isDisabled;
             card.id = Date.now();
