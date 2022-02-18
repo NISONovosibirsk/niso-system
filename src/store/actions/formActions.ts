@@ -3,6 +3,8 @@ import {
     UPDATE_CONSTRUCTOR,
     SET_CURRENT_FORM,
     SET_PREVIEW,
+    UPDATE_STATUS,
+    SET_SEARCH_INPUT,
 } from '../types';
 
 export const getSavedForms = newState => {
@@ -32,6 +34,22 @@ export const setCurrentForm = newState => {
 export const setPreview = payload => {
     try {
         return { type: SET_PREVIEW, payload: payload };
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const updateStatus = newState => {
+    try {
+        return { type: UPDATE_STATUS, payload: newState };
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const setSearchInput = input => {
+    try {
+        return { type: SET_SEARCH_INPUT, payload: input };
     } catch (error) {
         console.log(error);
     }

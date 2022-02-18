@@ -3,6 +3,8 @@ import {
     SET_CURRENT_FORM,
     SET_PREVIEW,
     GET_SAVED_FORMS,
+    UPDATE_STATUS,
+    SET_SEARCH_INPUT,
 } from '../types';
 import { IFormState, IDragAndDropActions } from '../../interfaces';
 
@@ -115,6 +117,8 @@ const initialState: IFormState = {
     savedForms: [],
     currentForm: [],
     isPreview: false,
+    isActive: { searchModal: false, preview: false },
+    searchInput: '',
 };
 
 export const formReducer = (
@@ -130,6 +134,12 @@ export const formReducer = (
             return { ...state, isPreview: action.payload };
         case GET_SAVED_FORMS:
             return { ...state, savedForms: action.payload };
+        case UPDATE_STATUS: {
+            return { ...state, isActive: action.payload };
+        }
+        case SET_SEARCH_INPUT: {
+            return { ...state, searchInput: action.payload };
+        }
         default:
             return state;
     }
