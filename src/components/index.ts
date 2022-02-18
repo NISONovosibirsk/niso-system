@@ -15,6 +15,7 @@ export { default as Sidebar } from './Sidebar/Sidebar';
 export { default as FormElements } from './FormElements/FormElements';
 export { default as RemoveButton } from './RemoveButton/RemoveButton';
 export { default as ShowHideButton } from './ShowHideButton/ShowHideButton';
+export { default as SearchForm } from './SearchForm/SearchForm';
 
 //form elements
 //main

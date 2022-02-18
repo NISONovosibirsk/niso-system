@@ -1,0 +1,33 @@
+.search-element {
+    display: flex;
+    justify-content: space-between;
+    margin: {
+        top: 20px;
+    }
+    cursor: default;
+
+    &__content {
+        margin: auto 0;
+    }
+
+    &__input {
+        display: none;
+
+        &:checked + .search-element__checkbox::after {
+            content: '\2713';
+        }
+    }
+
+    &__checkbox {
+        cursor: pointer;
+        height: 29px;
+        width: 29px;
+        border: 1px solid rgba($color: #000, $alpha: 1) {
+            radius: 10px;
+        }
+        margin: 7px 0;
+        text-align: center;
+        line-height: 29px;
+        font-size: 29px;
+    }
+}

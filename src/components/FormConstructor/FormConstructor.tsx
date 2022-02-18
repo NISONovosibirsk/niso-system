@@ -1,4 +1,4 @@
-import { CustomForm, FormElements } from '..';
+import { CustomForm, FormElements, SearchForm } from '..';
 import './FormConstructor.scss';
 import { DragDropContext } from 'react-beautiful-dnd';
 import { updateConstructor } from '../../store/actions/formActions';
@@ -6,12 +6,12 @@ import { useDispatch } from 'react-redux';
 import { useTypeSelector } from '../../hooks/useTypeSelector';
 
 const FormConstructor = () => {
-    const { constructor, elements } = useTypeSelector(state => state.form);
+    const { constructor, elements, isActive } = useTypeSelector(state => state.form);
 
     const dispatch = useDispatch();
 
     const handleDragEnd = result => {
-        const { destination, source, draggableId } = result;
+        const { destination, source } = result;
 
         // return null if target out of droppable
         if (!destination) {
@@ -44,6 +44,7 @@ const FormConstructor = () => {
             <section className='form-constructor'>
                 <FormElements />
                 <CustomForm />
+                <SearchForm/>
             </section>
         </DragDropContext>
     );

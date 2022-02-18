@@ -4,13 +4,13 @@ import { ISavedFormItem } from '../../interfaces';
 import { useTypeSelector } from '../../hooks/useTypeSelector';
 import {
     getSavedForms,
-    setCurrentForm,
+    updateStatus,
     updateConstructor,
 } from '../../store/actions/formActions';
 import { useDispatch } from 'react-redux';
 
 const SavedFormsItem = ({ index, item }: ISavedFormItem) => {
-    const { savedForms } = useTypeSelector(state => state.form);
+    const { savedForms, isActive } = useTypeSelector(state => state.form);
     const dispatch = useDispatch();
 
     const handleEdit = () => {
@@ -26,9 +26,10 @@ const SavedFormsItem = ({ index, item }: ISavedFormItem) => {
     };
 
     const handleSend = () => {
-        const newState = Array.from(savedForms[index].content);
-        dispatch(setCurrentForm(newState));
-    };
+        const newState = {...isActive}
+        newState.searchModal = true;
+        dispatch(updateStatus(newState))
+    }
 
     return (
         <li className='saved-forms-item'>

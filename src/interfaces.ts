@@ -72,6 +72,8 @@ export interface IFormState {
     savedForms: any;
     currentForm: any;
     isPreview: boolean;
+    isActive: any;
+    searchInput: string;
 }
 
 export interface IDragAndDropActions {
