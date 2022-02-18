@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useTypeSelector } from '../../../hooks/useTypeSelector';
-import { updateConstructor } from '../../../store/actions/formActions';
+import { updateAddedElements } from '../../../store/actions/constructorActions';
 import { IFormElementCheckboxRequired } from '../interfaces';
 import './FormElementCheckboxRequired.scss';
 
@@ -8,14 +8,14 @@ const FormElementCheckboxRequired = ({
     index,
     isChecked,
 }: IFormElementCheckboxRequired) => {
-    const { constructor } = useTypeSelector(state => state.form);
+    const { addedElements } = useTypeSelector(state => state.constructor);
 
     const dispatch = useDispatch();
 
     const handleChange = () => {
-        const newState = [...constructor];
+        const newState = [...addedElements];
         newState[index].isRequired = !newState[index].isRequired;
-        dispatch(updateConstructor(newState));
+        dispatch(updateAddedElements(newState));
     };
 
     return (

@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { RemoveButton } from '../..';
 import { useTypeSelector } from '../../../hooks/useTypeSelector';
-import { updateConstructor } from '../../../store/actions/formActions';
+import { updateAddedElements } from '../../../store/actions/constructorActions';
 import { IFormElementRadio } from '../interfaces';
 import './FormElementRadio.scss';
 
@@ -12,25 +12,25 @@ const FormElementRadio = ({
     isDisabled,
     isFinalForm,
 }: IFormElementRadio) => {
-    const { constructor } = useTypeSelector(state => state.form);
+    const { addedElements } = useTypeSelector(state => state.constructor);
     const dispatch = useDispatch();
 
     const handleOptionTitleChange = e => {
         const { id: formElementId } = e.target.parentNode.parentNode.parentNode;
         const { id: targetId } = e.target;
 
-        const newState = [...constructor];
+        const newState = [...addedElements];
         const newRadiolist = [...newState[formElementId].radiolist];
         newRadiolist[targetId].title = e.target.value;
         newState[formElementId].radiolist = newRadiolist;
 
-        dispatch(updateConstructor(newState));
+        dispatch(updateAddedElements(newState));
     };
 
     const handleAddOption = e => {
         const { id: formElementId } = e.target.parentNode.parentNode;
 
-        const newState = [...constructor];
+        const newState = [...addedElements];
         const newRadiolist = [...newState[formElementId].radiolist];
 
         newRadiolist.push({
@@ -39,20 +39,20 @@ const FormElementRadio = ({
         });
         newState[formElementId].radiolist = newRadiolist;
 
-        dispatch(updateConstructor(newState));
+        dispatch(updateAddedElements(newState));
     };
 
     const handleRemoveElement = e => {
         const { id: formElementId } = e.target.parentNode.parentNode.parentNode;
         const { id: optionId } = e.target.parentNode;
 
-        const newState = [...constructor];
+        const newState = [...addedElements];
         const newRadiolist = [...newState[formElementId].radiolist];
 
         newRadiolist.splice(optionId, 1);
         newState[formElementId].radiolist = newRadiolist;
 
-        dispatch(updateConstructor(newState));
+        dispatch(updateAddedElements(newState));
     };
 
     return (

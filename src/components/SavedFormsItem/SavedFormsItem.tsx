@@ -5,21 +5,23 @@ import { useTypeSelector } from '../../hooks/useTypeSelector';
 import {
     getSavedForms,
     updateStatus,
-    updateConstructor,
-} from '../../store/actions/formActions';
+    updateAddedElements,
+} from '../../store/actions/constructorActions';
 import { useDispatch } from 'react-redux';
 
-const SavedFormsItem = ({ index, item }: ISavedFormItem) => {
-    const { savedForms, isActive } = useTypeSelector(state => state.form);
+const SavedFormsItem = ({ index, savedForm }: ISavedFormItem) => {
+    const { savedForms, isActive } = useTypeSelector(
+        state => state.constructor
+    );
     const dispatch = useDispatch();
 
     const handleEdit = () => {
         const newState = [...savedForms[index].content];
-        dispatch(updateConstructor(newState));
+        dispatch(updateAddedElements(newState));
     };
 
     const handleRemove = () => {
-        localStorage.removeItem(String(item._id));
+        localStorage.removeItem(String(savedForm._id));
         const newState = [...savedForms];
         newState.splice(index, 1);
         dispatch(getSavedForms(newState));
@@ -34,13 +36,13 @@ const SavedFormsItem = ({ index, item }: ISavedFormItem) => {
     return (
         <li className='saved-forms-item'>
             <h2 className='saved-forms-item__title'>{`${index + 1}   ${
-                item.title
+                savedForm.title
             }`}</h2>
-            <p className='saved-forms-item__subtitle'>{`${item.subtitle}  |  дата создания: ${item.date}`}</p>
+            <p className='saved-forms-item__subtitle'>{`${savedForm.subtitle}  |  дата создания: ${savedForm.date}`}</p>
             <p className='saved-forms-item__status'>сдан</p>
             <Button title='Редактировать' mod='filled' onClick={handleEdit} />
             <Button title='Отправить' mod='filled' onClick={handleSend} />
-            <ExportExcel savedForm={item} />
+            <ExportExcel savedForm={savedForm} />
             <RemoveButton onClick={handleRemove} type='saved-forms' />
         </li>
     );

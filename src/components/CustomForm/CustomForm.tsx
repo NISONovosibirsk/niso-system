@@ -8,12 +8,13 @@ import { useDispatch } from 'react-redux';
 import {
     getSavedForms,
     setPreview,
-    updateConstructor,
-    updateStatus,
-} from '../../store/actions/formActions';
+    updateAddedElements,
+} from '../../store/actions/constructorActions';
 
 const CustomForm = () => {
-    const { constructor, isActive } = useTypeSelector(state => state.form);
+    const { addedElements, isPreview } = useTypeSelector(
+        state => state.constructor
+    );
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -23,7 +24,7 @@ const CustomForm = () => {
 
     const handleReset = () => {
         dispatch(
-            updateConstructor([
+            updateAddedElements([
                 {
                     id: 1,
                     type: 'header',
@@ -54,7 +55,7 @@ const CustomForm = () => {
     const handleSave = e => {
         e.preventDefault();
         const key = String(Date.now());
-        localStorage.setItem(key, JSON.stringify(constructor));
+        localStorage.setItem(key, JSON.stringify(addedElements));
         handleReset();
         handleStorage();
     };
@@ -90,9 +91,7 @@ const CustomForm = () => {
     };
 
     const handleIsPreview = () => {
-        const newState = {...isActive}
-        newState.preview = !newState.preview;
-        dispatch(updateStatus(newState));
+        dispatch(setPreview(!isPreview));
     };
 
     return (
@@ -105,28 +104,28 @@ const CustomForm = () => {
                     ref={provided.innerRef}
                 >
                     <ShowHideButton
-                        isShow={isActive.preview}
+                        isShow={isPreview}
                         onClick={handleIsPreview}
                     />
                     <div className='custom-form__field'>
-                        {isActive.preview
-                            ? constructor.map(item =>
+                        {isPreview
+                            ? addedElements.map(item =>
                                   savedFormTypeHandler({
                                       onValueChange: () => {},
                                       element: item,
                                       isFinalForm: true,
                                   })
                               )
-                            : constructor.map((item: any, index: number) => (
+                            : addedElements.map((AddedElement, index) => (
                                   <FormElement
-                                      item={item}
-                                      id={item.id}
+                                      element={AddedElement}
+                                      id={AddedElement.id}
                                       index={index}
-                                      key={item.id}
+                                      key={AddedElement.id}
                                   />
                               ))}
                     </div>
-                    {constructor.length > 2 && (
+                    {addedElements.length > 2 && (
                         <Button title='Сохранить форму' />
                     )}
                     {provided.placeholder}

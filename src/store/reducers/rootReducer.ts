@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import { formReducer } from './formReducer';
+import { constructorReducer } from './constructorReducer';
 import { headerSidebarReducer } from './headerSidebarReducer';
 
 export const rootReducer = combineReducers({
-    form: formReducer,
+    constructor: constructorReducer,
     headerSidebar: headerSidebarReducer,
 });
 

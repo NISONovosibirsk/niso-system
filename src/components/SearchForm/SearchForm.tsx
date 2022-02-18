@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useTypeSelector } from '../../hooks/useTypeSelector';
-import { setSearchInput, updateStatus } from '../../store/actions/formActions';
+import { setSearchInput, updateStatus } from '../../store/actions/constructorActions';
 import './SearchForm.scss';
 import schoolList from '../../assets/mock.json';
 import SearchItem from './SearchItem/SearchItem';
@@ -8,7 +8,7 @@ import { Popup } from '..';
 
 const SearchForm = () => {
     const dispatch = useDispatch();
-    const { isActive, searchInput } = useTypeSelector(state => state.form);
+    const { isActive, searchInput } = useTypeSelector(state => state.constructor);
 
     const handleClose = () => {
         const newState = { ...isActive };

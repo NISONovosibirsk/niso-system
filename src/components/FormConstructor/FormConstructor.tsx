@@ -1,12 +1,14 @@
 import { CustomForm, FormElements, SearchForm } from '..';
 import './FormConstructor.scss';
 import { DragDropContext } from 'react-beautiful-dnd';
-import { updateConstructor } from '../../store/actions/formActions';
+import { updateAddedElements } from '../../store/actions/constructorActions';
 import { useDispatch } from 'react-redux';
 import { useTypeSelector } from '../../hooks/useTypeSelector';
 
 const FormConstructor = () => {
-    const { constructor, elements, isActive } = useTypeSelector(state => state.form);
+    const { addedElements, initialElements } = useTypeSelector(
+        state => state.constructor
+    );
 
     const dispatch = useDispatch();
 
@@ -20,22 +22,22 @@ const FormConstructor = () => {
 
         // moving elements in constructor
         if (source.droppableId === destination.droppableId) {
-            const newState = [...constructor];
+            const newState = [...addedElements];
             const spliced = newState.splice(source.index, 1);
             newState.splice(destination.index, 0, ...spliced);
 
-            dispatch(updateConstructor(newState));
+            dispatch(updateAddedElements(newState));
         }
 
         // drag element to constructor
         if (source.droppableId === 'formElements') {
-            const newState = [...constructor];
-            const card = { ...elements[source.index] };
+            const newState = [...addedElements];
+            const card = { ...initialElements[source.index] };
             card.isDisabled = !card.isDisabled;
             card.id = Date.now();
             newState.splice(destination.index, 0, card);
 
-            dispatch(updateConstructor(newState));
+            dispatch(updateAddedElements(newState));
         }
     };
 
@@ -44,7 +46,7 @@ const FormConstructor = () => {
             <section className='form-constructor'>
                 <FormElements />
                 <CustomForm />
-                <SearchForm/>
+                <SearchForm />
             </section>
         </DragDropContext>
     );

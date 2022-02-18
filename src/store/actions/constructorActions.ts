@@ -1,6 +1,6 @@
 import {
     GET_SAVED_FORMS,
-    UPDATE_CONSTRUCTOR,
+    UPDATE_ADDED_ELEMENTS,
     SET_CURRENT_FORM,
     SET_PREVIEW,
     UPDATE_STATUS,
@@ -15,9 +15,9 @@ export const getSavedForms = newState => {
     }
 };
 
-export const updateConstructor = newState => {
+export const updateAddedElements = newState => {
     try {
-        return { type: UPDATE_CONSTRUCTOR, payload: newState };
+        return { type: UPDATE_ADDED_ELEMENTS, payload: newState };
     } catch (error) {
         console.log(error);
     }

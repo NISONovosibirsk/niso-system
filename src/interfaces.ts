@@ -2,7 +2,7 @@
 
 // Form Element
 export interface IFormElement {
-    item: any;
+    element: any;
     id: number;
     index: number;
 }
@@ -31,7 +31,7 @@ export interface IForm {
 // Saved Form Item
 export interface ISavedFormItem {
     index: number;
-    item: {
+    savedForm: {
         title: string;
         subtitle: string;
         date: string;
@@ -66,9 +66,9 @@ export interface ITerms {
 // REDUX //
 
 // Form state and actions
-export interface IFormState {
-    elements?: any;
-    constructor: any;
+export interface IConstructorState {
+    initialElements: any;
+    addedElements: any;
     savedForms: any;
     currentForm: any;
     isPreview: boolean;

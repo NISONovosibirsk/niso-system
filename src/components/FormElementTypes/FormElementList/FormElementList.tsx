@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { RemoveButton } from '../..';
 import { useTypeSelector } from '../../../hooks/useTypeSelector';
-import { updateConstructor } from '../../../store/actions/formActions';
+import { updateAddedElements } from '../../../store/actions/constructorActions';
 import { IFormElementList } from '../interfaces';
 import './FormElementList.scss';
 
@@ -15,39 +15,39 @@ const FormElementList = ({
     isRequired,
     isFinalForm,
 }: IFormElementList) => {
-    const { constructor } = useTypeSelector(state => state.form);
+    const { addedElements } = useTypeSelector(state => state.constructor);
     const dispatch = useDispatch();
 
     const handleChangeOptionsValue = e => {
         const { id: formElementId } = e.target.parentNode.parentNode.parentNode;
         const { id: targetId, value } = e.target;
 
-        const newState = [...constructor];
+        const newState = [...addedElements];
         newState[formElementId].datalist[targetId] = value;
 
-        dispatch(updateConstructor(newState));
+        dispatch(updateAddedElements(newState));
     };
 
     const handleAddOption = e => {
         const { id: formElementId } = e.target.parentNode.parentNode;
 
-        const newState = [...constructor];
+        const newState = [...addedElements];
 
         const newDatalist = [...newState[formElementId].datalist];
 
         newDatalist.push('');
         newState[formElementId].datalist = newDatalist;
 
-        dispatch(updateConstructor(newState));
+        dispatch(updateAddedElements(newState));
     };
 
     const handleRemoveElement = e => {
         const { id: formElementId } = e.target.parentNode.parentNode.parentNode;
         const { id: optionId } = e.target.parentNode;
 
-        const newState = [...constructor];
+        const newState = [...addedElements];
         newState[formElementId].datalist.splice(optionId, 1);
-        dispatch(updateConstructor(newState));
+        dispatch(updateAddedElements(newState));
     };
 
     return (

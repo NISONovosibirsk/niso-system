@@ -3,12 +3,12 @@ import { useTypeSelector } from '../../hooks/useTypeSelector';
 import './SavedFormsList.scss';
 
 const SavedFormsList = () => {
-    const { savedForms } = useTypeSelector(state => state.form);
+    const { savedForms } = useTypeSelector(state => state.constructor);
 
     return (
         <ul className='saved-forms-list'>
-        {savedForms.map((item, index) => (
-            <SavedFormsItem key={index} index={index} item={item} />
+        {savedForms.map((savedForm, index) => (
+            <SavedFormsItem key={index} index={index} savedForm={savedForm} />
         ))}
     </ul>
     );
