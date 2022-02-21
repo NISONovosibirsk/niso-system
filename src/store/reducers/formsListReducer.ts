@@ -3,7 +3,7 @@ import { SET_FORMS, SET_OPENED_FORM } from '../types';
 
 const initialState = {
     forms: [],
-    openedForm: [],
+    openedForm: {},
 };
 
 export const formsListReducer = (

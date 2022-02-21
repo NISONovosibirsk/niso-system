@@ -54,12 +54,12 @@ const CustomForm = () => {
 
         const form: any = {};
         form._id = Date.now();
-        form.content = addedElements;
+        form.content = [...addedElements];
         form.sendStatus = [];
-        form.title = addedElements.find(
+        form.title = [...addedElements].find(
             element => (element.type = 'title')
         ).placeholder;
-        form.subtitle = addedElements.find(
+        form.subtitle = [...addedElements].find(
             element => (element.type = 'header')
         ).placeholder;
         form.date = convertTimestamp(form._id);

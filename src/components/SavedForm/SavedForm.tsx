@@ -6,47 +6,61 @@ import { setOpenedForm } from '../../store/actions/formsListActions';
 import './SavedForm.scss';
 
 const SavedForm = () => {
-    const { openedForm } = useTypeSelector(state => state.formsList);
+    const { openedForm, forms } = useTypeSelector(state => state.formsList);
+    const { selectedForm } = useTypeSelector(state => state.sendForm);
     const dispatch = useDispatch();
+
+    const handleSend = e => {
+        e.preventDefault();
+        localStorage.removeItem(openedForm._id);
+        const newForms = [...forms]
+            .splice(forms.indexOf(openedForm), 1)
+            .push(openedForm);
+
+        dispatch(setOpenedForm(newForms));
+    };
 
     const handleValueChange = (e, index) => {
         const { type, id, checked, value } = e.target;
 
-        const newOpenedForm = [...openedForm];
+        const newOpenedForm = { ...openedForm };
+        const newContent = [...newOpenedForm.content];
 
         switch (type) {
             case 'radio':
-                const newRadiolist = [...newOpenedForm[index].radiolist];
+                const newRadiolist = [...newContent[index].radiolist];
 
                 newRadiolist.forEach(radio => (radio.isChecked = false));
                 newRadiolist[id].isChecked = true;
-                newOpenedForm[index].radiolist = newRadiolist;
+                newContent[index].radiolist = newRadiolist;
                 break;
 
             case 'checkbox':
-                newOpenedForm[index].value = checked;
+                newContent[index].value = checked;
                 break;
 
             default:
-                newOpenedForm[index].value = value;
+                newContent[index].value = value;
                 break;
         }
+        newOpenedForm.content = newContent;
+        // console.log(newOpenedForm.content === selectedForm.content);
         dispatch(setOpenedForm(newOpenedForm));
     };
 
     return (
         <form className='saved-form'>
-            {openedForm.map((item, index) =>
+            {openedForm.content.map((element, index) =>
                 savedFormTypeHandler({
                     onValueChange: e => {
                         handleValueChange(e, index);
                     },
-                    element: item,
+                    element,
                     isFinalForm: true,
                 })
             )}
 
-            <Button title='Отправить' />
+            <Button title='Сдать' onClick={handleSend} />
         </form>
     );
 };

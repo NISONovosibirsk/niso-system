@@ -6,7 +6,6 @@ import { setForms } from './store/actions/formsListActions';
 import { useEffect } from 'react';
 
 function App() {
-    const { openedForm } = useTypeSelector(state => state.formsList);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -41,7 +40,7 @@ function App() {
                         <Route path='' element={<FormConstructor />} />
                         <Route
                             path='client'
-                            element={openedForm.length ? <SavedForm /> : null}
+                            element={<SavedForm />}
                         />
                     </Routes>
                     <SavedForms />

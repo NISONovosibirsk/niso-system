@@ -48,7 +48,7 @@ const SearchForm = () => {
 
     const handleSend = () =>
         selectedSchools.length
-            ? (dispatch(setOpenedForm(selectedForm)), navigate('/client'))
+            ? (dispatch(setOpenedForm({...selectedForm})), navigate('/client'))
             : alert('Ни одной школы не выбрано');
 
     return (

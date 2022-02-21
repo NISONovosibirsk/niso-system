@@ -27,7 +27,7 @@ const SavedFormsItem = ({ index, savedForm }: ISavedFormItem) => {
     };
 
     const handleSend = () => {
-        const newSelectedForm = [...forms[index].content];
+        const newSelectedForm = {...forms[index]};
         dispatch(setOpenStatus(true));
         dispatch(setSelectedForm(newSelectedForm));
     };
