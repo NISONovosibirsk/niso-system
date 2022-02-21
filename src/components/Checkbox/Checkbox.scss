@@ -1,14 +1,14 @@
-.form-element-checkbox {
+.checkbox {
     grid-column: 1 / 2;
 
     &__input {
         display: none;
 
-        &:checked + .form-element-checkbox__custom-checkbox::after {
+        &:checked + .checkbox__custom-checkbox::after {
             content: '\2713';
         }
 
-        &:disabled + .form-element-checkbox__custom-checkbox {
+        &:disabled + .checkbox__custom-checkbox {
             background: none;
             cursor: default;
         }

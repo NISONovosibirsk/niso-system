@@ -1,10 +1,3 @@
-export interface IFormElementCheckbox {
-    isChecked: boolean;
-    isDisabled?: boolean;
-    isRequired?: boolean;
-    onChange: any;
-}
-
 export interface IFormElementCheckboxRequired {
     index: number;
     isChecked: boolean;

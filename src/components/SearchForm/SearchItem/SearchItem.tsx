@@ -1,4 +1,4 @@
-import { FormElementCheckbox } from '../..';
+import { Checkbox } from '../..';
 import './SearchItem.scss';
 
 const SearchItem = ({ school, isChecked, onChange }) => {
@@ -10,10 +10,7 @@ const SearchItem = ({ school, isChecked, onChange }) => {
             <div className='search-element__content'>
                 {school.name}, {school.address.street}
             </div>
-            <FormElementCheckbox
-                isChecked={isChecked}
-                onChange={handleChange}
-            />
+            <Checkbox isChecked={isChecked} onChange={handleChange} />
         </li>
     );
 };

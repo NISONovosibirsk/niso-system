@@ -1,5 +1,5 @@
 import {
-    FormElementCheckbox,
+    Checkbox,
     FormElementHeader,
     FormElementInput,
     FormElementList,
@@ -87,7 +87,7 @@ export const savedFormTypeHandler = ({
                     {element.isRequired && (
                         <p className='saved-form__sign-required'>*</p>
                     )}
-                    <FormElementCheckbox
+                    <Checkbox
                         isChecked={element.value}
                         onChange={onValueChange}
                         isRequired={element.isRequired}

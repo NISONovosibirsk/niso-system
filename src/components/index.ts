@@ -18,6 +18,7 @@ export { default as RemoveButton } from './RemoveButton/RemoveButton';
 export { default as ShowHideButton } from './ShowHideButton/ShowHideButton';
 export { default as SearchForm } from './SearchForm/SearchForm';
 export { default as Popup } from './Popup/Popup';
+export { default as Checkbox } from './Checkbox/Checkbox';
 
 //form elements
 //main
@@ -27,7 +28,6 @@ export { default as FormElementHeader } from './FormElementTypes/FormElementHead
 export { default as FormElementTitle } from './FormElementTypes/FormElementTitle/FormElementTitle';
 export { default as FormElementSubtitle } from './FormElementTypes/FormElementSubtitle/FormElementSubtitle';
 export { default as FormElementTel } from './FormElementTypes/FormElementTel/FormElementTel';
-export { default as FormElementCheckbox } from './FormElementTypes/FormElementCheckbox/FormElementCheckbox';
 export { default as FormElementInput } from './FormElementTypes/FormElementInput/FormElementInput';
 export { default as FormElementLabelInput } from './FormElementTypes/FormElementLabelInput/FormElementLabelInput';
 export { default as FormElementList } from './FormElementTypes/FormElementList/FormElementList';
