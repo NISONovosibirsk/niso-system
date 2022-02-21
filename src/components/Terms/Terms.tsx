@@ -10,7 +10,7 @@ const Terms = ({ title, buttons }: ITerms) => {
                 <Button
                     key={index}
                     title={button.title}
-                    mod={button.type}
+                    types={button.types}
                     onClick={button.onClick}
                 />
             ))}

@@ -1,7 +1,7 @@
 import { CustomForm, FormElements, SearchForm } from '..';
 import './FormConstructor.scss';
 import { DragDropContext } from 'react-beautiful-dnd';
-import { updateAddedElements } from '../../store/actions/constructorActions';
+import { updateAddedElements } from '../../store/actions/formConstructorActions';
 import { useDispatch } from 'react-redux';
 import { useTypeSelector } from '../../hooks/useTypeSelector';
 

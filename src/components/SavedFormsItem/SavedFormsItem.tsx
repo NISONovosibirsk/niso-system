@@ -2,35 +2,29 @@ import { Button, ExportExcel, RemoveButton } from '..';
 import './SavedFormsItem.scss';
 import { ISavedFormItem } from '../../interfaces';
 import { useTypeSelector } from '../../hooks/useTypeSelector';
-import {
-    getSavedForms,
-    updateStatus,
-    updateAddedElements,
-} from '../../store/actions/constructorActions';
+import { updateAddedElements } from '../../store/actions/formConstructorActions';
 import { useDispatch } from 'react-redux';
+import { setOpenStatus } from '../../store/actions/sendFormPopupActions';
+import { setForms } from '../../store/actions/formsListActions';
 
 const SavedFormsItem = ({ index, savedForm }: ISavedFormItem) => {
-    const { savedForms, isActive } = useTypeSelector(
-        state => state.formConstructor
-    );
+    const { forms } = useTypeSelector(state => state.formsList);
     const dispatch = useDispatch();
 
     const handleEdit = () => {
-        const newState = [...savedForms[index].content];
-        dispatch(updateAddedElements(newState));
+        const newAddedElements = [...forms[index].content];
+        dispatch(updateAddedElements(newAddedElements));
     };
 
     const handleRemove = () => {
         localStorage.removeItem(String(savedForm._id));
-        const newState = [...savedForms];
-        newState.splice(index, 1);
-        dispatch(getSavedForms(newState));
+        const newForms = [...forms];
+        newForms.splice(index, 1);
+        dispatch(setForms(newForms));
     };
 
     const handleSend = () => {
-        const newState = { ...isActive };
-        newState.searchModal = true;
-        dispatch(updateStatus(newState));
+        dispatch(setOpenStatus(true));
     };
 
     return (
@@ -40,8 +34,12 @@ const SavedFormsItem = ({ index, savedForm }: ISavedFormItem) => {
             }`}</h2>
             <p className='saved-forms-item__subtitle'>{`${savedForm.subtitle}  |  дата создания: ${savedForm.date}`}</p>
             <p className='saved-forms-item__status'>сдан</p>
-            <Button title='Редактировать' mod='filled' onClick={handleEdit} />
-            <Button title='Отправить' mod='filled' onClick={handleSend} />
+            <Button
+                title='Редактировать'
+                types={['filled']}
+                onClick={handleEdit}
+            />
+            <Button title='Отправить' types={['filled']} onClick={handleSend} />
             <ExportExcel savedForm={savedForm} />
             <RemoveButton onClick={handleRemove} type='saved-forms' />
         </li>

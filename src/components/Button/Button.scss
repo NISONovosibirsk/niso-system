@@ -17,12 +17,18 @@
         background: #eee;
     }
 
-    &_type_filled {
-        background: #3374a2;
-        color: white;
-
-        &:hover {
+    &_type {
+        &_filled {
             background: #3374a2;
+            color: white;
+
+            &:hover {
+                background: #3374a2;
+            }
+        }
+
+        &_center {
+            margin: 0 calc(50% - 5vw);
         }
     }
 }

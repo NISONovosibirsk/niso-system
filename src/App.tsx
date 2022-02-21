@@ -3,8 +3,6 @@ import { useTypeSelector } from './hooks/useTypeSelector';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
-    const { currentForm } = useTypeSelector(state => state.formConstructor);
-
     return (
         <BrowserRouter>
             <div className='App'>

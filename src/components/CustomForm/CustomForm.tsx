@@ -6,10 +6,10 @@ import { savedFormTypeHandler } from '../../middleware/savedFormTypeHandler';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import {
-    getSavedForms,
     setPreview,
     updateAddedElements,
-} from '../../store/actions/constructorActions';
+} from '../../store/actions/formConstructorActions';
+import { setForms } from '../../store/actions/formsListActions';
 
 const CustomForm = () => {
     const { addedElements, isPreview } = useTypeSelector(
@@ -62,7 +62,7 @@ const CustomForm = () => {
 
     // add elements from storage to state
     const handleStorage: any = () => {
-        const newState: Array<any> = [];
+        const newForms: Array<any> = [];
 
         Object.keys(localStorage).forEach(key => {
             const json = localStorage.getItem(key);
@@ -84,9 +84,9 @@ const CustomForm = () => {
                     }
                 });
 
-                newState.push(form);
+                newForms.push(form);
             }
-            dispatch(getSavedForms(newState));
+            dispatch(setForms(newForms));
         });
     };
 

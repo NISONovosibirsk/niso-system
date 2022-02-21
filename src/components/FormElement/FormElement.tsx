@@ -1,7 +1,7 @@
 import './FormElement.scss';
 import { Draggable } from 'react-beautiful-dnd';
 import { useDispatch } from 'react-redux';
-import { updateAddedElements } from '../../store/actions/constructorActions';
+import { updateAddedElements } from '../../store/actions/formConstructorActions';
 import { useTypeSelector } from '../../hooks/useTypeSelector';
 import { IFormElement } from '../../interfaces';
 import {
