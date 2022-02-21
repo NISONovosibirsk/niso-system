@@ -165,5 +165,3 @@ export const formConstructorReducer = (
             return state;
     }
 };
-
-// export type FormAction = IDragAndDropActions;
