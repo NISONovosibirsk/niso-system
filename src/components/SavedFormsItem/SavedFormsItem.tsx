@@ -4,7 +4,10 @@ import { ISavedFormItem } from '../../interfaces';
 import { useTypeSelector } from '../../hooks/useTypeSelector';
 import { updateAddedElements } from '../../store/actions/formConstructorActions';
 import { useDispatch } from 'react-redux';
-import { setOpenStatus } from '../../store/actions/sendFormPopupActions';
+import {
+    setOpenStatus,
+    setSelectedForm,
+} from '../../store/actions/sendFormPopupActions';
 import { setForms } from '../../store/actions/formsListActions';
 
 const SavedFormsItem = ({ index, savedForm }: ISavedFormItem) => {
@@ -24,7 +27,9 @@ const SavedFormsItem = ({ index, savedForm }: ISavedFormItem) => {
     };
 
     const handleSend = () => {
+        const newSelectedForm = [...forms[index].content];
         dispatch(setOpenStatus(true));
+        dispatch(setSelectedForm(newSelectedForm));
     };
 
     return (

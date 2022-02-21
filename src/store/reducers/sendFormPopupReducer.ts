@@ -3,12 +3,14 @@ import {
     SET_OPEN_STATUS,
     UPDATE_FILTER_CHARS,
     UPDATE_SELECTED_SCHOOLS,
+    SET_SELECTED_FORM,
 } from '../types';
 
 const initialState = {
     filterChars: '',
     isOpen: false,
     selectedSchools: [],
+    selectedForm: [],
 };
 
 export const sendFormPopupReducer = (
@@ -33,7 +35,11 @@ export const sendFormPopupReducer = (
                 ...state,
                 selectedSchools: action.payload,
             };
-
+        case SET_SELECTED_FORM:
+            return {
+                ...state,
+                selectedForm: action.payload,
+            };
         default:
             return state;
     }

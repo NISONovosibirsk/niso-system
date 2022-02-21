@@ -9,16 +9,19 @@ import {
     updateFilterChars,
     updateSelectedSchools,
 } from '../../store/actions/sendFormPopupActions';
+import { useNavigate } from 'react-router-dom';
+import { setOpenedForm } from '../../store/actions/formsListActions';
 
 const SearchForm = () => {
-    const { isOpen, filterChars, selectedSchools } = useTypeSelector(
-        state => state.sendForm
-    );
+    const { isOpen, filterChars, selectedSchools, selectedForm } =
+        useTypeSelector(state => state.sendForm);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const handleClose = () => {
         dispatch(setOpenStatus(false));
         dispatch(updateFilterChars(''));
+        dispatch(updateSelectedSchools([]));
     };
 
     const handleChangeFilterChars = e => {
@@ -43,6 +46,11 @@ const SearchForm = () => {
         return school.includes(input);
     });
 
+    const handleSend = () =>
+        selectedSchools.length
+            ? (dispatch(setOpenedForm(selectedForm)), navigate('/client'))
+            : alert('Ни одной школы не выбрано');
+
     return (
         <Popup onClose={handleClose} isOpen={isOpen}>
             <div className='search-form'>
@@ -65,7 +73,11 @@ const SearchForm = () => {
                         );
                     })}
                 </ul>
-                <Button title='отправить' types={['filled', 'center']} />
+                <Button
+                    title='Отправить'
+                    types={['filled', 'center']}
+                    onClick={handleSend}
+                />
             </div>
         </Popup>
     );
