@@ -31,9 +31,9 @@ export const setCurrentForm = newState => {
     }
 };
 
-export const setPreview = payload => {
+export const setPreview = status => {
     try {
-        return { type: SET_PREVIEW, payload: payload };
+        return { type: SET_PREVIEW, payload: status };
     } catch (error) {
         console.log(error);
     }
