@@ -2,41 +2,41 @@ import { useDispatch } from 'react-redux';
 import { Button } from '..';
 import { useTypeSelector } from '../../hooks/useTypeSelector';
 import { savedFormTypeHandler } from '../../middleware/savedFormTypeHandler';
-import { setCurrentForm } from '../../store/actions/constructorActions';
+import { setOpenedForm } from '../../store/actions/formsListActions';
 import './SavedForm.scss';
 
 const SavedForm = () => {
-    const { currentForm } = useTypeSelector(state => state.formConstructor);
+    const { openedForm } = useTypeSelector(state => state.formsList);
     const dispatch = useDispatch();
 
     const handleValueChange = (e, index) => {
         const { type, id, checked, value } = e.target;
 
-        const newState = [...currentForm];
+        const newOpenedForm = [...openedForm];
 
         switch (type) {
             case 'radio':
-                const newRadiolist = [...newState[index].radiolist];
+                const newRadiolist = [...newOpenedForm[index].radiolist];
 
                 newRadiolist.forEach(radio => (radio.isChecked = false));
                 newRadiolist[id].isChecked = true;
-                newState[index].radiolist = newRadiolist;
+                newOpenedForm[index].radiolist = newRadiolist;
                 break;
 
             case 'checkbox':
-                newState[index].value = checked;
+                newOpenedForm[index].value = checked;
                 break;
 
             default:
-                newState[index].value = value;
+                newOpenedForm[index].value = value;
                 break;
         }
-        dispatch(setCurrentForm(newState));
+        dispatch(setOpenedForm(newOpenedForm));
     };
 
     return (
         <form className='saved-form'>
-            {currentForm.map((item, index) =>
+            {openedForm.map((item, index) =>
                 savedFormTypeHandler({
                     onValueChange: e => {
                         handleValueChange(e, index);

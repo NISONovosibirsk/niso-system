@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useTypeSelector } from '../../../hooks/useTypeSelector';
-import { updateAddedElements } from '../../../store/actions/constructorActions';
+import { updateAddedElements } from '../../../store/actions/formConstructorActions';
 import { IFormElementCheckboxRequired } from '../interfaces';
 import './FormElementCheckboxRequired.scss';
 

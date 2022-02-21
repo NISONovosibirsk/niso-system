@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { RemoveButton } from '../..';
 import { useTypeSelector } from '../../../hooks/useTypeSelector';
-import { updateAddedElements } from '../../../store/actions/constructorActions';
+import { updateAddedElements } from '../../../store/actions/formConstructorActions';
 import { IFormElementRadio } from '../interfaces';
 import './FormElementRadio.scss';
 

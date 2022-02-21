@@ -17,7 +17,7 @@ export interface IBlogCard {
 // Button
 export interface IButton {
     title?: string;
-    mod?: string;
+    types?: any;
     onClick?: any;
 }
 
@@ -54,7 +54,7 @@ export default interface ISliderItemProps {
 interface ButtonsArray {
     [index: number]: {};
     title: string;
-    type?: string;
+    types?: [string];
     onClick?: Function;
 }
 
@@ -69,11 +69,7 @@ export interface ITerms {
 export interface IConstructorState {
     initialElements: any;
     addedElements: any;
-    savedForms: any;
-    currentForm: any;
     isPreview: boolean;
-    isActive: any;
-    searchInput: string;
 }
 
 export interface IHeaderSidebarState {

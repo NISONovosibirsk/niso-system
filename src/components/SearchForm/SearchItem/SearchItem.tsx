@@ -1,25 +1,20 @@
-import { useState } from 'react';
+import { FormElementCheckbox } from '../..';
 import './SearchItem.scss';
 
-const SearchItem = ({ school }) => {
-    // temporary dummy for checkboxes
-    const [checked, setChecked] = useState(false);
-
+const SearchItem = ({ school, isChecked, onChange }) => {
+    const handleChange = () => {
+        onChange(school);
+    };
     return (
-        <div className='search-element'>
+        <li className='search-element'>
             <div className='search-element__content'>
                 {school.name}, {school.address.street}
             </div>
-            <input
-                className='search-element__input'
-                type='checkbox'
-                checked={checked}
+            <FormElementCheckbox
+                isChecked={isChecked}
+                onChange={handleChange}
             />
-            <div
-                className='search-element__checkbox'
-                onClick={() => setChecked(!checked)}
-            ></div>
-        </div>
+        </li>
     );
 };
 

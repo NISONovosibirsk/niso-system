@@ -1,14 +1,18 @@
-@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white, 0%)) {
+@mixin scrollbars(
+    $size,
+    $foreground-color,
+    $background-color: mix($foreground-color, white, 0%)
+) {
     ::-webkit-scrollbar {
-        width:  $size;
+        width: $size;
         height: $size;
     }
-  
+
     ::-webkit-scrollbar-thumb {
         background: $foreground-color;
         border-radius: 10px;
     }
-  
+
     ::-webkit-scrollbar-track {
         background: $background-color;
     }
@@ -17,23 +21,8 @@
 @include scrollbars(10px, #3374a2);
 
 .search-form {
-    height: 100vh;
-    width: 100vw;
-    background-color: rgba(0,0,0,0.4);
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: 0.4s;
-
-    &_active {
-        opacity: 1;
-        pointer-events: all;
-
+    padding: 0 {
+        bottom: 20px;
     }
 
     &__content {
@@ -52,13 +41,15 @@
         box-sizing: border-box;
         width: calc(100% - 20px);
         margin: 0 10px {
-            top: 15px
+            top: 15px;
         }
     }
 
-    &__field {
-        padding: 26px;
+    &__list {
+        padding: 0 26px;
         max-height: 60vh;
         overflow: auto;
+        text-decoration: none;
+        margin: 20px 10px;
     }
 }
