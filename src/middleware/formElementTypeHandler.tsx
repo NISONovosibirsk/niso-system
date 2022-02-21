@@ -1,5 +1,5 @@
 import {
-    FormElementCheckbox,
+    Checkbox,
     FormElementHeader,
     FormElementInput,
     FormElementList,
@@ -70,7 +70,7 @@ const formElementTypeHandler = ({
             );
         case 'checkbox':
             return (
-                <FormElementCheckbox
+                <Checkbox
                     isChecked={element.value}
                     onChange={onValueChange}
                     isDisabled={element.isDisabled}

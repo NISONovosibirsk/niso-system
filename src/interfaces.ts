@@ -63,6 +63,13 @@ export interface ITerms {
     buttons: ButtonsArray[];
 }
 
+export interface ICheckbox {
+    isChecked: boolean;
+    isDisabled?: boolean;
+    isRequired?: boolean;
+    onChange: any;
+}
+
 // REDUX //
 
 // Form state and actions

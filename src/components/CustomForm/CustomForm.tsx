@@ -3,7 +3,6 @@ import './CustomForm.scss';
 import { Button, FormElement, ShowHideButton } from '..';
 import { Droppable } from 'react-beautiful-dnd';
 import { savedFormTypeHandler } from '../../middleware/savedFormTypeHandler';
-import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import {
     setPreview,
@@ -15,12 +14,8 @@ const CustomForm = () => {
     const { addedElements, isPreview } = useTypeSelector(
         state => state.formConstructor
     );
+    const { forms } = useTypeSelector(state => state.formsList);
     const dispatch = useDispatch();
-
-    useEffect(() => {
-        handleStorage();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
 
     const handleReset = () => {
         dispatch(
@@ -42,8 +37,8 @@ const CustomForm = () => {
     };
 
     // convert timestamp to human time
-    const handleTime = key => {
-        const date = new Date(Number(key));
+    const convertTimestamp = id => {
+        const date = new Date(id);
         return `${date.getDate()}.0${
             date.getMonth() + 1
         }.${date.getFullYear()} ${date.getHours()}:${
@@ -54,40 +49,26 @@ const CustomForm = () => {
     // save element to storage by button
     const handleSave = e => {
         e.preventDefault();
-        const key = String(Date.now());
-        localStorage.setItem(key, JSON.stringify(addedElements));
+
+        const newFormsList = [...forms];
+
+        const form: any = {};
+        form._id = Date.now();
+        form.content = addedElements;
+        form.sendStatus = [];
+        form.title = addedElements.find(
+            element => (element.type = 'title')
+        ).placeholder;
+        form.subtitle = addedElements.find(
+            element => (element.type = 'header')
+        ).placeholder;
+        form.date = convertTimestamp(form._id);
+
+        localStorage.setItem(String(form._id), JSON.stringify(form));
+        newFormsList.unshift(form);
+
+        dispatch(setForms(newFormsList));
         handleReset();
-        handleStorage();
-    };
-
-    // add elements from storage to state
-    const handleStorage: any = () => {
-        const newForms: Array<any> = [];
-
-        Object.keys(localStorage).forEach(key => {
-            const json = localStorage.getItem(key);
-
-            if (json !== null) {
-                const form: any = {};
-                form.date = handleTime(key);
-                form.content = JSON.parse(json);
-                form._id = Number(key);
-
-                form.content.forEach(item => {
-                    switch (item.type) {
-                        case 'title':
-                            form.title = item.placeholder;
-                            break;
-                        case 'header':
-                            form.subtitle = item.placeholder;
-                            break;
-                    }
-                });
-
-                newForms.push(form);
-            }
-            dispatch(setForms(newForms));
-        });
     };
 
     const handleIsPreview = () => {
