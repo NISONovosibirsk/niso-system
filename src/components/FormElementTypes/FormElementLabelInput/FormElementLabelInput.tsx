@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useTypeSelector } from '../../../hooks/useTypeSelector';
-import { updateConstructor } from '../../../store/actions/formActions';
+import { updateAddedElements } from '../../../store/actions/constructorActions';
 import { IFormElementLabelInput } from '../interfaces';
 import './FormElementLabelInput.scss';
 
@@ -8,13 +8,13 @@ const FormElementLabelInput = ({
     value,
     isDisabled,
 }: IFormElementLabelInput) => {
-    const { constructor } = useTypeSelector(state => state.form);
+    const { addedElements } = useTypeSelector(state => state.formConstructor);
     const dispatch = useDispatch();
 
     const handleValueChange = e => {
-        const newState = [...constructor];
+        const newState = [...addedElements];
         newState[e.target.parentNode.id].label = e.target.value;
-        dispatch(updateConstructor(newState));
+        dispatch(updateAddedElements(newState));
     };
 
     return (

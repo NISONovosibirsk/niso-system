@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { Button, Sidebar } from '../';
 import { nisoLogo } from '../../assets';
 import { useTypeSelector } from '../../hooks/useTypeSelector';
-import { setLoggedInStatus } from '../../store/actions/headerSidebar';
+import { setLoggedInStatus } from '../../store/actions/headerSidebarActions';
 import './Header.scss';
 
 const Header = () => {

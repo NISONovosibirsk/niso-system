@@ -2,11 +2,11 @@ import { useDispatch } from 'react-redux';
 import { Button } from '..';
 import { useTypeSelector } from '../../hooks/useTypeSelector';
 import { savedFormTypeHandler } from '../../middleware/savedFormTypeHandler';
-import { setCurrentForm } from '../../store/actions/formActions';
+import { setCurrentForm } from '../../store/actions/constructorActions';
 import './SavedForm.scss';
 
 const SavedForm = () => {
-    const { currentForm } = useTypeSelector(state => state.form);
+    const { currentForm } = useTypeSelector(state => state.formConstructor);
     const dispatch = useDispatch();
 
     const handleValueChange = (e, index) => {

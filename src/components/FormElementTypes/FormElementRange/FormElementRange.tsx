@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useTypeSelector } from '../../../hooks/useTypeSelector';
-import { updateConstructor } from '../../../store/actions/formActions';
+import { updateAddedElements } from '../../../store/actions/constructorActions';
 import { IFormElementRange } from '../interfaces';
 import './FormElementRange.scss';
 
@@ -14,27 +14,27 @@ const FormElementRange = ({
     isDisabled,
     isFinalForm,
 }: IFormElementRange) => {
-    const { constructor } = useTypeSelector(state => state.form);
+    const { addedElements } = useTypeSelector(state => state.formConstructor);
     const dispatch = useDispatch();
 
     const currentValue = value.length ? value : defaultValue;
 
     const handleMaxRangeValueChange = e => {
-        const newState = [...constructor];
+        const newState = [...addedElements];
         newState[e.target.parentNode.parentNode.id].max = e.target.value;
-        dispatch(updateConstructor(newState));
+        dispatch(updateAddedElements(newState));
     };
 
     const handleMinRangeValueChange = e => {
-        const newState = [...constructor];
+        const newState = [...addedElements];
         newState[e.target.parentNode.parentNode.id].min = e.target.value;
-        dispatch(updateConstructor(newState));
+        dispatch(updateAddedElements(newState));
     };
 
     const handleStepRangeValueChange = e => {
-        const newState = [...constructor];
+        const newState = [...addedElements];
         newState[e.target.parentNode.parentNode.id].step = e.target.value;
-        dispatch(updateConstructor(newState));
+        dispatch(updateAddedElements(newState));
     };
 
     return (

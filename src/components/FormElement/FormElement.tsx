@@ -1,7 +1,7 @@
 import './FormElement.scss';
 import { Draggable } from 'react-beautiful-dnd';
 import { useDispatch } from 'react-redux';
-import { updateConstructor } from '../../store/actions/formActions';
+import { updateAddedElements } from '../../store/actions/constructorActions';
 import { useTypeSelector } from '../../hooks/useTypeSelector';
 import { IFormElement } from '../../interfaces';
 import {
@@ -12,13 +12,13 @@ import {
 } from '..';
 import formElementTypeHandler from '../../middleware/formElementTypeHandler';
 
-const FormElement = ({ item, id, index }: IFormElement) => {
-    const { constructor } = useTypeSelector(state => state.form);
+const FormElement = ({ element, id, index }: IFormElement) => {
+    const { addedElements } = useTypeSelector(state => state.formConstructor);
     const dispatch = useDispatch();
 
     const handleValueChange = e => {
         const { type, id, checked, value } = e.target;
-        const newState = [...constructor];
+        const newState = [...addedElements];
 
         switch (type) {
             case 'radio':
@@ -37,17 +37,17 @@ const FormElement = ({ item, id, index }: IFormElement) => {
                 newState[index].placeholder = value;
                 break;
         }
-        dispatch(updateConstructor(newState));
+        dispatch(updateAddedElements(newState));
     };
 
     const handleRemoveElement = e => {
-        const newState = [...constructor];
+        const newState = [...addedElements];
         newState.splice(e.target.parentNode.id, 1);
-        dispatch(updateConstructor(newState));
+        dispatch(updateAddedElements(newState));
     };
 
     const handleRenderLabelInput = () => {
-        switch (item.type) {
+        switch (element.type) {
             case 'header':
                 break;
             case 'title':
@@ -57,15 +57,15 @@ const FormElement = ({ item, id, index }: IFormElement) => {
             default:
                 return (
                     <FormElementLabelInput
-                        value={item.label}
-                        isDisabled={item.isDisabled}
+                        value={element.label}
+                        isDisabled={element.isDisabled}
                     />
                 );
         }
     };
 
     const handleRenderRemoveButton = () => {
-        switch (item.type) {
+        switch (element.type) {
             case 'header':
                 break;
             case 'title':
@@ -86,16 +86,17 @@ const FormElement = ({ item, id, index }: IFormElement) => {
                     ref={provided.innerRef}
                 >
                     {handleRenderLabelInput()}
-                    {!item.isDisabled && item.isRequired !== undefined && (
-                        <FormElementCheckboxRequired
-                            index={index}
-                            isChecked={item.isRequired}
-                        />
-                    )}
-                    {!item.isDisabled && handleRenderRemoveButton()}
+                    {!element.isDisabled &&
+                        element.isRequired !== undefined && (
+                            <FormElementCheckboxRequired
+                                index={index}
+                                isChecked={element.isRequired}
+                            />
+                        )}
+                    {!element.isDisabled && handleRenderRemoveButton()}
                     {formElementTypeHandler({
                         onValueChange: handleValueChange,
-                        element: item,
+                        element,
                         isFinalForm: false,
                     })}
                     <FormElementDragButton />

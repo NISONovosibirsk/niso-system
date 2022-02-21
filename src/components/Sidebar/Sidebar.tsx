@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { setLoggedInStatus } from '../../store/actions/headerSidebar';
+import { setLoggedInStatus } from '../../store/actions/headerSidebarActions';
 import './Sidebar.scss';
 import { ISidebar } from '../../interfaces';
 

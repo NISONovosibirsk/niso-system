@@ -1,15 +1,15 @@
 import {
-    UPDATE_CONSTRUCTOR,
+    UPDATE_ADDED_ELEMENTS,
     SET_CURRENT_FORM,
     SET_PREVIEW,
     GET_SAVED_FORMS,
     UPDATE_STATUS,
     SET_SEARCH_INPUT,
 } from '../types';
-import { IFormState, IDragAndDropActions } from '../../interfaces';
+import { IConstructorState, IReduxActions } from '../../interfaces';
 
-const initialState: IFormState = {
-    elements: [
+const initialState: IConstructorState = {
+    initialElements: [
         {
             id: 3,
             type: 'subtitle',
@@ -99,7 +99,7 @@ const initialState: IFormState = {
             isDisabled: true,
         },
     ],
-    constructor: [
+    addedElements: [
         {
             id: 1,
             type: 'header',
@@ -113,7 +113,6 @@ const initialState: IFormState = {
             isDisabled: false,
         },
     ],
-
     savedForms: [],
     currentForm: [],
     isPreview: false,
@@ -121,28 +120,50 @@ const initialState: IFormState = {
     searchInput: '',
 };
 
-export const formReducer = (
+export const formConstructorReducer = (
     state = initialState,
-    action: IDragAndDropActions
-): IFormState => {
+    action: IReduxActions
+): IConstructorState => {
     switch (action.type) {
-        case UPDATE_CONSTRUCTOR:
-            return { ...state, constructor: action.payload };
+        case UPDATE_ADDED_ELEMENTS:
+            return {
+                ...state,
+                addedElements: action.payload,
+            };
+
         case SET_CURRENT_FORM:
-            return { ...state, currentForm: action.payload };
+            return {
+                ...state,
+                currentForm: action.payload,
+            };
+
         case SET_PREVIEW:
-            return { ...state, isPreview: action.payload };
+            return {
+                ...state,
+                isPreview: action.payload,
+            };
+
         case GET_SAVED_FORMS:
-            return { ...state, savedForms: action.payload };
-        case UPDATE_STATUS: {
-            return { ...state, isActive: action.payload };
-        }
-        case SET_SEARCH_INPUT: {
-            return { ...state, searchInput: action.payload };
-        }
+            return {
+                ...state,
+                savedForms: action.payload,
+            };
+
+        case UPDATE_STATUS:
+            return {
+                ...state,
+                isActive: action.payload,
+            };
+
+        case SET_SEARCH_INPUT:
+            return {
+                ...state,
+                searchInput: action.payload,
+            };
+
         default:
             return state;
     }
 };
 
-export type FormAction = IDragAndDropActions;
+// export type FormAction = IDragAndDropActions;
