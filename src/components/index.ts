@@ -19,6 +19,7 @@ export { default as ShowHideButton } from './ShowHideButton/ShowHideButton';
 export { default as SearchForm } from './SearchForm/SearchForm';
 export { default as Popup } from './Popup/Popup';
 export { default as Checkbox } from './Checkbox/Checkbox';
+export { default as Login } from './Login/Login';
 
 //form elements
 //main

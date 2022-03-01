@@ -1,4 +1,11 @@
-import { FormConstructor, Header, SavedForms, SavedForm } from './components';
+import {
+    FormConstructor,
+    Header,
+    SavedForms,
+    SavedForm,
+    Register,
+    Login,
+} from './components';
 import { useTypeSelector } from './hooks/useTypeSelector';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -35,15 +42,13 @@ function App() {
         <BrowserRouter>
             <div className='App'>
                 <div className='container'>
-                    <Header />
                     <Routes>
                         <Route path='' element={<FormConstructor />} />
-                        <Route
-                            path='client'
-                            element={<SavedForm />}
-                        />
+                        <Route path='client' element={<SavedForm />} />
+                        <Route path='login' element={<Login />} />
+                        <Route path='signin' element={<Register />} />
                     </Routes>
-                    <SavedForms />
+                    {/* <SavedForms /> */}
                 </div>
             </div>
         </BrowserRouter>
