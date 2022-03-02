@@ -7,7 +7,6 @@ export { default as Filter } from './Filter/Filter';
 export { default as Form } from './Form/Form';
 export { default as FormConstructor } from './FormConstructor/FormConstructor';
 export { default as Header } from './Header/Header';
-export { default as Register } from './Register/Register';
 export { default as SavedForm } from './SavedForm/SavedForm';
 export { default as SavedForms } from './SavedForms/SavedFroms';
 export { default as SavedFormsItem } from './SavedFormsItem/SavedFormsItem';
@@ -19,7 +18,12 @@ export { default as ShowHideButton } from './ShowHideButton/ShowHideButton';
 export { default as SearchForm } from './SearchForm/SearchForm';
 export { default as Popup } from './Popup/Popup';
 export { default as Checkbox } from './Checkbox/Checkbox';
+export { default as AuthForm } from './AuthForm/AuthForm';
 export { default as Login } from './Login/Login';
+export { default as Register } from './Register/Register';
+export { default as PasswordRecovery } from './PasswordRecovery/PasswordRecovery';
+export { default as ChangePassword } from './ChangePassword/ChangePassword';
+export { default as StatusPopup } from './StatusPopup/StatusPopup';
 
 //form elements
 //main

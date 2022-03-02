@@ -5,6 +5,9 @@ import {
     SavedForm,
     Register,
     Login,
+    PasswordRecovery,
+    ChangePassword,
+    StatusPopup,
 } from './components';
 import { useTypeSelector } from './hooks/useTypeSelector';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -45,9 +48,19 @@ function App() {
                     <Routes>
                         <Route path='' element={<FormConstructor />} />
                         <Route path='client' element={<SavedForm />} />
-                        <Route path='login' element={<Login />} />
-                        <Route path='signin' element={<Register />} />
+                        <Route path='signin'>
+                            <Route path='' element={<Login />} />
+                            <Route path='password-recovery'>
+                                <Route path='' element={<PasswordRecovery />} />
+                                <Route
+                                    path='generated-link'
+                                    element={<ChangePassword />}
+                                />
+                            </Route>
+                        </Route>
+                        <Route path='signup' element={<Register />} />
                     </Routes>
+                    <StatusPopup />
                     {/* <SavedForms /> */}
                 </div>
             </div>

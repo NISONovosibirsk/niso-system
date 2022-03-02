@@ -21,3 +21,8 @@ export { default as DownloadIcon } from './icons/download.svg';
 
 //niso logo
 export { default as nisoLogo } from './icons/niso__logo.svg';
+
+//status icons
+export { default as successfulIcon } from './icons/successful__icon.svg';
+export { default as unsuccessfulIcon } from './icons/unsuccessful__icon.svg';
+export { default as errorIcon } from './icons/error__icon.svg';

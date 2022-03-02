@@ -2,47 +2,56 @@
     padding: {
         top: 200px;
     }
-    &__form {
-        display: grid;
-        grid-row: 1fr 1fr 1fr 1fr 1fr 1fr;
-        max-width: 360px;
-        margin: auto;
+    margin: auto;
+    max-width: 360px;
+
+    &__logo {
+        display: block;
+        margin: 0 auto 110px;
     }
 
-    &__label {
-        color: #979dbb;
+    &__forgot-question {
+        cursor: pointer;
+        color: #007aff;
         font-size: 11px;
         line-height: 12px;
         letter-spacing: 0.3px;
-        padding: {
-            left: 16px;
-            bottom: 8px;
+        text-align: right;
+        margin: 0;
+        padding: 4px 0 8px;
+        transition: opacity linear 0.2s;
+
+        &:hover {
+            opacity: 0.8;
         }
     }
 
-    &__input {
-        padding: 16px 18px;
-        background: #f5f7fb;
-        border: 0.5px solid #a9abba;
-        border-radius: 6px;
-        box-sizing: border-box;
-
-        &::placeholder {
-            color: #a9abba;
-            font-size: 11px;
-            line-height: 12px;
-            letter-spacing: 0.3px;
+    &__question {
+        color: #1a1a1a;
+        font-size: 12px;
+        line-height: 20px;
+        letter-spacing: 0.3px;
+        text-align: center;
+        margin: 0 {
+            top: 20px;
+        }
+        padding: {
+            top: 16px;
+        }
+        border: {
+            top: 0.5px solid #e5e5e5;
         }
 
-        &:hover {
-            border: 1px solid #4f8be4;
-        }
+        &-span {
+            cursor: pointer;
+            padding: {
+                left: 8px;
+            }
+            color: #007aff;
+            transition: opacity linear 0.2s;
 
-        &:focus {
-            border: 1px solid #4f8be4;
-
-            & + .login__label {
-                color: #4f8be4;
+            &:hover {
+                opacity: 0.8;
             }
         }
     }

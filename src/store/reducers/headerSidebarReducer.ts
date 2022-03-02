@@ -1,5 +1,5 @@
 import { IHeaderSidebarState, IReduxActions } from '../../interfaces';
-import { SET_LOGGED_IN_STATUS } from '../types';
+import { SET_LOGGED_IN_STATUS } from '../reduxTypes/headerSidebarTypes';
 
 const initialState: IHeaderSidebarState = {
     isOpen: false,

@@ -73,7 +73,7 @@ export interface ICheckbox {
 // REDUX //
 
 // Form state and actions
-export interface IConstructorState {
+export interface IFormConstructorState {
     initialElements: any;
     addedElements: any;
     isPreview: boolean;
@@ -81,6 +81,32 @@ export interface IConstructorState {
 
 export interface IHeaderSidebarState {
     isOpen: boolean;
+}
+
+export interface ILoginState {
+    email: string;
+    emailError: string;
+    password: string;
+    passwordError: string;
+    isValid: boolean;
+}
+
+export interface IRegisterState {
+    email: string;
+    emailError: string;
+    password: string;
+    passwordError: string;
+    repeatPassword: string;
+    repeatPasswordError: string;
+    isValid: boolean;
+}
+
+export interface IChangePasswordState {
+    password: string;
+    passwordError: string;
+    repeatPassword: string;
+    repeatPasswordError: string;
+    isValid: boolean;
 }
 
 export interface IReduxActions {
