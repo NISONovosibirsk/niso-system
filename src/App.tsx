@@ -3,6 +3,7 @@ import {
     Header,
     SavedForms,
     SavedForm,
+    UserProfile,
     Register,
     Login,
     PasswordRecovery,
@@ -62,6 +63,28 @@ function App() {
                     </Routes>
                     <StatusPopup />
                     {/* <SavedForms /> */}
+                        <Route
+                            path=''
+                            element={
+                                <>
+                                    <Header />
+                                    <FormConstructor />
+                                    <SavedForms />
+                                </>
+                            }
+                        />
+                        <Route
+                            path='client'
+                            element={
+                                <>
+                                    <Header />
+                                    <SavedForm />
+                                    <SavedForms />
+                                </>
+                            }
+                        />
+                        <Route path='user-profile' element={<UserProfile />} />
+                    </Routes>
                 </div>
             </div>
         </BrowserRouter>

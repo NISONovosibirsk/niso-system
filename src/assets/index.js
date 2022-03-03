@@ -26,3 +26,7 @@ export { default as nisoLogo } from './icons/niso__logo.svg';
 export { default as successfulIcon } from './icons/successful__icon.svg';
 export { default as unsuccessfulIcon } from './icons/unsuccessful__icon.svg';
 export { default as errorIcon } from './icons/error__icon.svg';
+
+//sidebar
+export { default as sidebarLogo } from './icons/sidebar__niso-logo.svg';
+export { default as sidebarAudio } from './icons/sidebar__audio.svg';
