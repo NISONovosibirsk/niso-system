@@ -1,0 +1,16 @@
+.searchbar {
+    position: fixed;
+    top: 51px;
+    right: 140px;
+
+    &__input {
+        height: 46.5px;
+        width: 265.5px;
+        border: none;
+        border-radius: 8px;
+        padding: {
+            left: 19.16px;
+        };
+        background: url(./search.svg) no-repeat right 10px center #F5F7FB;
+    }
+}
