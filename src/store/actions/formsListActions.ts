@@ -1,4 +1,4 @@
-import { SET_FORMS, SET_OPENED_FORM } from '../types';
+import { SET_FORMS, SET_OPENED_FORM } from '../reduxTypes/formsListTypes';
 
 export const setForms = forms => {
     try {

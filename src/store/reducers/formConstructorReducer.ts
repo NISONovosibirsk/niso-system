@@ -1,10 +1,10 @@
+import { IFormConstructorState, IReduxActions } from '../../interfaces';
 import {
-    UPDATE_ADDED_ELEMENTS,
     SET_PREVIEW,
-} from '../types';
-import { IConstructorState, IReduxActions } from '../../interfaces';
+    UPDATE_ADDED_ELEMENTS,
+} from '../reduxTypes/formConstructorTypes';
 
-const initialState: IConstructorState = {
+const initialState: IFormConstructorState = {
     initialElements: [
         {
             id: 3,
@@ -115,7 +115,7 @@ const initialState: IConstructorState = {
 export const formConstructorReducer = (
     state = initialState,
     action: IReduxActions
-): IConstructorState => {
+): IFormConstructorState => {
     switch (action.type) {
         case UPDATE_ADDED_ELEMENTS:
             return {

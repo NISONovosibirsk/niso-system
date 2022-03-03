@@ -1,5 +1,5 @@
 import { IReduxActions } from '../../interfaces';
-import { SET_FORMS, SET_OPENED_FORM } from '../types';
+import { SET_FORMS, SET_OPENED_FORM } from '../reduxTypes/formsListTypes';
 
 const initialState = {
     forms: [],

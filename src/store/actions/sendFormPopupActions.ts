@@ -3,7 +3,7 @@ import {
     SET_SELECTED_FORM,
     UPDATE_FILTER_CHARS,
     UPDATE_SELECTED_SCHOOLS,
-} from '../types';
+} from '../reduxTypes/sendFormPopupTypes';
 
 export const updateFilterChars = value => {
     try {

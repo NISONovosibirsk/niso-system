@@ -1,0 +1,21 @@
+.status-popup {
+    &__icon {
+        margin: 0 calc(50% - 16px) {
+            top: 60px;
+            bottom: 34px;
+        }
+    }
+
+    &__text {
+        margin: 0;
+        color: #979dbb;
+        text-align: center;
+        font-weight: 600;
+        font-size: 11px;
+        line-height: 12px;
+        letter-spacing: 0.3px;
+        padding: {
+            bottom: 60px;
+        }
+    }
+}

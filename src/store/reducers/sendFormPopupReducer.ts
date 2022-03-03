@@ -1,10 +1,10 @@
 import { IReduxActions } from '../../interfaces';
 import {
     SET_OPEN_STATUS,
+    SET_SELECTED_FORM,
     UPDATE_FILTER_CHARS,
     UPDATE_SELECTED_SCHOOLS,
-    SET_SELECTED_FORM,
-} from '../types';
+} from '../reduxTypes/sendFormPopupTypes';
 
 const initialState = {
     filterChars: '',

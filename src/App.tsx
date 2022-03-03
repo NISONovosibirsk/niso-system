@@ -4,7 +4,13 @@ import {
     SavedForms,
     SavedForm,
     UserProfile,
+    Register,
+    Login,
+    PasswordRecovery,
+    ChangePassword,
+    StatusPopup,
 } from './components';
+import { useTypeSelector } from './hooks/useTypeSelector';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setForms } from './store/actions/formsListActions';
@@ -41,6 +47,22 @@ function App() {
             <div className='App'>
                 <div className='container'>
                     <Routes>
+                        <Route path='' element={<FormConstructor />} />
+                        <Route path='client' element={<SavedForm />} />
+                        <Route path='signin'>
+                            <Route path='' element={<Login />} />
+                            <Route path='password-recovery'>
+                                <Route path='' element={<PasswordRecovery />} />
+                                <Route
+                                    path='generated-link'
+                                    element={<ChangePassword />}
+                                />
+                            </Route>
+                        </Route>
+                        <Route path='signup' element={<Register />} />
+                    </Routes>
+                    <StatusPopup />
+                    {/* <SavedForms /> */}
                         <Route
                             path=''
                             element={

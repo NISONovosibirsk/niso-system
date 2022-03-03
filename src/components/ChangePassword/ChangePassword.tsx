@@ -3,28 +3,24 @@ import { useDispatch } from 'react-redux';
 import { useTypeSelector } from '../../hooks/useTypeSelector';
 import { AuthForm } from '..';
 import { nisoLogo } from '../../assets';
-import './Register.scss';
+import './ChangePassword.scss';
 import {
     resetForm,
     setIsValid,
-    updateEmailErrorMessage,
-    updateEmailValue,
     updatePasswordErrorMessage,
     updatePasswordValue,
     updateRepeatPasswordErrorMessage,
     updateRepeatPasswordValue,
-} from '../../store/actions/registerActions';
+} from '../../store/actions/changePasswordActions';
 
-const Register = () => {
+const ChangePassword = () => {
     const {
-        email,
-        emailError,
         password,
         passwordError,
         repeatPassword,
         repeatPasswordError,
         isValid,
-    } = useTypeSelector(state => state.register);
+    } = useTypeSelector(state => state.changePassword);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -32,20 +28,6 @@ const Register = () => {
         const { name, value, validationMessage } = e.target;
 
         switch (name) {
-            case 'email':
-                dispatch(updateEmailValue(value));
-                dispatch(updateEmailErrorMessage(validationMessage));
-                dispatch(
-                    setIsValid(
-                        e.target.closest('form').checkValidity()
-                            ? repeatPassword === password
-                                ? true
-                                : false
-                            : false
-                    )
-                );
-                break;
-
             case 'password':
                 dispatch(updatePasswordValue(value));
                 dispatch(updatePasswordErrorMessage(validationMessage));
@@ -90,39 +72,24 @@ const Register = () => {
         }
     };
 
-    const handleQuestionClick = () => {
+    const handleButtonClick = () => {
         dispatch(resetForm());
         navigate('/signin');
     };
 
     return (
-        <section className='register'>
+        <section className='change-password'>
             <img
-                className='register__logo'
+                className='change-password__logo'
                 src={nisoLogo}
                 alt='логотип НИСО'
             ></img>
+            <p className='change-password__title'>Введите новый пароль</p>
             <AuthForm
                 onSubmit={() => {}}
                 isValid={isValid}
-                submitButtonText='Зарегистрироваться'
+                submitButtonText='Изменить'
             >
-                <label className='auth-form__label' htmlFor='email'>
-                    E-mail
-                </label>
-                <input
-                    className={`auth-form__input ${
-                        emailError ? 'auth-form__input-invalid' : ''
-                    }`}
-                    onChange={handleChange}
-                    value={email}
-                    id='email'
-                    name='email'
-                    type='email'
-                    placeholder='Введите email'
-                    required
-                />
-                <span className='auth-form__error'>{emailError}</span>
                 <label className='auth-form__label' htmlFor='password'>
                     Пароль
                 </label>
@@ -157,17 +124,14 @@ const Register = () => {
                 />
                 <span className='auth-form__error'>{repeatPasswordError}</span>
             </AuthForm>
-            <p className='register__question'>
-                Уже зарегистрированы?
-                <span
-                    className='register__question-span'
-                    onClick={handleQuestionClick}
-                >
-                    Войти
-                </span>
-            </p>
+            <button
+                className='change-password__button'
+                onClick={handleButtonClick}
+            >
+                Войти
+            </button>
         </section>
     );
 };
 
-export default Register;
+export default ChangePassword;

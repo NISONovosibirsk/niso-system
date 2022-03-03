@@ -1,4 +1,7 @@
-import { UPDATE_ADDED_ELEMENTS, SET_PREVIEW } from '../types';
+import {
+    SET_PREVIEW,
+    UPDATE_ADDED_ELEMENTS,
+} from '../reduxTypes/formConstructorTypes';
 
 export const updateAddedElements = addedElements => {
     try {

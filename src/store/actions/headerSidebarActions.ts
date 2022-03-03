@@ -1,4 +1,4 @@
-import { SET_LOGGED_IN_STATUS } from '../types';
+import { SET_LOGGED_IN_STATUS } from '../reduxTypes/headerSidebarTypes';
 
 export const setLoggedInStatus = (status: boolean) => {
     try {
