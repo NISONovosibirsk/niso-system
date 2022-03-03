@@ -18,3 +18,7 @@ export { default as HideResults } from './icons/hide-results.svg';
 
 //download
 export { default as DownloadIcon } from './icons/download.svg';
+
+//sidebar
+export { default as sidebarLogo } from './icons/sidebar__niso-logo.svg';
+export { default as sidebarAudio } from './icons/sidebar__audio.svg';

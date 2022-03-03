@@ -38,6 +38,9 @@ export { default as FormElementTextarea } from './FormElementTypes/FormElementTe
 export { default as FormElementCheckboxRequired } from './FormElementTypes/FormElementCheckboxRequired/FormElementCheckboxRequired';
 export { default as FormElementDragButton } from './FormElement/FormElementDragButton/FormElementDragButton';
 
+//profile elements
+export { default as UserProfile } from './UserProfile/UserProfile';
+
 //slider
 export { default as Slider } from './Slider/Slider';
 export { default as Item } from './Slider/Item';
