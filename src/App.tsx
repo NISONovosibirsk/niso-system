@@ -1,8 +1,5 @@
 import {
     FormConstructor,
-    Header,
-    SavedForms,
-    SavedForm,
     UserProfile,
     Register,
     Login,
@@ -10,7 +7,6 @@ import {
     ChangePassword,
     StatusPopup,
 } from './components';
-import { useTypeSelector } from './hooks/useTypeSelector';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setForms } from './store/actions/formsListActions';
@@ -48,7 +44,6 @@ function App() {
                 <div className='container'>
                     <Routes>
                         <Route path='' element={<FormConstructor />} />
-                        <Route path='client' element={<SavedForm />} />
                         <Route path='signin'>
                             <Route path='' element={<Login />} />
                             <Route path='password-recovery'>
@@ -60,31 +55,9 @@ function App() {
                             </Route>
                         </Route>
                         <Route path='signup' element={<Register />} />
-                    </Routes>
-                    <StatusPopup />
-                    {/* <SavedForms /> */}
-                        <Route
-                            path=''
-                            element={
-                                <>
-                                    <Header />
-                                    <FormConstructor />
-                                    <SavedForms />
-                                </>
-                            }
-                        />
-                        <Route
-                            path='client'
-                            element={
-                                <>
-                                    <Header />
-                                    <SavedForm />
-                                    <SavedForms />
-                                </>
-                            }
-                        />
                         <Route path='user-profile' element={<UserProfile />} />
                     </Routes>
+                    <StatusPopup />
                 </div>
             </div>
         </BrowserRouter>
