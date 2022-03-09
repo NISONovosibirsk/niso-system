@@ -18,6 +18,7 @@
         }
         align-self: center;
         max-width: 15vw;
+        fill: white;
     }
 
     &__list {
@@ -81,7 +82,7 @@
         border-radius: 50%;
         border: none;
         cursor: pointer;
-        background: url(../../../assets/icons/sidebar__audio.svg) no-repeat
+        background: url(../../../assets/icons/supportIcon/support-icon.svg) no-repeat
             center white;
         width: 66px;
         height: 66px;

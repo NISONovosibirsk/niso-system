@@ -1,11 +1,12 @@
+import { NisoLogo } from '../../../assets';
 import './Sidebar.scss';
-import { sidebarLogo } from '../../../assets';
 
 const Sidebar = ({ children }) => {
     return (
         <div className='profile-sidebar_active'>
             <nav className='profile-sidebar__navigation'>
-                <img className='profile-sidebar__logo' src={sidebarLogo} />
+                <NisoLogo className='profile-sidebar__logo' />
+                {/* <img className='profile-sidebar__logo' src={sidebarLogo} /> */}
                 <ul className='profile-sidebar__list'>{children}</ul>
                 <div className='profile-sidebar__footer'>
                     <p>Политика конфиденциальности</p>

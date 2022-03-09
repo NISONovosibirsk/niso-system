@@ -2,21 +2,22 @@ import Sidebar from './Sidebar/Sidebar';
 import './UserProfile.scss';
 import ProfileHeader from './ProfileHeader/ProfileHeader';
 import { Outlet } from 'react-router-dom';
-
-import { ReactComponent as HomeIcon } from './icons/home.svg';
-import { ReactComponent as OfsIcon } from './icons/ofs.svg';
-import { ReactComponent as DutiesIcon } from './icons/duties.svg';
-import { ReactComponent as CommunicationsIcon } from './icons/communications.svg';
-import { ReactComponent as ReglamentsIcon } from './icons/reglaments.svg';
-import { ReactComponent as StaffIcon } from './icons/staff.svg';
-import { ReactComponent as ReportsIcon } from './icons/reports.svg';
+import {
+    HomeIcon,
+    DutiesIcon,
+    OfsIcon,
+    CommunicationsIcon,
+    ReglamentsIcon,
+    StaffIcon,
+    ReportsIcon,
+} from '../../assets';
 
 const UserProfile = () => {
     return (
         <div className='user-profile'>
             <Sidebar>
                 <li className='profile-sidebar__item'>
-                    <HomeIcon className='home-icon' />
+                    <HomeIcon />
                     <p>Главная</p>
                 </li>
                 <li className='profile-sidebar__item'>
@@ -32,7 +33,7 @@ const UserProfile = () => {
                     <p>Мои обязанности</p>
                 </li>
                 <li className='profile-sidebar__item'>
-                    <ReportsIcon className='reports'/>
+                    <ReportsIcon className='reports' />
                     <p>Отчеты</p>
                 </li>
                 <li className='profile-sidebar__item'>

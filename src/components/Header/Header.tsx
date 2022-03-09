@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { Sidebar } from '../';
-import { blueNisoLogo } from '../../assets';
+// import { blueNisoLogo } from '../../assets';
 import { useTypeSelector } from '../../hooks/useTypeSelector';
 import { setLoggedInStatus } from '../../store/actions/headerSidebarActions';
 import { Button } from '../support';
@@ -19,7 +19,7 @@ const Header = () => {
                 onClick={handleBurgerButtonClick}
                 className='header__burger-btn'
             ></button>
-            <img src={blueNisoLogo} alt='logo' className='header__logo' />
+            {/* <img src={blueNisoLogo} alt='logo' className='header__logo' /> */}
             <nav className='header__navigation'>
                 <button className='header__link'>система</button>
                 <button className='header__link'>документация</button>

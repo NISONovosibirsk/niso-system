@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useTypeSelector } from '../../../hooks/useTypeSelector';
 import { AuthForm, Button } from '../../support';
-import { blueNisoLogo } from '../../../assets';
+import { NisoLogo } from '../../../assets';
 import './PasswordRecovery.scss';
 import {
     setIsValid,
@@ -37,11 +37,7 @@ const PasswordRecovery = () => {
 
     return (
         <section className='password-recovery'>
-            <img
-                className='password-recovery__logo'
-                src={blueNisoLogo}
-                alt='логотип НИСО'
-            ></img>
+            <NisoLogo className='password-recovery__logo' />
             <p className='password-recovery__title'>
                 Введите свой email адрес для восстановления пароля
             </p>

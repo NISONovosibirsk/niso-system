@@ -1,8 +1,10 @@
+import {
+    LeadersIcon,
+    ReportsIcon,
+    StaffIcon,
+    VisitsIcon,
+} from '../../../../assets';
 import './Home.scss';
-import { ReactComponent as StaffIcon } from '../../icons/staff.svg';
-import { ReactComponent as LeadersIcon } from '../../icons/leaders.svg';
-import { ReactComponent as VisitsIcon } from '../../icons/visits.svg';
-import { ReactComponent as ReportsIcon } from '../../icons/reports.svg';
 
 const Home = () => {
     return (

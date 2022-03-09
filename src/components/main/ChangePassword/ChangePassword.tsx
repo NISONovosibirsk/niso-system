@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useTypeSelector } from '../../../hooks/useTypeSelector';
-import { blueNisoLogo } from '../../../assets';
+import { NisoLogo } from '../../../assets';
 import './ChangePassword.scss';
 import {
     resetForm,
@@ -79,11 +79,7 @@ const ChangePassword = () => {
 
     return (
         <section className='change-password'>
-            <img
-                className='change-password__logo'
-                src={blueNisoLogo}
-                alt='логотип НИСО'
-            ></img>
+            <NisoLogo className='change-password__logo' />
             <p className='change-password__title'>Введите новый пароль</p>
             <AuthForm
                 onSubmit={() => {}}

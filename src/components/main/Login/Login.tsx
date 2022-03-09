@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useTypeSelector } from '../../../hooks/useTypeSelector';
-import { blueNisoLogo } from '../../../assets';
+import { NisoLogo } from '../../../assets';
 import './Login.scss';
 import {
     resetForm,
@@ -51,11 +51,7 @@ const Login = () => {
 
     return (
         <section className='login'>
-            <img
-                className='login__logo'
-                src={blueNisoLogo}
-                alt='логотип НИСО'
-            ></img>
+            <NisoLogo className='login__logo' />
             <AuthForm
                 onSubmit={() => {}}
                 isValid={isValid}
