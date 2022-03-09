@@ -6,6 +6,7 @@ import {
     PasswordRecovery,
     ChangePassword,
     StatusPopup,
+    Home,
 } from './components';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -55,7 +56,9 @@ function App() {
                             </Route>
                         </Route>
                         <Route path='signup' element={<Register />} />
-                        <Route path='user-profile' element={<UserProfile />} />
+                        <Route path='user-profile' element={<UserProfile />}>
+                            <Route path='' element={<Home />} />
+                        </Route>
                     </Routes>
                     <StatusPopup />
                 </div>

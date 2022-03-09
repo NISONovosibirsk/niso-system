@@ -2,9 +2,9 @@ import './Searchbar.scss';
 
 const Searchbar = () => {
     return (
-        <div className='searchbar'>
-            <input className='searchbar__input' placeholder='Поиск...'/>
-            <ul className='searchbar__list'></ul>
+        <div className='profile-searchbar'>
+            <input className='profile-searchbar__input' placeholder='Поиск...'/>
+            {/* <ul className='profile-searchbar__list'></ul> */}
         </div>
     );
 };

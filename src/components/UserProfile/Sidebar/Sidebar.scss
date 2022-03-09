@@ -1,69 +1,89 @@
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: -400px;
-    height: 100%;
-    transition: left linear 0.2s;
-
-    &_active {
-        left: 0;
-        width: 100%;
-    }
-
+.profile-sidebar {
     &__navigation {
-        border-radius: 0 40px 40px 0;
-        background: #3a78f2;
+        // width: 268px;
         width: 20vw;
+        min-width: 240px;
+        position: fixed;
+        display: grid;
         height: 100vh;
-        display: flex;
-        flex-direction: column;
+        grid-template-rows: 15vh auto 25vh;
+        background: #3a78f2;
+        border-radius: 0 40px 40px 0;
     }
 
     &__logo {
-        margin: {
-            top: 65px;
-            left: 40px;
-            right: 20px;
+        grid-row: 1 / 2;
+        padding: {
+            left: 3vw;
         }
-        max-width: 164px;
+        align-self: center;
+        max-width: 15vw;
     }
 
     &__list {
-        padding: 10px;
-        margin: {
-            top: 50px;
-            left: 30px;
-        }
+        grid-row: 2 / 3;
         list-style: none;
+        padding: 0 {
+            left: 24px;
+        }
+        margin: 0 {
+            right: 32px;
+        }
+
+        :hover {
+            color: black;
+            background: white;
+            border-radius: 12px;
+
+            svg {
+                fill: #3a78f2;
+            }
+
+            p {
+                color: #1c1d20;
+                font-weight: 700;
+            }
+        }
     }
 
     &__item {
-        margin: {
-            bottom: 35px;
-        }
-        font : {
-            size: 1.06rem;
-            weight: 400;
-        }
+        height: 60px;
         color: white;
         cursor: pointer;
         display: flex;
-        gap: 10px;
+        // gap: 1vw;
+
+        svg {
+            width: 18px;
+            margin: auto 12px;
+        }
+
+        p {
+            margin: auto 0;
+            color: white;
+            font-weight: 600;
+            font-size: 17px;
+            line-height: 23px;
+            opacity: 0.8;
+        }
     }
 
     &__footer {
-        margin: auto {
-            left: 40px;
-        }
+        grid-row: 3 / 4;
         color: white;
+        padding: {
+            left: 2.5vw;
+        }
         font-size: 0.75rem;
     }
 
-    &__audio {
+    &__support {
         border-radius: 50%;
-        height: 66px;
-        width: 66px;
         border: none;
         cursor: pointer;
+        background: url(../../../assets/icons/sidebar__audio.svg) no-repeat
+            center white;
+        width: 66px;
+        height: 66px;
     }
 }
