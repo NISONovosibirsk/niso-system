@@ -1,0 +1,9 @@
+.form-constructor {
+    margin: {
+        top: 198px;
+    }
+    justify-items: center;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-areas: 'suggestedFormElements customForm';
+}

@@ -1,2 +1,0 @@
-export const SET_FORMS = 'FORMS_LIST/SET_FORMS';
-export const SET_OPENED_FORM = 'FORMS_LIST/SET_OPENED_FORM';

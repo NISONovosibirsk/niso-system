@@ -25,56 +25,49 @@ export const registerReducer = (
     action: IReduxActions
 ): IRegisterState => {
     switch (action.type) {
-        case UPDATE_EMAIL: {
+        case UPDATE_EMAIL:
             return {
                 ...state,
                 email: action.payload,
             };
-        }
 
-        case UPDATE_EMAIL_ERROR: {
+        case UPDATE_EMAIL_ERROR:
             return {
                 ...state,
                 emailError: action.payload,
             };
-        }
 
-        case UPDATE_PASSWORD: {
+        case UPDATE_PASSWORD:
             return {
                 ...state,
                 password: action.payload,
             };
-        }
 
-        case UPDATE_PASSWORD_ERROR: {
+        case UPDATE_PASSWORD_ERROR:
             return {
                 ...state,
                 passwordError: action.payload,
             };
-        }
 
-        case UPDATE_REPEAT_PASSWORD: {
+        case UPDATE_REPEAT_PASSWORD:
             return {
                 ...state,
                 repeatPassword: action.payload,
             };
-        }
 
-        case UPDATE_REPEAT_PASSWORD_ERROR: {
+        case UPDATE_REPEAT_PASSWORD_ERROR:
             return {
                 ...state,
                 repeatPasswordError: action.payload,
             };
-        }
 
-        case SET_IS_VALID: {
+        case SET_IS_VALID:
             return {
                 ...state,
                 isValid: action.payload,
             };
-        }
 
-        case RESET_FORM: {
+        case RESET_FORM:
             return {
                 email: '',
                 emailError: '',
@@ -84,7 +77,6 @@ export const registerReducer = (
                 repeatPasswordError: '',
                 isValid: false,
             };
-        }
 
         default:
             return state;
