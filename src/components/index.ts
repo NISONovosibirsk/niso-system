@@ -3,6 +3,7 @@ export { default as Sidebar } from './Sidebar/Sidebar';
 
 //profile elements
 export { default as UserProfile } from './UserProfile/UserProfile';
+export {default as Home} from './UserProfile/pages/Home/Home';
 
 //slider
 export { default as Slider } from './Slider/Slider';

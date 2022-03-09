@@ -1,52 +1,54 @@
 import Sidebar from './Sidebar/Sidebar';
 import './UserProfile.scss';
-import {
-    communications,
-    duties,
-    ofs,
-    reglaments,
-    reports,
-    staff,
-    home,
-} from './icons';
-import Searchbar from './SearchBar/Searchbar';
+import ProfileHeader from './ProfileHeader/ProfileHeader';
+import { Outlet } from 'react-router-dom';
+
+import { ReactComponent as HomeIcon } from './icons/home.svg';
+import { ReactComponent as OfsIcon } from './icons/ofs.svg';
+import { ReactComponent as DutiesIcon } from './icons/duties.svg';
+import { ReactComponent as CommunicationsIcon } from './icons/communications.svg';
+import { ReactComponent as ReglamentsIcon } from './icons/reglaments.svg';
+import { ReactComponent as StaffIcon } from './icons/staff.svg';
+import { ReactComponent as ReportsIcon } from './icons/reports.svg';
 
 const UserProfile = () => {
     return (
         <div className='user-profile'>
             <Sidebar>
-                <li className='sidebar__item'>
-                    <img src={home} />
-                    Главная
+                <li className='profile-sidebar__item'>
+                    <HomeIcon className='home-icon' />
+                    <p>Главная</p>
                 </li>
-                <li className='sidebar__item'>
-                    <img src={ofs} />
-                    ОФС
+                <li className='profile-sidebar__item'>
+                    <OfsIcon />
+                    <p>ОФС</p>
                 </li>
-                <li className='sidebar__item'>
-                    <img src={reglaments} />
-                    Регламенты
+                <li className='profile-sidebar__item'>
+                    <ReglamentsIcon />
+                    <p>Регламенты</p>
                 </li>
-                <li className='sidebar__item'>
-                    <img src={duties} />
-                    Мои обязанности
+                <li className='profile-sidebar__item'>
+                    <DutiesIcon />
+                    <p>Мои обязанности</p>
                 </li>
-                <li className='sidebar__item'>
-                    <img src={reports} />
-                    Отчеты
+                <li className='profile-sidebar__item'>
+                    <ReportsIcon className='reports'/>
+                    <p>Отчеты</p>
                 </li>
-                <li className='sidebar__item'>
-                    <img src={communications} />
-                    Коммуникации
+                <li className='profile-sidebar__item'>
+                    <CommunicationsIcon />
+                    <p>Коммуникации</p>
                 </li>
-                <li className='sidebar__item'>
-                    <img src={staff} />
-                    Сотрудники
+                <li className='profile-sidebar__item'>
+                    <StaffIcon />
+                    <p>Сотрудники</p>
                 </li>
             </Sidebar>
-            <Searchbar/>
-            <div className='sidebar__content'>
-                
+            <div className='user-profile__field'>
+                <ProfileHeader />
+                <div className='user-profile__content'>
+                    <Outlet />
+                </div>
             </div>
         </div>
     );

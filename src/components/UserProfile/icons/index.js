@@ -1,7 +1,9 @@
-export {default as communications} from './communications.svg'
-export {default as duties} from './duties.svg'
-export {default as ofs} from './ofs.svg'
-export {default as reglaments} from './reglaments.svg'
-export {default as reports} from './reports.svg'
-export {default as staff} from './staff.svg'
-export {default as home} from './home.svg'
+export { default as communications } from './communications.svg';
+export { default as duties } from './duties.svg';
+export { default as ofs } from './ofs.svg';
+export { default as reglaments } from './reglaments.svg';
+export { default as reports } from './reports.svg';
+export { default as staff } from './staff.svg';
+export { default as home } from './home.svg';
+export { default as leaders } from './leaders.svg';
+export { default as visits } from './visits.svg';

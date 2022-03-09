@@ -1,0 +1,13 @@
+.profile-header {
+    grid-row: 1 / 2;
+    display: grid;
+    grid-template-columns: 60% 30% auto;
+
+    &__user {
+        width: 48px;
+        height: 48px;
+        place-self: center;
+        background: tomato;
+        border-radius: 50%;
+    }
+}

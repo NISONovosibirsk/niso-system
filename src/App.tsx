@@ -1,11 +1,13 @@
-import { UserProfile } from './components';
+import { UserProfile, Home } from './components';
 import { Routes, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setForms } from './store/actions/reportsFormsListActions';
 import { useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setForms } from './store/actions/formsListActions';
+import { useEffect } from 'react';
 import {
-    ChangePassword,
-    StatusPopup,
     Login,
     PasswordRecovery,
     Register,
@@ -55,7 +57,9 @@ function App() {
                     </Route>
                 </Route>
                 <Route path='signup' element={<Register />} />
-                <Route path='user-profile' element={<UserProfile />} />
+                <Route path='user-profile' element={<UserProfile />}>
+                        <Route path='' element={<Home />} />
+                </Route>
             </Routes>
             <StatusPopup />
         </div>
