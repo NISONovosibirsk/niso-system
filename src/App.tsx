@@ -3,16 +3,14 @@ import { Routes, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setForms } from './store/actions/reportsFormsListActions';
 import { useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { setForms } from './store/actions/formsListActions';
-import { useEffect } from 'react';
 import {
     Login,
     PasswordRecovery,
     Register,
     HomePage,
-    Reports,
+    ChangePassword,
+    StatusPopup,
+    ReportForm,
 } from './components/main';
 
 function App() {
@@ -45,7 +43,7 @@ function App() {
         <div className='App'>
             <Routes>
                 <Route path='' element={<HomePage />} />
-                <Route path='client' element={<Reports />} />
+                <Route path='client' element={<ReportForm />} />
                 <Route path='signin'>
                     <Route path='' element={<Login />} />
                     <Route path='password-recovery'>
@@ -58,7 +56,7 @@ function App() {
                 </Route>
                 <Route path='signup' element={<Register />} />
                 <Route path='user-profile' element={<UserProfile />}>
-                        <Route path='' element={<Home />} />
+                    <Route path='' element={<Home />} />
                 </Route>
             </Routes>
             <StatusPopup />
