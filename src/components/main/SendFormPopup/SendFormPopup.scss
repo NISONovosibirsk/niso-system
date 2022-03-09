@@ -1,0 +1,49 @@
+.send-form-popup {
+    padding: 12px 0;
+    width: 600px;
+
+    &__input {
+        width: calc(100% - 12px * 2);
+        margin: 0 12px;
+        height: 48px;
+        outline: none;
+        padding: 16px 18px;
+        background: #f5f7fb;
+        border: 0.5px solid #a9abba;
+        border-radius: 6px;
+        box-sizing: border-box;
+
+        &::placeholder {
+            color: #a9abba;
+            font-size: 11px;
+            line-height: 12px;
+            letter-spacing: 0.3px;
+        }
+
+        &:hover {
+            border: 1px solid #4f8be4;
+        }
+
+        &:focus {
+            border: 1px solid #4f8be4;
+        }
+    }
+
+    &__error-message {
+        color: #e84141;
+        font-size: 11px;
+        line-height: 12px;
+        letter-spacing: 0.3px;
+        padding: 0 16px;
+    }
+
+    &__list {
+        border: 0.5px solid #a9abba;
+        border-radius: 6px;
+        overflow: auto;
+        height: calc(51px * 11 - 1px);
+        text-decoration: none;
+        padding: 0;
+        margin: 12px;
+    }
+}

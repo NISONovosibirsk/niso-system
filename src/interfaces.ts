@@ -1,12 +1,5 @@
 // COMPONENTS //
 
-// Form Element
-export interface IFormElement {
-    element: any;
-    id: number;
-    index: number;
-}
-
 // Blog Card
 export interface IBlogCard {
     title: string;
@@ -16,9 +9,12 @@ export interface IBlogCard {
 
 // Button
 export interface IButton {
-    title?: string;
-    types?: any;
     onClick?: any;
+    isDisabled?: boolean;
+    title: string;
+    filled?: boolean;
+    width?: string;
+    margin?: string;
 }
 
 // Form
@@ -31,7 +27,7 @@ export interface IForm {
 // Saved Form Item
 export interface ISavedFormItem {
     index: number;
-    savedForm: {
+    reportForm: {
         title: string;
         subtitle: string;
         date: string;
@@ -54,7 +50,7 @@ export default interface ISliderItemProps {
 interface ButtonsArray {
     [index: number]: {};
     title: string;
-    types?: [string];
+    isFilled?: boolean;
     onClick?: Function;
 }
 
@@ -64,6 +60,7 @@ export interface ITerms {
 }
 
 export interface ICheckbox {
+    id?: string;
     isChecked: boolean;
     isDisabled?: boolean;
     isRequired?: boolean;
@@ -74,9 +71,10 @@ export interface ICheckbox {
 
 // Form state and actions
 export interface IFormConstructorState {
-    initialElements: any;
+    suggestedElements: any;
     addedElements: any;
     isPreview: boolean;
+    isValid: boolean;
 }
 
 export interface IHeaderSidebarState {

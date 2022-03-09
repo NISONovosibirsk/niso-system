@@ -1,0 +1,19 @@
+.export-excel {
+    display: none;
+
+    &__button {
+        cursor: pointer;
+        width: 28px;
+        height: 28px;
+        background: center / contain no-repeat
+            url(../../../assets/icons/downloadIcon/download-icon.svg);
+        border: none;
+        padding: 0;
+        transition: width linear 0.2s;
+
+        &:hover {
+            width: 30px;
+            height: 30px;
+        }
+    }
+}
