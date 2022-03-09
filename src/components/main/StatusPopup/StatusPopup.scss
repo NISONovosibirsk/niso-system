@@ -1,0 +1,24 @@
+.status-popup {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 60px;
+
+    &__icon {
+        width: 34px;
+    }
+
+    &__text {
+        max-width: 360px;
+        margin: 0;
+        color: #979dbb;
+        text-align: center;
+        font-weight: 600;
+        font-size: 11px;
+        line-height: 12px;
+        letter-spacing: 0.3px;
+        padding: {
+            top: 34px;
+        }
+    }
+}

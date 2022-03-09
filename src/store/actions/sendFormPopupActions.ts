@@ -1,6 +1,7 @@
 import {
     SET_OPEN_STATUS,
     SET_SELECTED_FORM,
+    UPDATE_ERROR_MESSAGE,
     UPDATE_FILTER_CHARS,
     UPDATE_SELECTED_SCHOOLS,
 } from '../reduxTypes/sendFormPopupTypes';
@@ -8,6 +9,14 @@ import {
 export const updateFilterChars = value => {
     try {
         return { type: UPDATE_FILTER_CHARS, payload: value };
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const updateErrorMessage = message => {
+    try {
+        return { type: UPDATE_ERROR_MESSAGE, payload: message };
     } catch (error) {
         console.log(error);
     }

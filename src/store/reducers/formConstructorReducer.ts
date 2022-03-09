@@ -1,11 +1,12 @@
 import { IFormConstructorState, IReduxActions } from '../../interfaces';
 import {
+    SET_IS_VALID,
     SET_PREVIEW,
     UPDATE_ADDED_ELEMENTS,
 } from '../reduxTypes/formConstructorTypes';
 
 const initialState: IFormConstructorState = {
-    initialElements: [
+    suggestedElements: [
         {
             id: 3,
             type: 'subtitle',
@@ -110,6 +111,7 @@ const initialState: IFormConstructorState = {
         },
     ],
     isPreview: false,
+    isValid: false,
 };
 
 export const formConstructorReducer = (
@@ -127,6 +129,12 @@ export const formConstructorReducer = (
             return {
                 ...state,
                 isPreview: action.payload,
+            };
+
+        case SET_IS_VALID:
+            return {
+                ...state,
+                isValid: action.payload,
             };
 
         default:
