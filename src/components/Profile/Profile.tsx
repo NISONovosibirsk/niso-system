@@ -1,5 +1,5 @@
 import Sidebar from './Sidebar/Sidebar';
-import './UserProfile.scss';
+import './Profile.scss';
 import ProfileHeader from './ProfileHeader/ProfileHeader';
 import { Outlet } from 'react-router-dom';
 import {
@@ -12,9 +12,9 @@ import {
     ReportsIcon,
 } from '../../assets';
 
-const UserProfile = () => {
+const Profile = () => {
     return (
-        <div className='user-profile'>
+        <div className='profile'>
             <Sidebar>
                 <li className='profile-sidebar__item'>
                     <HomeIcon />
@@ -33,7 +33,7 @@ const UserProfile = () => {
                     <p>Мои обязанности</p>
                 </li>
                 <li className='profile-sidebar__item'>
-                    <ReportsIcon className='reports' />
+                    <ReportsIcon />
                     <p>Отчеты</p>
                 </li>
                 <li className='profile-sidebar__item'>
@@ -45,9 +45,9 @@ const UserProfile = () => {
                     <p>Сотрудники</p>
                 </li>
             </Sidebar>
-            <div className='user-profile__field'>
+            <div className='profile__field'>
                 <ProfileHeader />
-                <div className='user-profile__content'>
+                <div className='profile__content'>
                     <Outlet />
                 </div>
             </div>
@@ -55,4 +55,4 @@ const UserProfile = () => {
     );
 };
 
-export default UserProfile;
+export default Profile;
