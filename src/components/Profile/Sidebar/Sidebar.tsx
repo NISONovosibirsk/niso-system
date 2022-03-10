@@ -6,7 +6,6 @@ const Sidebar = ({ children }) => {
         <div className='profile-sidebar_active'>
             <nav className='profile-sidebar__navigation'>
                 <NisoLogo className='profile-sidebar__logo' />
-                {/* <img className='profile-sidebar__logo' src={sidebarLogo} /> */}
                 <ul className='profile-sidebar__list'>{children}</ul>
                 <div className='profile-sidebar__footer'>
                     <p>Политика конфиденциальности</p>
