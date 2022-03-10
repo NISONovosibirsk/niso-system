@@ -1,15 +1,14 @@
 .user-sidebar {
-    &__navigation {
-        // width: 268px;
-        width: 20vw;
-        min-width: 240px;
-        position: fixed;
-        display: grid;
-        height: 100vh;
-        grid-template-rows: 15vh auto 25vh;
-        background: #3a78f2;
-        border-radius: 0 40px 40px 0;
-    }
+    grid-area: userSidebar;
+    // width: 268px;
+    width: 20vw;
+    min-width: 240px;
+    position: fixed;
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 15vh auto 25vh;
+    background: #3a78f2;
+    border-radius: 0 40px 40px 0;
 
     &__logo {
         grid-row: 1 / 2;

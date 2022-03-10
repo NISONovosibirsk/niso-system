@@ -1,4 +1,5 @@
 .user-header {
+    grid-area: userHeader;
     grid-row: 1 / 2;
     display: grid;
     grid-template-columns: 60% 30% auto;
