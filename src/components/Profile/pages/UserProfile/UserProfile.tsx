@@ -21,7 +21,7 @@ const UserProfile = () => {
             <form className='profile-user-documents'>
                 <div className='profile-user-documents-form'>
                     <p className='profile-user-documents-form__header'>Код образовательного учреждения:</p>
-                    <input className='profile-user-documents-form__input'/>
+                    <input className='profile-user-documents-form__input' placeholder='Впешите данные документов'/>
                 </div>
                 
             </form>

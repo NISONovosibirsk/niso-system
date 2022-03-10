@@ -28,10 +28,13 @@
                 border-radius: 4px;
                 border: 0.5px solid #979DBB;
                 font-size: 10px;
+                background-color: #F5F7FB;
+                line-height: 14px;
             }
 
             :focus {
                 outline: none;
+                border: 1px solid #4F8BE4;
             }
         }
     }
