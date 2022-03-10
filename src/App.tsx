@@ -1,4 +1,4 @@
-import { UserProfile, Home } from './components';
+import { Profile, Home, UserProfile } from './components';
 import { Routes, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setForms } from './store/actions/reportsFormsListActions';
@@ -55,8 +55,9 @@ function App() {
                     </Route>
                 </Route>
                 <Route path='signup' element={<Register />} />
-                <Route path='user-profile' element={<UserProfile />}>
+                <Route path='profile' element={<Profile />}>
                     <Route path='' element={<Home />} />
+                    <Route path='user' element={<UserProfile />}/>
                 </Route>
             </Routes>
             <StatusPopup />
