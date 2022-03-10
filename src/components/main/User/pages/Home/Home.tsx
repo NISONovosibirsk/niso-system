@@ -3,7 +3,7 @@ import {
     ReportsIcon,
     StaffIcon,
     VisitsIcon,
-} from '../../../../assets';
+} from '../../../../../assets';
 import './Home.scss';
 
 const Home = () => {

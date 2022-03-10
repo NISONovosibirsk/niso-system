@@ -10,5 +10,7 @@ export { default as FormConstructor } from './FormConstructor/FormConstructor';
 export { default as ReportForm } from './ReportForm/ReportForm';
 export { default as Reports } from './Reports/Reports';
 
+export { default as User } from './User/User';
+
 //not used yet
 export { default as Terms } from './Terms/Terms';

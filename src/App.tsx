@@ -1,4 +1,3 @@
-import { Profile, Home, UserProfile } from './components';
 import { Routes, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setForms } from './store/actions/reportsFormsListActions';
@@ -10,8 +9,10 @@ import {
     HomePage,
     ChangePassword,
     StatusPopup,
-    ReportForm,
+    User,
+    FormConstructor,
 } from './components/main';
+import { Home, Profile } from './components/main/User/pages';
 
 function App() {
     const dispatch = useDispatch();
@@ -43,7 +44,7 @@ function App() {
         <div className='App'>
             <Routes>
                 <Route path='' element={<HomePage />} />
-                <Route path='client' element={<ReportForm />} />
+
                 <Route path='signin'>
                     <Route path='' element={<Login />} />
                     <Route path='password-recovery'>
@@ -55,9 +56,11 @@ function App() {
                     </Route>
                 </Route>
                 <Route path='signup' element={<Register />} />
-                <Route path='profile' element={<Profile />}>
-                    <Route path='' element={<Home />} />
-                    <Route path='user' element={<UserProfile />}/>
+
+                <Route path='user' element={<User />}>
+                    <Route path='home' element={<Home />} />
+                    <Route path='profile' element={<Profile />} />
+                    <Route path='constructor' element={<FormConstructor />} />
                 </Route>
             </Routes>
             <StatusPopup />

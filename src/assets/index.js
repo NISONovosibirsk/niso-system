@@ -1,15 +1,14 @@
 //ICONS
 
-//burger
-export { default as burgerIcon } from './icons/burgerIcon/burger-icon.svg';
-//cross
-export { default as crossIcon } from './icons/crossIcon/cross-icon.svg';
-//download
-export { default as downloadIcon } from './icons/downloadIcon/download-icon.svg';
-//darg
-export { default as dragIcon } from './icons/dragIcon/drag-icon.svg';
 //niso
-export { ReactComponent as NisoLogo } from './icons/nisoLogo/niso-logo.svg';
+export { ReactComponent as NisoLogo } from './icons/niso-logo.svg';
+//common
+export { default as burgerIcon } from './icons/commonIcons/burger-icon.svg';
+export { default as crossIcon } from './icons/commonIcons/cross-icon.svg';
+export { default as downloadIcon } from './icons/commonIcons/download-icon.svg';
+export { default as dragIcon } from './icons/commonIcons/drag-icon.svg';
+export { ReactComponent as SupportIcon } from './icons/commonIcons/support-icon.svg';
+export { default as loupeIcon } from './icons/commonIcons/loupe-icon.svg';
 //show hide
 export { default as showIcon } from './icons/showHideIcons/show-icon.svg';
 export { default as hideIcon } from './icons/showHideIcons/hide-icon.svg';
@@ -17,18 +16,16 @@ export { default as hideIcon } from './icons/showHideIcons/hide-icon.svg';
 export { default as successfulIcon } from './icons/statusIcons/successful-icon.svg';
 export { default as unsuccessfulIcon } from './icons/statusIcons/unsuccessful-icon.svg';
 export { default as errorIcon } from './icons/statusIcons/error-icon.svg';
-//support
-export { ReactComponent as SupportIcon } from './icons/supportIcon/support-icon.svg';
-//profile
-export { ReactComponent as HomeIcon } from './icons/profileIcons/home-icon.svg';
-export { ReactComponent as DutiesIcon } from './icons/profileIcons/duties-icon.svg';
-export { ReactComponent as LeadersIcon } from './icons/profileIcons/leaders-icon.svg';
-export { ReactComponent as OfsIcon } from './icons/profileIcons/ofs-icon.svg';
-export { ReactComponent as ReglamentsIcon } from './icons/profileIcons/reglaments-icon.svg';
-export { ReactComponent as ReportsIcon } from './icons/profileIcons/reports-icon.svg';
-export { ReactComponent as StaffIcon } from './icons/profileIcons/staff-icon.svg';
-export { ReactComponent as VisitsIcon } from './icons/profileIcons/visits-icon.svg';
-export { ReactComponent as CommunicationsIcon } from './icons/profileIcons/communications-icon.svg';
+//user
+export { ReactComponent as HomeIcon } from './icons/userIcons/home-icon.svg';
+export { ReactComponent as DutiesIcon } from './icons/userIcons/duties-icon.svg';
+export { ReactComponent as LeadersIcon } from './icons/userIcons/leaders-icon.svg';
+export { ReactComponent as OfsIcon } from './icons/userIcons/ofs-icon.svg';
+export { ReactComponent as ReglamentsIcon } from './icons/userIcons/reglaments-icon.svg';
+export { ReactComponent as ReportsIcon } from './icons/userIcons/reports-icon.svg';
+export { ReactComponent as StaffIcon } from './icons/userIcons/staff-icon.svg';
+export { ReactComponent as VisitsIcon } from './icons/userIcons/visits-icon.svg';
+export { ReactComponent as CommunicationsIcon } from './icons/userIcons/communications-icon.svg';
 
 //IMAGES
 

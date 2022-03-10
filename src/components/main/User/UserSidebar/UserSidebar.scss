@@ -1,4 +1,4 @@
-.profile-sidebar {
+.user-sidebar {
     &__navigation {
         // width: 268px;
         width: 20vw;
@@ -40,7 +40,7 @@
                 fill: #3a78f2;
             }
 
-            p {
+            .user-sidebar__text {
                 color: #1c1d20;
                 font-weight: 700;
             }
@@ -52,21 +52,44 @@
         color: white;
         cursor: pointer;
         display: flex;
-        // gap: 1vw;
+        border-radius: 12px;
+        transition: color linear 0.2s, background linear 0.2s;
 
         svg {
-            width: 18px;
-            margin: auto 12px;
+            width: 44px;
+            margin: auto 0;
+            transition: fill linear 0.2s;
         }
 
-        p {
-            margin: auto 0;
-            color: white;
-            font-weight: 600;
-            font-size: 17px;
-            line-height: 23px;
-            opacity: 0.8;
+        &_active {
+            color: black;
+            background: white;
+
+            svg {
+                fill: #3a78f2;
+            }
+
+            .user-sidebar__text {
+                color: #1c1d20;
+                font-weight: 700;
+            }
         }
+    }
+
+    &__link {
+        width: 100%;
+        text-decoration: none;
+        display: flex;
+    }
+
+    &__text {
+        margin: auto 0;
+        color: white;
+        font-weight: 600;
+        font-size: 17px;
+        line-height: 23px;
+        opacity: 0.8;
+        transition: color linear 0.2s, font-weight linear 0.2s;
     }
 
     &__footer {
@@ -82,8 +105,8 @@
         border-radius: 50%;
         border: none;
         cursor: pointer;
-        background: url(../../../assets/icons/supportIcon/support-icon.svg) no-repeat
-            center white;
+        background: url(../../../../assets/icons/commonIcons/support-icon.svg)
+            no-repeat center white;
         width: 66px;
         height: 66px;
     }
