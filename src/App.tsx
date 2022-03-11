@@ -10,8 +10,9 @@ import {
     ChangePassword,
     StatusPopup,
     User,
+    FormConstructor,
 } from './components/main';
-import { Constructor, Home, Profile } from './components/main/User/pages';
+import { Home, Profile } from './components/main/User/pages';
 
 function App() {
     const dispatch = useDispatch();
