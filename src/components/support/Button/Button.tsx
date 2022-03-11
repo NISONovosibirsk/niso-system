@@ -5,16 +5,17 @@ const Button = ({
     onClick,
     isDisabled,
     title,
-    filled,
+    type,
     width,
+    height,
     margin,
 }: IButton) => {
     return (
         <button
-            className={`button ${filled ? 'button_type_filled' : ''}`}
+            className={`button${type?.length ? ` button_type_${type}` : ''}`}
             onClick={onClick}
             disabled={isDisabled}
-            style={{ width: width, margin: margin }}
+            style={{ width: width, margin: margin, height: height }}
         >
             {title}
         </button>

@@ -60,7 +60,7 @@ const ReportForm = () => {
                 })
             )}
 
-            <Button title='Сдать' filled={true} />
+            <Button title='Сдать' />
         </form>
     );
 };

@@ -1,0 +1,43 @@
+.sidebar-item {
+    height: 60px;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    border-radius: 12px;
+    transition: color linear 0.2s, background linear 0.2s;
+
+    svg {
+        width: 44px;
+        margin: auto 0;
+        transition: fill linear 0.2s;
+    }
+
+    &_active {
+        background: white;
+
+        svg {
+            fill: #3a78f2;
+        }
+
+        .sidebar-item__text {
+            color: #1c1d20;
+            font-weight: 700;
+        }
+    }
+
+    &__link {
+        width: 100%;
+        text-decoration: none;
+        display: flex;
+    }
+
+    &__text {
+        margin: auto 0;
+        color: white;
+        font-weight: 600;
+        font-size: 17px;
+        line-height: 23px;
+        opacity: 0.8;
+        transition: color linear 0.2s, font-weight linear 0.2s;
+    }
+}
