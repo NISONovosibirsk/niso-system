@@ -58,8 +58,9 @@ function App() {
 
                 <Route path='user' element={<User />}>
                     <Route path='home' element={<Home />} />
-                    <Route path='profile' element={<Profile />} />
-                    <Route path='constructor' element={<Constructor />} />
+                    <Route path='profile/*' element={<Profile />} />
+                    <Route path='constructor' element={<FormConstructor />} />
+
                 </Route>
             </Routes>
             <StatusPopup />
