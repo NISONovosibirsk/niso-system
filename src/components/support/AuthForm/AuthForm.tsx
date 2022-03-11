@@ -18,7 +18,6 @@ const AuthForm = ({
             <Button
                 isDisabled={!isValid}
                 title={submitButtonText}
-                filled={true}
             />
         </form>
     );

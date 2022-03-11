@@ -89,7 +89,6 @@ const SendFormPopup = () => {
                 </ul>
                 <Button
                     title='Отправить'
-                    filled={true}
                     margin='0 10%'
                     width='80%'
                     isDisabled={!selectedSchools.length}

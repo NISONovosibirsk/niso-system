@@ -39,18 +39,8 @@ const ReportFormItem = ({ index, reportForm }: ISavedFormItem) => {
             }`}</h2>
             <p className='reports-forms-item__subtitle'>{`${reportForm.subtitle}  |  дата создания: ${reportForm.date}`}</p>
             <p className='reports-forms-item__status'>сдан</p>
-            <Button
-                title='Редактировать'
-                filled={true}
-                onClick={handleEdit}
-                width='90%'
-            />
-            <Button
-                title='Отправить'
-                filled={true}
-                onClick={handleSend}
-                width='90%'
-            />
+            <Button title='Редактировать' onClick={handleEdit} width='90%' />
+            <Button title='Отправить' onClick={handleSend} width='90%' />
             <ExportExcel savedForm={reportForm} />
             <CrossButton onClick={handleRemove} type='reports-forms-item' />
         </li>

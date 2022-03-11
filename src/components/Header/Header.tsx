@@ -28,7 +28,7 @@ const Header = () => {
             </nav>
             <div className='header__buttons-field'>
                 <Button title='Войти'></Button>
-                <Button title='Регистрация' filled={true}></Button>
+                {/* <Button title='Регистрация'></Button> */}
             </div>
             <Sidebar isOpen={isOpen} />
         </header>

@@ -108,11 +108,7 @@ const CustomForm = () => {
                               ))}
                     </div>
                     {addedElements.length > 2 && (
-                        <Button
-                            title='Сохранить форму'
-                            filled={true}
-                            isDisabled={!isValid}
-                        />
+                        <Button title='Сохранить форму' isDisabled={!isValid} />
                     )}
                     {provided.placeholder}
                 </form>

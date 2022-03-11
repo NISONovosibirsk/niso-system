@@ -10,7 +10,6 @@ const Terms = ({ title, buttons }: ITerms) => {
                 <Button
                     key={index}
                     title={button.title}
-                    filled={button.isFilled}
                     onClick={button.onClick}
                 />
             ))}

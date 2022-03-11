@@ -86,7 +86,7 @@ const FormElementList = ({
                     <Button
                         title='Добавить пункт'
                         onClick={handleAddOption}
-                        filled
+                        type='hollow'
                         width='30%'
                         margin='8px 0 0 70%'
                     />

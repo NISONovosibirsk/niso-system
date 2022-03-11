@@ -3,11 +3,24 @@
     grid-row: 1 / 2;
     display: grid;
     grid-template-columns: 60% 30% auto;
+    align-items: center;
+
+    &__title {
+        margin: 0;
+        padding: {
+            left: 36px;
+        }
+        font-size: 24px;
+        line-height: 32px;
+        font-weight: 600;
+        color: #1c1d20;
+        opacity: 0.8;
+    }
 
     &__avatar {
         width: 48px;
         height: 48px;
-        place-self: center;
+        justify-self: center;
         background: tomato;
         border-radius: 50%;
         cursor: pointer;

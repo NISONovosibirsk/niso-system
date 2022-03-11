@@ -12,8 +12,9 @@ export interface IButton {
     onClick?: any;
     isDisabled?: boolean;
     title: string;
-    filled?: boolean;
+    type?: string;
     width?: string;
+    height?: string;
     margin?: string;
 }
 
