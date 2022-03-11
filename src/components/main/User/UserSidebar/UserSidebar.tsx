@@ -12,6 +12,7 @@ const UserSidebar = ({ sidebarListData }) => {
                 <ul className='user-sidebar__list'>
                     {sidebarListData.map(sidebarItemData => (
                         <li
+                            key={sidebarItemData.path}
                             className={`user-sidebar__item ${
                                 location.pathname ===
                                 `/user/${sidebarItemData.path}`
