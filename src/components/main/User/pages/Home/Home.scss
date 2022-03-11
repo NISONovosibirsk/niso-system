@@ -7,6 +7,9 @@ $item-color-active: linear-gradient(
 
 .user-home {
     grid-area: userContent;
+    margin: {
+        top: 3vh;
+    };
 
     &-list {
         list-style: none;
