@@ -1,20 +1,7 @@
 .user {
-    &__field {
-        padding: {
-            left: 20vw;
-        }
-        display: grid;
-        grid-template-rows: 12vh auto;
-        height: 100vh;
-    }
-
-    &__content {
-        padding: {
-            left: 47px;
-            top: 4vh;
-            bottom: 2.5vh;
-        }
-        display: grid;
-        grid-template-columns: 94% auto;
-    }
+    display: grid;
+    grid-template: 12vh auto / minmax(240px, 20vw) auto;
+    grid-template-areas:
+        'userSidebar userHeader'
+        'userSidebar userContent';
 }

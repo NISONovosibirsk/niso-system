@@ -10,9 +10,8 @@ import {
     ChangePassword,
     StatusPopup,
     User,
-    FormConstructor,
 } from './components/main';
-import { Home, Profile } from './components/main/User/pages';
+import { Constructor, Home, Profile } from './components/main/User/pages';
 
 function App() {
     const dispatch = useDispatch();
@@ -61,6 +60,7 @@ function App() {
                     <Route path='home' element={<Home />} />
                     <Route path='profile/*' element={<Profile />} />
                     <Route path='constructor' element={<FormConstructor />} />
+
                 </Route>
             </Routes>
             <StatusPopup />

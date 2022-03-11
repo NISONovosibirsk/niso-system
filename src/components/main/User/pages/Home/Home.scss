@@ -5,7 +5,9 @@ $item-color-active: linear-gradient(
     #3a78f2 98.17%
 );
 
-.profile-home {
+.user-home {
+    grid-area: userContent;
+
     &-list {
         list-style: none;
         margin: 0;
@@ -17,9 +19,9 @@ $item-color-active: linear-gradient(
     &-card {
         padding: 30px {
             left: 27px;
-        };
+        }
         font-weight: bold;
-        background: #F5F7FB;
+        background: #f5f7fb;
         border-radius: 8px;
         height: 350px;
         display: grid;
@@ -27,9 +29,9 @@ $item-color-active: linear-gradient(
 
         &__icon {
             padding-top: 170px;
-            fill: #4F8BE4;
+            fill: #4f8be4;
             width: 5vw;
-            height: 5vh
+            height: 5vh;
         }
 
         &__count {

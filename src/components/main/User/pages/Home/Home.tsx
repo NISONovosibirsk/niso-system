@@ -8,27 +8,27 @@ import './Home.scss';
 
 const Home = () => {
     return (
-        <div className='profile-home'>
-            <ul className='profile-home-list'>
-                <li className='profile-home-card'>
-                    <StaffIcon className='profile-home-card__icon' />
-                    <p className='profile-home-card__title'>Сотрудников</p>
-                    <p className='profile-home-card__count'>30</p>
+        <div className='user-home'>
+            <ul className='user-home-list'>
+                <li className='user-home-card'>
+                    <StaffIcon className='user-home-card__icon' />
+                    <p className='user-home-card__title'>Сотрудников</p>
+                    <p className='user-home-card__count'>30</p>
                 </li>
-                <li className='profile-home-card'>
-                    <LeadersIcon className='profile-home-card__icon' />
-                    <p className='profile-home-card__title'>Руководителей</p>
-                    <p className='profile-home-card__count'>14</p>
+                <li className='user-home-card'>
+                    <LeadersIcon className='user-home-card__icon' />
+                    <p className='user-home-card__title'>Руководителей</p>
+                    <p className='user-home-card__count'>14</p>
                 </li>
-                <li className='profile-home-card'>
-                    <VisitsIcon className='profile-home-card__icon' />
-                    <p className='profile-home-card__title'>Заходило сегодня</p>
-                    <p className='profile-home-card__count'>30</p>
+                <li className='user-home-card'>
+                    <VisitsIcon className='user-home-card__icon' />
+                    <p className='user-home-card__title'>Заходило сегодня</p>
+                    <p className='user-home-card__count'>30</p>
                 </li>
-                <li className='profile-home-card'>
-                    <ReportsIcon className='profile-home-card__icon' />
-                    <p className='profile-home-card__title'>Отчеты</p>
-                    <p className='profile-home-card__count'>31 2</p>
+                <li className='user-home-card'>
+                    <ReportsIcon className='user-home-card__icon' />
+                    <p className='user-home-card__title'>Отчеты</p>
+                    <p className='user-home-card__count'>31 2</p>
                 </li>
             </ul>
         </div>

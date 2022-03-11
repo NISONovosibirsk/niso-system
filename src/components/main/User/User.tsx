@@ -13,6 +13,8 @@ import {
 } from '../../../assets';
 
 const User = () => {
+    const isAdmin = true;
+
     const memberSidebarListData = [
         {
             path: 'home',
@@ -51,16 +53,54 @@ const User = () => {
         },
     ];
 
+    const adminSidebarListData = [
+        {
+            path: 'home',
+            text: 'Главная',
+            icon: <HomeIcon />,
+        },
+        {
+            path: 'ofs',
+            text: 'ОФС',
+            icon: <OfsIcon />,
+        },
+        {
+            path: 'constructor',
+            text: 'Конструктор',
+            icon: <ReglamentsIcon />,
+        },
+        {
+            path: 'duties',
+            text: 'Мои обязанности',
+            icon: <DutiesIcon />,
+        },
+        {
+            path: 'reports',
+            text: 'Отчеты',
+            icon: <ReportsIcon />,
+        },
+        {
+            path: 'communications',
+            text: 'Коммуникации',
+            icon: <CommunicationsIcon />,
+        },
+        {
+            path: 'staff',
+            text: 'Сотрудники',
+            icon: <StaffIcon />,
+        },
+    ];
+
     return (
-        <section className='user'>
-            <UserSidebar sidebarListData={memberSidebarListData} />
-            <div className='user__field'>
-                <ProfileHeader />
-                <div className='user__content'>
-                    <Outlet />
-                </div>
-            </div>
-        </section>
+        <div className='user'>
+            <UserSidebar
+                sidebarListData={
+                    isAdmin ? adminSidebarListData : memberSidebarListData
+                }
+            />
+            <ProfileHeader />
+            <Outlet />
+        </div>
     );
 };
 

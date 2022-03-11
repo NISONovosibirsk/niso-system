@@ -10,20 +10,20 @@ const slider = [
 
 const Profile = () => {
     return (
-        <div className='profile'>
-            <ul className='profile-tabs'>
-                <li className='profile-tabs__item'>
-                    <Link className='profile-tabs__link' to=''>
-                        <p className='profile-tabs'>Основное</p>
+        <div className='user-profile'>
+            <ul className='user-profile-tabs'>
+                <li className='user-profile-tabs__item'>
+                    <Link className='user-profile-tabs__link' to=''>
+                        <p className='user-profile-tabs'>Основное</p>
                     </Link>
                 </li>
-                <li className='profile-tabs__item'>
-                    <Link className='profile-tabs__link' to='notifications'>
+                <li className='user-profile-tabs__item'>
+                    <Link className='user-profile-tabs__link' to='notifications'>
                         Оповещения
                     </Link>
                 </li>
-                <li className='profile-tabs__item'>
-                    <Link className='profile-tabs__link' to='documents'>
+                <li className='user-profile-tabs__item'>
+                    <Link className='user-profile-tabs__link' to='documents'>
                         Документы
                     </Link>
                 </li>
