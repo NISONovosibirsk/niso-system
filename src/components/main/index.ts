@@ -8,7 +8,7 @@ export { default as Blog } from './Blog/Blog';
 export { default as SendFormPopup } from './SendFormPopup/SendFormPopup';
 export { default as FormConstructor } from './FormConstructor/FormConstructor';
 export { default as ReportForm } from './ReportForm/ReportForm';
-export { default as Reports } from './Reports/Reports';
+export { default as Reports } from './ReportsList/ReportsList';
 
 export { default as User } from './User/User';
 

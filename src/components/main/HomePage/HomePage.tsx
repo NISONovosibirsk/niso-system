@@ -4,8 +4,8 @@ import './HomePage.scss';
 const HomePage = () => {
     return (
         <section className='main'>
-            <FormConstructor />
-            <Reports />
+            {/* <FormConstructor />
+            <Reports /> */}
         </section>
     );
 };
