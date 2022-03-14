@@ -9,6 +9,7 @@ export { default as downloadIcon } from './icons/commonIcons/download-icon.svg';
 export { default as dragIcon } from './icons/commonIcons/drag-icon.svg';
 export { ReactComponent as SupportIcon } from './icons/commonIcons/support-icon.svg';
 export { default as loupeIcon } from './icons/commonIcons/loupe-icon.svg';
+export { ReactComponent as OpenModalIcon } from './icons/commonIcons/open-modal-icon.svg';
 //show hide
 export { default as showIcon } from './icons/showHideIcons/show-icon.svg';
 export { default as hideIcon } from './icons/showHideIcons/hide-icon.svg';

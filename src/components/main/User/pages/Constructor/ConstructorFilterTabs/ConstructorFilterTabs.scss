@@ -30,6 +30,11 @@
             }
         }
 
-
+        &_active {
+            color: #4f8be4;
+            border: {
+                bottom: 1px solid #4f8be4;
+            }
+        }
     }
 }

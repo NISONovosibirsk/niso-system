@@ -1,6 +1,5 @@
 .constructor-searchbar {
     max-width: 500px;
-    // min-width: 260px;
     height: 48px;
     background: #f5f7fb;
     border-radius: 8px;
@@ -10,13 +9,12 @@
     &__button {
         cursor: pointer;
         box-sizing: border-box;
-        min-width: 92px;
-        height: 32px;
+        min-width: 100px;
+        height: 48px;
         background: #f5f7fb
             url(../../../../../../assets/icons/commonIcons/filter-icon.svg)
             no-repeat center left 16px;
         border: none {
-            right: 1px solid rgba($color: #979dbb, $alpha: 0.4);
             radius: 8px 0 0 8px;
         }
         font-weight: 400;
@@ -27,24 +25,26 @@
         padding: 0 {
             right: 16px;
         }
-        margin: {
-            left: 8px;
-        }
         transition: filter linear 0.2s;
 
         &:hover {
-            filter: drop-shadow(-2px 2px 5px rgba(42, 83, 145, 0.15));
+            filter: drop-shadow(-4px 4px 8px rgba(42, 83, 145, 0.15));
         }
     }
 
     &__input {
         outline: none;
-        margin: 0 3%;
         box-sizing: border-box;
-        width: 74%;
+        width: 80%;
         height: 32px;
-        border: none;
         background: #f5f7fb;
+        padding: 0 3%;
+        margin: {
+            right: 8px;
+        }
+        border: none {
+            left: 1px solid rgba($color: #979dbb, $alpha: 0.4);
+        }
 
         &:hover {
             border: {

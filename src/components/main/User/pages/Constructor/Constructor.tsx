@@ -22,7 +22,7 @@ const Constructor = () => {
                 margin='0 16px 0 8px'
             />
             <ConstructorFilterTabs />
-            {/* <Reports /> */}
+            <Reports />
             {/* <FormConstructor /> */}
         </section>
     );

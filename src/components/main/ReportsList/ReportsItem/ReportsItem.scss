@@ -1,0 +1,141 @@
+.reports-item {
+    width: 100%;
+    border-bottom: 0.5px solid rgba($color: #a9abba, $alpha: 0.4);
+    padding: 8px 0;
+
+    &__content {
+        display: grid;
+        grid-template: 48px / 100px minmax(50px, 200px) minmax(50px, 100%) 100px 48px;
+        align-items: center;
+        border-radius: 8px;
+
+        transition: background linear 0.2s;
+
+        &:hover {
+            background: #f5f7fb;
+        }
+    }
+
+    &__status {
+        box-sizing: border-box;
+        padding: 8px 0;
+        margin: 0 6px;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 20px;
+        color: #fff;
+        text-align: center;
+        background: #87ed97;
+        border-radius: 500px;
+    }
+
+    &__title {
+        box-sizing: border-box;
+        padding: 8px {
+            right: 16px;
+        }
+        margin: 0;
+        color: #1c1d20;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 20px;
+        text-align: center;
+        border-right: 1px solid rgba($color: #979dbb, $alpha: 0.4);
+    }
+
+    &__access {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 8px 16px;
+        color: #a9abba;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 20px;
+    }
+
+    &__button {
+        &-open-report {
+            cursor: pointer;
+            border: none;
+            background: none;
+            color: #4f8be4;
+            font-weight: 600;
+            font-size: 12px;
+            line-height: 16px;
+            transition: opacity linear 0.2s;
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+
+        &-open-modal {
+            cursor: pointer;
+            justify-self: center;
+            width: 16px;
+            height: 20px;
+            transition: fill linear 0.2s;
+
+            &:hover {
+                fill: #1c1d20;
+            }
+        }
+
+        &-edit {
+            cursor: pointer;
+            height: 40px;
+            border: none;
+            background: none;
+            font-weight: 700;
+            font-size: 12px;
+            line-height: 16px;
+            color: #fff;
+            transition: opacity linear 0.2s;
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+
+        &-delete {
+            cursor: pointer;
+            height: 40px;
+            border: none;
+            background: #fff;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 12px;
+            line-height: 16px;
+            color: #a9abba;
+            transition: opacity linear 0.2s;
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+
+    &__modal {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: none;
+
+        &_active {
+            display: block;
+        }
+
+        &-content {
+            display: flex;
+            position: absolute;
+            flex-direction: column;
+            right: 48px;
+            width: 240px;
+            background: #4f8be4;
+            filter: drop-shadow(8px 4px 15px rgba(42, 83, 145, 0.15));
+            border-radius: 8px 8px 10px 10px;
+        }
+    }
+}
