@@ -1,0 +1,29 @@
+.user-profile-tabs-item {
+    height: 24px;
+
+    color: #a9abba;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 600;
+    border: {
+        bottom: 1px solid #a9abba;
+    }
+    padding: {
+        bottom: 8px;
+    }
+    text-align: center;
+
+    &_active {
+        border: {
+            bottom: 1px solid #4f8be4;
+        }
+        .user-profile-tabs-item__link {
+            color: #4f8be4;
+        }
+    }
+
+    &__link {
+        text-decoration: none;
+        color: #a9abba;
+    }
+}

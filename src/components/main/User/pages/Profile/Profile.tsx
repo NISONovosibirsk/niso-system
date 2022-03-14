@@ -1,37 +1,26 @@
 import './Profile.scss';
-import ProfileDocForm from './ProfileDocForm/ProfileDocForm';
+import ProfileDocForm from './ProfileDocuments/ProfileDocuments';
 import { Routes, Route, Link } from 'react-router-dom';
+import ProfileNavItem from './ProfileNavItem/ProfileNavItem';
 
-const slider = [
-    { title: 'Код образовательного учреждения' },
-    { title: 'Название образовательного учреждения' },
-    { title: 'ИНН образовательного учреждения' },
+const tabs = [
+    { text: 'Основное', path: '' },
+    { text: 'Оповещения', path: 'notifications' },
+    { text: 'Документы', path: 'documents' },
 ];
 
 const Profile = () => {
     return (
         <div className='user-profile'>
             <ul className='user-profile-tabs'>
-                <li className='user-profile-tabs__item'>
-                    <Link className='user-profile-tabs__link' to=''>
-                        <p className='user-profile-tabs'>Основное</p>
-                    </Link>
-                </li>
-                <li className='user-profile-tabs__item'>
-                    <Link className='user-profile-tabs__link' to='notifications'>
-                        Оповещения
-                    </Link>
-                </li>
-                <li className='user-profile-tabs__item'>
-                    <Link className='user-profile-tabs__link' to='documents'>
-                        Документы
-                    </Link>
-                </li>
+                {tabs.map( tab => (
+                    <ProfileNavItem tab={tab} key={tab.path}/>
+                ))}
             </ul>
             <Routes>
-                <Route path='' element={<p>Settings</p>} />
-                <Route path='notifications' element={<p>Noti</p>} />
-                <Route path='documents' element={<p>Doc</p>} />
+                <Route path=''/>
+                <Route path='notifications' />
+                <Route path='documents' element={<ProfileDocForm />} />
             </Routes>
         </div>
     );

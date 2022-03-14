@@ -1,0 +1,52 @@
+.user-profile-documents {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    margin: {
+        top: 25px;
+    }
+
+    &__header {
+        font-size: 14px;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    &__input {
+        width: 392.04px;
+        height: 37.02px;
+        border-radius: 4px;
+        border: 0.5px solid #979dbb;
+        font-size: 14px;
+        background-color: #f5f7fb;
+        line-height: 14px;
+        padding: {
+            left: 19px;
+        }
+    }
+
+    &__upload {
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 14px;
+
+        label {
+            cursor: pointer;
+            color: #4f8be4;
+        }
+
+        p {
+            color: #a9abba;
+        }
+
+        input {
+            display: none;
+        }
+    }
+
+    :focus {
+        outline: none;
+        border: 1px solid #4f8be4;
+    }
+}
