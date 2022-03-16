@@ -1,8 +1,8 @@
 import { useDispatch } from 'react-redux';
-import { useTypeSelector } from '../../../../../../hooks/useTypeSelector';
-import { updateFilterTabs } from '../../../../../../store/actions/userConstrucorActions';
-import './ConstructorFilterTabs.scss';
-const ConstructorFilterTabs = () => {
+import { useTypeSelector } from '../../../../../../../hooks/useTypeSelector';
+import { updateFilterTabs } from '../../../../../../../store/actions/userConstrucorActions';
+import './ReportsFilterTabs.scss';
+const ReportsFilterTabs = () => {
     const { tabs } = useTypeSelector(state => state.userConstructor.filter);
     const dispatch = useDispatch();
 
@@ -19,10 +19,10 @@ const ConstructorFilterTabs = () => {
     };
 
     return (
-        <ul className='constructor-filter-tabs'>
+        <ul className='reports-filter-tabs'>
             <li
-                className={`constructor-filter-tabs__item ${
-                    tabs.all && 'constructor-filter-tabs__item_active'
+                className={`reports-filter-tabs__item ${
+                    tabs.all && 'reports-filter-tabs__item_active'
                 }`}
                 id='all'
                 onClick={handleClick}
@@ -30,8 +30,8 @@ const ConstructorFilterTabs = () => {
                 Все
             </li>
             <li
-                className={`constructor-filter-tabs__item ${
-                    tabs.my && 'constructor-filter-tabs__item_active'
+                className={`reports-filter-tabs__item ${
+                    tabs.my && 'reports-filter-tabs__item_active'
                 }`}
                 id='my'
                 onClick={handleClick}
@@ -39,17 +39,17 @@ const ConstructorFilterTabs = () => {
                 Мои
             </li>
             <li
-                className={`constructor-filter-tabs__item ${
-                    tabs.approve && 'constructor-filter-tabs__item_active'
+                className={`reports-filter-tabs__item ${
+                    tabs.approve && 'reports-filter-tabs__item_active'
                 }`}
                 id='approve'
                 onClick={handleClick}
             >
                 Одобрить
             </li>
-            <li className='constructor-filter-tabs__item'></li>
+            <li className='reports-filter-tabs__item'></li>
         </ul>
     );
 };
 
-export default ConstructorFilterTabs;
+export default ReportsFilterTabs;

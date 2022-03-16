@@ -1,15 +1,16 @@
 import './ReportsItem.scss';
-import { ISavedFormItem } from '../../../../interfaces';
-import { useTypeSelector } from '../../../../hooks/useTypeSelector';
-import { updateAddedElements } from '../../../../store/actions/formConstructorActions';
+import { ISavedFormItem } from '../../../../../../../interfaces';
+import { useTypeSelector } from '../../../../../../../hooks/useTypeSelector';
+import { updateAddedElements } from '../../../../../../../store/actions/formConstructorActions';
 import { useDispatch } from 'react-redux';
 import {
     setOpenStatus,
     setSelectedForm,
-} from '../../../../store/actions/sendFormPopupActions';
-import { setForms } from '../../../../store/actions/reportsFormsListActions';
-import { OpenModalIcon } from '../../../../assets';
-import { useEffect, useState } from 'react';
+} from '../../../../../../../store/actions/sendFormPopupActions';
+import { setForms } from '../../../../../../../store/actions/reportsFormsListActions';
+import { OpenModalIcon } from '../../../../../../../assets';
+import { useState } from 'react';
+import Modal from '../../../../../../support/Modal/Modal';
 
 const ReportsItem = () => {
     const { forms } = useTypeSelector(state => state.reportsFormsList);
@@ -17,8 +18,6 @@ const ReportsItem = () => {
 
     const [position, setPosition] = useState('');
     const [isOpen, setIsOpen] = useState(false);
-
-    useEffect(() => {}, [position]);
 
     // const handleEdit = () => {
     //     const newAddedElements = [...forms[index].content];
@@ -62,25 +61,16 @@ const ReportsItem = () => {
                     className={'reports-item__button-open-modal'}
                     onClick={handleOpenModal}
                 />
-                <div
-                    className={`reports-item__modal ${
-                        isOpen && 'reports-item__modal_active'
-                    }`}
-                    style={{ top: position }}
-                    onClick={handleCloseModal}
-                >
-                    <div
-                        className='reports-item__modal-content'
-                        onClick={e => e.stopPropagation()}
-                    >
-                        <button className='reports-item__button-edit'>
-                            Редактировать
-                        </button>
-                        <button className='reports-item__button-delete'>
-                            Удалить
-                        </button>
-                    </div>
-                </div>
+                <Modal
+                    onClose={handleCloseModal}
+                    isOpen={isOpen}
+                    padding={{ top: position, right: '48px' }}
+                    buttons={[
+                        { title: 'Редактировать', onClick: () => {} },
+                        { title: 'Удалить', onClick: () => {} },
+                        { title: 'Скачать', onClick: () => {} },
+                    ]}
+                />
             </div>
         </li>
     );

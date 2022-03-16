@@ -1,0 +1,50 @@
+.report-create-popup {
+    width: 400px;
+
+    &__icons {
+        display: flex;
+        justify-content: space-around;
+        border: {
+            bottom: 0.5px solid rgba($color: #a9abba, $alpha: 0.4);
+        }
+        padding: 0 16px;
+    }
+
+    &__icon {
+        cursor: pointer;
+        padding: 8px;
+        height: 24px;
+
+        &:hover {
+            fill: #4f8be4;
+
+            &:nth-child(3) {
+                fill: none;
+                stroke: #4f8be4;
+            }
+        }
+    }
+
+    &__elements {
+        &-list {
+            list-style: none;
+            margin: 0;
+            padding: 16px;
+            display: grid;
+            gap: 8px;
+        }
+
+        &-item {
+            cursor: pointer;
+            height: 32px;
+            text-align: center;
+            background: #f2f6fc;
+            border-radius: 4px;
+            transition: filter linear 0.2s;
+
+            &:hover {
+                filter: drop-shadow(-8px 8px 8px rgba(42, 83, 145, 0.15));
+            }
+        }
+    }
+}

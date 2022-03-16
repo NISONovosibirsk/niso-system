@@ -5,7 +5,12 @@ const SidebarItem = ({ sidebarItemData }) => {
     const { path, icon, text } = sidebarItemData;
 
     const resolved = useResolvedPath(path);
-    const match = useMatch({ path: resolved.pathname, end: true });
+    const match = useMatch({
+        path: resolved.pathname,
+        end: false,
+    });
+
+    // console.log(resolved);
 
     return (
         <li className={`sidebar-item ${match && 'sidebar-item_active'}`}>

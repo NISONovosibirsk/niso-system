@@ -1,8 +1,6 @@
-import { useTypeSelector } from '../../../hooks/useTypeSelector';
-import { SendFormPopup } from '..';
-import { Filter } from '../../support';
+import { useTypeSelector } from '../../../../../../../hooks/useTypeSelector';
 import './ReportsList.scss';
-import ReportsItem from './ReportsItem/ReportsItem';
+import ReportsItem from '../ReportsItem/ReportsItem';
 
 const ReportsList = () => {
     const { forms } = useTypeSelector(state => state.reportsFormsList);

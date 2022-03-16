@@ -27,6 +27,14 @@ export { ReactComponent as ReportsIcon } from './icons/userIcons/reports-icon.sv
 export { ReactComponent as StaffIcon } from './icons/userIcons/staff-icon.svg';
 export { ReactComponent as VisitsIcon } from './icons/userIcons/visits-icon.svg';
 export { ReactComponent as CommunicationsIcon } from './icons/userIcons/communications-icon.svg';
+//constructor breadcrumbs-line-icon
+export { ReactComponent as PreviewIcon } from './icons/constructorIcons/preview-icon.svg';
+export { ReactComponent as ApproveIcon } from './icons/constructorIcons/approve-icon.svg';
+export { ReactComponent as BreadcrumbsLineIcon } from './icons/constructorIcons/breadcrumbs-line-icon.svg';
+export { ReactComponent as TextIcon } from './icons/constructorIcons/text-icon.svg';
+export { ReactComponent as TitleH1Icon } from './icons/constructorIcons/title-h1-icon.svg';
+export { ReactComponent as ImageIcon } from './icons/constructorIcons/image-icon.svg';
+export { ReactComponent as ListIcon } from './icons/constructorIcons/list-icon.svg';
 
 //IMAGES
 

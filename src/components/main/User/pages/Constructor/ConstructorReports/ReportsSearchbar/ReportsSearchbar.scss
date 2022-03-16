@@ -1,4 +1,4 @@
-.constructor-searchbar {
+.reports-searchbar {
     max-width: 500px;
     height: 48px;
     background: #f5f7fb;
@@ -12,7 +12,7 @@
         min-width: 100px;
         height: 48px;
         background: #f5f7fb
-            url(../../../../../../assets/icons/commonIcons/filter-icon.svg)
+            url(../../../../../../../assets/icons/commonIcons/filter-icon.svg)
             no-repeat center left 16px;
         border: none {
             radius: 8px 0 0 8px;
@@ -28,7 +28,7 @@
         transition: filter linear 0.2s;
 
         &:hover {
-            filter: drop-shadow(-4px 4px 8px rgba(42, 83, 145, 0.15));
+            filter: drop-shadow(-8px 8px 8px rgba(42, 83, 145, 0.15));
         }
     }
 

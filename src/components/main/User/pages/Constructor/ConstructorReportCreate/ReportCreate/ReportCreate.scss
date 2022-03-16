@@ -1,0 +1,78 @@
+.report-create {
+    padding: 36px 0 32px;
+    display: grid;
+    grid-template: auto / 100%;
+
+    &__title {
+        font-weight: 600;
+        font-size: 17px;
+        line-height: 23px;
+        padding: {
+            bottom: 28px;
+        }
+    }
+
+    &__label {
+        color: #a9abba;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    &__input {
+        outline: none;
+        height: 34px;
+        border: none {
+            bottom: 0.5px solid #a9abba;
+        }
+        height: 34px;
+
+        &:hover {
+            border: {
+                bottom: 1px solid #4f8be4;
+            }
+        }
+
+        &:focus {
+            border: {
+                bottom: 1px solid #4f8be4;
+            }
+        }
+
+        &:valid {
+            border: {
+                bottom: 1px solid #3fac50;
+            }
+        }
+
+        &-invalid {
+            border: {
+                bottom: 1px solid #e84141 !important;
+            }
+        }
+    }
+
+    &__error {
+        color: #e84141;
+        font-size: 11px;
+        line-height: 12px;
+        letter-spacing: 0.3px;
+        padding: 4px 0 12px;
+    }
+
+    &__elements-field {
+        margin: 32px 0;
+        padding: 16px 24px;
+        border: 1px solid #a9abba;
+        border-radius: 4px;
+        display: flex;
+        flex-direction: column;
+        min-height: 30vh;
+    }
+
+    &__buttons-field {
+        display: grid;
+        grid-template-columns: 150px 150px;
+        gap: 28px;
+    }
+}

@@ -6,14 +6,23 @@ const ProfileHeader = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
-    const handleHeaderTitle = () => {
-        switch (location.pathname) {
-            case '/user/constructor':
-                return 'Конструктор';
-            default:
-                break;
-        }
-    };
+    const routes = [
+        {
+            path: 'constructor',
+            title: 'Конструктор',
+        },
+        {
+            path: 'home',
+            title: 'Главная',
+        },
+        {
+            path: 'profile',
+            title: 'Личный профиль',
+        },
+    ];
+
+    const handleHeaderTitle = routes =>
+        routes.find(route => location.pathname.includes(route.path)).title;
 
     const handleClick = () => {
         navigate('profile');
@@ -21,7 +30,7 @@ const ProfileHeader = () => {
 
     return (
         <header className='user-header'>
-            <h1 className='user-header__title'>{handleHeaderTitle()}</h1>
+            <h1 className='user-header__title'>{handleHeaderTitle(routes)}</h1>
             <Searchbar />
             <div className='user-header__avatar' onClick={handleClick}></div>
         </header>
