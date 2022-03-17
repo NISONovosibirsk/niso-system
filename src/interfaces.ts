@@ -68,6 +68,11 @@ export interface ICheckbox {
     onChange: any;
 }
 
+// User
+export interface IProfileDocuments {
+    form: any;
+}
+
 // REDUX //
 
 // Form state and actions
@@ -112,3 +117,31 @@ export interface IReduxActions {
     type: string;
     payload: any;
 }
+
+// Profile
+export interface IUserProfileState {
+    documents: {
+        institutionCode: {
+            files: null;
+            value: '';
+        };
+        institutionName: {
+            files: [];
+            value: '';
+        };
+        institutionInn: {
+            files: [];
+            value: '';
+        };
+    };
+    // uploadedFiles: [];
+    // institutionParams: {
+    //     code: number;
+    //     title: string;
+    //     inn: number;
+    // };
+}
+
+// export interface IUserProfileState {
+//     documents: IDocuments;
+// }
