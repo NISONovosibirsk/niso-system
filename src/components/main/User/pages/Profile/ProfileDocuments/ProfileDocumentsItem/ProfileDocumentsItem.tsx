@@ -31,7 +31,7 @@ const ProfileDocumentsItem = ({ form }: IProfileDocuments) => {
     return (
         <>
             <p className='user-profile-documents__header'>{`${form.title}:`}</p>
-            <FileUploader />
+            <FileUploader type={form.type}/>
             <input
                 className='user-profile-documents__input'
                 onChange={e => {
