@@ -1,46 +1,24 @@
 import axios from 'axios';
-import { useDispatch } from 'react-redux';
-import { useTypeSelector } from '../../../../hooks/useTypeSelector';
-import { updateParams } from '../../../../store/actions/userProfileActions';
 import './FileUploader.scss';
 
-const FileUploader = ({type}) => {
-    const dispatch = useDispatch();
-    const { documents } = useTypeSelector(state => state.userProfile);
+const FileUploader = ({ type }) => {
 
-    // const handleUpload = e => {
-    //     const newFiles = { ...documents };
-    //     newFiles.institutionCode.files = e.target.files[0];
+    async function handleUpload(e, type) {
+        console.log(type);
+        const userUpload = [...e.target.files];
+        const data = new FormData();
 
-    //     dispatch(updateParams(newFiles));
+        userUpload.map(file => {
+            data.append(type, file)
+        })
 
-    //     const data = new FormData();
-
-    //     if (documents.institutionCode.files !== null) {
-    //         data.append('file', documents.institutionCode.files);
-    //         axios
-    //             .post('https://ptsv2.com/t/0ukuf-1647488352/post', data)
-    //             .then(e => {
-    //                 console.log('success!');
-    //             })
-    //             .catch(e => {
-    //                 console.log(e);
-    //             });
-    //     }
-    // };
-
-    async function handleUpload (e) {
-        const newFiles = {...documents};
-        const userUpload = Array.from(e.target.files)
-
-        switch (type) {
-            case 'code':
-                break;
-        
-            default:
-                break;
-        }
-
+        //mock server url
+        await axios
+            .post('https://ptsv2.com/t/j8vyi-1647833620/post', data)
+            .then(() => {
+                console.log('success!');
+            })
+            .catch(error => console.log(error));
     }
 
     return (
@@ -50,7 +28,7 @@ const FileUploader = ({type}) => {
                 multiple={true}
                 type='file'
                 id='upload'
-                onChange={handleUpload}
+                onChange={(e) => {handleUpload(e, type)}}
             />
             <label htmlFor='upload'>+ Прикрепить файл</label>
         </form>
