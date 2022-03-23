@@ -1,5 +1,6 @@
 .button {
     cursor: pointer;
+    user-select: none;
     height: 36px;
     width: 100%;
     color: white;
@@ -7,13 +8,17 @@
     font-weight: 600;
     font-size: 11px;
     letter-spacing: 0.3px;
-    transition: opacity linear 0.2s;
+    transition: filter linear 0.2s;
     border: 1px solid #4f8be4 {
-        radius: 6px;
+        radius: 8px;
     }
 
     &:hover {
-        opacity: 0.8;
+        filter: drop-shadow(-8px 8px 8px rgba(42, 83, 145, 0.15));
+    }
+
+    &:active {
+        filter: none;
     }
 
     &:disabled {
@@ -23,7 +28,7 @@
 
     &_type {
         &_hollow {
-            background: none;
+            background: white;
             color: #4f8be4;
         }
 

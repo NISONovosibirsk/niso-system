@@ -1,29 +1,18 @@
-import { FormConstructor, Reports } from '../../..';
-import { Button } from '../../../../support';
+import { Route, Routes } from 'react-router-dom';
+import ConstructorReports from './ConstructorReports/ConstructorReports';
 import './Constructor.scss';
-import ConstructorFilterTabs from './ConstructorFilterTabs/ConstructorFilterTabs';
-import ConstructorSearchbar from './ConstructorSearchbar/ConstructorSearchbar';
+import ConstructorReportCreate from './ConstructorReportCreate/ConstructorReportCreate';
 
 const Constructor = () => {
     return (
         <section className='user-constructor'>
-            <ConstructorSearchbar />
-            <Button
-                title='Статистика'
-                height='48px'
-                width='150px'
-                margin='0 8px 0 16px'
-                type='light-grey'
-            />
-            <Button
-                title='Добавить'
-                height='48px'
-                width='150px'
-                margin='0 16px 0 8px'
-            />
-            <ConstructorFilterTabs />
-            <Reports />
-            {/* <FormConstructor /> */}
+            <Routes>
+                <Route path='' element={<ConstructorReports />} />
+                <Route
+                    path='report-create/*'
+                    element={<ConstructorReportCreate />}
+                />
+            </Routes>
         </section>
     );
 };
