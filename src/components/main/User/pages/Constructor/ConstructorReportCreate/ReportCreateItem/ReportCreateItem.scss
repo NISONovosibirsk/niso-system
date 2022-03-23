@@ -1,11 +1,112 @@
+@keyframes deleting {
+    from {
+        width: 100%;
+    }
+
+    to {
+        width: 0px;
+    }
+}
+
 .report-create-item {
-    background: #f2f6fc;
-    border-radius: 4px;
-    height: 28px;
-    cursor: grab;
-    text-align: center;
+    cursor: default;
+    filter: none;
+    transition: filter linear 0.2s;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: auto 21px;
+
+    &_delete {
+        animation: deleting 0.3s linear forwards;
+    }
 
     &_dragging {
         filter: drop-shadow(-8px 8px 8px rgba(42, 83, 145, 0.15));
+    }
+
+    &__content {
+        display: grid;
+        grid-template-columns: auto 40px;
+        background: #f2f6fc;
+        border-radius: 6px;
+    }
+
+    &__input {
+        outline: none;
+        background: #f5f7fb;
+        border: 0.5px solid #a9abba;
+        border-radius: 6px;
+        box-sizing: border-box;
+        padding: 0px 16px;
+
+        &::placeholder {
+            color: #a9abba;
+            font-size: 11px;
+            line-height: 12px;
+            letter-spacing: 0.3px;
+        }
+
+        &:hover {
+            border: 1px solid #4f8be4;
+        }
+
+        &:focus {
+            border: 1px solid #4f8be4;
+        }
+
+        &_underline {
+            padding: 0px 8px;
+            border-radius: 0;
+            border: none;
+            border-bottom: 0.5px solid #a9abba;
+
+            &:hover {
+                border: none;
+                border-bottom: 1px solid #4f8be4;
+            }
+
+            &:focus {
+                border: none;
+                border-bottom: 1px solid #4f8be4;
+            }
+        }
+    }
+
+    &__drag {
+        cursor: grab;
+        padding: 4px 8px;
+        transition: fill linear 0.2s;
+
+        &:hover {
+            fill: #4f8be4;
+        }
+    }
+
+    &__open-modal {
+        cursor: pointer;
+        padding: 7px 8px;
+        transition: fill linear 0.2s;
+
+        &:hover {
+            fill: #4f8be4;
+        }
+
+        &_active {
+            fill: #4f8be4;
+        }
+    }
+
+    &__trash {
+        cursor: pointer;
+        width: 21px;
+        height: 32px;
+
+        &:hover {
+            fill: #e84141;
+        }
+
+        &:active {
+            fill: #a9abba;
+        }
     }
 }

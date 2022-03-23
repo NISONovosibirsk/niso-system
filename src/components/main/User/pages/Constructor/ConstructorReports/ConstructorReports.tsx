@@ -24,7 +24,7 @@ const ConstructorReports = () => {
             />
             <Button
                 onClick={handleCreateReport}
-                title='Добавить'
+                title='Создать отчет'
                 height='48px'
                 width='150px'
                 margin='0 16px 0 8px'

@@ -12,6 +12,20 @@ const ReportsList = () => {
             <ReportsItem />
             <ReportsItem />
             <ReportsItem />
+            <ReportsItem />
+            <ReportsItem />
+            <ReportsItem />
+            <ReportsItem />
+            <ReportsItem />
+            <ReportsItem />
+            <ReportsItem />
+            <ReportsItem />
+            <ReportsItem />
+            <ReportsItem />
+            <ReportsItem />
+            <ReportsItem />
+            <ReportsItem />
+            <ReportsItem />
         </ul>
         // <SendFormPopup />
     );

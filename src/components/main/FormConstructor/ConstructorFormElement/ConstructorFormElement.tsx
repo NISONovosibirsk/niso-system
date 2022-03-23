@@ -14,7 +14,7 @@ import { IConstructorFormElement } from '../interfaces';
 //middlewares
 import constructorFormElementTypeHandler from '../../../../middleware/constructorFormElementTypeHandler';
 //components
-import { CrossButton, DragIcon } from '../../../support';
+import { CrossButton } from '../../../support';
 import {
     ConstructorFormElementCheckboxRequired,
     ConstructorFormElementLabelInput,
@@ -109,7 +109,6 @@ const ConstructorFormElement = ({
                         element,
                         isFinalForm: false,
                     })}
-                    <DragIcon />
                 </div>
             )}
         </Draggable>

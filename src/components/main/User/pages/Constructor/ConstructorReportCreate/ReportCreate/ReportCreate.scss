@@ -4,6 +4,7 @@
     grid-template: auto / 100%;
 
     &__title {
+        margin: 0;
         font-weight: 600;
         font-size: 17px;
         line-height: 23px;
@@ -13,6 +14,7 @@
     }
 
     &__label {
+        user-select: none;
         color: #a9abba;
         font-weight: 600;
         font-size: 12px;
@@ -20,12 +22,12 @@
     }
 
     &__input {
+        box-sizing: border-box;
         outline: none;
-        height: 34px;
+        height: 36px;
         border: none {
             bottom: 0.5px solid #a9abba;
         }
-        height: 34px;
 
         &:hover {
             border: {
@@ -58,16 +60,10 @@
         line-height: 12px;
         letter-spacing: 0.3px;
         padding: 4px 0 12px;
-    }
 
-    &__elements-field {
-        margin: 32px 0;
-        padding: 16px 24px;
-        border: 1px solid #a9abba;
-        border-radius: 4px;
-        display: flex;
-        flex-direction: column;
-        min-height: 30vh;
+        &:last-of-type {
+            padding: 4px 0 44px;
+        }
     }
 
     &__buttons-field {

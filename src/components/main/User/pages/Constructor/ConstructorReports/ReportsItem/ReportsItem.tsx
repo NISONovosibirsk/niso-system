@@ -1,50 +1,38 @@
 import './ReportsItem.scss';
-import { ISavedFormItem } from '../../../../../../../interfaces';
-import { useTypeSelector } from '../../../../../../../hooks/useTypeSelector';
-import { updateAddedElements } from '../../../../../../../store/actions/formConstructorActions';
-import { useDispatch } from 'react-redux';
-import {
-    setOpenStatus,
-    setSelectedForm,
-} from '../../../../../../../store/actions/sendFormPopupActions';
-import { setForms } from '../../../../../../../store/actions/reportsFormsListActions';
 import { OpenModalIcon } from '../../../../../../../assets';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Modal from '../../../../../../support/Modal/Modal';
 
 const ReportsItem = () => {
-    const { forms } = useTypeSelector(state => state.reportsFormsList);
-    const dispatch = useDispatch();
-
-    const [position, setPosition] = useState('');
+    const [modalPosition, setModalPosition] = useState({ top: 0, left: 0 });
+    const [scrollTop, setScrollTop] = useState(0);
     const [isOpen, setIsOpen] = useState(false);
+    const modalIconRef = useRef<SVGSVGElement>(null);
 
-    // const handleEdit = () => {
-    //     const newAddedElements = [...forms[index].content];
-    //     dispatch(updateAddedElements(newAddedElements));
-    // };
+    useEffect(() => {
+        document.addEventListener('scroll', handleScroll);
 
-    // const handleRemove = () => {
-    //     localStorage.removeItem(String(reportForm._id));
-    //     const newForms = [...forms];
-    //     newForms.splice(index, 1);
-    //     dispatch(setForms(newForms));
-    // };
+        if (null !== modalIconRef.current) {
+            const elementPosition =
+                modalIconRef.current?.getBoundingClientRect();
+            setModalPosition({
+                top: elementPosition.top,
+                left: elementPosition.left - 240,
+            });
+        }
 
-    // const handleSend = () => {
-    //     const newSelectedForm = { ...forms[index] };
-    //     dispatch(setOpenStatus(true));
-    //     dispatch(setSelectedForm(newSelectedForm));
-    // };
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [scrollTop]);
+
+    const handleScroll = e => {
+        setScrollTop(e.target.documentElement.scrollTop);
+    };
 
     const handleOpenModal = e => {
-        const ElementPosition = e.target.getBoundingClientRect();
-
-        setPosition(ElementPosition.top);
         setIsOpen(true);
     };
 
-    const handleCloseModal = e => {
+    const handleCloseModal = () => {
         setIsOpen(false);
     };
 
@@ -60,17 +48,17 @@ const ReportsItem = () => {
                 <OpenModalIcon
                     className={'reports-item__button-open-modal'}
                     onClick={handleOpenModal}
+                    ref={modalIconRef}
                 />
                 <Modal
                     onClose={handleCloseModal}
                     isOpen={isOpen}
-                    padding={{ top: position, right: '48px' }}
-                    buttons={[
-                        { title: 'Редактировать', onClick: () => {} },
-                        { title: 'Удалить', onClick: () => {} },
-                        { title: 'Скачать', onClick: () => {} },
-                    ]}
-                />
+                    position={modalPosition}
+                >
+                    <button className='modal__button'>Редактировать</button>
+                    <button className='modal__button'>Удалить</button>
+                    <button className='modal__button'>Скачать</button>
+                </Modal>
             </div>
         </li>
     );

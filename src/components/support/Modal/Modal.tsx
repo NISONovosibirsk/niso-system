@@ -1,27 +1,29 @@
 import './Modal.scss';
 
-const Modal = ({ onClose, isOpen, padding, buttons }) => {
-    padding.right = `calc(100vw - 240px - ${padding.right})`;
-    padding.bottom = `calc(100vh - ${padding.bottom})`;
-
+const Modal = ({ onClose, isOpen, position, children, type = '' }) => {
     return (
         <div
             className={`modal ${isOpen && 'modal_active'}`}
             style={{
-                paddingTop: padding.top || padding.bottom,
-                paddingLeft: padding.left || padding.right,
+                paddingTop: position.top,
+                paddingLeft: position.left,
             }}
             onClick={onClose}
         >
-            <ul className='modal__content' onClick={e => e.stopPropagation()}>
-                {buttons.map((button, index) => (
-                    <li className='modal__item' key={index}>
-                        <button
-                            className='modal__button'
-                            onClick={button.onClick}
-                        >
-                            {button.title}
-                        </button>
+            <ul
+                className={`modal__content ${
+                    type ? `modal__content_${type}` : ''
+                }`}
+                onClick={e => e.stopPropagation()}
+            >
+                {children.map((button, index) => (
+                    <li
+                        className={`modal__item ${
+                            type ? `modal__item_${type}` : ''
+                        }`}
+                        key={index}
+                    >
+                        {button}
                     </li>
                 ))}
             </ul>

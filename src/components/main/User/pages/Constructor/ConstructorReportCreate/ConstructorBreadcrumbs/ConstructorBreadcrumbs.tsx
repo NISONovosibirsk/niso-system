@@ -3,6 +3,7 @@ import { useMatch, useNavigate, useResolvedPath } from 'react-router-dom';
 import {
     ApproveIcon,
     BreadcrumbsLineIcon,
+    CreateIcon,
     PreviewIcon,
 } from '../../../../../../../assets';
 import './ConstructorBreadcrumbs.scss';
@@ -19,7 +20,7 @@ const ConstructorBreadcrumbs = () => {
 
     useEffect(() => {
         if (!(matchCreate || matchPreview || matchApprove)) {
-            navigate('create');
+            handleRouteToCreate();
         }
     });
 
@@ -39,20 +40,50 @@ const ConstructorBreadcrumbs = () => {
 
     const approveClasses = matchApprove ? 'constructor-breadcrumbs_active' : '';
 
+    const handleRouteToCreate = () => {
+        navigate('create');
+    };
+
+    const handleRouteToPreview = () => {
+        navigate('preview');
+    };
+
+    const handleRouteToApprove = () => {
+        navigate('approve');
+    };
+
     return (
         <div className='constructor-breadcrumbs'>
-            <PreviewIcon className={createClasses} />
-            <p className={`constructor-breadcrumbs__text ${createClasses}`}>
+            <CreateIcon
+                className={createClasses}
+                onClick={handleRouteToCreate}
+            />
+            <p
+                className={`constructor-breadcrumbs__text ${createClasses}`}
+                onClick={handleRouteToCreate}
+            >
                 Создание
             </p>
             <BreadcrumbsLineIcon className={createClasses} />
-            <PreviewIcon className={previewClasses} />
-            <p className={`constructor-breadcrumbs__text ${previewClasses}`}>
+            <PreviewIcon
+                className={previewClasses}
+                onClick={handleRouteToPreview}
+            />
+            <p
+                className={`constructor-breadcrumbs__text ${previewClasses}`}
+                onClick={handleRouteToPreview}
+            >
                 Предпросмотр
             </p>
             <BreadcrumbsLineIcon className={previewClasses} />
-            <ApproveIcon className={approveClasses} />
-            <p className={`constructor-breadcrumbs__text ${approveClasses}`}>
+            <ApproveIcon
+                className={approveClasses}
+                onClick={handleRouteToApprove}
+            />
+            <p
+                className={`constructor-breadcrumbs__text ${approveClasses}`}
+                onClick={handleRouteToApprove}
+            >
                 Одобрите
             </p>
         </div>

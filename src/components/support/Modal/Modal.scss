@@ -1,10 +1,11 @@
 .modal {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     display: none;
+    background: none;
 
     &_active {
         display: block;
@@ -13,16 +14,23 @@
     &__content {
         width: 240px;
         filter: drop-shadow(8px 4px 15px rgba(42, 83, 145, 0.15));
-        border-radius: 10px;
+        border-radius: 8px;
         margin: 0;
         padding: 0;
         list-style: none;
         overflow: hidden;
         background: #fff;
+
+        &_report-create-item {
+            width: 210px;
+            display: grid;
+            grid-template-columns: 170px 40px;
+        }
     }
 
     &__item {
         background: #fff;
+        height: 40px;
 
         &:hover {
             border-radius: 8px 8px 0 0;
@@ -36,6 +44,21 @@
                     background: #fff;
                     border-radius: 8px 8px 0 0;
                     filter: drop-shadow(0 -4px 1px rgba(42, 83, 145, 0.15));
+                }
+            }
+        }
+
+        &_report-create-item {
+            &:hover {
+                border-radius: 8px 0 0 8px;
+                filter: drop-shadow(-4px 0 2px rgba(42, 83, 145, 0.15));
+
+                & + .modal__item {
+                    & .modal__trash {
+                        background: #fff;
+                        border-radius: 8px 0 0 8px;
+                        filter: drop-shadow(-4px 0 1px rgba(42, 83, 145, 0.15));
+                    }
                 }
             }
         }
@@ -55,6 +78,75 @@
         &:hover {
             font-weight: 700;
             color: #fff;
+        }
+    }
+
+    &__trash {
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        padding: 8px;
+        border: none;
+        background: none;
+        box-sizing: border-box;
+
+        &:hover {
+            fill: #e84141;
+        }
+
+        &:active {
+            fill: #a9abba;
+        }
+    }
+
+    &__checkbox {
+        height: 40px;
+        width: 100%;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 16px;
+        color: #a9abba;
+        display: flex;
+        flex-direction: row;
+        cursor: pointer;
+        align-items: center;
+        // justify-content: center;
+
+        &:hover {
+            font-weight: 700;
+            color: #fff;
+
+            & .modal__checkbox-custom-checkbox {
+                border: 0.5px solid #fff;
+            }
+
+            &
+                .modal__checkbox-input:checked
+                + .modal__checkbox-custom-checkbox::after {
+                color: #fff;
+            }
+        }
+
+        &-input {
+            display: none;
+
+            &:checked + .modal__checkbox-custom-checkbox::after {
+                color: #4f8be4;
+                content: '\2713';
+            }
+        }
+
+        &-custom-checkbox {
+            cursor: pointer;
+            height: 20px;
+            width: 20px;
+            border: 0.5px solid #a9abba;
+            border-radius: 6px;
+            margin: 10px;
+            text-align: center;
+            line-height: 20px;
+            font-size: 18px;
+            box-sizing: border-box;
         }
     }
 }

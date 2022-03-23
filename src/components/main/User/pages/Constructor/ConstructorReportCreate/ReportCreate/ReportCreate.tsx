@@ -1,15 +1,15 @@
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useTypeSelector } from '../../../../../../../hooks/useTypeSelector';
 import {
-    setIsOpen,
+    // setIsOpen,
     setIsValid,
     updateCreateSubtitle,
     updateCreateTitle,
 } from '../../../../../../../store/actions/userConstrucorActions';
 import { Button } from '../../../../../../support';
-import ReportCreateList from '../ReportCreateList/ReportCreateList';
-import ReportCreatePopup from '../ReportCreatePopup/ReportCreatePopup';
+import ReportCreateElementsField from '../ReportCreateElementsField/ReportCreateElementsField';
 import './ReportCreate.scss';
 
 const ReportCreate = () => {
@@ -18,6 +18,14 @@ const ReportCreate = () => {
     );
     const navigate = useNavigate();
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        if (title.value && subtitle.value && elements.length) {
+            dispatch(setIsValid(true));
+        } else {
+            dispatch(setIsValid(false));
+        }
+    }, [elements, dispatch, title.value, subtitle.value]);
 
     const handleChange = e => {
         const { name, value, validationMessage } = e.target;
@@ -37,8 +45,6 @@ const ReportCreate = () => {
             default:
                 break;
         }
-
-        dispatch(setIsValid(e.target.closest('form').checkValidity()));
     };
 
     const handleCancelClick = e => {
@@ -46,10 +52,10 @@ const ReportCreate = () => {
         navigate('/user/constructor');
     };
 
-    const handleAddElements = e => {
-        e.preventDefault();
-        dispatch(setIsOpen(true));
-    };
+    // const handleAddElements = e => {
+    //     e.preventDefault();
+    //     dispatch(setIsOpen(true));
+    // };
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -58,9 +64,9 @@ const ReportCreate = () => {
 
     return (
         <form className='report-create' onSubmit={handleSubmit}>
-            <h2 className='report-create__title'>Создание формы отчетности</h2>
+            {/* <h2 className='report-create__title'>Создание формы отчетности</h2> */}
             <label className='report-create__label' htmlFor='title'>
-                Название
+                Название отчета
             </label>
             <input
                 className={`report-create__input ${
@@ -74,7 +80,7 @@ const ReportCreate = () => {
             ></input>
             <span className='report-create__error'>{title.error}</span>
             <label className='report-create__label' htmlFor='subtitle'>
-                Описание
+                Описание отчета
             </label>
             <input
                 className={`report-create__input ${
@@ -87,24 +93,27 @@ const ReportCreate = () => {
                 required
             ></input>
             <span className='report-create__error'>{subtitle.error}</span>
-            <div className='report-create__elements-field'>
-                <ReportCreateList elements={elements} />
-                <Button
-                    title='Добавить поле'
-                    onClick={handleAddElements}
-                    height='28px'
-                    margin={'auto 0 0'}
-                />
-                <ReportCreatePopup />
-            </div>
+            <ReportCreateElementsField elements={elements} />
+            {/* <Button
+                title='Добавить поле'
+                onClick={handleAddElements}
+                margin='8px 0 0'
+                width='328px'
+            /> */}
             <div className='report-create__buttons-field'>
                 <Button
                     onClick={handleCancelClick}
-                    title='Отмена'
+                    title='Назад'
                     width='150px'
+                    margin='32px 0 0'
                     type='light-grey'
                 />
-                <Button title='Сохранить' width='150px' isDisabled={!isValid} />
+                <Button
+                    title='Далее'
+                    width='150px'
+                    margin='32px 0 0'
+                    isDisabled={!isValid}
+                />
             </div>
         </form>
     );

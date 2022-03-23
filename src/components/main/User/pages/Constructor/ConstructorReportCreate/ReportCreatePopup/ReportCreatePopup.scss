@@ -3,7 +3,7 @@
 
     &__icons {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         border: {
             bottom: 0.5px solid rgba($color: #a9abba, $alpha: 0.4);
         }
@@ -18,9 +18,18 @@
         &:hover {
             fill: #4f8be4;
 
-            &:nth-child(3) {
+            &:nth-child(8) {
                 fill: none;
                 stroke: #4f8be4;
+            }
+        }
+
+        &:active {
+            fill: #a9abba;
+
+            &:nth-child(8) {
+                fill: none;
+                stroke: #a9abba;
             }
         }
     }
@@ -36,14 +45,84 @@
 
         &-item {
             cursor: pointer;
+            user-select: none;
+            box-sizing: border-box;
             height: 32px;
             text-align: center;
             background: #f2f6fc;
-            border-radius: 4px;
+            border-radius: 6px;
+            border: 0.5px solid #a9abba;
+            color: #979dbb;
+            font-size: 13px;
+            line-height: 16px;
+            padding: 8px 16px;
             transition: filter linear 0.2s;
 
             &:hover {
                 filter: drop-shadow(-8px 8px 8px rgba(42, 83, 145, 0.15));
+                border: 1px solid #4f8be4;
+                color: #4f8be4;
+            }
+
+            &:active {
+                filter: none;
+            }
+
+            &_checkbox {
+                background: #fff;
+                border: none;
+                padding: 0;
+                display: flex;
+                align-items: center;
+
+                & div {
+                    background: #f2f6fc;
+                    height: 32px;
+                    width: 32px;
+                    border-radius: 6px;
+                    border: 0.5px solid #a9abba;
+                    margin: {
+                        right: 8px;
+                    }
+                }
+
+                &:hover {
+                    border: none;
+                    color: #4f8be4;
+
+                    & div {
+                        border: 1px solid #4f8be4;
+                    }
+                }
+            }
+
+            &_radio {
+                background: #fff;
+                border: none;
+                border-radius: 16px 6px 6px 16px;
+                padding: 0;
+                display: flex;
+                align-items: center;
+
+                & div {
+                    background: #f2f6fc;
+                    height: 32px;
+                    width: 32px;
+                    border-radius: 50%;
+                    border: 0.5px solid #a9abba;
+                    margin: {
+                        right: 8px;
+                    }
+                }
+
+                &:hover {
+                    border: none;
+                    color: #4f8be4;
+
+                    & div {
+                        border: 1px solid #4f8be4;
+                    }
+                }
             }
         }
     }

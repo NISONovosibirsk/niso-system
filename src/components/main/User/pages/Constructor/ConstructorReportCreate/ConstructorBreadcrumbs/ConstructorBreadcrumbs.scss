@@ -4,6 +4,10 @@
     align-items: center;
     justify-items: center;
 
+    & svg:nth-of-type(odd) {
+        cursor: pointer;
+    }
+
     &_active {
         color: #4f8be4 !important;
         fill: #4f8be4;
@@ -17,6 +21,8 @@
     }
 
     &__text {
+        cursor: pointer;
+        user-select: none;
         color: #a9abba;
         font-weight: 600;
         font-size: 14px;

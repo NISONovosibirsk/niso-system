@@ -19,12 +19,8 @@ const ReportCreatePopup = () => {
     );
     const dispatch = useDispatch();
 
-    const handleAddSupportElement = type => {
-        dispatch(updateElements([...elements, { type, value: '' }]));
-    };
-
-    const handleAddMainElement = element => {
-        dispatch(updateElements([...elements, element]));
+    const handleAddElement = element => {
+        dispatch(updateElements([...elements, { ...element }]));
     };
 
     const handleClose = () => {
@@ -37,31 +33,122 @@ const ReportCreatePopup = () => {
                 <div className='report-create-popup__icons'>
                     <TextIcon
                         className='report-create-popup__icon'
-                        onClick={() => handleAddSupportElement('text')}
+                        onClick={() =>
+                            handleAddElement({
+                                type: 'text',
+                                value: '',
+                                placeholder: 'текст',
+                            })
+                        }
                     />
                     <TitleH1Icon
                         className='report-create-popup__icon'
-                        onClick={() => handleAddSupportElement('h1')}
+                        onClick={() =>
+                            handleAddElement({
+                                type: 'h1',
+                                value: '',
+                                placeholder: 'заголовок 1 уровня',
+                            })
+                        }
+                    />
+                    <TitleH1Icon
+                        className='report-create-popup__icon'
+                        onClick={() =>
+                            handleAddElement({
+                                type: 'h2',
+                                value: '',
+                                placeholder: 'заголовок 2 уровня',
+                            })
+                        }
+                    />
+                    <TitleH1Icon
+                        className='report-create-popup__icon'
+                        onClick={() =>
+                            handleAddElement({
+                                type: 'h3',
+                                value: '',
+                                placeholder: 'заголовок 3 уровня',
+                            })
+                        }
+                    />
+                    <TitleH1Icon
+                        className='report-create-popup__icon'
+                        onClick={() =>
+                            handleAddElement({
+                                type: 'h4',
+                                value: '',
+                                placeholder: 'заголовок 4 уровня',
+                            })
+                        }
+                    />
+                    <TitleH1Icon
+                        className='report-create-popup__icon'
+                        onClick={() =>
+                            handleAddElement({
+                                type: 'h5',
+                                value: '',
+                                placeholder: 'заголовок 5 уровня',
+                            })
+                        }
+                    />
+                    <TitleH1Icon
+                        className='report-create-popup__icon'
+                        onClick={() =>
+                            handleAddElement({
+                                type: 'h6',
+                                value: '',
+                                placeholder: 'заголовок 6 уровня',
+                            })
+                        }
                     />
                     <ImageIcon
                         className='report-create-popup__icon'
-                        onClick={() => handleAddSupportElement('image')}
+                        onClick={() =>
+                            handleAddElement({ type: 'image', image: '' })
+                        }
                     />
                     <ListIcon
                         className='report-create-popup__icon'
-                        onClick={() => handleAddSupportElement('textList')}
+                        onClick={() =>
+                            handleAddElement({
+                                type: 'textList',
+                                values: ['', ''],
+                            })
+                        }
                     />
                 </div>
                 <ul className='report-create-popup__elements-list'>
-                    {popup.elements.map((element, index) => (
-                        <li
-                            className='report-create-popup__elements-item'
-                            onClick={() => handleAddMainElement(element)}
-                            key={index}
-                        >
-                            {element.placeholder}
-                        </li>
-                    ))}
+                    {popup.elements.map((element, index) => {
+                        switch (element.type) {
+                            case 'checkbox':
+                            case 'radio':
+                                return (
+                                    <li
+                                        className={`report-create-popup__elements-item report-create-popup__elements-item_${element.type}`}
+                                        onClick={() =>
+                                            handleAddElement(element)
+                                        }
+                                        key={index}
+                                    >
+                                        <div></div>
+                                        {element.placeholder}
+                                    </li>
+                                );
+
+                            default:
+                                return (
+                                    <li
+                                        className='report-create-popup__elements-item'
+                                        onClick={() =>
+                                            handleAddElement(element)
+                                        }
+                                        key={index}
+                                    >
+                                        {element.placeholder}
+                                    </li>
+                                );
+                        }
+                    })}
                 </ul>
             </div>
         </Popup>
