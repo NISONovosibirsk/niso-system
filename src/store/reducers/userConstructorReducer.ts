@@ -1,5 +1,6 @@
 import { IReduxActions } from '../../interfaces';
 import {
+    RESET_CREATE,
     SET_IS_OPEN,
     SET_IS_VALID,
     UPDATE_CREATE_SUBTITLE,
@@ -83,7 +84,7 @@ const initialState = {
 };
 
 export const userConstructorReducer = (
-    state = initialState,
+    state = { ...initialState },
     action: IReduxActions
 ) => {
     switch (action.type) {
@@ -129,6 +130,11 @@ export const userConstructorReducer = (
                         isOpen: action.payload,
                     },
                 },
+            };
+        case RESET_CREATE:
+            return {
+                ...state,
+                create: { ...initialState.create },
             };
 
         case UPDATE_FILTER_CHARS:

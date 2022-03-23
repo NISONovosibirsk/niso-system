@@ -1,4 +1,5 @@
 import {
+    RESET_CREATE,
     SET_IS_OPEN,
     SET_IS_VALID,
     UPDATE_CREATE_SUBTITLE,
@@ -8,6 +9,8 @@ import {
     UPDATE_FILTER_CHARS,
     UPDATE_FILTER_TABS,
 } from '../reduxTypes/userConstructorTypes';
+
+//CREATE
 
 export const updateCreateTitle = title => {
     try {
@@ -48,6 +51,16 @@ export const setIsOpen = status => {
         console.log(error);
     }
 };
+
+export const resetCreate = () => {
+    try {
+        return { type: RESET_CREATE };
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+//FILTER
 
 export const updateFilterChars = filterChars => {
     try {

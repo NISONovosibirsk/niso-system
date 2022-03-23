@@ -3,13 +3,13 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useTypeSelector } from '../../../../../../../hooks/useTypeSelector';
 import {
-    // setIsOpen,
+    resetCreate,
     setIsValid,
     updateCreateSubtitle,
     updateCreateTitle,
 } from '../../../../../../../store/actions/userConstrucorActions';
 import { Button } from '../../../../../../support';
-import ReportCreateElementsField from '../ReportCreateElementsField/ReportCreateElementsField';
+import ReportCreateElementsField from './ReportCreateElementsField/ReportCreateElementsField';
 import './ReportCreate.scss';
 
 const ReportCreate = () => {
@@ -49,13 +49,10 @@ const ReportCreate = () => {
 
     const handleCancelClick = e => {
         e.preventDefault();
+
+        dispatch(resetCreate());
         navigate('/user/constructor');
     };
-
-    // const handleAddElements = e => {
-    //     e.preventDefault();
-    //     dispatch(setIsOpen(true));
-    // };
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -64,7 +61,6 @@ const ReportCreate = () => {
 
     return (
         <form className='report-create' onSubmit={handleSubmit}>
-            {/* <h2 className='report-create__title'>Создание формы отчетности</h2> */}
             <label className='report-create__label' htmlFor='title'>
                 Название отчета
             </label>
@@ -94,12 +90,6 @@ const ReportCreate = () => {
             ></input>
             <span className='report-create__error'>{subtitle.error}</span>
             <ReportCreateElementsField elements={elements} />
-            {/* <Button
-                title='Добавить поле'
-                onClick={handleAddElements}
-                margin='8px 0 0'
-                width='328px'
-            /> */}
             <div className='report-create__buttons-field'>
                 <Button
                     onClick={handleCancelClick}
