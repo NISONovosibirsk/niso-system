@@ -27,6 +27,7 @@ export { ReactComponent as ReportsIcon } from './icons/userIcons/reports-icon.sv
 export { ReactComponent as StaffIcon } from './icons/userIcons/staff-icon.svg';
 export { ReactComponent as VisitsIcon } from './icons/userIcons/visits-icon.svg';
 export { ReactComponent as CommunicationsIcon } from './icons/userIcons/communications-icon.svg';
+export { ReactComponent as ImageFileIcon } from './icons/userIcons/image-file.svg'
 
 //IMAGES
 

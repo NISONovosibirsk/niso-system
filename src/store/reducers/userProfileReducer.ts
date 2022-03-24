@@ -3,17 +3,18 @@ import { UPDATE_INSTITUTION_PARAMS } from '../reduxTypes/userProfileTypes';
 
 const initialState: IUserProfileState = {
     documents: {
+        // institutionCode: '',
         institutionCode: {
             value: '',
-            files: null,
+            files: []
         },
         institutionName: {
             value: '',
-            files: [],
+            files: []
         },
         institutionInn: {
             value: '',
-            files: [],
+            files: []
         },
     },
 };
@@ -23,14 +24,6 @@ export const userProfileReducer = (
     action: IReduxActions
 ): IUserProfileState => {
     switch (action.type) {
-        // case UPDATE_INSTITUTION_PARAMS:
-        //     return {
-        //         ...state,
-        //         documents: {
-        //             ...state.documents,
-        //             institutionParams: action.payload,
-        //         },
-        //     };
         case UPDATE_INSTITUTION_PARAMS:
             return { ...state, documents: action.payload };
 

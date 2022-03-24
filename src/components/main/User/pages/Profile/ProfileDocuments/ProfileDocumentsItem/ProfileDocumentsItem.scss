@@ -18,25 +18,6 @@
         }
     }
 
-    &__upload {
-        font-weight: 600;
-        font-size: 12px;
-        line-height: 14px;
-
-        label {
-            cursor: pointer;
-            color: #4f8be4;
-        }
-
-        p {
-            color: #a9abba;
-        }
-
-        input {
-            display: none;
-        }
-    }
-
     :focus {
         outline: none;
         border: 1px solid #4f8be4;

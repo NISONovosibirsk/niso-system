@@ -10,8 +10,8 @@ const ProfileDocuments = () => {
 
     return (
         <div className='user-profile-documents'>
-            {forms.map(form => (
-                <ProfileDocumentsItem form={form}/>
+            {forms.map((form, index) => (
+                <ProfileDocumentsItem form={form} key={index}/>
             ))}
         </div>
     );

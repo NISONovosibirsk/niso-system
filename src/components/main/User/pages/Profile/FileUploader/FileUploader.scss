@@ -1,0 +1,47 @@
+.user-profile-documents {
+    &-upload {
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 14px;
+
+        label {
+            cursor: pointer;
+            color: #4f8be4;
+        }
+
+        &__caption {
+            color: #a9abba;
+        }
+
+        input {
+            display: none;
+        }
+    }
+
+    &-files {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+
+        &__item {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        &__icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f5f7fb;
+            height: 54px;
+            width: 50px;
+            border-radius: 4px;
+        }
+    }
+
+    &__name {
+        color: black;
+    }
+}

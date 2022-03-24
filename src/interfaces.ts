@@ -122,26 +122,16 @@ export interface IReduxActions {
 export interface IUserProfileState {
     documents: {
         institutionCode: {
-            files: null;
-            value: '';
+            value: string;
+            files: any;
         };
         institutionName: {
-            files: [];
-            value: '';
+            value: string;
+            files: any;
         };
         institutionInn: {
-            files: [];
-            value: '';
+            value: string;
+            files: any;
         };
     };
-    // uploadedFiles: [];
-    // institutionParams: {
-    //     code: number;
-    //     title: string;
-    //     inn: number;
-    // };
 }
-
-// export interface IUserProfileState {
-//     documents: IDocuments;
-// }
