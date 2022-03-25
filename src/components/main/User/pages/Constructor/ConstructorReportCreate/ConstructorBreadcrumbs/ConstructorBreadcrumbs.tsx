@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useMatch, useNavigate, useResolvedPath } from 'react-router-dom';
 import {
-    ApproveIcon,
+    SendIcon,
     BreadcrumbsLineIcon,
     CreateIcon,
     PreviewIcon,
@@ -12,33 +12,31 @@ const ConstructorBreadcrumbs = () => {
     const navigate = useNavigate();
     const resolvedCreate = useResolvedPath('create');
     const resolvedPreview = useResolvedPath('preview');
-    const resolvedApprove = useResolvedPath('approve');
+    const resolvedSend = useResolvedPath('send');
 
     const matchCreate = useMatch(resolvedCreate.pathname);
     const matchPreview = useMatch(resolvedPreview.pathname);
-    const matchApprove = useMatch(resolvedApprove.pathname);
+    const matchSend = useMatch(resolvedSend.pathname);
 
     useEffect(() => {
-        if (!(matchCreate || matchPreview || matchApprove)) {
-            handleRouteToCreate();
-        }
+        !(matchCreate || matchPreview || matchSend) && handleRouteToCreate();
     });
 
     const createClasses = matchCreate
         ? 'constructor-breadcrumbs_active'
         : matchPreview
         ? 'constructor-breadcrumbs_complete'
-        : matchApprove
+        : matchSend
         ? 'constructor-breadcrumbs_complete'
         : '';
 
     const previewClasses = matchPreview
         ? 'constructor-breadcrumbs_active'
-        : matchApprove
+        : matchSend
         ? 'constructor-breadcrumbs_complete'
         : '';
 
-    const approveClasses = matchApprove ? 'constructor-breadcrumbs_active' : '';
+    const sendClasses = matchSend ? 'constructor-breadcrumbs_active' : '';
 
     const handleRouteToCreate = () => {
         navigate('create');
@@ -48,8 +46,8 @@ const ConstructorBreadcrumbs = () => {
         navigate('preview');
     };
 
-    const handleRouteToApprove = () => {
-        navigate('approve');
+    const handleRouteToSend = () => {
+        navigate('send');
     };
 
     return (
@@ -76,15 +74,12 @@ const ConstructorBreadcrumbs = () => {
                 Предпросмотр
             </p>
             <BreadcrumbsLineIcon className={previewClasses} />
-            <ApproveIcon
-                className={approveClasses}
-                onClick={handleRouteToApprove}
-            />
+            <SendIcon className={sendClasses} onClick={handleRouteToSend} />
             <p
-                className={`constructor-breadcrumbs__text ${approveClasses}`}
-                onClick={handleRouteToApprove}
+                className={`constructor-breadcrumbs__text ${sendClasses}`}
+                onClick={handleRouteToSend}
             >
-                Одобрите
+                Отправка
             </p>
         </div>
     );

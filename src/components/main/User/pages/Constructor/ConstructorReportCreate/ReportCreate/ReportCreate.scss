@@ -1,7 +1,11 @@
 .report-create {
     padding: 36px 0 32px;
     display: grid;
-    grid-template: auto / 100%;
+    grid-template:
+        16px 36px 28px 16px 36px 60px calc(100% - 260px)
+        68px / 100%;
+    min-height: calc(100vh - 97px - 12vh);
+    box-sizing: border-box;
 
     &__title {
         margin: 0;
@@ -47,7 +51,7 @@
             }
         }
 
-        &-invalid {
+        &_invalid {
             border: {
                 bottom: 1px solid #e84141 !important;
             }
@@ -66,9 +70,10 @@
         }
     }
 
-    &__buttons-field {
+    &__buttons {
         display: grid;
-        grid-template-columns: 150px 150px;
+        grid-template: 68px / repeat(2, 150px);
         gap: 28px;
+        align-items: end;
     }
 }

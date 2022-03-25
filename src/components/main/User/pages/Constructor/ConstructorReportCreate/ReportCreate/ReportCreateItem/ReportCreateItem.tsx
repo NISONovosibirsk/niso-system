@@ -7,7 +7,7 @@ import {
 } from '../../../../../../../../assets';
 import Modal from '../../../../../../../support/Modal/Modal';
 import './ReportCreateItem.scss';
-import { renderReportElementInput } from '../../../../../../../../middleware';
+import { renderReportCreateElementInput } from '../../../../../../../../middleware';
 
 const ReportCreateItem = ({
     element,
@@ -39,13 +39,6 @@ const ReportCreateItem = ({
 
         return () => window.removeEventListener('scroll', handleScroll);
     }, [scrollTop, element, onDelete]);
-
-    const handleInputValueChange = e => {
-        const { value } = e.target;
-        element.value = value;
-
-        onUpdateElement(element, elementIndex);
-    };
 
     const handleRequiredChange = e => {
         element.isRequired = e.target.checked;
@@ -89,9 +82,8 @@ const ReportCreateItem = ({
                     ref={provided.innerRef}
                 >
                     <div className='report-create-item__content'>
-                        {renderReportElementInput(
+                        {renderReportCreateElementInput(
                             element,
-                            handleInputValueChange,
                             onUpdateElement,
                             elementIndex
                         )}

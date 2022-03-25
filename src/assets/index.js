@@ -31,7 +31,7 @@ export { ReactComponent as CommunicationsIcon } from './icons/userIcons/communic
 //constructor breadcrumbs-line-icon
 export { ReactComponent as CreateIcon } from './icons/constructorIcons/create-icon.svg';
 export { ReactComponent as PreviewIcon } from './icons/constructorIcons/preview-icon.svg';
-export { ReactComponent as ApproveIcon } from './icons/constructorIcons/approve-icon.svg';
+export { ReactComponent as SendIcon } from './icons/constructorIcons/send-icon.svg';
 export { ReactComponent as BreadcrumbsLineIcon } from './icons/constructorIcons/breadcrumbs-line-icon.svg';
 export { ReactComponent as TextIcon } from './icons/constructorIcons/text-icon.svg';
 export { ReactComponent as TitleH1Icon } from './icons/constructorIcons/title-h1-icon.svg';

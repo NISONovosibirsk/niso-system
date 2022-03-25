@@ -1,1 +1,2 @@
-export { default as renderReportElementInput } from './renderReportElementInput';
+export { default as renderReportCreateElementInput } from './renderReportCreateElementInput';
+export { default as renderReportElement } from './renderReportElement';

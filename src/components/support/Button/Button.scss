@@ -14,7 +14,7 @@
     }
 
     &:hover {
-        filter: drop-shadow(-8px 8px 8px rgba(42, 83, 145, 0.15));
+        filter: drop-shadow(-8px 8px 8px rgba(42, 83, 145, 0.3));
     }
 
     &:active {
@@ -35,6 +35,11 @@
         &_light-grey {
             background: #f5f7fb;
             color: #979dbb;
+            border: none;
+        }
+
+        &_light-red {
+            background: #ed9c87;
             border: none;
         }
     }

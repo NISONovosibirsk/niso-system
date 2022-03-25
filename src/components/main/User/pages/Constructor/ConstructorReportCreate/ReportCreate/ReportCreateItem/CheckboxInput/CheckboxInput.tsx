@@ -6,9 +6,9 @@ const CheckboxInput = ({ element, onUpdateElement, elementIndex }) => {
 
         type === 'checkbox'
             ? (element.isChecked = checked)
-            : (element.value = value);
+            : (element.title = value);
 
-            onUpdateElement(element, elementIndex);
+        onUpdateElement(element, elementIndex);
     };
 
     return (
@@ -22,8 +22,8 @@ const CheckboxInput = ({ element, onUpdateElement, elementIndex }) => {
             <div className='checkbox-input__custom-checkbox'></div>
             <input
                 className='report-create-item__input report-create-item__input_underline'
-                value={element.value}
-                placeholder={element.placeholder}
+                value={element.title}
+                placeholder={element.name}
                 onChange={handleChange}
             />
         </label>

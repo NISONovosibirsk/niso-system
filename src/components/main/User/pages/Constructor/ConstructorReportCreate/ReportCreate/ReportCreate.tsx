@@ -66,7 +66,7 @@ const ReportCreate = () => {
             </label>
             <input
                 className={`report-create__input ${
-                    title.error ? 'report-create__input-invalid' : ''
+                    title.error ? 'report-create__input_invalid' : ''
                 }`}
                 onChange={handleChange}
                 value={title.value}
@@ -90,20 +90,13 @@ const ReportCreate = () => {
             ></input>
             <span className='report-create__error'>{subtitle.error}</span>
             <ReportCreateElementsField elements={elements} />
-            <div className='report-create__buttons-field'>
+            <div className='report-create__buttons'>
                 <Button
                     onClick={handleCancelClick}
                     title='Назад'
-                    width='150px'
-                    margin='32px 0 0'
                     type='light-grey'
                 />
-                <Button
-                    title='Далее'
-                    width='150px'
-                    margin='32px 0 0'
-                    isDisabled={!isValid}
-                />
+                <Button title='Далее' isDisabled={!isValid} />
             </div>
         </form>
     );
