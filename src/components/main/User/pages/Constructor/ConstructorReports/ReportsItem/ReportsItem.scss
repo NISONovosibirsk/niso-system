@@ -54,21 +54,6 @@
     }
 
     &__button {
-        &-open-report {
-            cursor: pointer;
-            border: none;
-            background: none;
-            color: #4f8be4;
-            font-weight: 600;
-            font-size: 12px;
-            line-height: 16px;
-            transition: opacity linear 0.2s;
-
-            &:hover {
-                opacity: 0.8;
-            }
-        }
-
         &-open-modal {
             cursor: pointer;
             justify-self: center;

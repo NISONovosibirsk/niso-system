@@ -2,6 +2,7 @@ import './ReportsItem.scss';
 import { OpenModalIcon } from '../../../../../../../assets';
 import { useEffect, useRef, useState } from 'react';
 import Modal from '../../../../../../support/Modal/Modal';
+import { Button } from '../../../../../../support';
 
 const ReportsItem = () => {
     const [modalPosition, setModalPosition] = useState({ top: 0, left: 0 });
@@ -42,9 +43,7 @@ const ReportsItem = () => {
                 <p className='reports-item__status'>Изучен</p>
                 <h2 className='reports-item__title'>Регламент о регламентах</h2>
                 <p className='reports-item__access'>Всем сотрудникам</p>
-                <button className='reports-item__button-open-report'>
-                    Посмотреть
-                </button>
+                <Button title='Посмотреть' type='report-item' />
                 <OpenModalIcon
                     className={'reports-item__button-open-modal'}
                     onClick={handleOpenModal}

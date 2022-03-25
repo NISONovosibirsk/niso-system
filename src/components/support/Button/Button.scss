@@ -42,5 +42,15 @@
             background: #ed9c87;
             border: none;
         }
+
+        &_report-item {
+            background: none;
+            border: none;
+            color: #4f8be4;
+
+            &:hover {
+                background: #f5f7fb;
+            }
+        }
     }
 }
