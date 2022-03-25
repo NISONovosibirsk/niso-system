@@ -6,6 +6,9 @@ const RadioInput = ({ element, onUpdateElement, elementIndex }) => {
     const handleChange = (e, radioIndex) => {
         const { value, type } = e.target;
 
+        element.radios = [...element.radios];
+        element.radios[radioIndex] = { ...element.radios[radioIndex] };
+
         switch (type) {
             case 'radio':
                 element.radios.forEach(radio => (radio.isChecked = false));

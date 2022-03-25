@@ -131,7 +131,7 @@ const ReportCreatePopup = () => {
                                         key={index}
                                     >
                                         <div></div>
-                                        {element.placeholder}
+                                        {element.name}
                                     </li>
                                 );
 
@@ -144,7 +144,7 @@ const ReportCreatePopup = () => {
                                         }
                                         key={index}
                                     >
-                                        {element.placeholder}
+                                        {element.name}
                                     </li>
                                 );
                         }

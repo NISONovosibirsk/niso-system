@@ -1,14 +1,15 @@
 import {
     CheckboxInput,
+    DefaultInput,
     ImageInput,
     ListInput,
     RadioInput,
+    TextInput,
     TextList,
 } from '../components/main/User/pages/Constructor/ConstructorReportCreate/ReportCreate/ReportCreateItem';
 
-const renderReportElementInput = (
+const renderReportCreateElementInput = (
     element,
-    onChange,
     onUpdateElement,
     elementIndex
 ) => {
@@ -21,11 +22,10 @@ const renderReportElementInput = (
         case 'h5':
         case 'h6':
             return (
-                <input
-                    className='report-create-item__input report-create-item__input_underline'
-                    value={element.value}
-                    onChange={onChange}
-                    placeholder={element.placeholder}
+                <TextInput
+                    element={element}
+                    onUpdateElement={onUpdateElement}
+                    elementIndex={elementIndex}
                 />
             );
         case 'image':
@@ -70,14 +70,13 @@ const renderReportElementInput = (
             );
         default:
             return (
-                <input
-                    className='report-create-item__input'
-                    value={element.value}
-                    onChange={onChange}
-                    placeholder={element.placeholder}
+                <DefaultInput
+                    element={element}
+                    onUpdateElement={onUpdateElement}
+                    elementIndex={elementIndex}
                 />
             );
     }
 };
 
-export default renderReportElementInput;
+export default renderReportCreateElementInput;

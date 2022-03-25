@@ -6,7 +6,7 @@ const ListInput = ({ element, onUpdateElement, elementIndex }) => {
     const handleInputValueChange = e => {
         const { value } = e.target;
 
-        element.value = value;
+        element.placeholder = value;
 
         onUpdateElement(element, elementIndex);
     };
@@ -14,6 +14,7 @@ const ListInput = ({ element, onUpdateElement, elementIndex }) => {
     const handleRowValueChange = (e, optionIndex) => {
         const { value } = e.target;
 
+        element.options = [...element.options];
         element.options[optionIndex] = value;
 
         onUpdateElement(element, elementIndex);
@@ -37,9 +38,9 @@ const ListInput = ({ element, onUpdateElement, elementIndex }) => {
         <div className='list-input'>
             <input
                 className='report-create-item__input'
-                value={element.value}
+                value={element.placeholder}
                 onChange={handleInputValueChange}
-                placeholder={element.placeholder}
+                placeholder={element.name}
             />
             <ul className='list-input__list'>
                 {element.options.map((option, optionIndex) => (
