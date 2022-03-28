@@ -29,8 +29,8 @@ const ReportCreateItem = ({
                 modalIconRef.current?.getBoundingClientRect();
 
             setModalPosition({
-                top: elementPosition.top + 6,
-                left: elementPosition.left - 210,
+                top: elementPosition.top,
+                left: elementPosition.right - 210,
             });
         }
 

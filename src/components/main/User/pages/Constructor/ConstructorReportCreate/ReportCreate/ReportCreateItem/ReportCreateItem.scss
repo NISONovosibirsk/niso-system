@@ -15,6 +15,7 @@
     overflow: hidden;
     display: grid;
     grid-template-columns: auto 21px;
+    align-items: center;
 
     &_delete {
         animation: deleting 0.3s linear forwards;
@@ -84,7 +85,7 @@
 
     &__open-modal {
         cursor: pointer;
-        padding: 7px 8px;
+        padding: 0 8px;
         transition: fill linear 0.2s;
 
         &:hover {
