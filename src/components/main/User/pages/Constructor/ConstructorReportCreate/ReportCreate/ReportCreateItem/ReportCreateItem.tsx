@@ -16,12 +16,9 @@ const ReportCreateItem = ({
     elementIndex,
 }) => {
     const [isDelete, setIsDelete] = useState(false);
-    const [isOpen, setIsOpen] = useState(false);
-    const [modalPosition, setModalPosition] = useState({
-        top: 0,
-        left: 0,
-    });
+    const [modalPosition, setModalPosition] = useState({ top: 0, left: 0 });
     const [scrollTop, setScrollTop] = useState(0);
+    const [isOpen, setIsOpen] = useState(false);
     const modalIconRef = useRef<SVGSVGElement>(null);
 
     useEffect(() => {
