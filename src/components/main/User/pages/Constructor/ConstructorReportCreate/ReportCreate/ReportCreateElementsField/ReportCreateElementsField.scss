@@ -1,0 +1,23 @@
+.report-create-elements-field {
+    padding: 16px 24px;
+    border: 1px solid #a9abba;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+
+    &_valid {
+        border: 1px solid #4f8be4;
+    }
+
+    &_invalid {
+        border: 1px solid #e84141;
+    }
+
+    &__list {
+        list-style: none;
+        margin: 0 0 32px;
+        padding: 0;
+        display: grid;
+        gap: 8px;
+    }
+}

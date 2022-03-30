@@ -1,0 +1,41 @@
+.report-input {
+    outline: none;
+    background: #f5f7fb;
+    border: 0.5px solid #a9abba;
+    border-radius: 6px;
+    box-sizing: border-box;
+    padding: 0px 16px;
+    height: 32px;
+
+    &::placeholder {
+        color: #a9abba;
+        font-size: 11px;
+        line-height: 12px;
+        letter-spacing: 0.3px;
+    }
+
+    &:hover {
+        border: 1px solid #4f8be4;
+    }
+
+    &:focus {
+        border: 1px solid #4f8be4;
+    }
+
+    &:valid {
+        border: 1px solid #3fac50;
+    }
+
+    &_invalid {
+        border: 1px solid #e84141 !important;
+    }
+
+    &__error {
+        color: #e84141;
+        font-size: 11px;
+        line-height: 12px;
+        letter-spacing: 0.3px;
+        padding-left: 8px;
+        padding-top: 4px;
+    }
+}

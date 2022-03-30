@@ -1,0 +1,46 @@
+.report-radio {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+
+    &__label {
+        display: grid;
+        grid-template: 32px / 32px auto;
+        gap: 8px;
+    }
+
+    &__input {
+        display: none;
+
+        &:checked + .report-radio__custom-radio::after {
+            content: '\2713';
+        }
+    }
+
+    &__custom-radio {
+        cursor: pointer;
+        height: 32px;
+        width: 32px;
+        outline: none;
+        background: #f5f7fb;
+        border: 0.5px solid #a9abba;
+        border-radius: 50%;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 32px;
+        box-sizing: border-box;
+        text-align: center;
+        color: #4f8be4;
+
+        &:hover {
+            border: 0.5px solid #4f8be4;
+        }
+    }
+
+    &__title {
+        font-size: 1rem;
+        line-height: 1rem;
+        margin: auto 0;
+    }
+}

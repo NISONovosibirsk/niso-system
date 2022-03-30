@@ -1,0 +1,79 @@
+.report-create {
+    padding: 36px 0 32px;
+    display: grid;
+    grid-template:
+        16px 36px 28px 16px 36px 60px calc(100% - 260px)
+        68px / 100%;
+    min-height: calc(100vh - 97px - 12vh);
+    box-sizing: border-box;
+
+    &__title {
+        margin: 0;
+        font-weight: 600;
+        font-size: 17px;
+        line-height: 23px;
+        padding: {
+            bottom: 28px;
+        }
+    }
+
+    &__label {
+        user-select: none;
+        color: #a9abba;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    &__input {
+        box-sizing: border-box;
+        outline: none;
+        height: 36px;
+        border: none {
+            bottom: 0.5px solid #a9abba;
+        }
+
+        &:hover {
+            border: {
+                bottom: 1px solid #4f8be4;
+            }
+        }
+
+        &:focus {
+            border: {
+                bottom: 1px solid #4f8be4;
+            }
+        }
+
+        &:valid {
+            border: {
+                bottom: 1px solid #3fac50;
+            }
+        }
+
+        &_invalid {
+            border: {
+                bottom: 1px solid #e84141 !important;
+            }
+        }
+    }
+
+    &__error {
+        color: #e84141;
+        font-size: 11px;
+        line-height: 12px;
+        letter-spacing: 0.3px;
+        padding: 4px 0 12px;
+
+        &:last-of-type {
+            padding: 4px 0 44px;
+        }
+    }
+
+    &__buttons {
+        display: grid;
+        grid-template: 68px / repeat(2, 150px);
+        gap: 28px;
+        align-items: end;
+    }
+}
