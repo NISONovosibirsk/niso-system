@@ -32,7 +32,7 @@ const NotFoundRoute = () => {
                     onClick={handleGoHomeClick}
                     width='200px'
                     height='40px'
-                    type='hollow'
+                    type='light-grey'
                 />
             </div>
         </section>
