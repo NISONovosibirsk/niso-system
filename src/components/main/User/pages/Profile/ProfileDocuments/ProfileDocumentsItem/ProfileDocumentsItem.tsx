@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { useTypeSelector } from '../../../../../../../hooks/useTypeSelector';
 import { IProfileDocuments } from '../../../../../../../interfaces';
 import { updateParams } from '../../../../../../../store/actions/userProfileActions';
-import FileUploader from '../../FileUploader/FileUploader';
+import FileUploader from '../FileUploader/FileUploader';
 
 import './ProfileDocumentsItem.scss';
 
@@ -31,15 +31,15 @@ const ProfileDocumentsItem = ({ form }: IProfileDocuments) => {
     };
 
     return (
-        <>
-            <p className='user-profile-documents__header'>{`${form.title}:`}</p>
+        <div className='user-profile-documents-item'>
+            <p className='user-profile-documents-item__header'>{`${form.title}:`}</p>
             <FileUploader type={form.type} />
             <input
-                className='user-profile-documents__input'
+                className='user-profile-documents-item__input'
                 onChange={handleTextInput}
                 name={form.type}
             />
-        </>
+        </div>
     );
 };
 

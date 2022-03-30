@@ -1,0 +1,41 @@
+.user-profile-info {
+    display: grid;
+    // grid-template-rows: 20% 60% auto;
+    grid-template-columns: auto;
+    margin-top: 35px;
+    gap: 45px;
+
+    &-header {
+        display: grid;
+        grid-template-columns: 15% auto;
+
+        // &__avatar {
+        //     display: grid;
+        //     grid-template-rows: 60% auto;
+        // }
+
+        &__photo {
+            background: tomato;
+            border-radius: 50%;
+            height: 92px;
+            width: 92px;
+            display: grid;
+            grid-template-rows: 50% auto;
+        }
+
+        // &__select-photo {
+        //     border: none;
+        //     background: #4F8BE4;
+        //     width: 92px;
+        //     height: 32px;
+        //     border-radius: 50%;
+        // }
+
+        &__select-photo {
+            grid-row: 2 / 3;
+            border: none;
+            background: transparent;
+            align-self: center;
+        }
+    }
+}

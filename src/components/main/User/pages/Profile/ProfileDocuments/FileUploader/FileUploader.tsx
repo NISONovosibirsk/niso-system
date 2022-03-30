@@ -1,8 +1,9 @@
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
-import { ImageFileIcon } from '../../../../../../assets';
-import { useTypeSelector } from '../../../../../../hooks/useTypeSelector';
-import { updateParams } from '../../../../../../store/actions/userProfileActions';
+import { ImageFileIcon } from '../../../../../../../assets';
+import { useTypeSelector } from '../../../../../../../hooks/useTypeSelector';
+import { updateParams } from '../../../../../../../store/actions/userProfileActions';
+import ProfileDocumentsFileItem from '../ProfileDocumentsFileItem/ProfileDocumentsFileItem';
 import './FileUploader.scss';
 
 const FileUploader = ({ type }) => {
@@ -21,7 +22,8 @@ const FileUploader = ({ type }) => {
 
         //mock server url
         await axios
-            .post('https://ptsv2.com/t/j8vyi-1647833620/post', data)
+            // .post('https://ptsv2.com/t/j8vyi-1647833620/post', data)
+            .post('https://80e7b11d-930e-4ae6-9fdf-5c821c7e84fd.mock.pstmn.io/post', data)
             .then(() => {
                 console.log('success!');
                 switch (name) {
@@ -74,27 +76,11 @@ const FileUploader = ({ type }) => {
             />
             <label htmlFor={type}>+ Прикрепить файл</label>
             <div className='user-profile-documents-files'>
-                {handleFiles(type).length &&
-                    handleFiles(type).map(file => (
-                        <div className='user-profile-documents-files__item'>
-                            <div className='user-profile-documents-files__icon'>
-                                <ImageFileIcon/>
-                            </div>
-                            <p className='user-profile-documents__name'>
-                                {file.name}
-                            </p>
-                        </div>
+                {handleFiles(type) &&
+                    handleFiles(type).map((file, index) => (
+                        <ProfileDocumentsFileItem file={file} key={index}/>
                     ))}
             </div>
-            {/* {handleFiles(type).length &&
-                handleFiles(type).map(file => (
-                    <div className='user-profile-documents-files__item'>
-                        <div className='user-profile-documents-files__item'>
-                            <ImageFileIcon />
-                        </div>
-                        <p className='user-profile-documents__name'>{file.name}</p>
-                    </div>
-                ))} */}
         </form>
     );
 };

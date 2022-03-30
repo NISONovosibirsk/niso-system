@@ -11,7 +11,7 @@ export { default as ReportForm } from './ReportForm/ReportForm';
 export { default as Reports } from './ReportsList/ReportsList';
 
 export { default as User } from './User/User';
-export {default as FileUploader} from './User/pages/Profile/FileUploader/FileUploader';
+export {default as FileUploader} from './User/pages/Profile/ProfileDocuments/FileUploader/FileUploader';
 
 //not used yet
 export { default as Terms } from './Terms/Terms';

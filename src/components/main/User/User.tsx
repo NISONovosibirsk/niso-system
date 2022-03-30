@@ -7,7 +7,7 @@ import {
     DutiesIcon,
     OfsIcon,
     CommunicationsIcon,
-    ReglamentsIcon,
+    ConstructorIcon,
     StaffIcon,
     ReportsIcon,
 } from '../../../assets';
@@ -29,7 +29,7 @@ const User = () => {
         {
             path: 'reglaments',
             text: 'Регламенты',
-            icon: <ReglamentsIcon />,
+            icon: <ConstructorIcon />,
         },
         {
             path: 'duties',
@@ -67,7 +67,7 @@ const User = () => {
         {
             path: 'constructor',
             text: 'Конструктор',
-            icon: <ReglamentsIcon />,
+            icon: <ConstructorIcon />,
         },
         {
             path: 'duties',

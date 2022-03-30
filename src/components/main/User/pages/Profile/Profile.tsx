@@ -1,7 +1,8 @@
 import './Profile.scss';
-import ProfileDocForm from './ProfileDocuments/ProfileDocuments';
 import { Routes, Route, Link } from 'react-router-dom';
 import ProfileNavItem from './ProfileNavItem/ProfileNavItem';
+import ProfileDocuments from './ProfileDocuments/ProfileDocuments';
+import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 const tabs = [
     { text: 'Основное', path: '' },
@@ -13,14 +14,14 @@ const Profile = () => {
     return (
         <div className='user-profile'>
             <ul className='user-profile-tabs'>
-                {tabs.map( tab => (
-                    <ProfileNavItem tab={tab} key={tab.path}/>
+                {tabs.map(tab => (
+                    <ProfileNavItem tab={tab} key={tab.path} />
                 ))}
             </ul>
             <Routes>
-                <Route path=''/>
+                <Route path='' element={<ProfileInfo />} />
                 <Route path='notifications' />
-                <Route path='documents' element={<ProfileDocForm />} />
+                <Route path='documents' element={<ProfileDocuments />} />
             </Routes>
         </div>
     );
