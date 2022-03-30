@@ -10,6 +10,7 @@ import {
     ChangePassword,
     StatusPopup,
     User,
+    NotFoundRoute,
 } from './components/main';
 import { Constructor, Home, Profile } from './components/main/User/pages';
 
@@ -62,7 +63,7 @@ function App() {
                     <Route path='constructor/*' element={<Constructor />} />
                 </Route>
 
-                <Route path='*' element={<p>Пустая страница</p>} />
+                <Route path='*' element={<NotFoundRoute />} />
             </Routes>
             <StatusPopup />
         </div>
