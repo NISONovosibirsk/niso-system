@@ -23,11 +23,14 @@ export { ReactComponent as HomeIcon } from './icons/userIcons/home-icon.svg';
 export { ReactComponent as DutiesIcon } from './icons/userIcons/duties-icon.svg';
 export { ReactComponent as LeadersIcon } from './icons/userIcons/leaders-icon.svg';
 export { ReactComponent as OfsIcon } from './icons/userIcons/ofs-icon.svg';
-export { ReactComponent as ReglamentsIcon } from './icons/userIcons/reglaments-icon.svg';
+export { ReactComponent as ConstructorIcon } from './icons/userIcons/constructor-icon.svg';
 export { ReactComponent as ReportsIcon } from './icons/userIcons/reports-icon.svg';
 export { ReactComponent as StaffIcon } from './icons/userIcons/staff-icon.svg';
 export { ReactComponent as VisitsIcon } from './icons/userIcons/visits-icon.svg';
 export { ReactComponent as CommunicationsIcon } from './icons/userIcons/communications-icon.svg';
+export { ReactComponent as ImageFileIcon } from './icons/userIcons/image-file-icon.svg';
+export { ReactComponent as ChangePhotoIcon } from './icons/userIcons/change-photo-icon.svg';
+
 //constructor breadcrumbs-line-icon
 export { ReactComponent as CreateIcon } from './icons/constructorIcons/create-icon.svg';
 export { ReactComponent as PreviewIcon } from './icons/constructorIcons/preview-icon.svg';

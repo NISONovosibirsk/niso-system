@@ -68,6 +68,11 @@ export interface ICheckbox {
     onChange: any;
 }
 
+// User
+export interface IProfileDocuments {
+    form: any;
+}
+
 // REDUX //
 
 // Form state and actions
@@ -111,4 +116,22 @@ export interface IChangePasswordState {
 export interface IReduxActions {
     type: string;
     payload: any;
+}
+
+// Profile
+export interface IUserProfileState {
+    documents: {
+        institutionCode: {
+            value: string;
+            files: any;
+        };
+        institutionName: {
+            value: string;
+            files: any;
+        };
+        institutionInn: {
+            value: string;
+            files: any;
+        };
+    };
 }

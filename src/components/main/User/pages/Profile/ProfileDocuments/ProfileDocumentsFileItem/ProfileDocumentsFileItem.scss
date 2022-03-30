@@ -1,0 +1,27 @@
+.user-profile-documents-files-item {
+    display: grid;
+    grid-template-rows: 60% 40%;
+    
+    animation: 1s file ease;
+    svg {
+        fill: #a9abba;
+    }
+
+    &__icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f5f7fb;
+        height: 54px;
+        width: 50px;
+        border-radius: 4px;
+        transition: 3s;
+        justify-self: center;
+    }
+
+    &__name {
+        justify-self: center;
+        margin: 10px;
+        color: #a9abba;
+    }
+}
