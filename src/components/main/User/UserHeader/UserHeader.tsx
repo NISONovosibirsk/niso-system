@@ -1,8 +1,11 @@
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useTypeSelector } from '../../../../hooks/useTypeSelector';
 import Searchbar from './HeaderSearchbar/HeaderSearchbar';
 import './UserHeader.scss';
 
 const ProfileHeader = () => {
+    const { info } = useTypeSelector(state => state.userProfile);
+
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -32,7 +35,11 @@ const ProfileHeader = () => {
         <header className='user-header'>
             <h1 className='user-header__title'>{handleHeaderTitle(routes)}</h1>
             <Searchbar />
-            <div className='user-header__avatar' onClick={handleClick}></div>
+            <div
+                className='user-header__avatar'
+                onClick={handleClick}
+                style={{ backgroundImage: `url(${info.photo})` }}
+            ></div>
         </header>
     );
 };

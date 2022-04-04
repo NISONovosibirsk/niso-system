@@ -1,0 +1,45 @@
+.user-profile-info-header {
+    display: grid;
+    grid-template-columns: 10% auto;
+
+    &__photo {
+        justify-self: center;
+        background: #A9ABBA no-repeat center;
+        background-size: cover;
+        border-radius: 50%;
+        height: 92px;
+        width: 92px;
+        display: grid;
+        grid-template-rows: 50% auto;
+        overflow: hidden;
+
+
+    }
+
+    &__select-photo {
+        grid-row: 2 / 3;
+        align-self: end;
+        height: 30px;
+        width: 92px;
+        border: none;
+        border-radius: 50%;
+        background: url('../../../../../../../assets/icons/userIcons/photo-icon.svg')
+            no-repeat center #4f8be4;
+        cursor: pointer;
+
+        input {
+            visibility: hidden;
+        }
+    }
+
+    &__list {
+        list-style: none;
+        padding: {
+            left: 10px
+        };
+    }
+
+    &__position {
+        margin-top: 6px;
+    }
+}

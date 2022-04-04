@@ -120,6 +120,13 @@ export interface IReduxActions {
 
 // Profile
 export interface IUserProfileState {
+    info: {
+        photo: any;
+        name: string;
+        position: string;
+        phone: string;
+        email: string;
+    };
     documents: {
         institutionCode: {
             value: string;
@@ -133,5 +140,11 @@ export interface IUserProfileState {
             value: string;
             files: any;
         };
+    };
+    popup: {
+        isOpen: boolean;
+        currentPassword: string;
+        newPassword: string;
+        confirmPassword: string;
     };
 }
