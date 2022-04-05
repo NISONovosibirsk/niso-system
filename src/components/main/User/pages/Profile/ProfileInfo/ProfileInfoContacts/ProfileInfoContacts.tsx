@@ -1,13 +1,9 @@
 import { useDispatch } from 'react-redux';
-import {
-    EditIcon,
-    KeyIcon,
-    MailIcon,
-    PhoneIcon,
-} from '../../../../../../../assets';
+import { KeyIcon } from '../../../../../../../assets';
 import { useTypeSelector } from '../../../../../../../hooks/useTypeSelector';
 import { updatePopup } from '../../../../../../../store/actions/userProfileActions';
 import ChangePasswordPopup from './ChangePasswordPopup/ChangePasswordPopup';
+import ProfileContactsItem from './ProfileContactsItem/ProfileContactsItem';
 import './ProfileInfoContacts.scss';
 
 const ProfileInfoContacts = () => {
@@ -22,22 +18,18 @@ const ProfileInfoContacts = () => {
 
     return (
         <ul className='user-profile-info-contacts'>
-            <li className='user-profile-info-contacts__item user-phone'>
-                <PhoneIcon />
-                <p>{info.phone}</p>
-                <EditIcon className='edit-button' />
-            </li>
-            <li className='user-profile-info-contacts__item user-email'>
-                <MailIcon />
-                <p>{info.email}</p>
-                <EditIcon className='edit-button' />
-            </li>
+            {info.contacts.map((contact, index) => (
+                <ProfileContactsItem
+                    key={index}
+                    contact={contact}
+                    index={index}
+                />
+            ))}
             <li
-                className='user-profile-info-contacts__item user-password edit-button'
-                onClick={handlePopup}
+                className='user-profile-info-contacts__item user-password'
             >
                 <KeyIcon />
-                <p>Изменить пароль</p>
+                <p className='edit-button' onClick={handlePopup}>Изменить пароль</p>
             </li>
             <ChangePasswordPopup />
         </ul>

@@ -9,9 +9,11 @@ const initialState: IUserProfileState = {
     info: {
         photo: [],
         name: 'Абрамов Владимир Алексеевич',
-        phone: '+7 (964) 872 - 89 - 59',
-        email: 'elcor58@yandex.ru',
         position: 'Генеральный директор',
+        contacts: [
+            { type: 'phone', value: '+7 (964) 872 - 89 - 59', isEdit: false },
+            { type: 'email', value: 'elcor58@yandex.ru', isEdit: false },
+        ],
     },
     documents: {
         institutionCode: {

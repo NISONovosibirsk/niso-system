@@ -43,6 +43,8 @@ const ChangePasswordPopup = () => {
         }
     };
 
+    
+
     const handleSend = () => {
         console.log('sending data');
     };
@@ -56,12 +58,13 @@ const ChangePasswordPopup = () => {
                 {forms.map(form => (
                     <ChangePasswordInput form={form} key={form.title} />
                 ))}
+                {/* <p>АЛЯРМА!</p> */}
                 <Button
                     onClick={handleSend}
                     isDisabled={handleButton()}
                     title={'Сохранить'}
                     width={'204px'}
-                    margin={'35px'}
+                    margin={'25px'}
                 />
             </form>
         </Popup>

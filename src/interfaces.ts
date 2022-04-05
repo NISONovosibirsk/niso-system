@@ -124,8 +124,10 @@ export interface IUserProfileState {
         photo: any;
         name: string;
         position: string;
-        phone: string;
-        email: string;
+        contacts: [
+            { type: 'phone'; value: string; isEdit: boolean },
+            { type: 'email'; value: string; isEdit: boolean }
+        ];
     };
     documents: {
         institutionCode: {
