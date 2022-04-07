@@ -125,8 +125,13 @@ export interface IUserProfileState {
         name: string;
         position: string;
         contacts: [
-            { type: 'phone'; value: string; isEdit: boolean },
-            { type: 'email'; value: string; isEdit: boolean }
+            {
+                type: 'phone';
+                value: string;
+                isEdit: boolean;
+                isPrompt: boolean;
+            },
+            { type: 'email'; value: string; isEdit: boolean; isPrompt: boolean }
         ];
     };
     documents: {

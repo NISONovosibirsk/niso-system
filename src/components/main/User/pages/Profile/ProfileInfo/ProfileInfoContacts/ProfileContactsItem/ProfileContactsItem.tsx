@@ -2,7 +2,6 @@ import { useDispatch } from 'react-redux';
 import { EditIcon, MailIcon, PhoneIcon } from '../../../../../../../../assets';
 import { useTypeSelector } from '../../../../../../../../hooks/useTypeSelector';
 import { updateProfileInfo } from '../../../../../../../../store/actions/userProfileActions';
-import ProfileEditForm from '../ProfileEditForm/ProfileEditForm';
 import './ProfileContactsItem.scss';
 
 const ProfileContactsItem = ({ contact, index }) => {
@@ -31,17 +30,11 @@ const ProfileContactsItem = ({ contact, index }) => {
     return (
         <li className='user-profile-info-contacts__item user-phone'>
             {handleIcon(contact.type)}
-            {info.contacts[index].isEdit ? (
-                <ProfileEditForm index={index}/>
-            ) : (
-                <>
-                    <p>{contact.value}</p>
-                    <EditIcon
-                        className='edit-button'
-                        onClick={() => handleEdit(index)}
-                    />
-                </>
-            )}
+            <p>{contact.value}</p>
+            <EditIcon
+                className='edit-button'
+                onClick={() => handleEdit(index)}
+            />
         </li>
     );
 };
