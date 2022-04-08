@@ -58,7 +58,6 @@ const ChangePasswordPopup = () => {
                 {forms.map(form => (
                     <ChangePasswordInput form={form} key={form.title} />
                 ))}
-                {/* <p>АЛЯРМА!</p> */}
                 <Button
                     onClick={handleSend}
                     isDisabled={handleButton()}

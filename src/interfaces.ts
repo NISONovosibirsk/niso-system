@@ -120,18 +120,14 @@ export interface IReduxActions {
 
 // Profile
 export interface IUserProfileState {
-    info: {
+    profile: {
         photo: any;
         name: string;
         position: string;
-        contacts: [
-            {
-                type: 'phone';
-                value: string;
-                isEdit: boolean;
-                isPrompt: boolean;
-            },
-            { type: 'email'; value: string; isEdit: boolean; isPrompt: boolean }
+        userData: [
+            { type: string;value: string; },
+            { type: string; value: string },
+            { type: string; value: string }
         ];
     };
     documents: {
@@ -150,8 +146,11 @@ export interface IUserProfileState {
     };
     popup: {
         isOpen: boolean;
+        type: string;
         currentPassword: string;
         newPassword: string;
         confirmPassword: string;
+        email: string;
+        phone: string;
     };
 }

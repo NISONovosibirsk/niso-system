@@ -6,13 +6,20 @@ import {
 } from '../reduxTypes/userProfileTypes';
 
 const initialState: IUserProfileState = {
-    info: {
+    profile: {
         photo: [],
         name: 'Абрамов Владимир Алексеевич',
         position: 'Генеральный директор',
-        contacts: [
-            { type: 'phone', value: '+7 (964) 872 - 89 - 59', isEdit: false, isPrompt: false },
-            { type: 'email', value: 'elcor58@yandex.ru', isEdit: false, isPrompt: false },
+        userData: [
+            {
+                type: 'phone',
+                value: '+7 (964) 872 - 89 - 59',
+            },
+            {
+                type: 'email',
+                value: 'elcor58@yandex.ru',
+            },
+            { type: 'password', value: '' },
         ],
     },
     documents: {
@@ -31,9 +38,12 @@ const initialState: IUserProfileState = {
     },
     popup: {
         isOpen: false,
+        type: '',
         currentPassword: '',
         newPassword: '',
         confirmPassword: '',
+        email: '',
+        phone: '',
     },
 };
 
@@ -45,7 +55,7 @@ export const userProfileReducer = (
         case UPDATE_INSTITUTION_PARAMS:
             return { ...state, documents: action.payload };
         case UPDATE_PROFILE_INFO:
-            return { ...state, info: action.payload };
+            return { ...state, profile: action.payload };
         case UPDATE_POPUP:
             return { ...state, popup: action.payload };
         default:

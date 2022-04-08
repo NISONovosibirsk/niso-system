@@ -4,7 +4,7 @@ import Searchbar from './HeaderSearchbar/HeaderSearchbar';
 import './UserHeader.scss';
 
 const ProfileHeader = () => {
-    const { info } = useTypeSelector(state => state.userProfile);
+    const { profile } = useTypeSelector(state => state.userProfile);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -38,7 +38,7 @@ const ProfileHeader = () => {
             <div
                 className='user-header__avatar'
                 onClick={handleClick}
-                style={{ backgroundImage: `url(${info.photo})` }}
+                style={{ backgroundImage: `url(${profile.photo})` }}
             ></div>
         </header>
     );

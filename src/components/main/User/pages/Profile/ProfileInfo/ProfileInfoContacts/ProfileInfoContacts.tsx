@@ -1,37 +1,21 @@
-import { useDispatch } from 'react-redux';
-import { KeyIcon } from '../../../../../../../assets';
 import { useTypeSelector } from '../../../../../../../hooks/useTypeSelector';
-import { updatePopup } from '../../../../../../../store/actions/userProfileActions';
-import ChangePasswordPopup from './ChangePasswordPopup/ChangePasswordPopup';
+import ChangeInfoPopup from './ChangeInfoPopup/ChangeInfoPopup';
 import ProfileContactsItem from './ProfileContactsItem/ProfileContactsItem';
 import './ProfileInfoContacts.scss';
 
 const ProfileInfoContacts = () => {
-    const { info, popup } = useTypeSelector(state => state.userProfile);
-    const dispatch = useDispatch();
-
-    const handlePopup = () => {
-        const newState = { ...popup };
-        newState.isOpen = true;
-        dispatch(updatePopup(newState));
-    };
+    const { profile, popup } = useTypeSelector(state => state.userProfile);
 
     return (
         <ul className='user-profile-info-contacts'>
-            {info.contacts.map((contact, index) => (
+            {profile.userData.map((dataItem, index) => (
                 <ProfileContactsItem
                     key={index}
-                    contact={contact}
+                    dataItem={dataItem}
                     index={index}
                 />
             ))}
-            <li
-                className='user-profile-info-contacts__item user-password'
-            >
-                <KeyIcon />
-                <p className='edit-button' onClick={handlePopup}>Изменить пароль</p>
-            </li>
-            <ChangePasswordPopup />
+            <ChangeInfoPopup type={popup.type}/>
         </ul>
     );
 };
