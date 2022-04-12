@@ -1,14 +1,20 @@
 import { IReduxActions } from '../../interfaces';
 import {
     RESET_CREATE,
+    SET_DOWNLOAD_IS_OPEN,
     SET_IS_OPEN,
     SET_IS_VALID,
+    SET_POPUP_IS_OPEN,
+    UPDATE_CREATE_FOR_EDIT,
     UPDATE_CREATE_SUBTITLE,
     UPDATE_CREATE_TITLE,
     UPDATE_ELEMENTS,
     UPDATE_FILTER_ACCESS,
     UPDATE_FILTER_CHARS,
     UPDATE_FILTER_TABS,
+    UPDATE_POPUP_FILTER_CHARS,
+    UPDATE_REPORTS,
+    UPDATE_TARGET_REPORT,
 } from '../reduxTypes/userConstructorTypes';
 
 const initialState = {
@@ -84,6 +90,15 @@ const initialState = {
             isOpen: false,
         },
     },
+    createdReports: {
+        reports: [],
+        targetReport: {},
+        downloadIsOpen: false,
+        sendReportPopup: {
+            isOpen: false,
+            filterChars: { value: '', error: '' },
+        },
+    },
     filter: {
         chars: '',
         access: '',
@@ -100,6 +115,7 @@ export const userConstructorReducer = (
     action: IReduxActions
 ) => {
     switch (action.type) {
+        //CREATE
         case UPDATE_CREATE_TITLE:
             return {
                 ...state,
@@ -143,12 +159,69 @@ export const userConstructorReducer = (
                     },
                 },
             };
+        case UPDATE_CREATE_FOR_EDIT:
+            return {
+                ...state,
+                create: {
+                    ...state.create,
+                    ...action.payload,
+                },
+            };
         case RESET_CREATE:
             return {
                 ...state,
                 create: { ...initialState.create },
             };
 
+        //CREATED REPORTS
+        case UPDATE_REPORTS:
+            return {
+                ...state,
+                createdReports: {
+                    ...state.createdReports,
+                    reports: action.payload,
+                },
+            };
+        case UPDATE_TARGET_REPORT:
+            return {
+                ...state,
+                createdReports: {
+                    ...state.createdReports,
+                    targetReport: action.payload,
+                },
+            };
+        case SET_DOWNLOAD_IS_OPEN:
+            return {
+                ...state,
+                createdReports: {
+                    ...state.createdReports,
+                    downloadIsOpen: action.payload,
+                },
+            };
+        case SET_POPUP_IS_OPEN:
+            return {
+                ...state,
+                createdReports: {
+                    ...state.createdReports,
+                    sendReportPopup: {
+                        ...state.createdReports.sendReportPopup,
+                        isOpen: action.payload,
+                    },
+                },
+            };
+        case UPDATE_POPUP_FILTER_CHARS:
+            return {
+                ...state,
+                createdReports: {
+                    ...state.createdReports,
+                    sendReportPopup: {
+                        ...state.createdReports.sendReportPopup,
+                        filterChars: action.payload,
+                    },
+                },
+            };
+
+        //FILTER
         case UPDATE_FILTER_CHARS:
             return {
                 ...state,

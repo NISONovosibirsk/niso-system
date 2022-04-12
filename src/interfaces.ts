@@ -60,14 +60,6 @@ export interface ITerms {
     buttons: ButtonsArray[];
 }
 
-export interface ICheckbox {
-    id?: string;
-    isChecked: boolean;
-    isDisabled?: boolean;
-    isRequired?: boolean;
-    onChange: any;
-}
-
 // User
 export interface IProfileDocuments {
     form: any;

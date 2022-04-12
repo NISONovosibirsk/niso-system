@@ -1,22 +1,19 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import TextareaAutosize from 'react-textarea-autosize';
 import { useTypeSelector } from '../../../../../../../hooks/useTypeSelector';
 import {
-    resetCreate,
     setIsValid,
     updateCreateSubtitle,
     updateCreateTitle,
 } from '../../../../../../../store/actions/userConstrucorActions';
-import { Button } from '../../../../../../support';
 import ReportCreateElementsField from './ReportCreateElementsField/ReportCreateElementsField';
 import './ReportCreate.scss';
 
 const ReportCreate = () => {
-    const { title, subtitle, isValid, elements } = useTypeSelector(
+    const { title, subtitle, elements } = useTypeSelector(
         state => state.userConstructor.create
     );
-    const navigate = useNavigate();
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -47,20 +44,8 @@ const ReportCreate = () => {
         }
     };
 
-    const handleCancelClick = e => {
-        e.preventDefault();
-
-        dispatch(resetCreate());
-        navigate('/user/constructor');
-    };
-
-    const handleSubmit = e => {
-        e.preventDefault();
-        navigate('/user/constructor/report-create/preview');
-    };
-
     return (
-        <form className='report-create' onSubmit={handleSubmit}>
+        <form className='report-create'>
             <label className='report-create__label' htmlFor='title'>
                 Название отчета
             </label>
@@ -78,7 +63,7 @@ const ReportCreate = () => {
             <label className='report-create__label' htmlFor='subtitle'>
                 Описание отчета
             </label>
-            <input
+            <TextareaAutosize
                 className={`report-create__input ${
                     subtitle.error ? 'report-create__input-invalid' : ''
                 }`}
@@ -87,17 +72,11 @@ const ReportCreate = () => {
                 id='subtitle'
                 name='subtitle'
                 required
-            ></input>
+                minRows={1}
+                maxRows={3}
+            />
             <span className='report-create__error'>{subtitle.error}</span>
             <ReportCreateElementsField elements={elements} />
-            <div className='report-create__buttons'>
-                <Button
-                    onClick={handleCancelClick}
-                    title='Назад'
-                    type='light-grey'
-                />
-                <Button title='Далее' isDisabled={!isValid} />
-            </div>
         </form>
     );
 };
