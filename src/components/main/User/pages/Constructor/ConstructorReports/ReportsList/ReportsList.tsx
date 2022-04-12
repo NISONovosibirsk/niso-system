@@ -3,31 +3,16 @@ import './ReportsList.scss';
 import ReportsItem from '../ReportsItem/ReportsItem';
 
 const ReportsList = () => {
-    const { forms } = useTypeSelector(state => state.reportsFormsList);
+    const { reports } = useTypeSelector(
+        state => state.userConstructor.createdReports
+    );
 
     return (
         <ul className='reports-list'>
-            <ReportsItem />
-            <ReportsItem />
-            <ReportsItem />
-            <ReportsItem />
-            <ReportsItem />
-            <ReportsItem />
-            <ReportsItem />
-            <ReportsItem />
-            <ReportsItem />
-            <ReportsItem />
-            <ReportsItem />
-            <ReportsItem />
-            <ReportsItem />
-            <ReportsItem />
-            <ReportsItem />
-            <ReportsItem />
-            <ReportsItem />
-            <ReportsItem />
-            <ReportsItem />
+            {reports.map((report, index) => (
+                <ReportsItem report={report} index={index} key={index} />
+            ))}
         </ul>
-        // <SendFormPopup />
     );
 };
 

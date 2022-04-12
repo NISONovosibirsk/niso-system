@@ -1,5 +1,6 @@
 .user-sidebar {
     grid-area: userSidebar;
+    z-index: 999;
     // width: 268px;
     width: 20vw;
     min-width: 240px;

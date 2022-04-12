@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import ConstructorReports from './ConstructorReports/ConstructorReports';
 import './Constructor.scss';
 import ConstructorReportCreate from './ConstructorReportCreate/ConstructorReportCreate';
@@ -9,9 +9,11 @@ const Constructor = () => {
             <Routes>
                 <Route path='' element={<ConstructorReports />} />
                 <Route
-                    path='report-create/*'
+                    path='report-create'
                     element={<ConstructorReportCreate />}
                 />
+
+                <Route path='*' element={<Navigate to='/404' replace />} />
             </Routes>
         </section>
     );

@@ -1,63 +1,190 @@
 import './ReportsItem.scss';
-import { OpenModalIcon } from '../../../../../../../assets';
-import { useEffect, useRef, useState } from 'react';
-import Modal from '../../../../../../support/Modal/Modal';
+import {
+    CopyIcon,
+    DownloadIcon,
+    EditIcon,
+    ReplyIcon,
+    TrashIcon,
+} from '../../../../../../../assets';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import {
+    setDownloadIsOpen,
+    setPopupIsOpen,
+    updateCreatedReports,
+    updateCreateForEdit,
+    updateTargetReport,
+} from '../../../../../../../store/actions/userConstrucorActions';
+import { useTypeSelector } from '../../../../../../../hooks/useTypeSelector';
+import { useNavigate } from 'react-router-dom';
+import { getPrettyDate } from '../../../../../../../middleware';
 import { Button } from '../../../../../../support';
 
-const ReportsItem = () => {
-    const [modalPosition, setModalPosition] = useState({ top: 0, left: 0 });
-    const [scrollTop, setScrollTop] = useState(0);
+const ReportsItem = ({ report, index }) => {
+    const { reports } = useTypeSelector(
+        state => state.userConstructor.createdReports
+    );
     const [isOpen, setIsOpen] = useState(false);
-    const modalIconRef = useRef<SVGSVGElement>(null);
+    const [isDelete, setIsDelete] = useState(false);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
-    useEffect(() => {
-        document.addEventListener('scroll', handleScroll);
-
-        if (null !== modalIconRef.current) {
-            const elementPosition =
-                modalIconRef.current?.getBoundingClientRect();
-            setModalPosition({
-                top: elementPosition.top,
-                left: elementPosition.left - 240,
-            });
-        }
-
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, [scrollTop]);
-
-    const handleScroll = e => {
-        setScrollTop(e.target.documentElement.scrollTop);
+    const handleReportClick = () => {
+        setIsOpen(!isOpen);
     };
 
-    const handleOpenModal = e => {
-        setIsOpen(true);
+    const handleSend = e => {
+        e.stopPropagation();
+
+        dispatch(setPopupIsOpen(true));
+        dispatch(updateTargetReport(report));
     };
 
-    const handleCloseModal = () => {
-        setIsOpen(false);
+    const handleEdit = () => {
+        navigate('report-create');
+        dispatch(updateCreateForEdit({ ...report }));
+    };
+
+    const hanldeCopy = e => {
+        e.stopPropagation();
+
+        const createdReports = [
+            {
+                ...report,
+                id: Date.now(),
+                date: getPrettyDate(Date.now()),
+                editDate: '',
+                title: {
+                    ...report.title,
+                    value: report.title.value + ' (Копия)',
+                },
+                targets: [],
+            },
+            ...reports,
+        ];
+
+        localStorage.setItem(
+            'createdReports',
+            JSON.stringify([...createdReports])
+        );
+
+        dispatch(updateCreatedReports([...createdReports]));
+    };
+
+    const handleDownload = e => {
+        e.stopPropagation();
+        dispatch(updateTargetReport(report));
+        dispatch(setDownloadIsOpen(true));
+    };
+
+    const handleDelete = e => {
+        e.stopPropagation();
+
+        let createdReports = [...reports];
+        createdReports.splice(index, 1);
+
+        localStorage.setItem(
+            'createdReports',
+            JSON.stringify([...createdReports])
+        );
+
+        setIsDelete(true);
+
+        setTimeout(setIsDelete, 300, false);
+        setTimeout(dispatch, 300, updateCreatedReports([...createdReports]));
+    };
+
+    const handleRejectSend = (e, targetIndex) => {
+        e.stopPropagation();
+
+        let createdReports = [...reports];
+        let targetsCopy = [...report.targets];
+
+        targetsCopy.splice(targetIndex, 1);
+
+        createdReports[index] = {
+            ...createdReports[index],
+            targets: [...targetsCopy],
+        };
+
+        localStorage.setItem(
+            'createdReports',
+            JSON.stringify([...createdReports])
+        );
+
+        dispatch(updateCreatedReports([...createdReports]));
     };
 
     return (
-        <li className='reports-item'>
-            <div className='reports-item__content'>
-                <p className='reports-item__status'>Изучен</p>
-                <h2 className='reports-item__title'>Регламент о регламентах</h2>
-                <p className='reports-item__access'>Всем сотрудникам</p>
-                <Button title='Посмотреть' type='report-item' />
-                <OpenModalIcon
-                    className={'reports-item__button-open-modal'}
-                    onClick={handleOpenModal}
-                    ref={modalIconRef}
+        <li className={`reports-item ${isDelete ? 'reports-item_delete' : ''}`}>
+            <div className='reports-item__content' onClick={handleReportClick}>
+                <p
+                    className={`reports-item__status ${
+                        report.targets.length
+                            ? 'reports-item__status_sended'
+                            : ''
+                    }`}
+                ></p>
+                <h2 className='reports-item__title'>{report.title.value}</h2>
+                <ReplyIcon
+                    className='reports-item__icon'
+                    onClick={handleSend}
                 />
-                <Modal
-                    onClose={handleCloseModal}
-                    isOpen={isOpen}
-                    position={modalPosition}
-                >
-                    <button className='modal__button'>Редактировать</button>
-                    <button className='modal__button'>Удалить</button>
-                    <button className='modal__button'>Скачать</button>
-                </Modal>
+                <EditIcon className='reports-item__icon' onClick={handleEdit} />
+                <CopyIcon className='reports-item__icon' onClick={hanldeCopy} />
+                <DownloadIcon
+                    className='reports-item__icon'
+                    onClick={handleDownload}
+                />
+                <TrashIcon
+                    className='reports-item__icon'
+                    onClick={handleDelete}
+                />
+                <p className='reports-item__info'>Крайний срок:</p>
+                <p className='reports-item__info-status'>
+                    {report.deadlineDate ? report.deadlineDate : 'Не задан'}
+                </p>
+                <p className='reports-item__info'>
+                    {report.editDate ? 'Отредактирован:' : 'Создан:'}
+                </p>
+                <p className='reports-item__info-status'>
+                    {report.editDate ? report.editDate : report.date}
+                </p>
+                {isOpen ? (
+                    <ul className='reports-item__targets'>
+                        {report.targets.length ? (
+                            report.targets.map((target, targetIndex) => (
+                                <li
+                                    className='reports-item__target'
+                                    key={targetIndex}
+                                >
+                                    <p className='reports-item__status reports-item__status_sended'></p>
+                                    <p className='reports-item__title'>
+                                        {target.name}, {target.address.street}
+                                    </p>
+                                    <Button
+                                        title='Отозвать'
+                                        onClick={e =>
+                                            handleRejectSend(e, targetIndex)
+                                        }
+                                        type='light-red'
+                                        width='100px'
+                                        height='24px'
+                                    />
+                                </li>
+                            ))
+                        ) : (
+                            <Button
+                                title='Отправить'
+                                onClick={handleSend}
+                                type='light-grey'
+                                width='92%'
+                                height='28px'
+                                margin='16px 4%'
+                            />
+                        )}
+                    </ul>
+                ) : null}
             </div>
         </li>
     );
