@@ -6,14 +6,11 @@ import {
     PhoneIcon,
 } from '../../../../../../../../assets';
 import { useTypeSelector } from '../../../../../../../../hooks/useTypeSelector';
-import {
-    updatePopup,
-    updateProfileInfo,
-} from '../../../../../../../../store/actions/userProfileActions';
-import './ProfileContactsItem.scss';
+import { updatePopup } from '../../../../../../../../store/actions/userProfileActions';
+import './ProfileUserDataItem.scss';
 
-const ProfileContactsItem = ({ dataItem, index }) => {
-    const { profile, popup } = useTypeSelector(state => state.userProfile);
+const ProfileUserDataItem = ({ dataItem, index }) => {
+    const { popup } = useTypeSelector(state => state.userProfile);
     const dispatch = useDispatch();
 
     // choose an icon from an item type
@@ -30,12 +27,8 @@ const ProfileContactsItem = ({ dataItem, index }) => {
         }
     };
 
-    // mark an item as editing
+    // open editing popup
     const handleEdit = () => {
-        // const newState = { ...info };
-        // newState.contacts[index].isEdit = true;
-        // dispatch(updateProfileInfo(newState));
-
         const newState = { ...popup };
         newState.isOpen = true;
         newState.type = dataItem.type;
@@ -43,27 +36,26 @@ const ProfileContactsItem = ({ dataItem, index }) => {
     };
 
     return (
-        <li className='user-profile-info-contacts__item user-phone'>
-            {/* {handleIcon(contact.type)}
-            <p>{contact.value}</p>
-            <EditIcon
-                className='edit-button'
-                onClick={() => handleEdit(index)}
-            /> */}
+        <li className='user-profile-data__item user-phone'>
             {dataItem.type === 'password' ? (
                 <>
                     {handleIcon(dataItem.type)}
-                    <p className='edit-button user-password' onClick={handleEdit}>Изменить пароль</p>
+                    <p
+                        className='edit-button user-password'
+                        onClick={handleEdit}
+                    >
+                        Изменить пароль
+                    </p>
                 </>
             ) : (
                 <>
                     {handleIcon(dataItem.type)}
                     <p>{dataItem.value}</p>
-                    <EditIcon className='edit-button' onClick={handleEdit}/>
+                    <EditIcon className='edit-button' onClick={handleEdit} />
                 </>
             )}
         </li>
     );
 };
 
-export default ProfileContactsItem;
+export default ProfileUserDataItem;

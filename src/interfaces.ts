@@ -125,7 +125,7 @@ export interface IUserProfileState {
         name: string;
         position: string;
         userData: [
-            { type: string;value: string; },
+            { type: string; value: string },
             { type: string; value: string },
             { type: string; value: string }
         ];
@@ -147,10 +147,16 @@ export interface IUserProfileState {
     popup: {
         isOpen: boolean;
         type: string;
-        currentPassword: string;
-        newPassword: string;
-        confirmPassword: string;
-        email: string;
+        title: string;
+    };
+    changeData: {
+        password: {
+            currentPassword: string;
+            newPassword: string;
+            confirmPassword: string;
+        };
         phone: string;
+        email: string;
+        verificationCode: string;
     };
 }

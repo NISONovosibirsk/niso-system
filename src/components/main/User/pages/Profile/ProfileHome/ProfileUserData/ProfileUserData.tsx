@@ -1,15 +1,15 @@
 import { useTypeSelector } from '../../../../../../../hooks/useTypeSelector';
 import ChangeInfoPopup from './ChangeInfoPopup/ChangeInfoPopup';
-import ProfileContactsItem from './ProfileContactsItem/ProfileContactsItem';
-import './ProfileInfoContacts.scss';
+import ProfileUserDataItem from './ProfileUserDataItem/ProfileUserDataItem';
+import './ProfileUserData.scss';
 
-const ProfileInfoContacts = () => {
+const ProfileUserData = () => {
     const { profile, popup } = useTypeSelector(state => state.userProfile);
 
     return (
-        <ul className='user-profile-info-contacts'>
+        <ul className='user-profile-data'>
             {profile.userData.map((dataItem, index) => (
-                <ProfileContactsItem
+                <ProfileUserDataItem
                     key={index}
                     dataItem={dataItem}
                     index={index}
@@ -20,4 +20,4 @@ const ProfileInfoContacts = () => {
     );
 };
 
-export default ProfileInfoContacts;
+export default ProfileUserData;

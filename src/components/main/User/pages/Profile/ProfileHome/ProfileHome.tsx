@@ -1,8 +1,8 @@
-import './ProfileInfo.scss';
-import ProfileInfoContacts from './ProfileInfoContacts/ProfileInfoContacts';
+import './ProfileHome.scss';
+import ProfileInfoContacts from './ProfileUserData/ProfileUserData';
 import ProfileInfoHeader from './ProfileInfoHeader/ProfileInfoHeader';
 
-const ProfileInfo = () => {
+const ProfileHome = () => {
     return (
         <div className='user-profile-info'>
             <ProfileInfoHeader />
@@ -15,4 +15,4 @@ const ProfileInfo = () => {
     );
 };
 
-export default ProfileInfo;
+export default ProfileHome;
