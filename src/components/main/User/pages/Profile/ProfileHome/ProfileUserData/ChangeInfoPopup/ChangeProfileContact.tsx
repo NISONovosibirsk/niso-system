@@ -5,8 +5,8 @@ import { setPopupTitle } from '../../../../../../../../store/actions/userProfile
 import { Button } from '../../../../../../../support';
 import ChangeContactInput from './ChangeInputs/ChangeContactInput';
 
-const ChangeProfileContact: React.FC = () => {
-    const { popup } = useTypeSelector(state => state.userProfile);
+const ChangeProfileContact = () => {
+    const { popup, profile, changeData } = useTypeSelector(state => state.userProfile);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -42,11 +42,25 @@ const ChangeProfileContact: React.FC = () => {
         }
     };
 
+    const handleButton = (e) => {
+        e.preventDefault();
+        let contactData = profile.userData.find(
+            contact => contact.type === popup.type
+        );
+        
+        
+    };
+
     return (
         <>
             <p className='user-data-edit__header'>{popup.title}</p>
             <ChangeContactInput form={handleType()} />
-            <Button title={'Изменить'} width={'204px'} margin={'25px'} />
+            <Button onClick={handleButton}
+                title={'Изменить'}
+                width={'204px'}
+                margin={'25px'}
+                // isDisabled={handleButton()}
+            />
         </>
     );
 };
