@@ -29,9 +29,6 @@
 
     &-files {
         margin-top: 10px;
-        // display: flex;
-        // flex-direction: row;
-        // gap: 12px;
         display: grid;
         grid-template-columns: repeat(4, 100px);
         gap: 12px;

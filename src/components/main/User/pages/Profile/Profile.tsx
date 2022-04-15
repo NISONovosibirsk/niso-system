@@ -2,7 +2,7 @@ import './Profile.scss';
 import { Routes, Route, Link } from 'react-router-dom';
 import ProfileNavItem from './ProfileNavItem/ProfileNavItem';
 import ProfileDocuments from './ProfileDocuments/ProfileDocuments';
-import ProfileInfo from './ProfileInfo/ProfileInfo';
+import ProfileInfo from './ProfileHome/ProfileHome';
 
 const tabs = [
     { text: 'Основное', path: '' },
