@@ -1,0 +1,25 @@
+.not-found-route {
+    background: #201f1f;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__title {
+        margin: 0;
+        color: #4f8be4;
+        font-weight: 400;
+        font-size: 260px;
+        line-height: 315px;
+    }
+
+    &__paragraph {
+        padding: 28px 0 100px;
+        margin: 0;
+        color: #fff;
+        font-weight: 400;
+        font-size: 42px;
+        line-height: 51px;
+    }
+}

@@ -4,12 +4,14 @@ import ReportsSearchbar from './ReportsSearchbar/ReportsSearchbar';
 import ReportsList from './ReportsList/ReportsList';
 import './ConstructorReports.scss';
 import { useNavigate } from 'react-router-dom';
+import SendReportPopup from './SendReportPopup/SendReportPopup';
+import { DownloadTablePopup } from '../../../..';
 
 const ConstructorReports = () => {
     const navigate = useNavigate();
 
     const handleCreateReport = () => {
-        navigate('report-create/create');
+        navigate('report-create');
     };
 
     return (
@@ -31,6 +33,8 @@ const ConstructorReports = () => {
             />
             <ConstructorFilterTabs />
             <ReportsList />
+            <SendReportPopup />
+            <DownloadTablePopup />
         </div>
     );
 };
