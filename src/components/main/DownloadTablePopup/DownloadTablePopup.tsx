@@ -24,24 +24,13 @@ const DownloadTablePopup = () => {
             case 'text':
                 return (
                     <>
-                        <tr key={i + 'space'}>
-                            <td
-                                style={{
-                                    background: 'lightblue',
-                                    border: '1px solid black',
-                                }}
-                                colSpan={2}
-                            ></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
                         <tr key={i + 'text'}>
                             <td style={{ border: '1px solid black' }}></td>
-                            <td style={{ border: '1px solid black' }}>
-                                {element.value}
-                            </td>
-                            <td></td>
-                            <td></td>
+                            {element.values.map(value => (
+                                <td style={{ border: '1px solid black' }}>
+                                    {value}
+                                </td>
+                            ))}
                         </tr>
                     </>
                 );
@@ -65,8 +54,6 @@ const DownloadTablePopup = () => {
                         >
                             {element.value}
                         </td>
-                        <td></td>
-                        <td></td>
                     </tr>
                 );
             case 'textList':
@@ -75,8 +62,6 @@ const DownloadTablePopup = () => {
                         <td style={{ border: '1px solid black' }} colSpan={2}>
                             {value}
                         </td>
-                        <td></td>
-                        <td></td>
                     </tr>
                 ));
             case 'checkbox':
@@ -88,8 +73,6 @@ const DownloadTablePopup = () => {
                         <td style={{ border: '1px solid black' }}>
                             {element.isChecked ? '✓' : '✗'}
                         </td>
-                        <td></td>
-                        <td></td>
                     </tr>
                 );
             case 'radio':
@@ -101,8 +84,6 @@ const DownloadTablePopup = () => {
                         <td style={{ border: '1px solid black' }}>
                             {radio.isChecked ? '✓' : '✗'}
                         </td>
-                        <td></td>
-                        <td></td>
                     </tr>
                 ));
 
@@ -112,11 +93,11 @@ const DownloadTablePopup = () => {
                         <td style={{ border: '1px solid black' }}>
                             {element.placeholder}
                         </td>
-                        <td style={{ border: '1px solid black' }}>
-                            {element.value}
-                        </td>
-                        <td></td>
-                        <td></td>
+                        {element.values.map(value => (
+                            <td style={{ border: '1px solid black' }}>
+                                {value}
+                            </td>
+                        ))}
                     </tr>
                 );
         }
@@ -135,13 +116,9 @@ const DownloadTablePopup = () => {
                                 {targetReport.title &&
                                     `${targetReport.title.value} ${targetReport.subtitle.value}`}
                             </th>
-                            <th></th>
-                            <th></th>
                         </tr>
                         <tr>
                             <th colSpan={2}></th>
-                            <th></th>
-                            <th></th>
                         </tr>
                         {targetReport.elements &&
                             targetReport.elements.map((element, i) =>

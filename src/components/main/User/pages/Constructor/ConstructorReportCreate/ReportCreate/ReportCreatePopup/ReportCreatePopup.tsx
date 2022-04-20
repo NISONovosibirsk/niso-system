@@ -36,7 +36,7 @@ const ReportCreatePopup = () => {
                         onClick={() =>
                             handleAddElement({
                                 type: 'text',
-                                value: '',
+                                values: [''],
                                 placeholder: 'текст',
                             })
                         }

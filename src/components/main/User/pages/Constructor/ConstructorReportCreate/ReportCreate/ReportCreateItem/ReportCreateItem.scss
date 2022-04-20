@@ -27,9 +27,17 @@
 
     &__content {
         display: grid;
-        grid-template-columns: auto 40px;
+        gap: 8px;
+        grid-template-columns: auto 60px 32px;
         background: #f2f6fc;
         border-radius: 6px;
+        align-items: center;
+    }
+
+    &__input-field {
+        display: grid;
+        gap: 8px;
+        grid-template-columns: calc(100% - 64px - 8px) 64px;
     }
 
     &__input {
@@ -39,6 +47,13 @@
         border-radius: 6px;
         box-sizing: border-box;
         padding: 0px 16px;
+        height: 100%;
+
+        &_counter {
+            padding-right: 4px;
+            text-align: center;
+            height: 32px;
+        }
 
         &::placeholder {
             color: #a9abba;
@@ -61,6 +76,12 @@
             border: none;
             border-bottom: 0.5px solid #a9abba;
 
+            &:last-of-type {
+                &:nth-child(1) {
+                    grid-column: 1 / 3;
+                }
+            }
+
             &:hover {
                 border: none;
                 border-bottom: 1px solid #4f8be4;
@@ -75,7 +96,9 @@
 
     &__drag {
         cursor: grab;
-        padding: 4px 8px;
+        padding: 4px 8px {
+            left: 0;
+        }
         transition: fill linear 0.2s;
 
         &:hover {
