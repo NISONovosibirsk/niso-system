@@ -112,6 +112,16 @@ export interface IReduxActions {
 
 // Profile
 export interface IUserProfileState {
+    profile: {
+        photo: any;
+        name: string;
+        position: string;
+        userData: [
+            { type: string; value: string },
+            { type: string; value: string },
+            { type: string; value: string }
+        ];
+    };
     documents: {
         institutionCode: {
             value: string;
@@ -125,5 +135,20 @@ export interface IUserProfileState {
             value: string;
             files: any;
         };
+    };
+    popup: {
+        isOpen: boolean;
+        type: string;
+        title: string;
+    };
+    changeData: {
+        password: {
+            currentPassword: string;
+            newPassword: string;
+            confirmPassword: string;
+        };
+        phone: string;
+        email: string;
+        verificationCode: string;
     };
 }

@@ -27,6 +27,11 @@ export { ReactComponent as StaffIcon } from './icons/userIcons/staff-icon.svg';
 export { ReactComponent as VisitsIcon } from './icons/userIcons/visits-icon.svg';
 export { ReactComponent as CommunicationsIcon } from './icons/userIcons/communications-icon.svg';
 export { ReactComponent as ImageFileIcon } from './icons/userIcons/image-file-icon.svg';
+export { ReactComponent as PhotoIcon } from './icons/userIcons/photo-icon.svg';
+export { ReactComponent as PhoneIcon } from './icons/userIcons/phone-icon.svg';
+// export { ReactComponent as EditIcon } from './icons/userIcons/edit-icon.svg';
+export { ReactComponent as MailIcon } from './icons/userIcons/mail-icon.svg';
+export { ReactComponent as KeyIcon } from './icons/userIcons/key-icon.svg';
 export { ReactComponent as ChangePhotoIcon } from './icons/userIcons/change-photo-icon.svg';
 //constructor
 export { ReactComponent as TextIcon } from './icons/constructorIcons/text-icon.svg';

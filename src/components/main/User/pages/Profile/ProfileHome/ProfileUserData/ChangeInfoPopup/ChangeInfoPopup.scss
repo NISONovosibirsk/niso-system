@@ -1,0 +1,35 @@
+.user-data-edit {
+    min-width: 371px;
+    display: grid;
+    gap: 27px;
+    justify-items: center;
+
+    &__header {
+        color: #979dbb;
+        font-weight: 600;
+        size: 17px;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        width: 298px;
+        color: #979dbb;
+        font-size: 12px;
+        font-weight: 600;
+
+        :focus {
+            outline: none;
+            border-bottom: 1px solid #4f8be4;
+        }
+    }
+
+    &__input {
+        border: none;
+        border-bottom: 1px solid #979dbb;
+        font-size: 11px;
+        line-height: 12px;
+        font-weight: 400;
+    }
+}
