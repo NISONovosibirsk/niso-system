@@ -9,6 +9,15 @@
         line-height: 19px;
         text-align: left;
         padding-left: 12px;
+
+        &:not(:last-child:nth-child(1)) {
+            border: {
+                left: 1px solid #a9abba;
+                right: 1px solid #a9abba;
+            }
+            text-align: center;
+            padding: 0;
+        }
     }
 
     &_h6 {
@@ -39,5 +48,11 @@
     &_h1 {
         font-size: 4rem;
         line-height: 4rem;
+    }
+
+    &__field {
+        display: grid;
+        grid-template: 19px / repeat(auto-fill, 400px);
+        gap: 8px;
     }
 }

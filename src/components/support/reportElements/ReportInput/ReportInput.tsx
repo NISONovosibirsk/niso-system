@@ -12,18 +12,31 @@ const ReportInput = ({ element, onUpdateElement, elementIndex }) => {
 
     return (
         <>
-            <input
-                className={`report-input ${
-                    element.error ? 'report-input_invalid' : ''
-                }`}
-                list={elementIndex}
-                value={element.value}
-                placeholder={element.placeholder}
-                onChange={handleChange}
-                required={element.isRequired}
-                type={element.type}
-            />
-            <span className='report-input__error'>{element.error}</span>
+            <div className='report-input'>
+                {/* <p className='report-input__placeholder'>
+                    {element.placeholder}
+                </p> */}
+                {element.values.map(value => (
+                    <div className='report-input__inputs-field'>
+                        <input
+                            className={`report-input__input ${
+                                element.error
+                                    ? 'report-input__input_invalid'
+                                    : ''
+                            }`}
+                            list={elementIndex}
+                            value={value}
+                            placeholder={element.placeholder}
+                            onChange={handleChange}
+                            required={element.isRequired}
+                            type={element.type}
+                        />
+                        <span className='report-input__error'>
+                            {element.error}
+                        </span>
+                    </div>
+                ))}
+            </div>
             {element.options ? (
                 <datalist id={elementIndex}>
                     {element.options.map((option, optionIndex) => (

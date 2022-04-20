@@ -1,0 +1,22 @@
+.text-input {
+    &__inputs-field {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        overflow: auto;
+
+        & .report-create-item__input_underline {
+            width: 400px;
+            height: 32px;
+            margin-bottom: 4px;
+            margin-right: 8px;
+
+            &:last-child {
+                &:nth-child(1) {
+                    margin: 0;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
