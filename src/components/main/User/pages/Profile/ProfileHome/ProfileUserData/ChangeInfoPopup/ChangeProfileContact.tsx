@@ -6,7 +6,9 @@ import { Button } from '../../../../../../../support';
 import ChangeContactInput from './ChangeInputs/ChangeContactInput';
 
 const ChangeProfileContact = () => {
-    const { popup, profile, changeData } = useTypeSelector(state => state.userProfile);
+    const { popup, changeData } = useTypeSelector(
+        state => state.userProfile
+    );
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -42,26 +44,17 @@ const ChangeProfileContact = () => {
         }
     };
 
-    const handleButton = (e) => {
-        e.preventDefault();
-        let contactData = profile.userData.find(
-            contact => contact.type === popup.type
-        );
-        
-        
-    };
-
     return (
-        <>
+        <form>
             <p className='user-data-edit__header'>{popup.title}</p>
             <ChangeContactInput form={handleType()} />
-            <Button onClick={handleButton}
+            <Button
                 title={'Изменить'}
                 width={'204px'}
                 margin={'25px'}
-                // isDisabled={handleButton()}
+                isDisabled={!changeData.isValid}
             />
-        </>
+        </form>
     );
 };
 

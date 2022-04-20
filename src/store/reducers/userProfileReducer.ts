@@ -52,6 +52,9 @@ const initialState: IUserProfileState = {
         phone: '',
         email: '',
         verificationCode: '',
+        isValid: false,
+        isClicked: false,
+        error: '',
     },
 };
 

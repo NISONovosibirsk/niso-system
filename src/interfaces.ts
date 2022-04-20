@@ -150,5 +150,8 @@ export interface IUserProfileState {
         phone: string;
         email: string;
         verificationCode: string;
+        isClicked: boolean;
+        isValid: boolean;
+        error: string;
     };
 }

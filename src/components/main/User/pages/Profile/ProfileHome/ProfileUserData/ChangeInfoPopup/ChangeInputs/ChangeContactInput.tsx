@@ -6,6 +6,9 @@ const ChangeContactInput = ({ form }) => {
     const { profile, changeData } = useTypeSelector(state => state.userProfile);
     const dispatch = useDispatch();
 
+    const emailRegex =
+        /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+
     const handleDefault = () => {
         let value = '';
 
@@ -19,19 +22,20 @@ const ChangeContactInput = ({ form }) => {
 
     const handleInput = e => {
         const newState = { ...changeData };
+        const initialValue = e.target.value;
 
         switch (e.target.name) {
             case 'phone':
                 newState.phone = e.target.value;
-                dispatch(updateChangeData(newState))
+
                 break;
             case 'email':
                 newState.email = e.target.value;
-                dispatch(updateChangeData(newState))
                 break;
             default:
                 break;
         }
+        dispatch(updateChangeData(newState));
     };
 
     return (

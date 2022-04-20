@@ -23,6 +23,7 @@ const ChangeInfoPopup = ({ type }) => {
 
         newData.phone = '';
         newData.email = '';
+        newData.isValid = false;
         newData.verificationCode = '';
         newData.password.currentPassword = '';
         newData.password.newPassword = '';
