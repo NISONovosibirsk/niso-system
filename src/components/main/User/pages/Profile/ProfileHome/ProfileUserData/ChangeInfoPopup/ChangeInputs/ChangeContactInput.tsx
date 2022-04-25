@@ -1,13 +1,11 @@
 import { useDispatch } from 'react-redux';
+import { useInput } from '../../../../../../../../../hooks/useInput';
 import { useTypeSelector } from '../../../../../../../../../hooks/useTypeSelector';
 import { updateChangeData } from '../../../../../../../../../store/actions/userProfileActions';
 
 const ChangeContactInput = ({ form }) => {
     const { profile, changeData } = useTypeSelector(state => state.userProfile);
     const dispatch = useDispatch();
-
-    const emailRegex =
-        /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
     const handleDefault = () => {
         let value = '';
@@ -22,7 +20,6 @@ const ChangeContactInput = ({ form }) => {
 
     const handleInput = e => {
         const newState = { ...changeData };
-        const initialValue = e.target.value;
 
         switch (e.target.name) {
             case 'phone':
@@ -38,14 +35,25 @@ const ChangeContactInput = ({ form }) => {
         dispatch(updateChangeData(newState));
     };
 
+    const phoneInput = useInput('', { isEmpty: true, minLength: 4 });
+
     return (
         <label className='user-data-edit__item'>
             {form.title}
+            {changeData.inputs.isDirty && changeData.validation.isEmpty && (
+                <p style={{ color: 'red' }}>Поле не может быть пустым</p>
+            )}
+            {changeData.inputs.isDirty && changeData.validation.minLength && (
+                <p style={{ color: 'red' }}>Некорректная длина номера</p>
+            )}
             <input
                 name={form.field}
                 defaultValue={handleDefault()}
                 className='user-data-edit__input'
-                onChange={handleInput}
+                // onChange={handleInput}
+                onChange={e => phoneInput.onChange(e)}
+                onBlur={e => phoneInput.onBlur(e)}
+                value={changeData.inputs.value}
             />
         </label>
     );

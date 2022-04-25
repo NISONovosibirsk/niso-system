@@ -55,6 +55,14 @@ const initialState: IUserProfileState = {
         isValid: false,
         isClicked: false,
         error: '',
+        inputs: {
+            value: '',
+            isDirty: false,
+        },
+        validation: {
+            isEmpty: true,
+            minLength: false,
+        }
     },
 };
 

@@ -153,5 +153,13 @@ export interface IUserProfileState {
         isClicked: boolean;
         isValid: boolean;
         error: string;
+        inputs: {
+            value: string;
+            isDirty: boolean;
+        }
+        validation: {
+            isEmpty: boolean;
+            minLength: boolean;
+        }
     };
 }
