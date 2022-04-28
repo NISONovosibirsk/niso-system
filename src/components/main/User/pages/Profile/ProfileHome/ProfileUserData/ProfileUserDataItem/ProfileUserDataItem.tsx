@@ -32,6 +32,16 @@ const ProfileUserDataItem = ({ dataItem, index }) => {
         const newState = { ...popup };
         newState.isOpen = true;
         newState.type = dataItem.type;
+        switch (newState.type) {
+            case 'phone':
+                newState.title = 'Изменение номера телефона'
+                break;
+            case 'email':
+                newState.title = 'Изменение адреса электронной почты';
+                break;
+            default:
+                break;
+        }
         dispatch(updatePopup(newState));
     };
 

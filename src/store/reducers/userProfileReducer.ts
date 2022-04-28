@@ -4,7 +4,10 @@ import {
     UPDATE_INSTITUTION_PARAMS,
     UPDATE_PROFILE_INFO,
     UPDATE_CHANGE_DATA,
-    SET_POPUP_TITLE,
+    RESET_DATA_CHANGING,
+    CHANGE_PROFILE_PASSWORD,
+    UPDATE_VALIDATION_INPUT,
+    UPDATE_VALIDATION_CASES,
 } from '../reduxTypes/userProfileTypes';
 
 const initialState: IUserProfileState = {
@@ -51,23 +54,24 @@ const initialState: IUserProfileState = {
         },
         phone: '',
         email: '',
-        verificationCode: '',
+    },
+    validation: {
         isValid: false,
-        isClicked: false,
-        error: '',
-        inputs: {
+        input: {
             value: '',
             isDirty: false,
         },
-        validation: {
-            isEmpty: true,
+        cases: {
+            isEmpty: false,
             minLength: false,
-        }
+            maxLength: false,
+        },
+        error: '',
     },
 };
 
 export const userProfileReducer = (
-    state = initialState,
+    state = { ...initialState },
     action: IReduxActions
 ): IUserProfileState => {
     switch (action.type) {
@@ -77,13 +81,45 @@ export const userProfileReducer = (
             return { ...state, profile: action.payload };
         case UPDATE_POPUP:
             return { ...state, popup: action.payload };
-        case SET_POPUP_TITLE:
-            return {
-                ...state,
-                popup: { ...state.popup, title: action.payload },
-            };
         case UPDATE_CHANGE_DATA:
             return { ...state, changeData: action.payload };
+        case RESET_DATA_CHANGING:
+            return {
+                ...state,
+                popup: { ...initialState.popup },
+                changeData: {
+                    ...state.changeData,
+                    password: { ...initialState.changeData.password },
+                    // inputs: { ...initialState.changeData.inputs },
+                    // validation: { ...initialState.changeData.validation },
+                },
+                validation: {
+                    ...initialState.validation,
+                    input: { ...initialState.validation.input },
+                    cases: { ...initialState.validation.cases },
+                },
+            };
+        case CHANGE_PROFILE_PASSWORD:
+            return {
+                ...state,
+                changeData: { ...state.changeData, password: action.payload },
+            };
+        case UPDATE_VALIDATION_INPUT:
+            return {
+                ...state,
+                validation: {
+                    ...state.validation,
+                    input: action.payload,
+                },
+            };
+        case UPDATE_VALIDATION_CASES:
+            return {
+                ...state,
+                validation: {
+                    ...state.validation,
+                    cases: action.payload,
+                },
+            };
         default:
             return state;
     }

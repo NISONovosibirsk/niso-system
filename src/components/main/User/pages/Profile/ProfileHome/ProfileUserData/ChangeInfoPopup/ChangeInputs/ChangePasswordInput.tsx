@@ -1,30 +1,27 @@
 import { useDispatch } from 'react-redux';
 import { useTypeSelector } from '../../../../../../../../../hooks/useTypeSelector';
-import { updateChangeData } from '../../../../../../../../../store/actions/userProfileActions';
+import { changeProfilePassword } from '../../../../../../../../../store/actions/userProfileActions';
 
 const ChangePasswordInput = ({ form }) => {
     const { changeData } = useTypeSelector(state => state.userProfile);
     const dispatch = useDispatch();
 
     const handleInput = e => {
-        const newState = { ...changeData };
+        const newState = { ...changeData.password };
 
         switch (e.target.name) {
             case 'currentPassword':
-                newState.password.currentPassword = e.target.value;
-                dispatch(updateChangeData(newState));
+                newState.currentPassword = e.target.value;
                 break;
             case 'newPassword':
-                newState.password.newPassword = e.target.value;
-                dispatch(updateChangeData(newState));
+                newState.newPassword = e.target.value;
                 break;
             case 'confirmPassword':
-                newState.password.confirmPassword = e.target.value;
-                dispatch(updateChangeData(newState));
-                break;
-            default:
+                newState.confirmPassword = e.target.value;
                 break;
         }
+
+        dispatch(changeProfilePassword(newState));
     };
 
     const handleValue = field => {

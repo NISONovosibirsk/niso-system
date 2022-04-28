@@ -149,17 +149,19 @@ export interface IUserProfileState {
         };
         phone: string;
         email: string;
-        verificationCode: string;
-        isClicked: boolean;
+    };
+
+    validation: {
         isValid: boolean;
-        error: string;
-        inputs: {
+        input: {
             value: string;
             isDirty: boolean;
         }
-        validation: {
+        cases: {
             isEmpty: boolean;
             minLength: boolean;
+            maxLength: boolean;
         }
-    };
+        error: string;
+    }
 }

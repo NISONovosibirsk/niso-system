@@ -1,10 +1,11 @@
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useInput } from '../../../../../../../../../hooks/useInput';
 import { useTypeSelector } from '../../../../../../../../../hooks/useTypeSelector';
-import { updateChangeData } from '../../../../../../../../../store/actions/userProfileActions';
+import { updateValidationInput } from '../../../../../../../../../store/actions/userProfileActions';
 
 const ChangeContactInput = ({ form }) => {
-    const { profile, changeData } = useTypeSelector(state => state.userProfile);
+    const { profile, validation } = useTypeSelector(state => state.userProfile);
     const dispatch = useDispatch();
 
     const handleDefault = () => {
@@ -18,42 +19,37 @@ const ChangeContactInput = ({ form }) => {
         return value;
     };
 
-    const handleInput = e => {
-        const newState = { ...changeData };
+    useEffect(() => {
+        const input = { ...validation.input };
 
-        switch (e.target.name) {
-            case 'phone':
-                newState.phone = e.target.value;
+        profile.userData.find(item => {
+            if (item.type === form.field) {
+                input.value = item.value;
+            }
+        });
 
-                break;
-            case 'email':
-                newState.email = e.target.value;
-                break;
-            default:
-                break;
-        }
-        dispatch(updateChangeData(newState));
-    };
+        dispatch(updateValidationInput(input));
+    }, []);
 
-    const phoneInput = useInput('', { isEmpty: true, minLength: 4 });
+    const phoneInput = useInput({ isEmpty: true, minLength: 4, maxLength: 30 });
 
     return (
         <label className='user-data-edit__item'>
-            {form.title}
-            {changeData.inputs.isDirty && changeData.validation.isEmpty && (
+            {validation.input.isDirty && validation.cases.isEmpty && (
                 <p style={{ color: 'red' }}>Поле не может быть пустым</p>
             )}
-            {changeData.inputs.isDirty && changeData.validation.minLength && (
+            {validation.input.isDirty && validation.cases.minLength && (
                 <p style={{ color: 'red' }}>Некорректная длина номера</p>
+            )}
+            {validation.input.isDirty && validation.cases.maxLength && (
+                <p style={{ color: 'red' }}>Номер слишком длинный</p>
             )}
             <input
                 name={form.field}
-                defaultValue={handleDefault()}
+                value={validation.input.value}
                 className='user-data-edit__input'
-                // onChange={handleInput}
                 onChange={e => phoneInput.onChange(e)}
                 onBlur={e => phoneInput.onBlur(e)}
-                value={changeData.inputs.value}
             />
         </label>
     );

@@ -1,27 +1,26 @@
 import { useDispatch } from 'react-redux';
-import { updateChangeData } from '../store/actions/userProfileActions';
+import { updateValidationInput } from '../store/actions/userProfileActions';
 import { useTypeSelector } from './useTypeSelector';
 import { useValidation } from './useValidation';
 
-export const useInput = (initialValue, validations) => {
-    const { changeData } = useTypeSelector(state => state.userProfile);
+export const useInput = (validations) => {
+    const { validation } = useTypeSelector(state => state.userProfile);
     const dispatch = useDispatch();
-    const validation = useValidation(changeData.inputs.value, validations);
+    const validate = useValidation(validation.input.value, validations);
 
     const onChange = e => {
-        const newState = { ...changeData };
-        newState.inputs.value = e.target.value;
-        dispatch(updateChangeData(newState));
+        const input = { ...validation.input };
+        input.value = e.target.value;
+        dispatch(updateValidationInput(input))
     };
 
     const onBlur = e => {
-        const newState = { ...changeData };
-        newState.inputs.isDirty = true;
-        dispatch(updateChangeData(newState));
+        const input = { ...validation.input };
+        input.isDirty = true;
+        dispatch(updateValidationInput(input))
     };
 
     return {
-        changeData,
         onChange,
         onBlur,
     };

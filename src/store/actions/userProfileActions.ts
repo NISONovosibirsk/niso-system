@@ -3,7 +3,10 @@ import {
     UPDATE_PROFILE_INFO,
     UPDATE_POPUP,
     UPDATE_CHANGE_DATA,
-    SET_POPUP_TITLE
+    RESET_DATA_CHANGING,
+    CHANGE_PROFILE_PASSWORD,
+    UPDATE_VALIDATION_INPUT,
+    UPDATE_VALIDATION_CASES,
 } from '../reduxTypes/userProfileTypes';
 
 export const updateParams = newState => {
@@ -38,9 +41,37 @@ export const updateChangeData = newState => {
     }
 };
 
-export const setPopupTitle = title => {
+// reset data in editing inputs and close popup
+export const resetDataChanging = () => {
     try {
-        return { type: SET_POPUP_TITLE, payload: title };
+        return { type: RESET_DATA_CHANGING };
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+// set new state for password editing inputs
+export const changeProfilePassword = passwords => {
+    try {
+        return { type: CHANGE_PROFILE_PASSWORD, payload: passwords };
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+// update validation state
+export const updateValidationInput = input => {
+    try {
+        return { type: UPDATE_VALIDATION_INPUT, payload: input };
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+// update validation cases state
+export const updateValidationCases = cases => {
+    try {
+        return { type: UPDATE_VALIDATION_CASES, payload: cases };
     } catch (error) {
         console.log(error);
     }
