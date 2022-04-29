@@ -8,6 +8,7 @@ import {
     CHANGE_PROFILE_PASSWORD,
     UPDATE_VALIDATION_INPUT,
     UPDATE_VALIDATION_CASES,
+    SET_FORM_VALID,
 } from '../reduxTypes/userProfileTypes';
 
 const initialState: IUserProfileState = {
@@ -62,11 +63,19 @@ const initialState: IUserProfileState = {
             isDirty: false,
         },
         cases: {
-            isEmpty: false,
-            minLength: false,
-            maxLength: false,
+            isEmpty: {
+                status: false,
+                error: 'Заполните это поле',
+            },
+            minLength: {
+                status: false,
+                error: 'Минимальное количество символов не набрано',
+            },
+            maxLength: {
+                status: false,
+                error: 'Превышена максимальная длина',
+            },
         },
-        error: '',
     },
 };
 
@@ -90,8 +99,6 @@ export const userProfileReducer = (
                 changeData: {
                     ...state.changeData,
                     password: { ...initialState.changeData.password },
-                    // inputs: { ...initialState.changeData.inputs },
-                    // validation: { ...initialState.changeData.validation },
                 },
                 validation: {
                     ...initialState.validation,
@@ -118,6 +125,14 @@ export const userProfileReducer = (
                 validation: {
                     ...state.validation,
                     cases: action.payload,
+                },
+            };
+        case SET_FORM_VALID:
+            return {
+                ...state,
+                validation: {
+                    ...state.validation,
+                    isValid: action.payload,
                 },
             };
         default:

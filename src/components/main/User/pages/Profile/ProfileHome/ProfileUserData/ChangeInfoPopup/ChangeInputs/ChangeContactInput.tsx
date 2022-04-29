@@ -2,22 +2,14 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useInput } from '../../../../../../../../../hooks/useInput';
 import { useTypeSelector } from '../../../../../../../../../hooks/useTypeSelector';
-import { updateValidationInput } from '../../../../../../../../../store/actions/userProfileActions';
+import {
+    setFormValid,
+    updateValidationInput,
+} from '../../../../../../../../../store/actions/userProfileActions';
 
 const ChangeContactInput = ({ form }) => {
     const { profile, validation } = useTypeSelector(state => state.userProfile);
     const dispatch = useDispatch();
-
-    const handleDefault = () => {
-        let value = '';
-
-        profile.userData.find(item => {
-            if (item.type === form.field) {
-                value = item.value;
-            }
-        });
-        return value;
-    };
 
     useEffect(() => {
         const input = { ...validation.input };

@@ -158,10 +158,18 @@ export interface IUserProfileState {
             isDirty: boolean;
         }
         cases: {
-            isEmpty: boolean;
-            minLength: boolean;
-            maxLength: boolean;
+            isEmpty: {
+                status: boolean;
+                error: string
+            };
+            minLength: {
+                status: boolean;
+                error: string
+            };
+            maxLength: {
+                status: boolean;
+                error: string
+            };
         }
-        error: string;
     }
 }

@@ -14,19 +14,21 @@ export const useValidation = (value, validations) => {
             switch (validation) {
                 case 'minLength':
                     value.length < validations[validation]
-                        ? (validationState.minLength = true)
-                        : (validationState.minLength = false);
+                        ? (validationState.minLength.status = true)
+                        : (validationState.minLength.status = false);
                     break;
                 case 'isEmpty':
                     value
-                        ? (validationState.isEmpty = false)
-                        : (validationState.isEmpty = true);
+                        ? (validationState.isEmpty.status = false)
+                        : (validationState.isEmpty.status = true);
                     break;
-                case 'maxLength': {
+                case 'maxLength':
                     value.length > validations[validation]
-                        ? (validationState.maxLength = true)
-                        : (validationState.maxLength = false)
-                }
+                        ? (validationState.maxLength.status = true)
+                        : (validationState.maxLength.status = false);
+                    break;
+                case 'isSame':
+                    break;
             }
         }
         dispatch(updateValidationCases(validationState));

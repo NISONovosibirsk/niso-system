@@ -7,6 +7,7 @@ import {
     CHANGE_PROFILE_PASSWORD,
     UPDATE_VALIDATION_INPUT,
     UPDATE_VALIDATION_CASES,
+    SET_FORM_VALID,
 } from '../reduxTypes/userProfileTypes';
 
 export const updateParams = newState => {
@@ -59,7 +60,7 @@ export const changeProfilePassword = passwords => {
     }
 };
 
-// update validation state
+// update validating input
 export const updateValidationInput = input => {
     try {
         return { type: UPDATE_VALIDATION_INPUT, payload: input };
@@ -72,6 +73,14 @@ export const updateValidationInput = input => {
 export const updateValidationCases = cases => {
     try {
         return { type: UPDATE_VALIDATION_CASES, payload: cases };
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const setFormValid = validity => {
+    try {
+        return { type: SET_FORM_VALID, payload: validity };
     } catch (error) {
         console.log(error);
     }
