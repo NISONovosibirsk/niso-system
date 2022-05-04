@@ -32,4 +32,9 @@
         line-height: 12px;
         font-weight: 400;
     }
+
+    &__error {
+        font-style: italic;
+        color: red;
+    }
 }

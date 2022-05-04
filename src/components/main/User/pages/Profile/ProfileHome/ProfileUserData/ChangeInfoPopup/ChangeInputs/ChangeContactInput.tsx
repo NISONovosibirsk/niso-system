@@ -27,15 +27,15 @@ const ChangeContactInput = ({ form }) => {
 
     return (
         <label className='user-data-edit__item'>
-            {validation.input.isDirty && validation.cases.isEmpty && (
+            {/* {validation.input.isDirty && validation.cases.isEmpty && (
                 <p style={{ color: 'red' }}>Поле не может быть пустым</p>
-            )}
-            {validation.input.isDirty && validation.cases.minLength && (
+            )} */}
+            {/* {validation.input.isDirty && validation.cases.minLength && (
                 <p style={{ color: 'red' }}>Некорректная длина номера</p>
             )}
             {validation.input.isDirty && validation.cases.maxLength && (
                 <p style={{ color: 'red' }}>Номер слишком длинный</p>
-            )}
+            )} */}
             <input
                 name={form.field}
                 value={validation.input.value}
@@ -43,6 +43,7 @@ const ChangeContactInput = ({ form }) => {
                 onChange={e => phoneInput.onChange(e)}
                 onBlur={e => phoneInput.onBlur(e)}
             />
+            {/* {validation.cases.isEmpty && <p>Empty</p>} */}
         </label>
     );
 };

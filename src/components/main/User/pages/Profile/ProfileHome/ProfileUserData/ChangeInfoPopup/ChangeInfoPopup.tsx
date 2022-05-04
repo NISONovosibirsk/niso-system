@@ -5,6 +5,7 @@ import { Popup } from '../../../../../../../support';
 import './ChangeInfoPopup.scss';
 import ChangeProfilePassword from './ChangeProfilePassword';
 import ChangeProfileContact from './ChangeProfileContact';
+import ChangeProfileEmail from './ChangeProfileEmail';
 
 const ChangeInfoPopup = ({ type }) => {
     const { popup } = useTypeSelector(state => state.userProfile);
@@ -17,6 +18,7 @@ const ChangeInfoPopup = ({ type }) => {
     const handleType = () => {
         switch (type) {
             case 'email':
+                return <ChangeProfileEmail />
             case 'phone':
                 return <ChangeProfileContact />;
             case 'password':
@@ -28,7 +30,7 @@ const ChangeInfoPopup = ({ type }) => {
 
     return (
         <Popup isOpen={popup.isOpen} onClose={handleClose}>
-            <form className='user-data-edit'>{handleType()}</form>
+            <div className='user-data-edit'>{handleType()}</div>
         </Popup>
     );
 };

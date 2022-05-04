@@ -1,5 +1,3 @@
-
-import { useEffect } from 'react';
 import { useTypeSelector } from '../../../../../../../../hooks/useTypeSelector';
 import { Button } from '../../../../../../../support';
 import ChangeContactInput from './ChangeInputs/ChangeContactInput';
