@@ -1,11 +1,17 @@
-import { NisoLogo } from '../../../../assets';
+import { MaisLogo, NisoLogo } from '../../../../assets';
 import SidebarItem from './SidebarItem/SidebarItem';
 import './UserSidebar.scss';
 
 const UserSidebar = ({ sidebarListData }) => {
     return (
         <nav className='user-sidebar'>
-            <NisoLogo className='user-sidebar__logo' />
+            <div className='user-sidebar__logo'>
+                <MaisLogo />
+                <p className='user-sidebar__caption'>
+                    Муниципальная система оценки качества образования города
+                    Новосибирска
+                </p>
+            </div>
             <ul className='user-sidebar__list'>
                 {sidebarListData.map(sidebarItemData => (
                     <SidebarItem

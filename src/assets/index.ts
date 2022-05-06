@@ -2,6 +2,7 @@
 
 //niso
 export { ReactComponent as NisoLogo } from './icons/niso-logo.svg';
+export { ReactComponent as MaisLogo } from './icons/mais-logo.svg';
 //common
 export { ReactComponent as CopyIcon } from './icons/commonIcons/copy-icon.svg';
 export { ReactComponent as DownloadIcon } from './icons/commonIcons/download-icon.svg';
