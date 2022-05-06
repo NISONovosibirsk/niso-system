@@ -141,35 +141,4 @@ export interface IUserProfileState {
         type: string;
         title: string;
     };
-    changeData: {
-        password: {
-            currentPassword: string;
-            newPassword: string;
-            confirmPassword: string;
-        };
-        phone: string;
-        email: string;
-    };
-
-    validation: {
-        isValid: boolean;
-        input: {
-            value: string;
-            isDirty: boolean;
-        }
-        cases: {
-            isEmpty: {
-                status: boolean;
-                error: string
-            };
-            minLength: {
-                status: boolean;
-                error: string
-            };
-            maxLength: {
-                status: boolean;
-                error: string
-            };
-        }
-    }
 }

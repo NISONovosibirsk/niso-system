@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { useTypeSelector } from '../../../../../../../../hooks/useTypeSelector';
 
-const ChangeProfileEmail = () => {
+const ChangeProfilePhone = () => {
     const { profile } = useTypeSelector(state => state.userProfile);
 
     const {
@@ -15,17 +15,17 @@ const ChangeProfileEmail = () => {
         console.log(JSON.stringify(data));
     };
 
-    const regEx = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+    const regEx = /^((\+7|7|8)+([0-9]){10})$/g;
 
     const validations = {
         required: 'Заполните это поле',
         pattern: {
             value: regEx,
-            message: 'Некорректный формат адреса почты',
+            message: 'Некорректный формат номера телефона',
         },
         minLength: {
-            value: 10,
-            message: 'Адрес слишком короткий',
+            value: 12,
+            message: 'Номер слишком короткий',
         },
     };
 
@@ -33,7 +33,7 @@ const ChangeProfileEmail = () => {
         let value = '';
 
         profile.userData.find(item => {
-            if (item.type === 'email') {
+            if (item.type === 'phone') {
                 value = item.value;
             }
         });
@@ -43,22 +43,19 @@ const ChangeProfileEmail = () => {
 
     return (
         <form className='user-data-edit' onSubmit={handleSubmit(onSubmit)}>
-            <p className='user-data-edit__header'>
-                Изменение адреса электронной почты
-            </p>
-
+            <p className='user-data-edit__header'>Изменение номера телефона</p>
             <div className='user-data-edit__field'>
                 <input
                     className={`user-data-edit__input${
                         isValid ? '' : ' user-data-edit_invalid'
                     }`}
                     defaultValue={handleDefault()}
-                    {...register('email', validations)}
+                    {...register('phone', validations)}
                 />
             </div>
 
             <div className='user-data-edit__error'>
-                {errors.email && <p>{errors.email.message}</p>}
+                {errors.phone && <p>{errors.phone.message}</p>}
             </div>
             <input
                 className='user-data-edit__button'
@@ -69,4 +66,4 @@ const ChangeProfileEmail = () => {
     );
 };
 
-export default ChangeProfileEmail;
+export default ChangeProfilePhone;

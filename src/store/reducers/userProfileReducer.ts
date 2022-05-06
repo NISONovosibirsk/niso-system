@@ -3,12 +3,6 @@ import {
     UPDATE_POPUP,
     UPDATE_INSTITUTION_PARAMS,
     UPDATE_PROFILE_INFO,
-    UPDATE_CHANGE_DATA,
-    RESET_DATA_CHANGING,
-    CHANGE_PROFILE_PASSWORD,
-    UPDATE_VALIDATION_INPUT,
-    UPDATE_VALIDATION_CASES,
-    SET_FORM_VALID,
 } from '../reduxTypes/userProfileTypes';
 
 const initialState: IUserProfileState = {
@@ -19,7 +13,7 @@ const initialState: IUserProfileState = {
         userData: [
             {
                 type: 'phone',
-                value: '+7 (964) 872 - 89 - 59',
+                value: '+79648728959',
             },
             {
                 type: 'email',
@@ -47,36 +41,6 @@ const initialState: IUserProfileState = {
         type: '',
         title: '',
     },
-    changeData: {
-        password: {
-            currentPassword: '',
-            newPassword: '',
-            confirmPassword: '',
-        },
-        phone: '',
-        email: '',
-    },
-    validation: {
-        isValid: false,
-        input: {
-            value: '',
-            isDirty: false,
-        },
-        cases: {
-            isEmpty: {
-                status: false,
-                error: 'Заполните это поле',
-            },
-            minLength: {
-                status: false,
-                error: 'Минимальное количество символов не набрано',
-            },
-            maxLength: {
-                status: false,
-                error: 'Превышена максимальная длина',
-            },
-        },
-    },
 };
 
 export const userProfileReducer = (
@@ -90,51 +54,6 @@ export const userProfileReducer = (
             return { ...state, profile: action.payload };
         case UPDATE_POPUP:
             return { ...state, popup: action.payload };
-        case UPDATE_CHANGE_DATA:
-            return { ...state, changeData: action.payload };
-        case RESET_DATA_CHANGING:
-            return {
-                ...state,
-                popup: { ...initialState.popup },
-                changeData: {
-                    ...state.changeData,
-                    password: { ...initialState.changeData.password },
-                },
-                validation: {
-                    ...initialState.validation,
-                    input: { ...initialState.validation.input },
-                    cases: { ...initialState.validation.cases },
-                },
-            };
-        case CHANGE_PROFILE_PASSWORD:
-            return {
-                ...state,
-                changeData: { ...state.changeData, password: action.payload },
-            };
-        case UPDATE_VALIDATION_INPUT:
-            return {
-                ...state,
-                validation: {
-                    ...state.validation,
-                    input: action.payload,
-                },
-            };
-        case UPDATE_VALIDATION_CASES:
-            return {
-                ...state,
-                validation: {
-                    ...state.validation,
-                    cases: action.payload,
-                },
-            };
-        case SET_FORM_VALID:
-            return {
-                ...state,
-                validation: {
-                    ...state.validation,
-                    isValid: action.payload,
-                },
-            };
         default:
             return state;
     }

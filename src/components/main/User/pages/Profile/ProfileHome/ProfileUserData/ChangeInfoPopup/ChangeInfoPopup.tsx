@@ -1,26 +1,28 @@
 import { useDispatch } from 'react-redux';
 import { useTypeSelector } from '../../../../../../../../hooks/useTypeSelector';
-import { resetDataChanging } from '../../../../../../../../store/actions/userProfileActions';
 import { Popup } from '../../../../../../../support';
 import './ChangeInfoPopup.scss';
-import ChangeProfilePassword from './ChangeProfilePassword';
-import ChangeProfileContact from './ChangeProfileContact';
+import ChangeProfilePassword from './ChangeProfilePassword/ChangeProfilePassword';
 import ChangeProfileEmail from './ChangeProfileEmail';
+import ChangeProfilePhone from './ChangeProfilePhone';
+import { updatePopup } from '../../../../../../../../store/actions/userProfileActions';
 
 const ChangeInfoPopup = ({ type }) => {
     const { popup } = useTypeSelector(state => state.userProfile);
     const dispatch = useDispatch();
 
     const handleClose = () => {
-        dispatch(resetDataChanging());
+        const newState = { ...popup };
+        newState.isOpen = false;
+        dispatch(updatePopup(newState));
     };
 
     const handleType = () => {
         switch (type) {
             case 'email':
-                return <ChangeProfileEmail />
+                return <ChangeProfileEmail />;
             case 'phone':
-                return <ChangeProfileContact />;
+                return <ChangeProfilePhone />;
             case 'password':
                 return <ChangeProfilePassword />;
             default:
@@ -30,7 +32,7 @@ const ChangeInfoPopup = ({ type }) => {
 
     return (
         <Popup isOpen={popup.isOpen} onClose={handleClose}>
-            <div className='user-data-edit'>{handleType()}</div>
+            {handleType()}
         </Popup>
     );
 };
