@@ -141,17 +141,4 @@ export interface IUserProfileState {
         type: string;
         title: string;
     };
-    changeData: {
-        password: {
-            currentPassword: string;
-            newPassword: string;
-            confirmPassword: string;
-        };
-        phone: string;
-        email: string;
-        verificationCode: string;
-        isClicked: boolean;
-        isValid: boolean;
-        error: string;
-    };
 }

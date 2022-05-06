@@ -1,43 +1,28 @@
 import { useDispatch } from 'react-redux';
 import { useTypeSelector } from '../../../../../../../../hooks/useTypeSelector';
-import {
-    updateChangeData,
-    updatePopup,
-} from '../../../../../../../../store/actions/userProfileActions';
 import { Popup } from '../../../../../../../support';
 import './ChangeInfoPopup.scss';
-import ChangeProfilePassword from './ChangeProfilePassword';
-import ChangeProfileContact from './ChangeProfileContact';
+import ChangeProfilePassword from './ChangeProfilePassword/ChangeProfilePassword';
+import ChangeProfileEmail from './ChangeProfileEmail';
+import ChangeProfilePhone from './ChangeProfilePhone';
+import { updatePopup } from '../../../../../../../../store/actions/userProfileActions';
 
 const ChangeInfoPopup = ({ type }) => {
-    const { popup, changeData } = useTypeSelector(state => state.userProfile);
+    const { popup } = useTypeSelector(state => state.userProfile);
     const dispatch = useDispatch();
 
     const handleClose = () => {
         const newState = { ...popup };
-        const newData = { ...changeData };
-
         newState.isOpen = false;
-        newState.type = '';
-        newState.title = '';
-
-        newData.phone = '';
-        newData.email = '';
-        newData.isValid = false;
-        newData.verificationCode = '';
-        newData.password.currentPassword = '';
-        newData.password.newPassword = '';
-        newData.password.confirmPassword = '';
-
         dispatch(updatePopup(newState));
-        dispatch(updateChangeData(newData));
     };
 
     const handleType = () => {
         switch (type) {
             case 'email':
+                return <ChangeProfileEmail />;
             case 'phone':
-                return <ChangeProfileContact />;
+                return <ChangeProfilePhone />;
             case 'password':
                 return <ChangeProfilePassword />;
             default:
@@ -47,7 +32,7 @@ const ChangeInfoPopup = ({ type }) => {
 
     return (
         <Popup isOpen={popup.isOpen} onClose={handleClose}>
-            <form className='user-data-edit'>{handleType()}</form>
+            {handleType()}
         </Popup>
     );
 };

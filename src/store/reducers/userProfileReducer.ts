@@ -3,8 +3,6 @@ import {
     UPDATE_POPUP,
     UPDATE_INSTITUTION_PARAMS,
     UPDATE_PROFILE_INFO,
-    UPDATE_CHANGE_DATA,
-    SET_POPUP_TITLE,
 } from '../reduxTypes/userProfileTypes';
 
 const initialState: IUserProfileState = {
@@ -15,7 +13,7 @@ const initialState: IUserProfileState = {
         userData: [
             {
                 type: 'phone',
-                value: '+7 (964) 872 - 89 - 59',
+                value: '+79648728959',
             },
             {
                 type: 'email',
@@ -43,23 +41,10 @@ const initialState: IUserProfileState = {
         type: '',
         title: '',
     },
-    changeData: {
-        password: {
-            currentPassword: '',
-            newPassword: '',
-            confirmPassword: '',
-        },
-        phone: '',
-        email: '',
-        verificationCode: '',
-        isValid: false,
-        isClicked: false,
-        error: '',
-    },
 };
 
 export const userProfileReducer = (
-    state = initialState,
+    state = { ...initialState },
     action: IReduxActions
 ): IUserProfileState => {
     switch (action.type) {
@@ -69,13 +54,6 @@ export const userProfileReducer = (
             return { ...state, profile: action.payload };
         case UPDATE_POPUP:
             return { ...state, popup: action.payload };
-        case SET_POPUP_TITLE:
-            return {
-                ...state,
-                popup: { ...state.popup, title: action.payload },
-            };
-        case UPDATE_CHANGE_DATA:
-            return { ...state, changeData: action.payload };
         default:
             return state;
     }
