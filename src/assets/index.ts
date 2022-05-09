@@ -33,6 +33,7 @@ export { ReactComponent as PhoneIcon } from './icons/userIcons/phone-icon.svg';
 export { ReactComponent as MailIcon } from './icons/userIcons/mail-icon.svg';
 export { ReactComponent as KeyIcon } from './icons/userIcons/key-icon.svg';
 export { ReactComponent as ChangePhotoIcon } from './icons/userIcons/change-photo-icon.svg';
+export { ReactComponent as ReferenceIcon } from './icons/userIcons/reference-icon.svg';
 //constructor
 export { ReactComponent as TextIcon } from './icons/constructorIcons/text-icon.svg';
 export { ReactComponent as TitleH1Icon } from './icons/constructorIcons/title-h1-icon.svg';
