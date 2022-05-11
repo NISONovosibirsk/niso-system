@@ -141,4 +141,8 @@ export interface IUserProfileState {
         type: string;
         title: string;
     };
+    reference: {
+        isOpen: boolean;
+        type: string;
+    }
 }

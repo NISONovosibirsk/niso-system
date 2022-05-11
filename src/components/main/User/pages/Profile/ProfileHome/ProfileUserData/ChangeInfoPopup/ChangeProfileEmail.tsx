@@ -1,9 +1,13 @@
 import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
 import { useTypeSelector } from '../../../../../../../../hooks/useTypeSelector';
+import { setOpenStatus, updateStatusCode, updateStatusText } from '../../../../../../../../store/actions/statusPopupActions';
+import { resetPopup } from '../../../../../../../../store/actions/userProfileActions';
 
 const ChangeProfileEmail = () => {
     const { profile } = useTypeSelector(state => state.userProfile);
-
+    const dispatch = useDispatch();
+    
     const {
         register,
         formState: { errors, isValid },
@@ -11,8 +15,17 @@ const ChangeProfileEmail = () => {
     } = useForm({ mode: 'onChange' });
 
     const onSubmit = data => {
-        console.log(errors);
         console.log(JSON.stringify(data));
+        try {
+            
+            dispatch(resetPopup());
+            dispatch(setOpenStatus(true));
+            dispatch(updateStatusCode('loader'));
+            setTimeout(() => {
+                dispatch(updateStatusCode('200'));
+                dispatch(updateStatusText('Адрес электронной почты успешно изменен'));
+            }, 2 * 1000);
+        } catch (error) {}
     };
 
     const regEx = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;

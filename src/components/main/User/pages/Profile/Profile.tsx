@@ -11,6 +11,7 @@ const tabs = [
 ];
 
 const Profile = () => {
+
     return (
         <div className='user-profile'>
             <ul className='user-profile-tabs'>

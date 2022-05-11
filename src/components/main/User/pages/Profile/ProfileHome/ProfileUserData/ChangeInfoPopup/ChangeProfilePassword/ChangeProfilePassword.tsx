@@ -1,12 +1,27 @@
 import { FormProvider, useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import {
+    setOpenStatus,
+    updateStatusCode,
+    updateStatusText,
+} from '../../../../../../../../../store/actions/statusPopupActions';
+import { resetPopup } from '../../../../../../../../../store/actions/userProfileActions';
 import ChangePasswordInputs from './ChangePasswordInputs';
 
 const ChangeProfilePassword = () => {
     const methods = useForm({ mode: 'onChange' });
-
+    const dispatch = useDispatch();
     const onSubmit = data => {
-        console.log(methods.formState.errors);
         console.log(JSON.stringify(data));
+        try {
+            dispatch(resetPopup());
+            dispatch(setOpenStatus(true));
+            dispatch(updateStatusCode('loader'));
+            setTimeout(() => {
+                dispatch(updateStatusCode('200'));
+                dispatch(updateStatusText('Пароль успешно изменен'));
+            }, 2 * 1000);
+        } catch (error) {}
     };
 
     return (
