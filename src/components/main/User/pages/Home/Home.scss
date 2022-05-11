@@ -10,6 +10,8 @@ $item-color-active: linear-gradient(
     margin: {
         top: 3vh;
     };
+    display: grid;
+    grid-template-columns: 90% 10%;
 
     &-list {
         list-style: none;
@@ -40,5 +42,10 @@ $item-color-active: linear-gradient(
         &__count {
             font-size: 27px;
         }
+    }
+
+    &__reference {
+        cursor: pointer;
+        justify-self: center;
     }
 }
