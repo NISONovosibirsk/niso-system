@@ -4,6 +4,7 @@ import { updateReference } from '../../../../../../store/actions/userProfileActi
 import { Button, Popup } from '../../../../../support';
 import DocumentsReference from './DocumentsReference';
 import './ProfileReference.scss';
+import StatisticsReference from './StatisticsReference';
 
 const ProfileReference = () => {
     const { reference } = useTypeSelector(state => state.userProfile);
@@ -19,7 +20,8 @@ const ProfileReference = () => {
         switch (reference.type) {
             case 'documents':
                 return <DocumentsReference />;
-
+            case 'statistics':
+                return <StatisticsReference />;
             default:
                 break;
         }

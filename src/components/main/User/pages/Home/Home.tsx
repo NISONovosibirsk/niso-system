@@ -1,12 +1,28 @@
+import { useDispatch } from 'react-redux';
 import {
     LeadersIcon,
+    ReferenceIcon,
     ReportsIcon,
     StaffIcon,
     VisitsIcon,
 } from '../../../../../assets';
+import { useTypeSelector } from '../../../../../hooks/useTypeSelector';
+import { updateReference } from '../../../../../store/actions/userProfileActions';
+import ProfileReference from '../Profile/ProfileReference/ProfileReference';
 import './Home.scss';
 
 const Home = () => {
+
+    const {reference} = useTypeSelector(state=> state.userProfile);
+    const dispatch = useDispatch();
+
+    const handleReference = () => {
+        const newState = { ...reference };
+        newState.isOpen = true;
+        newState.type = 'statistics';
+        dispatch(updateReference(newState));
+    };
+
     return (
         <div className='user-home'>
             <ul className='user-home-list'>
@@ -31,6 +47,8 @@ const Home = () => {
                     <p className='user-home-card__count'>31 2</p>
                 </li>
             </ul>
+            <ReferenceIcon className='user-home__reference' onClick={handleReference}/>
+            <ProfileReference />
         </div>
     );
 };
