@@ -2,6 +2,7 @@ import {
     UPDATE_INSTITUTION_PARAMS,
     UPDATE_PROFILE_INFO,
     UPDATE_POPUP,
+    UPDATE_REFERENCE,
 } from '../reduxTypes/userProfileTypes';
 
 export const updateParams = newState => {
@@ -23,6 +24,14 @@ export const updateProfileInfo = newInfo => {
 export const updatePopup = newState => {
     try {
         return { type: UPDATE_POPUP, payload: newState };
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const updateReference = newState => {
+    try {
+        return { type: UPDATE_REFERENCE, payload: newState };
     } catch (error) {
         console.log(error);
     }

@@ -1,5 +1,7 @@
 .user-profile-tabs-item {
     height: 24px;
+    display: flex;
+    justify-content: center;
 
     color: #a9abba;
     font-size: 12px;
@@ -25,5 +27,12 @@
     &__link {
         text-decoration: none;
         color: #a9abba;
+    }
+
+    &__reference {
+        margin: {
+            left: 10px
+        };
+        cursor: pointer;
     }
 }

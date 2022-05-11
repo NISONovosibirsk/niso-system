@@ -1,3 +1,4 @@
+import ProfileReference from '../ProfileReference/ProfileReference';
 import './ProfileDocuments.scss';
 import ProfileDocumentsItem from './ProfileDocumentsItem/ProfileDocumentsItem';
 
@@ -13,6 +14,7 @@ const ProfileDocuments = () => {
             {forms.map((form, index) => (
                 <ProfileDocumentsItem form={form} key={index}/>
             ))}
+            <ProfileReference />
         </div>
     );
 };
