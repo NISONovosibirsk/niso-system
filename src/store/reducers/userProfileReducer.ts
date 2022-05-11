@@ -4,6 +4,7 @@ import {
     UPDATE_INSTITUTION_PARAMS,
     UPDATE_PROFILE_INFO,
     UPDATE_REFERENCE,
+    RESET_POPUP,
 } from '../reduxTypes/userProfileTypes';
 
 const initialState: IUserProfileState = {
@@ -61,6 +62,8 @@ export const userProfileReducer = (
             return { ...state, popup: action.payload };
         case UPDATE_REFERENCE:
             return { ...state, reference: action.payload };
+        case RESET_POPUP:
+            return { ...state, popup: { ...initialState.popup } };
         default:
             return state;
     }
