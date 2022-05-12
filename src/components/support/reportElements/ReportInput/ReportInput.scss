@@ -19,7 +19,7 @@
         width: 400px;
 
         &:last-of-type {
-            &:nth-child(2) {
+            &:nth-child(1) {
                 width: calc(80vw - 36px - 36px);
             }
         }
