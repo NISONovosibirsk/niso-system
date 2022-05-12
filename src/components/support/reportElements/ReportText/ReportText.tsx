@@ -5,8 +5,13 @@ const ReportText = ({ element }) => {
         <>
             {element.type === 'text' ? (
                 <div className='report-text__field'>
-                    {element.values.map(value => (
-                        <p className='report-text report-text_text'>{value}</p>
+                    {element.values.map((value, valueIndex) => (
+                        <p
+                            className='report-text report-text_text'
+                            key={valueIndex}
+                        >
+                            {value}
+                        </p>
                     ))}
                 </div>
             ) : (

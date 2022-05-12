@@ -16,8 +16,11 @@ const ReportInput = ({ element, onUpdateElement, elementIndex }) => {
                 {/* <p className='report-input__placeholder'>
                     {element.placeholder}
                 </p> */}
-                {element.values.map(value => (
-                    <div className='report-input__inputs-field'>
+                {element.values.map((value, valueIndex) => (
+                    <div
+                        className='report-input__inputs-field'
+                        key={valueIndex}
+                    >
                         <input
                             className={`report-input__input ${
                                 element.error

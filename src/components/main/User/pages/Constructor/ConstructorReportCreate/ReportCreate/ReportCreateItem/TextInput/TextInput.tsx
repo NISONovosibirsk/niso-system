@@ -43,6 +43,7 @@ const TextInput = ({ element, onUpdateElement, elementIndex }) => {
                         {element.values.map((value, valueIndex) => (
                             <input
                                 className='report-create-item__input report-create-item__input_underline'
+                                key={valueIndex}
                                 value={value}
                                 onChange={e => handleTextChange(e, valueIndex)}
                                 placeholder={valueIndex + 1 + ' столбец'}
