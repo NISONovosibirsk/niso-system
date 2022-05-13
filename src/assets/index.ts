@@ -19,7 +19,7 @@ export { default as unsuccessfulIcon } from './icons/statusIcons/unsuccessful-ic
 export { default as errorIcon } from './icons/statusIcons/error-icon.svg';
 //user
 export { ReactComponent as HomeIcon } from './icons/userIcons/home-icon.svg';
-export { ReactComponent as DutiesIcon } from './icons/userIcons/duties-icon.svg';
+export { ReactComponent as HandbookIcon } from './icons/userIcons/handbook-icon.svg';
 export { ReactComponent as LeadersIcon } from './icons/userIcons/leaders-icon.svg';
 export { ReactComponent as OfsIcon } from './icons/userIcons/ofs-icon.svg';
 export { ReactComponent as ConstructorIcon } from './icons/userIcons/constructor-icon.svg';

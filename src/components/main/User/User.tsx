@@ -4,7 +4,7 @@ import ProfileHeader from './UserHeader/UserHeader';
 import { Outlet } from 'react-router-dom';
 import {
     HomeIcon,
-    DutiesIcon,
+    HandbookIcon,
     OfsIcon,
     CommunicationsIcon,
     ConstructorIcon,
@@ -32,9 +32,9 @@ const User = () => {
             icon: <ConstructorIcon />,
         },
         {
-            path: 'duties',
-            text: 'Мои обязанности',
-            icon: <DutiesIcon />,
+            path: 'handbook',
+            text: 'Справочник',
+            icon: <HandbookIcon />,
         },
         {
             path: 'reports',
@@ -70,9 +70,9 @@ const User = () => {
             icon: <ConstructorIcon />,
         },
         {
-            path: 'duties',
-            text: 'Мои обязанности',
-            icon: <DutiesIcon />,
+            path: 'handbook',
+            text: 'Справочник',
+            icon: <HandbookIcon />,
         },
         {
             path: 'reports',
