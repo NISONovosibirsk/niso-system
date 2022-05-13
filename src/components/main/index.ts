@@ -3,6 +3,7 @@ export { default as PasswordRecovery } from './PasswordRecovery/PasswordRecovery
 export { default as Register } from './Register/Register';
 export { default as ChangePassword } from './ChangePassword/ChangePassword';
 
+export { default as AcceptPopup } from './AcceptPopup/AcceptPopup';
 export { default as StatusPopup } from './StatusPopup/StatusPopup';
 
 export { default as HomePage } from './HomePage/HomePage';

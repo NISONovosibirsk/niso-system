@@ -6,16 +6,20 @@ const ListInput = ({ element, onUpdateElement, elementIndex }) => {
     const handleInputValueChange = e => {
         const { value, type } = e.target;
 
-        if (type === 'number') {
-            element.values = [...element.values];
+        switch (type) {
+            case 'number':
+                element.values = [...element.values];
 
-            if (element.values.length < value) {
-                element.values.push('');
-            } else {
-                element.values.splice(element.values.length - 1, 1);
-            }
-        } else {
-            element.placeholder = value;
+                if (element.values.length < value) {
+                    element.values.push('');
+                } else if (element.values.length > 1) {
+                    element.values.splice(element.values.length - 1, 1);
+                }
+                break;
+
+            default:
+                element.placeholder = value;
+                break;
         }
 
         onUpdateElement(element, elementIndex);
@@ -84,7 +88,7 @@ const ListInput = ({ element, onUpdateElement, elementIndex }) => {
                 </ul>
             </div>
             <input
-                className='report-create-item__input report-create-item__input_counter'
+                className='report-create-item__input report-create-item__input_underline report-create-item__input_counter'
                 value={element.values.length}
                 onChange={handleInputValueChange}
                 type='number'

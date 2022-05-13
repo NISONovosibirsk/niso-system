@@ -1,0 +1,40 @@
+.list-input {
+    & .report-create-item__input {
+        height: 32px;
+        width: 100%;
+    }
+
+    &__field {
+        display: flex;
+        align-items: center;
+        height: 40px;
+        padding: 8px 0;
+
+        & .report-create-item__input {
+            margin: {
+                left: 16px;
+                bottom: 4px;
+                top: 4px;
+            }
+            height: 32px;
+            width: calc(100% - 21px);
+        }
+    }
+
+    &__trash {
+        cursor: pointer;
+        width: 21px;
+        height: 32px;
+        margin: {
+            bottom: 8px;
+        }
+
+        &:hover {
+            fill: #e84141;
+        }
+
+        &:active {
+            fill: #a9abba;
+        }
+    }
+}

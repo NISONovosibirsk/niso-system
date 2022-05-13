@@ -1,0 +1,22 @@
+.accept-popup {
+    padding: 20px;
+    min-width: 400px;
+
+    &__title {
+        margin: 0;
+        max-width: 400px;
+        color: rgba($color: #1c1d20, $alpha: 0.8);
+        text-align: center;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 32px;
+        letter-spacing: 0.3px;
+        padding-bottom: 40px;
+    }
+
+    &__buttons {
+        display: grid;
+        grid-template-columns: repeat(2, calc(50% - 8px));
+        gap: 16px;
+    }
+}
