@@ -51,7 +51,7 @@ const TextInput = ({ element, onUpdateElement, elementIndex }) => {
                         ))}
                     </div>
                     <input
-                        className='report-create-item__input report-create-item__input_counter'
+                        className='report-create-item__input report-create-item__input_underline report-create-item__input_counter'
                         value={element.values.length}
                         onChange={handleCounterChange}
                         type='number'

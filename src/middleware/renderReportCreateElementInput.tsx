@@ -3,6 +3,7 @@ import {
     DefaultInput,
     ImageInput,
     ListInput,
+    PercentInput,
     RadioInput,
     TextInput,
     TextList,
@@ -63,6 +64,14 @@ const renderReportCreateElementInput = (
         case 'list':
             return (
                 <ListInput
+                    element={element}
+                    onUpdateElement={onUpdateElement}
+                    elementIndex={elementIndex}
+                />
+            );
+        case 'percent':
+            return (
+                <PercentInput
                     element={element}
                     onUpdateElement={onUpdateElement}
                     elementIndex={elementIndex}

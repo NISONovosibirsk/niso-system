@@ -19,6 +19,7 @@ import { useTypeSelector } from '../../../../../../../hooks/useTypeSelector';
 import { useNavigate } from 'react-router-dom';
 import { getPrettyDate } from '../../../../../../../middleware';
 import { Button } from '../../../../../../support';
+import AcceptPopup from '../../../../../AcceptPopup/AcceptPopup';
 
 const ReportsItem = ({ report, index }) => {
     const { reports } = useTypeSelector(
@@ -26,8 +27,18 @@ const ReportsItem = ({ report, index }) => {
     );
     const [isOpen, setIsOpen] = useState(false);
     const [isDelete, setIsDelete] = useState(false);
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    const handleOpenPopup = e => {
+        e.stopPropagation();
+        setIsPopupOpen(true);
+    };
+
+    const handleClosePopup = () => {
+        setIsPopupOpen(false);
+    };
 
     const handleReportClick = () => {
         setIsOpen(!isOpen);
@@ -88,6 +99,7 @@ const ReportsItem = ({ report, index }) => {
             JSON.stringify([...createdReports])
         );
 
+        handleClosePopup();
         setIsDelete(true);
 
         setTimeout(setIsDelete, 300, false);
@@ -138,7 +150,7 @@ const ReportsItem = ({ report, index }) => {
                 />
                 <TrashIcon
                     className='reports-item__icon'
-                    onClick={handleDelete}
+                    onClick={handleOpenPopup}
                 />
                 <p className='reports-item__info'>Крайний срок:</p>
                 <p className='reports-item__info-status'>
@@ -186,6 +198,12 @@ const ReportsItem = ({ report, index }) => {
                     </ul>
                 ) : null}
             </div>
+            <AcceptPopup
+                title={`Вы уверены, что хотите удалить отчет '${report.title.value}'?`}
+                onClick={handleDelete}
+                onClose={handleClosePopup}
+                isOpen={isPopupOpen}
+            />
         </li>
     );
 };

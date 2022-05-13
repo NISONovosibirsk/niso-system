@@ -28,7 +28,7 @@
     &__content {
         display: grid;
         gap: 8px;
-        grid-template-columns: auto 60px 32px;
+        grid-template-columns: auto 50px 32px;
         background: #f2f6fc;
         border-radius: 6px;
         align-items: center;
@@ -48,12 +48,6 @@
         box-sizing: border-box;
         padding: 0px 16px;
         height: 100%;
-
-        &_counter {
-            padding-right: 4px;
-            text-align: center;
-            height: 32px;
-        }
 
         &::placeholder {
             color: #a9abba;
@@ -91,6 +85,13 @@
                 border: none;
                 border-bottom: 1px solid #4f8be4;
             }
+        }
+
+        &_counter {
+            padding-right: 0;
+            text-align: center;
+            height: 32px;
+            align-self: baseline;
         }
     }
 

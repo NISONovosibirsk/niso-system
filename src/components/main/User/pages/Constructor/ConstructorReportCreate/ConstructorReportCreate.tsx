@@ -12,6 +12,7 @@ import { useState } from 'react';
 import { Visibility, VisibilityOff } from '../../../../../../assets';
 import { useNavigate } from 'react-router-dom';
 import { getPrettyDate } from '../../../../../../middleware';
+import AcceptPopup from '../../../../AcceptPopup/AcceptPopup';
 
 const ConstructorReportCreate = () => {
     const {
@@ -26,11 +27,21 @@ const ConstructorReportCreate = () => {
         state => state.userConstructor.createdReports
     );
     const [isPreview, setIsPreview] = useState(false);
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    const handleOpenPopup = () => {
+        setIsPopupOpen(true);
+    };
+
+    const handleClosePopup = () => {
+        setIsPopupOpen(false);
+    };
+
     const handleResetClick = () => {
         setIsPreview(false);
+        handleClosePopup();
         dispatch(resetCreate());
     };
 
@@ -135,7 +146,7 @@ const ConstructorReportCreate = () => {
                     height='24px'
                     margin='0 0 0 auto'
                     type='light-red'
-                    onClick={handleResetClick}
+                    onClick={handleOpenPopup}
                 />
             )}
             {isPreview ? (
@@ -191,6 +202,12 @@ const ConstructorReportCreate = () => {
                     </>
                 )}
             </div>
+            <AcceptPopup
+                title='Вы уверены, что хотите очистить форму?'
+                onClick={handleResetClick}
+                onClose={handleClosePopup}
+                isOpen={isPopupOpen}
+            />
         </div>
     );
 };

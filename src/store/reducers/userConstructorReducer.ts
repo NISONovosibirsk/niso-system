@@ -80,6 +80,15 @@ const initialState = {
                     isRequired: true,
                 },
                 {
+                    type: 'percent',
+                    name: 'Процентное поле',
+                    values: [''],
+                    maxValue: '',
+                    error: '',
+                    placeholder: '',
+                    isRequired: true,
+                },
+                {
                     type: 'checkbox',
                     name: 'Поле для галочки',
                     title: '',
