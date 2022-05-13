@@ -1,0 +1,31 @@
+.handbook-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    &__placeholder {
+        box-sizing: border-box;
+        outline: none;
+        background: none;
+        border: none;
+
+        &::placeholder {
+            color: black;
+        }
+    }
+
+    &__input {
+        min-width: 479px;
+        height: 31px;
+        box-sizing: border-box;
+        border-radius: 10px;
+        background: #F5F7FB;
+        border: 1px solid #DADADA;
+
+        &:focus {
+            outline: none;
+            border: 1px solid #4F8BE4;
+        }
+    }
+    
+}

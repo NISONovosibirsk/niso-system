@@ -2,7 +2,7 @@ import './Profile.scss';
 import { Routes, Route, Link } from 'react-router-dom';
 import ProfileNavItem from './ProfileNavItem/ProfileNavItem';
 import ProfileDocuments from './ProfileDocuments/ProfileDocuments';
-import ProfileInfo from './ProfileHome/ProfileHome';
+import ProfileHome from './ProfileHome/ProfileHome';
 
 const tabs = [
     { text: 'Основное', path: '' },
@@ -20,7 +20,7 @@ const Profile = () => {
                 ))}
             </ul>
             <Routes>
-                <Route path='' element={<ProfileInfo />} />
+                <Route path='' element={<ProfileHome />} />
                 <Route path='notifications' />
                 <Route path='documents' element={<ProfileDocuments />} />
             </Routes>

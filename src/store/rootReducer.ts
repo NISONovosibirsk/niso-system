@@ -5,6 +5,7 @@ import { loginReducer } from './reducers/loginReducer';
 import { registerReducer } from './reducers/registerReducer';
 import { statusPopupReducer } from './reducers/statusPopupReducer';
 import { userConstructorReducer } from './reducers/userConstructorReducer';
+import { userHandbookReducer } from './reducers/userHandbookReducer';
 import { userProfileReducer } from './reducers/userProfileReducer';
 
 export const rootReducer = combineReducers({
@@ -12,6 +13,7 @@ export const rootReducer = combineReducers({
 
     userConstructor: userConstructorReducer,
     userProfile: userProfileReducer,
+    userHandbook: userHandbookReducer,
 
     login: loginReducer,
     register: registerReducer,

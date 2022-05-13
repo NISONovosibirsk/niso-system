@@ -144,5 +144,15 @@ export interface IUserProfileState {
     reference: {
         isOpen: boolean;
         type: string;
-    }
+    };
+}
+
+// Handbook
+export interface IUserHandbookState {
+    notes: any;
+    createNote: {
+        isActive: boolean;
+        newNotes: any;
+    };
+    filter: any;
 }

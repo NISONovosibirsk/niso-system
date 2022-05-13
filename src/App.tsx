@@ -11,7 +11,12 @@ import {
     User,
     NotFoundRoute,
 } from './components/main';
-import { Constructor, Home, Profile } from './components/main/User/pages';
+import {
+    Constructor,
+    Handbook,
+    Home,
+    Profile,
+} from './components/main/User/pages';
 import { updateCreatedReports } from './store/actions/userConstrucorActions';
 
 function App() {
@@ -53,6 +58,7 @@ function App() {
                     <Route path='home' element={<Home />} />
                     <Route path='profile/*' element={<Profile />} />
                     <Route path='constructor/*' element={<Constructor />} />
+                    <Route path='handbook' element={<Handbook />} />
                 </Route>
 
                 <Route path='404' element={<NotFoundRoute />} />

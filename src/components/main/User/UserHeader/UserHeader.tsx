@@ -3,7 +3,7 @@ import { useTypeSelector } from '../../../../hooks/useTypeSelector';
 import Searchbar from './HeaderSearchbar/HeaderSearchbar';
 import './UserHeader.scss';
 
-const ProfileHeader = () => {
+const UserHeader = () => {
     const { profile } = useTypeSelector(state => state.userProfile);
 
     const navigate = useNavigate();
@@ -21,6 +21,10 @@ const ProfileHeader = () => {
         {
             path: 'profile',
             title: 'Личный профиль',
+        },
+        {
+            path: 'handbook',
+            title: 'Справочник',
         },
     ];
 
@@ -44,4 +48,4 @@ const ProfileHeader = () => {
     );
 };
 
-export default ProfileHeader;
+export default UserHeader;
