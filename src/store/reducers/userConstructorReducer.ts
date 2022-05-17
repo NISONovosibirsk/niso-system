@@ -9,9 +9,9 @@ import {
     UPDATE_CREATE_SUBTITLE,
     UPDATE_CREATE_TITLE,
     UPDATE_ELEMENTS,
-    UPDATE_FILTER_ACCESS,
-    UPDATE_FILTER_CHARS,
-    UPDATE_FILTER_TABS,
+    UPDATE_SEARCH_LIST,
+    UPDATE_SEARCH_CHARS,
+    UPDATE_SEARCH_TABS,
     UPDATE_POPUP_FILTER_CHARS,
     UPDATE_REPORTS,
     UPDATE_TARGET_REPORT,
@@ -113,9 +113,38 @@ const initialState = {
             filterChars: { value: '', error: '' },
         },
     },
-    filter: {
+    search: {
         chars: '',
-        access: '',
+        filter: {
+            list: [
+                {
+                    title: 'Район',
+                    options: [
+                        'Дзержинский',
+                        'Железнодорожный',
+                        'Заельцовский',
+                        'Калининский',
+                        'Кировский',
+                        'Ленинский',
+                        'Октябрьский',
+                        'Первомайский',
+                        'Советский',
+                        'Центральный',
+                    ],
+                    picked: [],
+                },
+                {
+                    title: 'Дата',
+                    options: ['1 Дата', '2 Дата', '3 Дата'],
+                    picked: [],
+                },
+                {
+                    title: 'Номер',
+                    options: ['1', '2', '3'],
+                    picked: [],
+                },
+            ],
+        },
         tabs: {
             all: true,
             my: false,
@@ -236,27 +265,27 @@ export const userConstructorReducer = (
             };
 
         //FILTER
-        case UPDATE_FILTER_CHARS:
+        case UPDATE_SEARCH_CHARS:
             return {
                 ...state,
-                filter: {
-                    ...state.filter,
+                search: {
+                    ...state.search,
                     chars: action.payload,
                 },
             };
-        case UPDATE_FILTER_ACCESS:
+        case UPDATE_SEARCH_LIST:
             return {
                 ...state,
-                filter: {
-                    ...state.filter,
-                    access: action.payload,
+                search: {
+                    ...state.search,
+                    list: action.payload,
                 },
             };
-        case UPDATE_FILTER_TABS:
+        case UPDATE_SEARCH_TABS:
             return {
                 ...state,
-                filter: {
-                    ...state.filter,
+                search: {
+                    ...state.search,
                     tabs: action.payload,
                 },
             };
