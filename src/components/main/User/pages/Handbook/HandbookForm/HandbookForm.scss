@@ -10,22 +10,43 @@
         border: none;
 
         &::placeholder {
-            color: black;
+            color: #a9abba;
+            font-style: italic;
+        }
+
+        &:valid {
+            border-bottom: 1px solid #3fac50 !important;
+        }
+
+        &-invalid {
+            border-bottom: 1px solid red !important;
         }
     }
 
-    &__input {
+    &__value {
         min-width: 479px;
         height: 31px;
         box-sizing: border-box;
         border-radius: 10px;
-        background: #F5F7FB;
-        border: 1px solid #DADADA;
+        background: #f5f7fb;
+        border: 1px solid #dadada;
+
+        &-invalid {
+            border: 1px solid red !important;
+        }
+
+        &:valid {
+            border: 1px solid #3fac50 !important;
+        }
+
+        &::placeholder {
+            color: #a9abba;
+            font-style: italic;
+        }
 
         &:focus {
             outline: none;
-            border: 1px solid #4F8BE4;
+            border: 1px solid #4f8be4;
         }
     }
-    
 }

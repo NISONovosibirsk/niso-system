@@ -6,4 +6,11 @@
     grid-template-areas:
         'searchbar button'
         'handbookList handbookList';
+
+    &__list {
+        grid-area: handbookList;
+        list-style: none;
+        padding: 0;
+        margin: 54px 0 0 0;
+    }
 }
