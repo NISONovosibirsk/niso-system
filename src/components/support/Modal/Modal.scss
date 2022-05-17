@@ -7,6 +7,7 @@
     left: 0;
     display: none;
     background: none;
+    z-index: 999999999;
 
     &_active {
         display: block;
@@ -27,11 +28,14 @@
             display: grid;
             grid-template-columns: 170px 40px;
         }
+
+        &_filter {
+            width: 300px;
+        }
     }
 
     &__item {
         background: #fff;
-        height: 40px;
 
         &:hover {
             border-radius: 8px 8px 0 0;
@@ -49,7 +53,28 @@
             }
         }
 
+        &_active {
+            border-radius: 8px 8px 0 0;
+            background: #4f8be4;
+            filter: drop-shadow(0 -4px 2px rgba(42, 83, 145, 0.15));
+
+            & .modal__button {
+                color: #fff;
+            }
+
+            & + .modal__item {
+                background: #4f8be4;
+
+                & .modal__button {
+                    background: #fff;
+                    border-radius: 8px 8px 0 0;
+                    filter: drop-shadow(0 -4px 1px rgba(42, 83, 145, 0.15));
+                }
+            }
+        }
+
         &_report-create-item {
+            height: 40px;
             &:hover {
                 border-radius: 8px 0 0 8px;
                 filter: drop-shadow(-4px 0 2px rgba(42, 83, 145, 0.15));
@@ -63,11 +88,28 @@
                 }
             }
         }
+
+        &_filter {
+            &:first-child {
+                &:hover {
+                    background: white;
+                    filter: none;
+
+                    & + .modal__item {
+                        background: white;
+
+                        & .modal__button {
+                            filter: none;
+                        }
+                    }
+                }
+            }
+        }
     }
 
     &__button {
         cursor: pointer;
-        width: 240px;
+        width: 100%;
         height: 40px;
         border: none;
         background: none;

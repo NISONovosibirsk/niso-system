@@ -8,9 +8,9 @@ import {
     UPDATE_CREATE_SUBTITLE,
     UPDATE_CREATE_TITLE,
     UPDATE_ELEMENTS,
-    UPDATE_FILTER_ACCESS,
-    UPDATE_FILTER_CHARS,
-    UPDATE_FILTER_TABS,
+    UPDATE_SEARCH_LIST,
+    UPDATE_SEARCH_CHARS,
+    UPDATE_SEARCH_TABS,
     UPDATE_POPUP_FILTER_CHARS,
     UPDATE_REPORTS,
     UPDATE_TARGET_REPORT,
@@ -116,27 +116,27 @@ export const updatePopupFilterChars = filterChars => {
     }
 };
 
-//FILTER
+//SEARCH
 
-export const updateFilterChars = filterChars => {
+export const updateSearchChars = searchChars => {
     try {
-        return { type: UPDATE_FILTER_CHARS, payload: filterChars };
+        return { type: UPDATE_SEARCH_CHARS, payload: searchChars };
     } catch (error) {
         console.log(error);
     }
 };
 
-export const updateFilterAccess = filterAccess => {
+export const updateSearchList = searchList => {
     try {
-        return { type: UPDATE_FILTER_ACCESS, payload: filterAccess };
+        return { type: UPDATE_SEARCH_LIST, payload: searchList };
     } catch (error) {
         console.log(error);
     }
 };
 
-export const updateFilterTabs = filterTabs => {
+export const updateSearchTabs = searchTabs => {
     try {
-        return { type: UPDATE_FILTER_TABS, payload: filterTabs };
+        return { type: UPDATE_SEARCH_TABS, payload: searchTabs };
     } catch (error) {
         console.log(error);
     }

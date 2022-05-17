@@ -1,9 +1,9 @@
 import { useDispatch } from 'react-redux';
 import { useTypeSelector } from '../../../../../../../hooks/useTypeSelector';
-import { updateFilterTabs } from '../../../../../../../store/actions/userConstrucorActions';
+import { updateSearchTabs } from '../../../../../../../store/actions/userConstrucorActions';
 import './ReportsFilterTabs.scss';
 const ReportsFilterTabs = () => {
-    const { tabs } = useTypeSelector(state => state.userConstructor.filter);
+    const { tabs } = useTypeSelector(state => state.userConstructor.search);
     const dispatch = useDispatch();
 
     const handleClick = e => {
@@ -15,7 +15,7 @@ const ReportsFilterTabs = () => {
         }
         newTabs[id] = true;
 
-        dispatch(updateFilterTabs(newTabs));
+        dispatch(updateSearchTabs(newTabs));
     };
 
     return (
