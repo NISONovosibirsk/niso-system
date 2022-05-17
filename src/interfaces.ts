@@ -155,4 +155,7 @@ export interface IUserHandbookState {
         newNotes: any;
     };
     filter: any;
-}
+    isValid: boolean;
+    placeholderError: string;
+    valueError: string;
+}   

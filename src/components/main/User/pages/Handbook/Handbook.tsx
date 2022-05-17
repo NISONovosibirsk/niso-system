@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux';
+import { useTypeSelector } from '../../../../../hooks/useTypeSelector';
 import { setHandbookPopup } from '../../../../../store/actions/userHandbookActions';
 import { Button } from '../../../../support';
 import CreateHandbookNote from './CreateHandbookNote/CreateHandbookNote';
@@ -7,6 +8,7 @@ import HandbookNoteItem from './HandbookNoteItem/HandbookNoteItem';
 import HandbookSearchbar from './HandbookSearchbar/HandbookSearchbar';
 
 const Handbook = () => {
+    const { notes } = useTypeSelector(state => state.userHandbook);
     const dispatch = useDispatch();
 
     const handlePopup = () => {
@@ -24,7 +26,9 @@ const Handbook = () => {
                 title={'Добавить значение'}
             />
             <ul className='user-handbook__list'>
-                <HandbookNoteItem />
+                {notes.map((note, index) => (
+                    <HandbookNoteItem key={index} note={note} index={index}/>
+                ))}
             </ul>
             <CreateHandbookNote />
         </section>

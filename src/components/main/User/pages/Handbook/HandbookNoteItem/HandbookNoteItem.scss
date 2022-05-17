@@ -4,15 +4,22 @@
     align-items: center;
 
     &__placeholder {
+        min-width: 340px;
         margin: 0 130px 0 0;
         font-weight: 400;
         font-size: 16px;
     }
 
     &__value {
+        min-width: 70px;
+        text-align: center;
         box-sizing: border-box;
         border: 1px solid #4F8BE4;
         border-radius: 5px;
         padding: 3px 16px 2px 16px;
+    }
+
+    &__button {
+        cursor: pointer;
     }
 }

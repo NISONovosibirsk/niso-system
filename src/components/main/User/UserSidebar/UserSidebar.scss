@@ -22,13 +22,16 @@
     }
 
     &__caption {
-        color: #EFEFEF;
+        color: #efefef;
         font-weight: 400;
         font-size: 12px;
         line-height: 12.19px;
     }
 
     &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
         grid-row: 2 / 3;
         list-style: none;
         padding: 0 {

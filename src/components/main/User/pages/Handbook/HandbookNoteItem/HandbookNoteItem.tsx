@@ -1,17 +1,34 @@
+import { useDispatch } from 'react-redux';
 import { EditIcon, TrashIcon } from '../../../../../../assets';
-import './HandbookNoteItem.scss'
+import { useTypeSelector } from '../../../../../../hooks/useTypeSelector';
+import { setHandbookNote } from '../../../../../../store/actions/userHandbookActions';
+import './HandbookNoteItem.scss';
 
-const HandbookNoteItem = () => {
+const HandbookNoteItem = ({ note, index }) => {
+    const { notes } = useTypeSelector(state => state.userHandbook);
+    const dispatch = useDispatch();
+
+    const handleEdit = () => {
+        
+    };
+
+    const handleDelete = () => {
+        const editNotes = [...notes];
+        editNotes.splice(index, 1);
+        dispatch(setHandbookNote(editNotes));
+    };
+
     return (
         <li className='handbook-item'>
-            <p className='handbook-item__placeholder'>1. Коэфициент успеваемости</p>
-            <div className='handbook-item__value'>
-                0.5
-            </div>
-            <EditIcon className='handbook-item__edit'/>
-            <TrashIcon className='handbook-item__delete'/>
+            <p className='handbook-item__placeholder'>{note.placeholder}</p>
+            <p className='handbook-item__value'>{note.value}</p>
+            <EditIcon className='handbook-item__button' />
+            <TrashIcon
+                className='handbook-item__button'
+                onClick={handleDelete}
+            />
         </li>
-    )
-}
+    );
+};
 
 export default HandbookNoteItem;
