@@ -1,4 +1,3 @@
-import { useFormContext } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { useTypeSelector } from '../../../../../../hooks/useTypeSelector';
 import {
@@ -59,7 +58,7 @@ const HandbookForm = ({ index }) => {
     return (
         <li className='handbook-form'>
             <input
-                // className='handbook-form__placeholder'
+
                 className={`handbook-form__placeholder ${
                     placeholderError ? 'handbook-form__placeholder-invalid' : ''
                 }`}

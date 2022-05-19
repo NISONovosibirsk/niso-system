@@ -19,19 +19,15 @@
         font-size: 11px;
         line-height: 12px;
         font-weight: 400;
+
+        &-invalid {
+            border-bottom: 1px solid red !important;
+        }
     }
 
     &__input:focus {
         outline: none;
         border-bottom: 1px solid #4f8be4;
-    }
-
-    &_invalid {
-        border-bottom: 1px solid red;
-    }
-
-    &_invalid:focus {
-        border-bottom: 1px solid red;
     }
 
     &__label {

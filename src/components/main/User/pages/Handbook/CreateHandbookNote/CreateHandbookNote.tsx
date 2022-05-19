@@ -21,7 +21,7 @@ const CreateHandbookNote = () => {
     const handleAddInput = e => {
         e.preventDefault();
         const newState = [...createNote.newNotes];
-        newState.push({ placeholder: '', value: '' });
+        newState.push({ placeholder: '', value: '', isEdit: false });
         dispatch(setNewHandbookNote(newState));
     };
 
@@ -44,8 +44,7 @@ const CreateHandbookNote = () => {
                         <HandbookForm key={index} index={index} />
                     ))}
                     <span className='handbook-popup__error'>
-                        {valueError ||
-                            (placeholderError && '**Заполните пустые поля')}
+                        {valueError || placeholderError}
                     </span>
                 </ul>
                 <button

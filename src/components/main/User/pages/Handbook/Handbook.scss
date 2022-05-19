@@ -12,5 +12,14 @@
         list-style: none;
         padding: 0;
         margin: 54px 0 0 0;
+        display: grid;
+        gap: 20px;
+    }
+
+    &__error {
+        justify-self: start;
+        color: red;
+        font-style: italic;
+        font-size: 14px;
     }
 }

@@ -7,6 +7,7 @@ import {
     SET_IS_VALID,
     UPDATE_PLACEHOLDER_ERROR,
     UPDATE_VALUE_ERROR,
+    SET_IS_EDIT,
 } from '../reduxTypes/userHandbookTypes';
 
 export const setHandbookPopup = status => {
@@ -68,6 +69,14 @@ export const updatePlaceholderError = error => {
 export const updateValueError = error => {
     try {
         return { type: UPDATE_VALUE_ERROR, payload: error };
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const setIsEdit = status => {
+    try {
+        return { type: SET_IS_EDIT, payload: status };
     } catch (error) {
         console.log(error);
     }

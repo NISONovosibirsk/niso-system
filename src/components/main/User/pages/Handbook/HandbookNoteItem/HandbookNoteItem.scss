@@ -1,5 +1,18 @@
 .handbook-item {
-    display: flex;
+
+    @keyframes handbook-item {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    animation: 0.5s handbook-item ease;
+
+    display: grid;
+    grid-template-columns: 40% 10% repeat(2, 3%);
     gap: 20px;
     align-items: center;
 
@@ -8,6 +21,12 @@
         margin: 0 130px 0 0;
         font-weight: 400;
         font-size: 16px;
+        background: #f5f7fb;
+        height: 25px;
+        border-radius: 10px;
+        padding: 0 3%;
+        display: flex;
+        align-items: center;
     }
 
     &__value {
@@ -17,9 +36,19 @@
         border: 1px solid #4F8BE4;
         border-radius: 5px;
         padding: 3px 16px 2px 16px;
+        margin: 0;
     }
 
     &__button {
+        justify-self: center;
         cursor: pointer;
+
+        &:hover {
+            fill: #4F8BE4;
+        }
+
+        &:active {
+            filter: none;
+        }
     }
 }
