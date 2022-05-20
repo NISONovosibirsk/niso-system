@@ -29,9 +29,10 @@
     }
 
     &__list {
+        overflow-y: auto;
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 25px;
         grid-row: 2 / 3;
         list-style: none;
         padding: 0 {
@@ -61,6 +62,7 @@
         color: white;
         padding: {
             left: 2.5vw;
+            top: 4vh;
         }
         font-size: 0.75rem;
     }

@@ -23,27 +23,42 @@ const User = () => {
         },
         {
             path: 'ofs',
-            text: 'ОФС',
+            text: 'Общая информация для пользователей',
             icon: <OfsIcon />,
         },
         {
-            path: 'reglaments',
-            text: 'Регламенты',
+            path: 'constructor',
+            text: 'Оценочные процедуры',
             icon: <ConstructorIcon />,
         },
         {
             path: 'handbook',
-            text: 'Справочник',
+            text: 'Методические материалы',
             icon: <HandbookIcon />,
         },
         {
             path: 'reports',
-            text: 'Отчеты',
+            text: 'Результаты оценочных процедур',
+            icon: <ReportsIcon />,
+        },
+        {
+            path: 'regulators',
+            text: 'Нормативные регуляторы',
+            icon: <ReportsIcon />,
+        },
+        {
+            path: 'organizer',
+            text: 'Органайзер руководителя',
+            icon: <ReportsIcon />,
+        },
+        {
+            path: 'files',
+            text: 'Файлообменник',
             icon: <ReportsIcon />,
         },
         {
             path: 'communications',
-            text: 'Коммуникации',
+            text: 'Вопрос/Ответ',
             icon: <CommunicationsIcon />,
         },
         {
@@ -61,27 +76,42 @@ const User = () => {
         },
         {
             path: 'ofs',
-            text: 'ОФС',
+            text: 'Общая информация для пользователей',
             icon: <OfsIcon />,
         },
         {
             path: 'constructor',
-            text: 'Конструктор',
+            text: 'Оценочные процедуры',
             icon: <ConstructorIcon />,
         },
         {
             path: 'handbook',
-            text: 'Справочник',
+            text: 'Методические материалы',
             icon: <HandbookIcon />,
         },
         {
             path: 'reports',
-            text: 'Отчеты',
+            text: 'Результаты оценочных процедур',
+            icon: <ReportsIcon />,
+        },
+        {
+            path: 'regulators',
+            text: 'Нормативные регуляторы',
+            icon: <ReportsIcon />,
+        },
+        {
+            path: 'organizer',
+            text: 'Органайзер руководителя',
+            icon: <ReportsIcon />,
+        },
+        {
+            path: 'files',
+            text: 'Файлообменник',
             icon: <ReportsIcon />,
         },
         {
             path: 'communications',
-            text: 'Коммуникации',
+            text: 'Вопрос/Ответ',
             icon: <CommunicationsIcon />,
         },
         {
