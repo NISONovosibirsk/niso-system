@@ -7,7 +7,7 @@
     transition: color linear 0.2s, background linear 0.2s;
 
     svg {
-        width: 44px;
+        min-width: 44px;
         margin: auto 0;
         transition: fill linear 0.2s;
     }
@@ -21,7 +21,7 @@
 
         .sidebar-item__text {
             color: #1c1d20;
-            font-weight: 700;
+            font-weight: 600;
         }
     }
 
@@ -32,12 +32,13 @@
     }
 
     &__text {
+        padding: 0 4px;
         margin: auto 0;
         color: white;
-        font-weight: 600;
-        font-size: 17px;
+        font-weight: 100;
+        font-size: 14px;
         line-height: 23px;
         opacity: 0.8;
-        transition: color linear 0.2s, font-weight linear 0.2s;
+        letter-spacing: 0.1ex;
     }
 }

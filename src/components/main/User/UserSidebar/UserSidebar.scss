@@ -3,7 +3,7 @@
     z-index: 999;
     // width: 268px;
     width: 20vw;
-    min-width: 240px;
+    min-width: 300px;
     position: fixed;
     display: grid;
     height: 100vh;
@@ -32,7 +32,7 @@
         overflow-y: auto;
         display: flex;
         flex-direction: column;
-        gap: 25px;
+        gap: 4px;
         grid-row: 2 / 3;
         list-style: none;
         padding: 0 {
