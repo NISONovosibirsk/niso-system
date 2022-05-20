@@ -17,7 +17,10 @@ const initialState: IUserHandbookState = {
         isActive: false,
         newNotes: [{ placeholder: '', value: '', isEdit: false }],
     },
-    filter: {},
+    filter: {
+        chars: '',
+        results: [],
+    },
     isEdit: false,
     isValid: false,
     placeholderError: '',

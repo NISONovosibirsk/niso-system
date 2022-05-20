@@ -6,7 +6,7 @@ import CreateHandbookNote from './CreateHandbookNote/CreateHandbookNote';
 import './Handbook.scss';
 import HandbookEditForm from './HandbookEditForm/HandbookEditForm';
 import HandbookNoteItem from './HandbookNoteItem/HandbookNoteItem';
-import HandbookSearchbar from './HandbookSearchbar/HandbookSearchbar';
+import HandbookSearch from './HandbookSearch/HandbookSearch';
 
 const Handbook = () => {
     const { notes, placeholderError, valueError, isEdit } = useTypeSelector(
@@ -20,8 +20,8 @@ const Handbook = () => {
 
     return (
         <section className='user-handbook'>
-            {/* <HandbookSearchbar /> */}
-            <Search width={'80%'} height={'48px'} store={notes} placeholder={'Поиск...'}/>
+
+            <HandbookSearch />
             <Button
                 onClick={handlePopup}
                 height='45px'

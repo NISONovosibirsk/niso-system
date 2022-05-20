@@ -154,15 +154,12 @@ export interface IUserHandbookState {
         isActive: boolean;
         newNotes: any;
     };
-    filter: any;
+    filter: {
+        chars: string;
+        results: any;
+    };
     isValid: boolean;
     isEdit: boolean;
     placeholderError: string;
     valueError: string;
-}
-
-// Search
-export interface ISearchState {
-    chars: string;
-    results: [];
 }
