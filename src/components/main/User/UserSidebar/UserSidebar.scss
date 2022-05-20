@@ -1,7 +1,6 @@
 .user-sidebar {
     grid-area: userSidebar;
     z-index: 999;
-    // width: 268px;
     width: 20vw;
     min-width: 300px;
     position: fixed;
@@ -12,13 +11,11 @@
     border-radius: 0 40px 40px 0;
 
     &__logo {
-        grid-row: 1 / 2;
         padding: {
-            left: 3vw;
+            left: 24px;
+            right: 32px;
         }
         align-self: center;
-        max-width: 15vw;
-        fill: white;
     }
 
     &__caption {

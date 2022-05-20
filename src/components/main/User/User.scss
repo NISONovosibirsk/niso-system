@@ -1,6 +1,6 @@
 .user {
     display: grid;
-    grid-template: 12vh auto / 20vw 80vw;
+    grid-template: 12vh auto / minmax(300px, 20vw) 80vw;
     grid-template-areas:
         'userSidebar userHeader'
         'userSidebar userContent';
