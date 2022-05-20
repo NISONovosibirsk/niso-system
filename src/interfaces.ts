@@ -160,3 +160,9 @@ export interface IUserHandbookState {
     placeholderError: string;
     valueError: string;
 }
+
+// Search
+export interface ISearchState {
+    chars: string;
+    results: [];
+}

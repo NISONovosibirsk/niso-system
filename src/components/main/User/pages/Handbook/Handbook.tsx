@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useTypeSelector } from '../../../../../hooks/useTypeSelector';
 import { setHandbookPopup } from '../../../../../store/actions/userHandbookActions';
-import { Button } from '../../../../support';
+import { Button, Search } from '../../../../support';
 import CreateHandbookNote from './CreateHandbookNote/CreateHandbookNote';
 import './Handbook.scss';
 import HandbookEditForm from './HandbookEditForm/HandbookEditForm';
@@ -20,7 +20,8 @@ const Handbook = () => {
 
     return (
         <section className='user-handbook'>
-            <HandbookSearchbar />
+            {/* <HandbookSearchbar /> */}
+            <Search width={'80%'} height={'48px'} store={notes} placeholder={'Поиск...'}/>
             <Button
                 onClick={handlePopup}
                 height='45px'
