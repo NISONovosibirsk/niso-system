@@ -158,4 +158,21 @@ export interface IUserHandbookState {
     isValid: boolean;
     placeholderError: string;
     valueError: string;
-}   
+}
+
+//ListEI
+
+// export interface IUserListEI {
+//     search: {
+//         chars: string;
+//         filter: {
+//             list: [
+//                 {
+//                     title: string;
+//                     options: string[];
+//                     picked: string[];
+//                 }
+//             ];
+//         };
+//     };
+// }
