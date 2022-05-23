@@ -33,8 +33,7 @@ const initialState = {
             ],
         },
     },
-    filtredList: [],
-    list: [
+    cards: [
         {
             type: 'ДО',
             district: 'Дзержинский',
@@ -54,7 +53,7 @@ const initialState = {
         },
         {
             type: 'ДОУ',
-            district: 'Калининский ',
+            district: 'Калининский',
             name: 'МКДОУ д/сад № 2',
             fullname:
                 'муниципальное казенное дошкольное образовательное учреждение города Новосибирска "Детский сад № 2" ',
