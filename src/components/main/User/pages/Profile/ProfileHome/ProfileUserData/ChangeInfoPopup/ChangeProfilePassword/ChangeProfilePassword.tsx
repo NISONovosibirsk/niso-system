@@ -1,4 +1,4 @@
-import { FormProvider, useForm } from 'react-hook-form';
+import { FormProvider, useForm, useFormContext } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import {
     setOpenStatus,
@@ -9,8 +9,14 @@ import { resetPopup } from '../../../../../../../../../store/actions/userProfile
 import ChangePasswordInputs from './ChangePasswordInputs';
 
 const ChangeProfilePassword = () => {
-    const methods = useForm({ mode: 'onChange' });
+
+    const {
+        formState: { isValid },
+        handleSubmit,
+    } = useFormContext();
+
     const dispatch = useDispatch();
+
     const onSubmit = data => {
         console.log(JSON.stringify(data));
         try {
@@ -25,20 +31,18 @@ const ChangeProfilePassword = () => {
     };
 
     return (
-        <FormProvider {...methods}>
             <form
                 className='user-data-edit'
-                onSubmit={methods.handleSubmit(onSubmit)}
+                onSubmit={handleSubmit(onSubmit)}
             >
                 <p className='user-data-edit__header'>Изменение пароля</p>
                 <ChangePasswordInputs />
                 <input
                     className='user-data-edit__button'
                     type='submit'
-                    disabled={!methods.formState.isValid}
+                    disabled={!isValid}
                 />
             </form>
-        </FormProvider>
     );
 };
 
