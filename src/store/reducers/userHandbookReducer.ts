@@ -9,6 +9,7 @@ import {
     UPDATE_PLACEHOLDER_ERROR,
     UPDATE_VALUE_ERROR,
     SET_IS_EDIT,
+    UPDATE_HANDBOOK_FILTER,
 } from '../reduxTypes/userHandbookTypes';
 
 const initialState: IUserHandbookState = {
@@ -19,7 +20,7 @@ const initialState: IUserHandbookState = {
     },
     filter: {
         chars: '',
-        results: [],
+        error: '',
     },
     isEdit: false,
     isValid: false,
@@ -87,6 +88,11 @@ export const userHandbookReducer = (
             return {
                 ...state,
                 isEdit: action.payload,
+            };
+        case UPDATE_HANDBOOK_FILTER:
+            return {
+                ...state,
+                filter: action.payload,
             };
         default:
             return state;

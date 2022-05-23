@@ -24,7 +24,7 @@ const UserHeader = () => {
         },
         {
             path: 'handbook',
-            title: 'Справочник',
+            title: 'Методические материалы',
         },
     ];
 

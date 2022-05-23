@@ -9,18 +9,20 @@ import HandbookNoteItem from './HandbookNoteItem/HandbookNoteItem';
 import HandbookSearch from './HandbookSearch/HandbookSearch';
 
 const Handbook = () => {
-    const { notes, placeholderError, valueError, isEdit } = useTypeSelector(
-        state => state.userHandbook
-    );
+    const { notes, placeholderError, valueError, isEdit, filter } =
+        useTypeSelector(state => state.userHandbook);
     const dispatch = useDispatch();
 
     const handlePopup = () => {
         dispatch(setHandbookPopup(true));
     };
 
+    const filteredNoteList = notes.filter(note =>
+        JSON.stringify(note).toLowerCase().includes(filter.chars.toLowerCase())
+    );
+
     return (
         <section className='user-handbook'>
-
             <HandbookSearch />
             <Button
                 onClick={handlePopup}
@@ -30,8 +32,9 @@ const Handbook = () => {
                 title={'Добавить значение'}
                 isDisabled={isEdit}
             />
+            <span className='user-handbook__error'>{filter.error}</span>
             <ul className='user-handbook__list'>
-                {notes.map((note, index) =>
+                {filteredNoteList.map((note, index) =>
                     note.isEdit ? (
                         <HandbookEditForm
                             note={note}

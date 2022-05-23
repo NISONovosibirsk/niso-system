@@ -156,7 +156,7 @@ export interface IUserHandbookState {
     };
     filter: {
         chars: string;
-        results: any;
+        error: string;
     };
     isValid: boolean;
     isEdit: boolean;
