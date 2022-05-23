@@ -1,12 +1,12 @@
-import { useForm, useFormContext } from 'react-hook-form';
+import { useFormContext } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { useTypeSelector } from '../../../../../../../../hooks/useTypeSelector';
+import { useTypeSelector } from '../../../../../../../../../hooks/useTypeSelector';
 import {
     setOpenStatus,
     updateStatusCode,
     updateStatusText,
-} from '../../../../../../../../store/actions/statusPopupActions';
-import { resetPopup } from '../../../../../../../../store/actions/userProfileActions';
+} from '../../../../../../../../../store/actions/statusPopupActions';
+import { resetPopup } from '../../../../../../../../../store/actions/userProfileActions';
 
 const ChangeProfilePhone = () => {
     const { profile } = useTypeSelector(state => state.userProfile);
@@ -70,9 +70,12 @@ const ChangeProfilePhone = () => {
                 />
             </div>
 
-            <div className='user-data-edit__error'>
+            {/* <div className='user-data-edit__error'>
                 {errors.phone && <p>{errors.phone.message}</p>}
-            </div>
+            </div> */}
+            <span className='user-data-edit__error'>
+                {errors.phone && errors.phone.message}
+            </span>
             <input
                 className='user-data-edit__button'
                 type='submit'
