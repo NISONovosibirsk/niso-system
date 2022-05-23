@@ -154,8 +154,12 @@ export interface IUserHandbookState {
         isActive: boolean;
         newNotes: any;
     };
-    filter: any;
+    filter: {
+        chars: string;
+        error: string;
+    };
     isValid: boolean;
+    isEdit: boolean;
     placeholderError: string;
     valueError: string;
 }

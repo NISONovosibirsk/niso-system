@@ -47,7 +47,9 @@ const ChangePasswordInputs = () => {
                                 </p>
                                 <input
                                     type={form.type}
-                                    className='user-data-edit__input'
+                                    className={`user-data-edit__input ${
+                                        errors[form.field] ? 'user-data-edit__input-invalid' : ''
+                                    }`}
                                     {...register(form.field, confirmSchema)}
                                 />
                             </div>
@@ -65,7 +67,9 @@ const ChangePasswordInputs = () => {
                                 </p>
                                 <input
                                     type={form.type}
-                                    className='user-data-edit__input'
+                                    className={`user-data-edit__input ${
+                                        errors[form.field] ? 'user-data-edit__input-invalid' : ''
+                                    }`}
                                     {...register(form.field, validations)}
                                 />
                             </div>

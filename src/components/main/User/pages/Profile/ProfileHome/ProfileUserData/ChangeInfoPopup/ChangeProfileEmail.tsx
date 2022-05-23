@@ -1,4 +1,4 @@
-import { useForm } from 'react-hook-form';
+import { useForm, useFormContext } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { useTypeSelector } from '../../../../../../../../hooks/useTypeSelector';
 import { setOpenStatus, updateStatusCode, updateStatusText } from '../../../../../../../../store/actions/statusPopupActions';
@@ -12,7 +12,7 @@ const ChangeProfileEmail = () => {
         register,
         formState: { errors, isValid },
         handleSubmit,
-    } = useForm({ mode: 'onChange' });
+    } = useFormContext();
 
     const onSubmit = data => {
         console.log(JSON.stringify(data));
@@ -62,8 +62,8 @@ const ChangeProfileEmail = () => {
 
             <div className='user-data-edit__field'>
                 <input
-                    className={`user-data-edit__input${
-                        isValid ? '' : ' user-data-edit_invalid'
+                    className={`user-data-edit__input ${
+                        errors.email ? 'user-data-edit__input-invalid' : ''
                     }`}
                     defaultValue={handleDefault()}
                     {...register('email', validations)}

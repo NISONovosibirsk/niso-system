@@ -1,4 +1,4 @@
-import { useForm } from 'react-hook-form';
+import { useForm, useFormContext } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { useTypeSelector } from '../../../../../../../../hooks/useTypeSelector';
 import {
@@ -16,7 +16,7 @@ const ChangeProfilePhone = () => {
         register,
         formState: { errors, isValid },
         handleSubmit,
-    } = useForm({ mode: 'onChange' });
+    } = useFormContext();
 
     const onSubmit = data => {
         console.log(JSON.stringify(data));
@@ -62,8 +62,8 @@ const ChangeProfilePhone = () => {
             <p className='user-data-edit__header'>Изменение номера телефона</p>
             <div className='user-data-edit__field'>
                 <input
-                    className={`user-data-edit__input${
-                        isValid ? '' : ' user-data-edit_invalid'
+                    className={`user-data-edit__input ${
+                        errors.phone ? 'user-data-edit__input-invalid' : ''
                     }`}
                     defaultValue={handleDefault()}
                     {...register('phone', validations)}
