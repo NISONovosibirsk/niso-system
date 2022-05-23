@@ -10,8 +10,6 @@ const ListEI = () => {
         search: { chars, filter },
     } = useTypeSelector(state => state.userListEI);
 
-    console.log(listEIFilter(cards, chars, filter));
-
     return (
         <section className='list-ei'>
             <ListEISearchbar />
