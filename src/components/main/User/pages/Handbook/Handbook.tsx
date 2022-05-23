@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useTypeSelector } from '../../../../../hooks/useTypeSelector';
 import { setHandbookPopup } from '../../../../../store/actions/userHandbookActions';
-import { Button, Search } from '../../../../support';
+import { Button } from '../../../../support';
 import CreateHandbookNote from './CreateHandbookNote/CreateHandbookNote';
 import './Handbook.scss';
 import HandbookEditForm from './HandbookEditForm/HandbookEditForm';
@@ -50,7 +50,7 @@ const Handbook = () => {
                     )
                 )}
                 <span className='user-handbook__error'>
-                    {valueError || placeholderError}
+                    {isEdit ? valueError || placeholderError : ''}
                 </span>
             </ul>
             <CreateHandbookNote />

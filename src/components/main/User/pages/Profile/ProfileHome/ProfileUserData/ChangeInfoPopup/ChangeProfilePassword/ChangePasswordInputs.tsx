@@ -1,4 +1,5 @@
 import { useFormContext } from 'react-hook-form';
+import './ChangePassword.scss'
 
 const ChangePasswordInputs = () => {
     const forms = [
@@ -48,16 +49,17 @@ const ChangePasswordInputs = () => {
                                 <input
                                     type={form.type}
                                     className={`user-data-edit__input ${
-                                        errors[form.field] ? 'user-data-edit__input-invalid' : ''
+                                        errors[form.field]
+                                            ? 'user-data-edit__input-invalid'
+                                            : ''
                                     }`}
                                     {...register(form.field, confirmSchema)}
                                 />
                             </div>
-                            <div className='user-data-edit__error'>
-                                {errors[form.field] && (
-                                    <p>{errors[form.field].message}</p>
-                                )}
-                            </div>
+                            <span className='user-data-edit__error'>
+                                {errors[form.field] &&
+                                    errors[form.field].message}
+                            </span>
                         </>
                     ) : (
                         <>
@@ -68,16 +70,17 @@ const ChangePasswordInputs = () => {
                                 <input
                                     type={form.type}
                                     className={`user-data-edit__input ${
-                                        errors[form.field] ? 'user-data-edit__input-invalid' : ''
+                                        errors[form.field]
+                                            ? 'user-data-edit__input-invalid'
+                                            : ''
                                     }`}
                                     {...register(form.field, validations)}
                                 />
                             </div>
-                            <div className='user-data-edit__error'>
-                                {errors[form.field] && (
-                                    <p>{errors[form.field].message}</p>
-                                )}
-                            </div>
+                            <span className='user-data-edit__error'>
+                                {errors[form.field] &&
+                                    errors[form.field].message}
+                            </span>
                         </>
                     )}
                 </>

@@ -3,8 +3,8 @@ import { useTypeSelector } from '../../../../../../../../hooks/useTypeSelector';
 import { Popup } from '../../../../../../../support';
 import './ChangeInfoPopup.scss';
 import ChangeProfilePassword from './ChangeProfilePassword/ChangeProfilePassword';
-import ChangeProfileEmail from './ChangeProfileEmail';
-import ChangeProfilePhone from './ChangeProfilePhone';
+import ChangeProfileEmail from './ChangeProfileData/ChangeProfileEmail';
+import ChangeProfilePhone from './ChangeProfileData/ChangeProfilePhone';
 import { updatePopup } from '../../../../../../../../store/actions/userProfileActions';
 import { FormProvider, useForm } from 'react-hook-form';
 
