@@ -1,19 +1,15 @@
-import { useDispatch } from 'react-redux';
-import { useTypeSelector } from '../../../../../../../hooks/useTypeSelector';
-import { updateSearchList } from '../../../../../../../store/actions/userConstrucorActions';
-import Modal from '../../../../../../support/Modal/Modal';
+import Modal from '../../support/Modal/Modal';
 import './FilterModal.scss';
 
 const FilterModal = ({
     onClose,
     isOpen,
     position,
-    onSecondModalOpen,
+    filter,
     secondModalIndex,
+    onSecondModalOpen,
+    onUpdateSearchList,
 }) => {
-    const { filter } = useTypeSelector(state => state.userConstructor.search);
-    const dispatch = useDispatch();
-
     const handleOpenSecondModal = (e, index) => {
         const elementPosition = e.target.getBoundingClientRect();
 
@@ -34,7 +30,7 @@ const FilterModal = ({
 
         newList[itemIndex].picked = newPicked;
 
-        dispatch(updateSearchList(newList));
+        onUpdateSearchList(newList);
     };
 
     return (

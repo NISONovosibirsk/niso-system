@@ -1,15 +1,15 @@
+import './ListEISearchbar.scss';
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useTypeSelector } from '../../../../../../../hooks/useTypeSelector';
+import { useTypeSelector } from '../../../../../../hooks/useTypeSelector';
 import {
     updateSearchChars,
     updateSearchList,
-} from '../../../../../../../store/actions/userConstrucorActions';
-import Modal from '../../../../../../support/Modal/Modal';
-import FilterModal from '../../../../../FilterModal/FilterModal';
-import './ReportsSearchbar.scss';
+} from '../../../../../../store/actions/userListEIActions';
+import Modal from '../../../../../support/Modal/Modal';
+import FilterModal from '../../../../FilterModal/FilterModal';
 
-const ReportsSearchbar = () => {
+const ListEISearchbar = () => {
     const [modalPosition, setModalPosition] = useState({ top: 0, left: 0 });
     const [scrollTop, setScrollTop] = useState(0);
     const [isOpen, setIsOpen] = useState(false);
@@ -21,9 +21,7 @@ const ReportsSearchbar = () => {
     });
     const [secondModalIndex, setSecondModalIndex] = useState(-1);
 
-    const { chars, filter } = useTypeSelector(
-        state => state.userConstructor.search
-    );
+    const { chars, filter } = useTypeSelector(state => state.userListEI.search);
     const dispatch = useDispatch();
     const filterRef = useRef<HTMLButtonElement>(null);
 
@@ -96,9 +94,9 @@ const ReportsSearchbar = () => {
     };
 
     return (
-        <div className='reports-searchbar'>
+        <div className='list-ei-searchbar'>
             <button
-                className='reports-searchbar__button'
+                className='list-ei-searchbar__button'
                 onClick={handleOpenModal}
                 ref={filterRef}
             >
@@ -133,7 +131,7 @@ const ReportsSearchbar = () => {
                 </Modal>
             )}
             <input
-                className='reports-searchbar__input'
+                className='list-ei-searchbar__input'
                 placeholder='Поиск...'
                 onChange={handleChange}
                 value={chars}
@@ -142,4 +140,4 @@ const ReportsSearchbar = () => {
     );
 };
 
-export default ReportsSearchbar;
+export default ListEISearchbar;

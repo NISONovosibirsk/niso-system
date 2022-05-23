@@ -11,6 +11,7 @@ export { default as User } from './User/User';
 export { default as FileUploader } from './User/pages/Profile/ProfileDocuments/FileUploader/FileUploader';
 
 export { default as DownloadTablePopup } from './DownloadTablePopup/DownloadTablePopup';
+export { default as FilterModal } from './FilterModal/FilterModal';
 
 export { default as NotFoundRoute } from './NotFoundRoute/NotFoundRoute';
 

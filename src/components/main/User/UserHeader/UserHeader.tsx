@@ -12,7 +12,7 @@ const UserHeader = () => {
     const routes = [
         {
             path: 'constructor',
-            title: 'Конструктор',
+            title: 'Оценочные процедуры',
         },
         {
             path: 'home',
@@ -25,6 +25,10 @@ const UserHeader = () => {
         {
             path: 'handbook',
             title: 'Методические материалы',
+        },
+        {
+            path: 'listEI',
+            title: 'Список образовательных учреждений',
         },
     ];
 
