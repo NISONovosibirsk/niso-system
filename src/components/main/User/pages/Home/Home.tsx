@@ -12,8 +12,7 @@ import ProfileReference from '../Profile/ProfileReference/ProfileReference';
 import './Home.scss';
 
 const Home = () => {
-
-    const {reference} = useTypeSelector(state=> state.userProfile);
+    const { reference } = useTypeSelector(state => state.userProfile);
     const dispatch = useDispatch();
 
     const handleReference = () => {
@@ -24,7 +23,7 @@ const Home = () => {
     };
 
     return (
-        <div className='user-home'>
+        <section className='user-home'>
             <ul className='user-home-list'>
                 <li className='user-home-card'>
                     <StaffIcon className='user-home-card__icon' />
@@ -47,9 +46,12 @@ const Home = () => {
                     <p className='user-home-card__count'>31 2</p>
                 </li>
             </ul>
-            <ReferenceIcon className='user-home__reference' onClick={handleReference}/>
+            <ReferenceIcon
+                className='user-home__reference'
+                onClick={handleReference}
+            />
             <ProfileReference />
-        </div>
+        </section>
     );
 };
 

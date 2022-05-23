@@ -62,9 +62,9 @@ const User = () => {
             icon: <CommunicationsIcon />,
         },
         {
-            path: 'staff',
-            text: 'Сотрудники',
-            icon: <StaffIcon />,
+            path: 'listEI',
+            text: 'Список образовательных учреждений',
+            icon: <ReportsIcon />,
         },
     ];
 
@@ -115,9 +115,9 @@ const User = () => {
             icon: <CommunicationsIcon />,
         },
         {
-            path: 'staff',
-            text: 'Сотрудники',
-            icon: <StaffIcon />,
+            path: 'listEI',
+            text: 'Список образовательных учреждений',
+            icon: <ReportsIcon />,
         },
     ];
 
