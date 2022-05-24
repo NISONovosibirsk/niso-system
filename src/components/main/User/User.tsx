@@ -36,6 +36,16 @@ const User = () => {
             icon: <ReportsIcon />,
         },
         {
+            path: 'ofs',
+            text: 'Профессиональная диагностика',
+            icon: <OfsIcon />,
+        },
+        {
+            path: 'ofs',
+            text: 'Результаты профессиональной диагностики',
+            icon: <OfsIcon />,
+        },
+        {
             path: 'handbook',
             text: 'Методические материалы (рекомендации, сборники, памятки)',
             icon: <HandbookIcon />,
@@ -77,6 +87,16 @@ const User = () => {
             path: 'reports',
             text: 'Результаты оценочных процедур (мониторингов)',
             icon: <ReportsIcon />,
+        },
+        {
+            path: 'ofs',
+            text: 'Профессиональная диагностика',
+            icon: <OfsIcon />,
+        },
+        {
+            path: 'ofs',
+            text: 'Результаты профессиональной диагностики',
+            icon: <OfsIcon />,
         },
         {
             path: 'handbook',
