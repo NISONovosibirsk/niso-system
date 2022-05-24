@@ -8,7 +8,6 @@ import {
     OfsIcon,
     CommunicationsIcon,
     ConstructorIcon,
-    StaffIcon,
     ReportsIcon,
 } from '../../../assets';
 
@@ -22,34 +21,24 @@ const User = () => {
             icon: <HomeIcon />,
         },
         {
-            path: 'ofs',
-            text: 'Общая информация для пользователей',
-            icon: <OfsIcon />,
-        },
-        {
-            path: 'constructor',
-            text: 'Оценочные процедуры',
-            icon: <ConstructorIcon />,
-        },
-        {
-            path: 'handbook',
-            text: 'Методические материалы',
-            icon: <HandbookIcon />,
-        },
-        {
-            path: 'reports',
-            text: 'Результаты оценочных процедур',
-            icon: <ReportsIcon />,
-        },
-        {
-            path: 'regulators',
-            text: 'Нормативные регуляторы',
-            icon: <ReportsIcon />,
-        },
-        {
             path: 'organizer',
             text: 'Органайзер руководителя',
             icon: <ReportsIcon />,
+        },
+        {
+            path: 'constructor',
+            text: 'Оценочные процедуры (мониторинги)',
+            icon: <ConstructorIcon />,
+        },
+        {
+            path: 'reports',
+            text: 'Результаты оценочных процедур (мониторингов)',
+            icon: <ReportsIcon />,
+        },
+        {
+            path: 'handbook',
+            text: 'Методические материалы (рекомендации, сборники, памятки)',
+            icon: <HandbookIcon />,
         },
         {
             path: 'files',
@@ -75,34 +64,24 @@ const User = () => {
             icon: <HomeIcon />,
         },
         {
-            path: 'ofs',
-            text: 'Общая информация для пользователей',
-            icon: <OfsIcon />,
-        },
-        {
-            path: 'constructor',
-            text: 'Оценочные процедуры',
-            icon: <ConstructorIcon />,
-        },
-        {
-            path: 'handbook',
-            text: 'Методические материалы',
-            icon: <HandbookIcon />,
-        },
-        {
-            path: 'reports',
-            text: 'Результаты оценочных процедур',
-            icon: <ReportsIcon />,
-        },
-        {
-            path: 'regulators',
-            text: 'Нормативные регуляторы',
-            icon: <ReportsIcon />,
-        },
-        {
             path: 'organizer',
             text: 'Органайзер руководителя',
             icon: <ReportsIcon />,
+        },
+        {
+            path: 'constructor',
+            text: 'Оценочные процедуры (мониторинги)',
+            icon: <ConstructorIcon />,
+        },
+        {
+            path: 'reports',
+            text: 'Результаты оценочных процедур (мониторингов)',
+            icon: <ReportsIcon />,
+        },
+        {
+            path: 'handbook',
+            text: 'Методические материалы (рекомендации, сборники, памятки)',
+            icon: <HandbookIcon />,
         },
         {
             path: 'files',
