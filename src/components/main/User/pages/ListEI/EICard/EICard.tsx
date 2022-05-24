@@ -1,13 +1,82 @@
+import { useState } from 'react';
 import './EICard.scss';
 
 const EICard = ({ ei }) => {
+    const [isHover, setIsHover] = useState(false);
+
+    const handleHover = () => setIsHover(!isHover);
+
     return (
-        <li className='ei-card'>
-            <p>Название: {ei.name}</p>
-            <p>Район: {ei.district}</p>
-            <p>Адресс: {ei.currentAddress}</p>
-            <p>ИНН: {ei.inn}</p>
-            <p>ОРГН: {ei.orgn}</p>
+        <li
+            className='ei-card'
+            onMouseEnter={handleHover}
+            onMouseLeave={handleHover}
+        >
+            {/* <p className='ei-card__text'>Название: {ei.name}</p>
+            <p className='ei-card__text'>Директор: {ei.director}</p>
+            <p className='ei-card__text'>Телефон: {ei.phoneNumber}</p>
+            <p className='ei-card__text'>Почта: {ei.email}</p> */}
+            {isHover ? (
+                <>
+                    <p className='ei-card__text'>
+                        <span className='ei-card__span'>Название: </span>
+                        {ei.name}
+                    </p>
+                    <p className='ei-card__text'>
+                        <span className='ei-card__span'>Полное название: </span>
+                        {ei.fullname}
+                    </p>
+                    <p className='ei-card__text'>
+                        <span className='ei-card__span'>ОГРН: </span>
+                        {ei.orgn}
+                    </p>
+                    <p className='ei-card__text'>
+                        <span className='ei-card__span'>ИНН: </span>
+                        {ei.inn}
+                    </p>
+                    <p className='ei-card__text'>
+                        <span className='ei-card__span'>КПП: </span>
+                        {ei.kpp}
+                    </p>
+                    <p className='ei-card__text'>
+                        <span className='ei-card__span'>Директор: </span>
+                        {ei.director}
+                    </p>
+                    <p className='ei-card__text'>
+                        <span className='ei-card__span'>
+                            Фактический адрес:{' '}
+                        </span>
+                        {ei.currentAddress}
+                    </p>
+                    <p className='ei-card__text'>
+                        <span className='ei-card__span'>Телефон: </span>
+                        {ei.phoneNumber}
+                    </p>
+                    <p className='ei-card__text'>
+                        <span className='ei-card__span'>Почта: </span>
+                        {ei.email}
+                    </p>
+                </>
+            ) : (
+                <>
+                    <p className='ei-card__text'>
+                        <span className='ei-card__span'>Название: </span>
+                        {ei.name}
+                    </p>
+                    <p className='ei-card__text'>
+                        <span className='ei-card__span'>Директор: </span>
+                        {ei.director}
+                    </p>
+                    <p className='ei-card__text'>
+                        <span className='ei-card__span'>Телефон: </span>
+                        {ei.phoneNumber}
+                    </p>
+                    <p className='ei-card__text'>
+                        <span className='ei-card__span'>Почта: </span>
+                        {ei.email}
+                    </p>
+                </>
+            )}
         </li>
     );
 };
