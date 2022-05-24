@@ -1,7 +1,10 @@
 .ei-card {
+    cursor: default;
     padding: 8px;
     background: #f5f7fb;
     border-radius: 8px;
+    display: grid;
+    gap: 8px;
 
     &:hover {
         background: linear-gradient(
@@ -11,5 +14,15 @@
         );
         box-shadow: 2px 4px 25px rgba(42, 83, 145, 0.4);
         color: #fff;
+        grid-row: 2 span;
+        // grid-column: 2 span;
+    }
+
+    &__text {
+        margin: 0;
+    }
+
+    &__span {
+        font-weight: 600;
     }
 }

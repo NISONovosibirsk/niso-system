@@ -117,8 +117,9 @@ const ListEISearchbar = () => {
                     isOpen={secondModalIsOpen}
                     position={secondModalPosition}
                 >
-                    {filter.list[secondModalIndex].options.map(
-                        (option, index) => (
+                    {filter.list[secondModalIndex].options
+                        .sort()
+                        .map((option, index) => (
                             <button
                                 className='modal__button'
                                 onClick={() => handleSecondModalClick(index)}
@@ -126,8 +127,7 @@ const ListEISearchbar = () => {
                             >
                                 {option}
                             </button>
-                        )
-                    )}
+                        ))}
                 </Modal>
             )}
             <input
