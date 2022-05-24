@@ -3,6 +3,12 @@ import SidebarItem from './SidebarItem/SidebarItem';
 import './UserSidebar.scss';
 
 const UserSidebar = ({ sidebarListData }) => {
+    const techSupport = {
+        path: 'support',
+        text: 'Техподдержка',
+        icon: '',
+    };
+
     return (
         <nav className='user-sidebar'>
             <div className='user-sidebar__logo'>
@@ -24,6 +30,7 @@ const UserSidebar = ({ sidebarListData }) => {
                 <p>Политика конфиденциальности</p>
                 <p>Все права защищены</p>
                 <button className='user-sidebar__support'></button>
+                <SidebarItem sidebarItemData={techSupport}/>
             </div>
         </nav>
     );

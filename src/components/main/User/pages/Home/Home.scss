@@ -21,29 +21,6 @@ $item-color-active: linear-gradient(
         grid-template-columns: repeat(auto-fit, 250px);
     }
 
-    &-card {
-        padding: 30px {
-            left: 27px;
-        }
-        font-weight: bold;
-        background: #f5f7fb;
-        border-radius: 8px;
-        height: 350px;
-        display: grid;
-        grid-template-rows: auto repeat(2, 15%);
-
-        &__icon {
-            padding-top: 170px;
-            fill: #4f8be4;
-            width: 5vw;
-            height: 5vh;
-        }
-
-        &__count {
-            font-size: 27px;
-        }
-    }
-
     &__reference {
         cursor: pointer;
         justify-self: center;

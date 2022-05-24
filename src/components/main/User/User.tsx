@@ -3,13 +3,10 @@ import './User.scss';
 import ProfileHeader from './UserHeader/UserHeader';
 import { Outlet } from 'react-router-dom';
 import {
-    HomeIcon,
-    HandbookIcon,
-    OfsIcon,
-    CommunicationsIcon,
-    ConstructorIcon,
-    StaffIcon,
-    ReportsIcon,
+    DiagnosticIcon,
+    DiagnosticResultsIcon,
+    FileShareIcon,
+    HomeIcon, InstitutionListIcon, MaterialsIcon, OrganizerIcon, ProceduresIcon, ProceduresResultsIcon, QAIcon,
 } from '../../../assets';
 
 const User = () => {
@@ -22,51 +19,52 @@ const User = () => {
             icon: <HomeIcon />,
         },
         {
-            path: 'ofs',
-            text: 'Общая информация для пользователей',
-            icon: <OfsIcon />,
+            path: 'organizer',
+            text: 'Органайзер руководителя',
+            icon: <OrganizerIcon />,
         },
         {
             path: 'constructor',
-            text: 'Оценочные процедуры',
-            icon: <ConstructorIcon />,
-        },
-        {
-            path: 'handbook',
-            text: 'Методические материалы',
-            icon: <HandbookIcon />,
+            text: 'Оценочные процедуры (мониторинги)',
+            icon: <ProceduresIcon />,
         },
         {
             path: 'reports',
-            text: 'Результаты оценочных процедур',
-            icon: <ReportsIcon />,
+            text: 'Результаты оценочных процедур (мониторингов)',
+            icon: <ProceduresResultsIcon />,
         },
         {
-            path: 'regulators',
-            text: 'Нормативные регуляторы',
-            icon: <ReportsIcon />,
+            path: 'ofs',
+            text: 'Профессиональная диагностика',
+            icon: <DiagnosticIcon />,
         },
         {
-            path: 'organizer',
-            text: 'Органайзер руководителя',
-            icon: <ReportsIcon />,
+            path: 'ofs',
+            text: 'Результаты профессиональной диагностики',
+            icon: <DiagnosticResultsIcon />,
+        },
+        {
+            path: 'handbook',
+            text: 'Методические материалы (рекомендации, сборники, памятки)',
+            icon: <MaterialsIcon />,
         },
         {
             path: 'files',
             text: 'Файлообменник',
-            icon: <ReportsIcon />,
+            icon: <FileShareIcon />,
         },
         {
             path: 'communications',
             text: 'Вопрос/Ответ',
-            icon: <CommunicationsIcon />,
+            icon: <QAIcon />,
         },
         {
             path: 'listEI',
             text: 'Список образовательных учреждений',
-            icon: <ReportsIcon />,
+            icon: <InstitutionListIcon />,
         },
     ];
+
 
     const adminSidebarListData = [
         {
@@ -75,49 +73,49 @@ const User = () => {
             icon: <HomeIcon />,
         },
         {
-            path: 'ofs',
-            text: 'Общая информация для пользователей',
-            icon: <OfsIcon />,
+            path: 'organizer',
+            text: 'Органайзер руководителя',
+            icon: <OrganizerIcon />,
         },
         {
             path: 'constructor',
-            text: 'Оценочные процедуры',
-            icon: <ConstructorIcon />,
-        },
-        {
-            path: 'handbook',
-            text: 'Методические материалы',
-            icon: <HandbookIcon />,
+            text: 'Оценочные процедуры (мониторинги)',
+            icon: <ProceduresIcon />,
         },
         {
             path: 'reports',
-            text: 'Результаты оценочных процедур',
-            icon: <ReportsIcon />,
+            text: 'Результаты оценочных процедур (мониторингов)',
+            icon: <ProceduresResultsIcon />,
         },
         {
-            path: 'regulators',
-            text: 'Нормативные регуляторы',
-            icon: <ReportsIcon />,
+            path: 'diagnostic',
+            text: 'Профессиональная диагностика',
+            icon: <DiagnosticIcon />,
         },
         {
-            path: 'organizer',
-            text: 'Органайзер руководителя',
-            icon: <ReportsIcon />,
+            path: 'diagnostic-results',
+            text: 'Результаты профессиональной диагностики',
+            icon: <DiagnosticResultsIcon />,
+        },
+        {
+            path: 'handbook',
+            text: 'Методические материалы (рекомендации, сборники, памятки)',
+            icon: <MaterialsIcon />,
         },
         {
             path: 'files',
             text: 'Файлообменник',
-            icon: <ReportsIcon />,
+            icon: <FileShareIcon />,
         },
         {
             path: 'communications',
             text: 'Вопрос/Ответ',
-            icon: <CommunicationsIcon />,
+            icon: <QAIcon />,
         },
         {
             path: 'listEI',
             text: 'Список образовательных учреждений',
-            icon: <ReportsIcon />,
+            icon: <InstitutionListIcon />,
         },
     ];
 
