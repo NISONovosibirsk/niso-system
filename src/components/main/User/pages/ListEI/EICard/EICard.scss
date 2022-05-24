@@ -1,6 +1,6 @@
 .ei-card {
     cursor: default;
-    padding: 8px;
+    padding: 16px;
     background: #f5f7fb;
     border-radius: 8px;
     display: grid;
@@ -20,6 +20,7 @@
 
     &__text {
         margin: 0;
+        letter-spacing: 0.1ex;
     }
 
     &__span {
