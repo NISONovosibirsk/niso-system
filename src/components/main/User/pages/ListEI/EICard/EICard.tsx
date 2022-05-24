@@ -12,10 +12,6 @@ const EICard = ({ ei }) => {
             onMouseEnter={handleHover}
             onMouseLeave={handleHover}
         >
-            {/* <p className='ei-card__text'>Название: {ei.name}</p>
-            <p className='ei-card__text'>Директор: {ei.director}</p>
-            <p className='ei-card__text'>Телефон: {ei.phoneNumber}</p>
-            <p className='ei-card__text'>Почта: {ei.email}</p> */}
             {isHover ? (
                 <>
                     <p className='ei-card__text'>
