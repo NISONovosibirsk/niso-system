@@ -1,0 +1,26 @@
+.user-home-card {
+    font-weight: bold;
+    background: #f5f7fb;
+    border-radius: 8px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+
+    padding: 30px {
+        left: 27px;
+    }
+
+    &__text {
+        font-weight: 600;
+    }
+
+    &:hover {
+        background: linear-gradient(
+            214.01deg,
+            rgba(79, 139, 228, 0.8) 1.1%,
+            #3a78f2 98.17%
+        );
+        box-shadow: 2px 4px 25px rgba(42, 83, 145, 0.4);
+        color: #fff;
+    }
+}
