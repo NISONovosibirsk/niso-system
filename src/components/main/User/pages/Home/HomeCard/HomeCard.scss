@@ -3,12 +3,17 @@
     background: #f5f7fb;
     border-radius: 8px;
     height: 300px;
-    display: flex;
-    align-items: center;
+    display: grid;
+    gap: 20px;
+    grid-template-rows: 60% auto;
     cursor: pointer;
 
     padding: 30px {
         left: 27px;
+    }
+
+    svg {
+        align-self: end;
     }
 
     &__text {
@@ -23,5 +28,9 @@
         );
         box-shadow: 2px 4px 25px rgba(42, 83, 145, 0.4);
         color: #fff;
+
+        svg {
+            fill: white;
+        }
     }
 }

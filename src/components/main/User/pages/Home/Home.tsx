@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { ReferenceIcon } from '../../../../../assets';
+import { AboutSystemIcon, CommonInfoIcon, InstitutionCardIcon, ReferenceIcon, RegulatorsIcon } from '../../../../../assets';
 import { useTypeSelector } from '../../../../../hooks/useTypeSelector';
 import { updateReference } from '../../../../../store/actions/userProfileActions';
 import ProfileReference from '../Profile/ProfileReference/ProfileReference';
@@ -18,12 +18,19 @@ const Home = () => {
     };
 
     const homeCards = [
-        { text: 'Общая информация для пользователей' },
-        { text: 'Нормативные регуляторы МСОКО' },
+        {
+            text: 'Общая информация для пользователей',
+            icon: <CommonInfoIcon />,
+        },
+        { text: 'Нормативные регуляторы МСОКО', icon: <RegulatorsIcon /> },
         {
             text: 'Общие сведения о муниципальной системе образования города Новосибирска',
+            icon: <AboutSystemIcon />,
         },
-        { text: 'Карточка образовательного учреждения' },
+        {
+            text: 'Карточка образовательного учреждения',
+            icon: <InstitutionCardIcon />,
+        },
     ];
 
     return (

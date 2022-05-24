@@ -30,13 +30,18 @@ export { ReactComponent as ReferenceIcon } from './icons/userIcons/reference-ico
 export { ReactComponent as HomeIcon } from './icons/sidebarIcons/home-icon.svg';
 export { ReactComponent as OrganizerIcon } from './icons/sidebarIcons/organizer-icon.svg';
 export { ReactComponent as ProceduresIcon } from './icons/sidebarIcons/procedures-icon.svg';
-export { ReactComponent as ProceduresResultsIcon } from './icons/sidebarIcons/proceduresResults-icon.svg';
+export { ReactComponent as ProceduresResultsIcon } from './icons/sidebarIcons/procedures-results-icon.svg';
 export { ReactComponent as DiagnosticIcon } from './icons/sidebarIcons/diagnostic-icon.svg';
-export { ReactComponent as DiagnosticResultsIcon } from './icons/sidebarIcons/diagnosticResults-icon.svg';
+export { ReactComponent as DiagnosticResultsIcon } from './icons/sidebarIcons/diagnostic-results-icon.svg';
 export { ReactComponent as MaterialsIcon } from './icons/sidebarIcons/materials-icon.svg';
 export { ReactComponent as QAIcon } from './icons/sidebarIcons/qa-icon.svg';
-export { ReactComponent as FileShareIcon } from './icons/sidebarIcons/fileShare-icon.svg';
-export { ReactComponent as InstitutionListIcon } from './icons/sidebarIcons/institutionList-icon.svg';
+export { ReactComponent as FileShareIcon } from './icons/sidebarIcons/file-share-icon.svg';
+export { ReactComponent as InstitutionListIcon } from './icons/sidebarIcons/institution-list-icon.svg';
+// home
+export { ReactComponent as CommonInfoIcon } from './icons/homeIcons/common-info-icon.svg';
+export { ReactComponent as AboutSystemIcon } from './icons/homeIcons/about-system-icon.svg';
+export { ReactComponent as InstitutionCardIcon } from './icons/homeIcons/institution-card-icon.svg';
+export { ReactComponent as RegulatorsIcon } from './icons/homeIcons/regulators-icon.svg';
 // constructor
 export { ReactComponent as TextIcon } from './icons/constructorIcons/text-icon.svg';
 export { ReactComponent as TitleH1Icon } from './icons/constructorIcons/title-h1-icon.svg';
