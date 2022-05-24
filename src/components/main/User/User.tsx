@@ -3,12 +3,10 @@ import './User.scss';
 import ProfileHeader from './UserHeader/UserHeader';
 import { Outlet } from 'react-router-dom';
 import {
-    HomeIcon,
-    HandbookIcon,
-    OfsIcon,
-    CommunicationsIcon,
-    ConstructorIcon,
-    ReportsIcon,
+    DiagnosticIcon,
+    DiagnosticResultsIcon,
+    FileShareIcon,
+    HomeIcon, InstitutionListIcon, MaterialsIcon, OrganizerIcon, ProceduresIcon, ProceduresResultsIcon, QAIcon,
 } from '../../../assets';
 
 const User = () => {
@@ -23,49 +21,50 @@ const User = () => {
         {
             path: 'organizer',
             text: 'Органайзер руководителя',
-            icon: <ReportsIcon />,
+            icon: <OrganizerIcon />,
         },
         {
             path: 'constructor',
             text: 'Оценочные процедуры (мониторинги)',
-            icon: <ConstructorIcon />,
+            icon: <ProceduresIcon />,
         },
         {
             path: 'reports',
             text: 'Результаты оценочных процедур (мониторингов)',
-            icon: <ReportsIcon />,
+            icon: <ProceduresResultsIcon />,
         },
         {
             path: 'ofs',
             text: 'Профессиональная диагностика',
-            icon: <OfsIcon />,
+            icon: <DiagnosticIcon />,
         },
         {
             path: 'ofs',
             text: 'Результаты профессиональной диагностики',
-            icon: <OfsIcon />,
+            icon: <DiagnosticResultsIcon />,
         },
         {
             path: 'handbook',
             text: 'Методические материалы (рекомендации, сборники, памятки)',
-            icon: <HandbookIcon />,
+            icon: <MaterialsIcon />,
         },
         {
             path: 'files',
             text: 'Файлообменник',
-            icon: <ReportsIcon />,
+            icon: <FileShareIcon />,
         },
         {
             path: 'communications',
             text: 'Вопрос/Ответ',
-            icon: <CommunicationsIcon />,
+            icon: <QAIcon />,
         },
         {
             path: 'listEI',
             text: 'Список образовательных учреждений',
-            icon: <ReportsIcon />,
+            icon: <InstitutionListIcon />,
         },
     ];
+
 
     const adminSidebarListData = [
         {
@@ -76,47 +75,47 @@ const User = () => {
         {
             path: 'organizer',
             text: 'Органайзер руководителя',
-            icon: <ReportsIcon />,
+            icon: <OrganizerIcon />,
         },
         {
             path: 'constructor',
             text: 'Оценочные процедуры (мониторинги)',
-            icon: <ConstructorIcon />,
+            icon: <ProceduresIcon />,
         },
         {
             path: 'reports',
             text: 'Результаты оценочных процедур (мониторингов)',
-            icon: <ReportsIcon />,
+            icon: <ProceduresResultsIcon />,
         },
         {
-            path: 'ofs',
+            path: 'diagnostic',
             text: 'Профессиональная диагностика',
-            icon: <OfsIcon />,
+            icon: <DiagnosticIcon />,
         },
         {
-            path: 'ofs',
+            path: 'diagnostic-results',
             text: 'Результаты профессиональной диагностики',
-            icon: <OfsIcon />,
+            icon: <DiagnosticResultsIcon />,
         },
         {
             path: 'handbook',
             text: 'Методические материалы (рекомендации, сборники, памятки)',
-            icon: <HandbookIcon />,
+            icon: <MaterialsIcon />,
         },
         {
             path: 'files',
             text: 'Файлообменник',
-            icon: <ReportsIcon />,
+            icon: <FileShareIcon />,
         },
         {
             path: 'communications',
             text: 'Вопрос/Ответ',
-            icon: <CommunicationsIcon />,
+            icon: <QAIcon />,
         },
         {
             path: 'listEI',
             text: 'Список образовательных учреждений',
-            icon: <ReportsIcon />,
+            icon: <InstitutionListIcon />,
         },
     ];
 

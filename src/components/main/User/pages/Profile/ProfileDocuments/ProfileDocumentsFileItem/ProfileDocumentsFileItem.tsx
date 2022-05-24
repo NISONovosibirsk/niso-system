@@ -1,4 +1,4 @@
-import { ImageFileIcon, ConstructorIcon } from '../../../../../../../assets';
+import { ImageFileIcon, TextFileIcon,  } from '../../../../../../../assets';
 import './ProfileDocumentsFileItem.scss';
 
 const ProfileDocumentsFileItem = ({ file }) => {
@@ -11,7 +11,7 @@ const ProfileDocumentsFileItem = ({ file }) => {
             case 'image/png':
                 return <ImageFileIcon />;
             default:
-                return <ConstructorIcon />
+                return <TextFileIcon />
         }
     };
 
