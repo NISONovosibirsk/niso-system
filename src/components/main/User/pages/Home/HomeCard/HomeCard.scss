@@ -1,4 +1,12 @@
 .user-home-card {
+    @keyframes card {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
     font-weight: bold;
     background: #f5f7fb;
     border-radius: 8px;
@@ -21,6 +29,7 @@
     }
 
     &:hover {
+        animation: card 0.4s ease;
         background: linear-gradient(
             214.01deg,
             rgba(79, 139, 228, 0.8) 1.1%,
@@ -28,7 +37,6 @@
         );
         box-shadow: 2px 4px 25px rgba(42, 83, 145, 0.4);
         color: #fff;
-
         svg {
             fill: white;
         }
