@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux';
+import { Outlet } from 'react-router-dom';
 import {
     AboutSystemIcon,
     CommonInfoIcon,
@@ -15,6 +16,7 @@ import HomePopup from './HomePopup/HomePopup';
 
 const Home = () => {
     const { reference } = useTypeSelector(state => state.userProfile);
+    const { isLogged } = useTypeSelector(state => state.userStatus);
     const dispatch = useDispatch();
 
     const handleReference = () => {
@@ -41,16 +43,39 @@ const Home = () => {
             type: 'aboutSystem',
         },
         {
-            text: 'Карточка образовательного учреждения',
+            text: 'Список образовательных учреждений',
             icon: <InstitutionCardIcon />,
             type: 'institutionCard',
+            route: 'listEI',
         },
     ];
+
+    const notLoggedHomeCards = [
+        {
+            text: 'Общая информация для пользователей',
+            icon: <CommonInfoIcon />,
+            type: 'commonInfo',
+        },
+        {
+            text: 'Нормативные регуляторы МСОКО',
+            icon: <RegulatorsIcon />,
+            type: 'regulators',
+        },
+    ];
+
+    const handleLogged = () => {
+        switch (isLogged) {
+            case true:
+                return homeCards;
+            case false:
+                return notLoggedHomeCards;
+        }
+    };
 
     return (
         <section className='user-home'>
             <ul className='user-home-list'>
-                {homeCards.map((card, index) => (
+                {handleLogged().map((card, index) => (
                     <HomeCard data={card} key={index} />
                 ))}
             </ul>
