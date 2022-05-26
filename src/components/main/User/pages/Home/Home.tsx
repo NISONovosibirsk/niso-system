@@ -1,10 +1,17 @@
 import { useDispatch } from 'react-redux';
-import { AboutSystemIcon, CommonInfoIcon, InstitutionCardIcon, ReferenceIcon, RegulatorsIcon } from '../../../../../assets';
+import {
+    AboutSystemIcon,
+    CommonInfoIcon,
+    InstitutionCardIcon,
+    ReferenceIcon,
+    RegulatorsIcon,
+} from '../../../../../assets';
 import { useTypeSelector } from '../../../../../hooks/useTypeSelector';
 import { updateReference } from '../../../../../store/actions/userProfileActions';
 import ProfileReference from '../Profile/ProfileReference/ProfileReference';
 import './Home.scss';
 import HomeCard from './HomeCard/HomeCard';
+import HomePopup from './HomePopup/HomePopup';
 
 const Home = () => {
     const { reference } = useTypeSelector(state => state.userProfile);
@@ -21,15 +28,22 @@ const Home = () => {
         {
             text: 'Общая информация для пользователей',
             icon: <CommonInfoIcon />,
+            type: 'commonInfo',
         },
-        { text: 'Нормативные регуляторы МСОКО', icon: <RegulatorsIcon /> },
+        {
+            text: 'Нормативные регуляторы МСОКО',
+            icon: <RegulatorsIcon />,
+            type: 'regulators',
+        },
         {
             text: 'Общие сведения о муниципальной системе образования города Новосибирска',
             icon: <AboutSystemIcon />,
+            type: 'aboutSystem',
         },
         {
             text: 'Карточка образовательного учреждения',
             icon: <InstitutionCardIcon />,
+            type: 'institutionCard',
         },
     ];
 
@@ -45,6 +59,7 @@ const Home = () => {
                 onClick={handleReference}
             />
             <ProfileReference />
+            <HomePopup />
         </section>
     );
 };

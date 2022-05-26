@@ -8,6 +8,7 @@ import { userConstructorReducer } from './reducers/userConstructorReducer';
 import { userHandbookReducer } from './reducers/userHandbookReducer';
 import { userListEIReducer } from './reducers/userListEIReducer';
 import { userProfileReducer } from './reducers/userProfileReducer';
+import { userStatusReducer } from './reducers/userStatusReducer';
 
 export const rootReducer = combineReducers({
     headerSidebar: headerSidebarReducer,
@@ -16,6 +17,7 @@ export const rootReducer = combineReducers({
     userProfile: userProfileReducer,
     userHandbook: userHandbookReducer,
     userListEI: userListEIReducer,
+    userStatus: userStatusReducer,
 
     login: loginReducer,
     register: registerReducer,

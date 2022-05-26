@@ -163,3 +163,14 @@ export interface IUserHandbookState {
     placeholderError: string;
     valueError: string;
 }
+
+// UserStatus
+export interface IUserStatusState {
+    isLogged: boolean;
+    role: string;
+    popup: {
+        isOpen: boolean;
+        type: string;
+        title: string;
+    };
+}
