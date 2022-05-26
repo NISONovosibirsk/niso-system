@@ -10,8 +10,6 @@ const SidebarItem = ({ sidebarItemData }) => {
         end: false,
     });
 
-    // console.log(resolved);
-
     return (
         <li className={`sidebar-item ${match && 'sidebar-item_active'}`}>
             <Link className='sidebar-item__link' to={path}>

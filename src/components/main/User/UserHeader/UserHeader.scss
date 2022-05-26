@@ -5,6 +5,11 @@
     grid-template-columns: 60% 30% auto;
     align-items: center;
 
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+
     &__title {
         margin: 0;
         padding: {
