@@ -1,5 +1,4 @@
 import { useDispatch } from 'react-redux';
-import { Outlet } from 'react-router-dom';
 import {
     AboutSystemIcon,
     CommonInfoIcon,
