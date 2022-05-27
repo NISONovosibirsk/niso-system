@@ -7,22 +7,23 @@ import {
     RegulatorsIcon,
 } from '../../../../../assets';
 import { useTypeSelector } from '../../../../../hooks/useTypeSelector';
-import { updateReference } from '../../../../../store/actions/userProfileActions';
-import ProfileReference from '../Profile/ProfileReference/ProfileReference';
 import './Home.scss';
 import HomeCard from './HomeCard/HomeCard';
-import HomePopup from './HomePopup/HomePopup';
+import InfoPopup from '../../InfoPopup/InfoPopup';
+import { updateUserPopup } from '../../../../../store/actions/userStatusActions';
 
 const Home = () => {
-    const { reference } = useTypeSelector(state => state.userProfile);
     const { isLogged } = useTypeSelector(state => state.userStatus);
     const dispatch = useDispatch();
 
     const handleReference = () => {
-        const newState = { ...reference };
-        newState.isOpen = true;
-        newState.type = 'statistics';
-        dispatch(updateReference(newState));
+        dispatch(
+            updateUserPopup({
+                isOpen: true,
+                type: 'homeInfo',
+                title: 'Главная',
+            })
+        );
     };
 
     const homeCards = [
@@ -82,8 +83,7 @@ const Home = () => {
                 className='user-home__reference'
                 onClick={handleReference}
             />
-            <ProfileReference />
-            <HomePopup />
+            <InfoPopup />
         </section>
     );
 };

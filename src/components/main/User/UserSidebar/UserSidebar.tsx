@@ -1,4 +1,4 @@
-import { MaisLogo, NisoLogo } from '../../../../assets';
+import { MaisLogo } from '../../../../assets';
 import SidebarItem from './SidebarItem/SidebarItem';
 import './UserSidebar.scss';
 
@@ -27,8 +27,8 @@ const UserSidebar = ({ sidebarListData }) => {
                 ))}
             </ul>
             <div className='user-sidebar__footer'>
-                <p>Политика конфиденциальности</p>
-                <p>Все права защищены</p>
+                <p className='user-sidebar__politics'>Политика конфиденциальности</p>
+                <p className='user-sidebar__politics'>Все права защищены</p>
                 <button className='user-sidebar__support'></button>
                 <SidebarItem sidebarItemData={techSupport}/>
             </div>

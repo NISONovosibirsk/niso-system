@@ -60,8 +60,16 @@
         padding: {
             left: 2.5vw;
             top: 4vh;
+            bottom: 1vh;
         }
         font-size: 0.75rem;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    &__politics {
+        margin: 0;
     }
 
     &__support {

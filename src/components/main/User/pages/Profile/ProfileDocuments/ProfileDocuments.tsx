@@ -1,4 +1,4 @@
-import ProfileReference from '../ProfileReference/ProfileReference';
+import InfoPopup from '../../../InfoPopup/InfoPopup';
 import './ProfileDocuments.scss';
 import ProfileDocumentsItem from './ProfileDocumentsItem/ProfileDocumentsItem';
 
@@ -14,7 +14,7 @@ const ProfileDocuments = () => {
             {forms.map((form, index) => (
                 <ProfileDocumentsItem form={form} key={index}/>
             ))}
-            <ProfileReference />
+            <InfoPopup />
         </div>
     );
 };
