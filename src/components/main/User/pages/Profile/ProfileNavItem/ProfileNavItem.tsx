@@ -1,24 +1,25 @@
 import './ProfileNavItem.scss';
 import { Link, useMatch, useResolvedPath } from 'react-router-dom';
 import { ReferenceIcon } from '../../../../../../assets';
-import { useTypeSelector } from '../../../../../../hooks/useTypeSelector';
 import { useDispatch } from 'react-redux';
-import { updateReference } from '../../../../../../store/actions/userProfileActions';
+import { updateUserPopup } from '../../../../../../store/actions/userStatusActions';
 
 const ProfileNavItem = ({ tab }) => {
-    const { reference } = useTypeSelector(state => state.userProfile);
     const dispatch = useDispatch();
     const { path, text } = tab;
 
     const resolved = useResolvedPath(path);
     const match = useMatch({ path: resolved.pathname, end: true });
-
+    
     const handleReference = () => {
-        const newState = { ...reference };
-        newState.isOpen = true;
-        newState.type = path;
-        dispatch(updateReference(newState));
-    };
+        dispatch(
+            updateUserPopup({
+                isOpen: true,
+                type: 'documentsInfo',
+                title: 'Документы',
+            })
+        );
+    }
 
     return (
         <li

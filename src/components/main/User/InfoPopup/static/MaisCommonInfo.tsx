@@ -1,7 +1,7 @@
 const MaisCommonInfo = () => {
     return (
         <>
-            <p className='user-home-popup__paragraph'>
+            <p className='user-info-popup__paragraph'>
                 Муниципальная система оценки качества образования (далее –
                 МСОКО) призвана обеспечить получение, распространение и
                 использование достоверной, объективной информации о состоянии и
@@ -13,7 +13,7 @@ const MaisCommonInfo = () => {
                 соответствии с региональными целями управления качеством
                 образования.
             </p>
-            <p className='user-home-popup__paragraph'>
+            <p className='user-info-popup__paragraph'>
                 МАИС «МСОКО г. Новосибирска» в открытом доступе для лиц и
                 организаций, заинтересованных в социальном партнёрстве по
                 вопросам развития системы образования г. Новосибирска
@@ -21,29 +21,29 @@ const MaisCommonInfo = () => {
                 количественных и качественных показателях муниципальной системы
                 образования города Новосибирска.
             </p>
-            <p className='user-home-popup__paragraph'>
+            <p className='user-info-popup__paragraph'>
                 В рамках МСОКО используется муниципальная автоматизированная
                 информационная система «Муниципальная система оценки качества
                 образования города Новосибирска» (далее - МАИС «МСОКО г.
                 Новосибирска»).
             </p>
-            <p className='user-home-popup__paragraph'>
+            <p className='user-info-popup__paragraph'>
                 Для работы в МАИС «МСОКО г. Новосибирска» необходимо пройти
                 процедуру авторизации.
             </p>
-            <p className='user-home-popup__paragraph'>
+            <p className='user-info-popup__paragraph'>
                 Авторизированными пользователями являются муниципальные
                 образовательные организации, подведомственные департаменту
                 образования мэрии города Новосибирска.
             </p>
-            <p className='user-home-popup__paragraph'>
+            <p className='user-info-popup__paragraph'>
                 МАИС «МСОКО г. Новосибирска» предоставляет возможность получения
                 следующей информации:
             </p>
-            <h4 className='user-home-popup__header'>
+            <h4 className='user-info-popup__header'>
                  Для муниципальных органов управления образования
             </h4>
-            <ul className='user-home-popup__list'>
+            <ul className='user-info-popup__list'>
                 <li>
                     - получение аналитических и статистических данных о качестве
                     образования по общеобразовательным организациям,
@@ -61,11 +61,11 @@ const MaisCommonInfo = () => {
                     категорий педагогических работников.
                 </li>
             </ul>
-            <h4 className='user-home-popup__header'>
+            <h4 className='user-info-popup__header'>
                  Для специалистов организаций повышения квалификации
                 педагогических работников
             </h4>
-            <ul className='user-home-popup__list'>
+            <ul className='user-info-popup__list'>
                 <li>
                     - формирование и реализация программ мероприятий (повышения
                     квалификации руководителей, школьных административных
@@ -74,11 +74,11 @@ const MaisCommonInfo = () => {
                     качества образования.
                 </li>
             </ul>
-            <h4 className='user-home-popup__header'>
+            <h4 className='user-info-popup__header'>
                  Для образовательных организаций г. Новосибирска
                 (административных команд, педагогических коллективов)
             </h4>
-            <ul className='user-home-popup__list'>
+            <ul className='user-info-popup__list'>
                 <li>- формирование заказа к системе повышения квалификации;</li>
                 <li>
                     - отслеживание динамики проблемных компонентов для
