@@ -13,6 +13,10 @@
         radius: 8px;
     }
 
+    &:focus {
+        outline: none;
+    }
+
     &:hover {
         filter: drop-shadow(-8px 8px 8px rgba(42, 83, 145, 0.3));
     }

@@ -16,6 +16,7 @@ import {
     Handbook,
     Home,
     ListEI,
+    Organizer,
     Profile,
 } from './components/main/User/pages';
 import { updateCreatedReports } from './store/actions/userConstrucorActions';
@@ -61,6 +62,7 @@ function App() {
                     <Route path='constructor/*' element={<Constructor />} />
                     <Route path='handbook' element={<Handbook />} />
                     <Route path='listEI' element={<ListEI />} />
+                    <Route path='organizer' element={<Organizer />} />
                 </Route>
 
                 <Route path='404' element={<NotFoundRoute />} />
