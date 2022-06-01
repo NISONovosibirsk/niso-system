@@ -23,7 +23,9 @@
     }
 
     &__other {
-        color: #70FFE5;
+        padding: {
+            bottom: 250px;
+        }
         width: 32%;
         font-weight: 500;
         font-size: 22px;
