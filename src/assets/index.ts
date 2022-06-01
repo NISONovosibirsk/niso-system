@@ -59,3 +59,8 @@ export { default as slide2 } from './images/2.svg';
 export { default as slide3 } from './images/3.svg';
 export { default as slide4 } from './images/4.svg';
 // export { default as smoke } from './smoke-background-optimized.mp4';
+
+// banner
+export { default as constructorSlide } from './images/bannerImages/constructorSlide.svg'
+export { default as notificationsSlide } from './images/bannerImages/notificationsSlide.svg'
+export { default as reportsSlide } from './images/bannerImages/reportsSlide.svg'

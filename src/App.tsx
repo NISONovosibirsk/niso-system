@@ -20,6 +20,9 @@ import {
 } from './components/main/User/pages';
 import { updateCreatedReports } from './store/actions/userConstrucorActions';
 
+// add it to index.ts
+import Banner from './components/Banner/Banner';
+
 function App() {
     const dispatch = useDispatch();
 
@@ -54,6 +57,8 @@ function App() {
                     </Route>
                 </Route>
                 <Route path='signup' element={<Register />} />
+
+                <Route path='banner' element={<Banner />}/>
 
                 <Route path='user' element={<User />}>
                     <Route path='home' element={<Home />} />

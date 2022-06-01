@@ -11,6 +11,9 @@ const HomePage = () => {
                 <li>
                     <Link to={'/signin'}>Авторизация</Link>
                 </li>
+                <li>
+                    <Link to={'/banner'}>Баннер</Link>
+                </li>
             </ul>
         </section>
     );
