@@ -1,4 +1,25 @@
 .banner {
+    @keyframes glow-up {
+        from {
+            color: white;
+            text-shadow: 0px 3px 4px #0070ffe5;
+        }
+        to {
+            color: #70ffe5;
+            text-shadow: 0px 3px 4px #70ffe5;
+        }
+    }
+
+    @keyframes glow-out {
+        from {
+            color: #70ffe5;
+            text-shadow: 0px 3px 4px #70ffe5;
+        }
+        to {
+            color: white;
+        }
+    }
+
     &__slide {
         height: 100vh;
         width: 100vw;
@@ -9,17 +30,17 @@
     }
 
     &__current {
-        background: rgba($color: #000000, $alpha: 0.2);
+        background: rgba($color: #000000, $alpha: 0.25);
         padding: {
             left: 70px;
-            bottom: 250px;
+            top: 200px;
         }
         width: 46%;
         display: flex;
         gap: 40px;
         flex-direction: column;
-        justify-content: center;
-        box-shadow: 0px 0px 8px 4px rgba(0, 0, 0, 0.2);
+        box-shadow: 0px 0px 8px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
     }
 
     &__other {
@@ -78,6 +99,15 @@
 
         &:active {
             filter: none;
+        }
+    }
+
+    &__link {
+        cursor: pointer;
+        animation: 0.5s glow-out forwards;
+
+        &:hover {
+            animation: 0.5s glow-up forwards;
         }
     }
 }
