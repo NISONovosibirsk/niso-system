@@ -22,6 +22,7 @@ const Banner = () => {
             slidesPerView={1}
             speed={450}
             effect='fade'
+            allowTouchMove={false}
         >
             {slides.map((slide, index) => (
                 <SwiperSlide key={index}>{slide}</SwiperSlide>
