@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, EffectFade, Navigation } from 'swiper';
+import { EffectFade } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
@@ -15,8 +15,6 @@ const Banner = () => {
         <NotificationsSlide />,
     ];
 
-    
-
     return (
         <Swiper
             className='banner'
@@ -26,9 +24,7 @@ const Banner = () => {
             effect='fade'
         >
             {slides.map((slide, index) => (
-                <SwiperSlide key={index}>
-                    {slide}
-                </SwiperSlide>
+                <SwiperSlide key={index}>{slide}</SwiperSlide>
             ))}
         </Swiper>
     );

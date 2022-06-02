@@ -1,7 +1,7 @@
 import { useSwiper } from 'swiper/react';
 import { notificationsSlide } from '../../../assets';
 
-const NotificationsSlide = ({}) => {
+const NotificationsSlide = () => {
     const swiper = useSwiper();
 
     const handleSlide = index => {
