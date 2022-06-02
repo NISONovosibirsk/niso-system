@@ -19,6 +19,7 @@ import {
     Profile,
 } from './components/main/User/pages';
 import { updateCreatedReports } from './store/actions/userConstrucorActions';
+import { Banner } from './components';
 
 function App() {
     const dispatch = useDispatch();
@@ -54,6 +55,8 @@ function App() {
                     </Route>
                 </Route>
                 <Route path='signup' element={<Register />} />
+
+                <Route path='banner' element={<Banner />} />
 
                 <Route path='user' element={<User />}>
                     <Route path='home' element={<Home />} />
