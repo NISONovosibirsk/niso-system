@@ -23,11 +23,25 @@ const ConstructorSlide = () => {
                 </p>
                 <button className='banner__button'>вперед</button>
             </div>
-            <div className='banner__other' onClick={()=> {handleSlide(1)}}>
-                <span className='banner__link'>отчеты</span>
+            <div className='banner__other'>
+                <span
+                    className='banner__link'
+                    onClick={() => {
+                        handleSlide(1);
+                    }}
+                >
+                    отчеты
+                </span>
             </div>
-            <div className='banner__other' onClick={()=> {handleSlide(2)}}>
-                <span className='banner__link'>коммуникации</span>
+            <div className='banner__other'>
+                <span
+                    className='banner__link'
+                    onClick={() => {
+                        handleSlide(2);
+                    }}
+                >
+                    коммуникации
+                </span>
             </div>
         </div>
     );

@@ -13,13 +13,15 @@ const ReportsSlide = () => {
             className='banner__slide'
             style={{ backgroundImage: `url(${reportsSlide})` }}
         >
-            <div
-                className='banner__other'
-                onClick={() => {
-                    handleSlide(0);
-                }}
-            >
-                <span className='banner__link'>конструктор</span>
+            <div className='banner__other'>
+                <span
+                    className='banner__link'
+                    onClick={() => {
+                        handleSlide(0);
+                    }}
+                >
+                    конструктор
+                </span>
             </div>
             <div className='banner__current'>
                 <p className='banner__title'>отчеты</p>
@@ -29,13 +31,15 @@ const ReportsSlide = () => {
                 </p>
                 <button className='banner__button'>вперед</button>
             </div>
-            <div
-                className='banner__other'
-                onClick={() => {
-                    handleSlide(2);
-                }}
-            >
-                <span className='banner__link'>коммуникации</span>
+            <div className='banner__other'>
+                <span
+                    className='banner__link'
+                    onClick={() => {
+                        handleSlide(2);
+                    }}
+                >
+                    коммуникации
+                </span>
             </div>
         </div>
     );
