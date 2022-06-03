@@ -4,9 +4,11 @@ import './OrganizerTask.scss';
 const OrganizerTask = ({ task, index }) => {
     return (
         <Draggable draggableId={task.id} index={index}>
-            {provided => (
+            {(provided, snapshot) => (
                 <li
-                    className='organizer-task'
+                    className={`organizer-task ${
+                        snapshot.isDragging && 'organizer-task_dragging'
+                    }`}
                     ref={provided.innerRef}
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}

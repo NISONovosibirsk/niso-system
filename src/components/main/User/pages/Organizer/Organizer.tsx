@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Button } from '../../../../support';
-import { DragDropContext, Draggable } from 'react-beautiful-dnd';
+import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import './Organizer.scss';
 import OrganizerColumn from './OrganizerColumn/OrganizerColumn';
 
@@ -11,10 +11,6 @@ const Organizer = () => {
             'task-2': { id: 'task-2', content: '1-2' },
             'task-3': { id: 'task-3', content: '1-3' },
             'task-4': { id: 'task-4', content: '1-4' },
-            'task-5': { id: 'task-5', content: '2-1' },
-            'task-6': { id: 'task-6', content: '2-2' },
-            'task-7': { id: 'task-7', content: '2-3' },
-            'task-8': { id: 'task-8', content: '2-4' },
         },
         columns: {
             'column-1': {
@@ -24,28 +20,32 @@ const Organizer = () => {
             },
             'column-2': {
                 id: 'column-2',
-                title: 'To do',
-                taskIds: ['task-5', 'task-6', 'task-7', 'task-8'],
+                title: 'In progress',
+                taskIds: [],
+            },
+            'column-3': {
+                id: 'column-3',
+                title: 'Done',
+                taskIds: [],
             },
         },
-        columnOrder: ['column-1', 'column-2'],
+        columnOrder: ['column-1', 'column-2', 'column-3'],
     });
 
-    // const handleAddCol = () => {
-    //     setCols([...cols, { title: cols.length + 1 + ' колонка', rows: [] }]);
-    // };
+    const handleColumnTitleChange = (e, column) => {
+        const newColumn = { ...organizer.columns[column.id] };
+        newColumn.title = e.target.value;
 
-    // const handleAddRow = colIndex => {
-    //     const newCols = [...cols];
-    //     newCols[colIndex] = {
-    //         ...newCols[colIndex],
-    //         rows: [...newCols[colIndex].rows, {}],
-    //     };
+        setOrganizer({
+            ...organizer,
+            columns: {
+                ...organizer.columns,
+                [newColumn.id]: newColumn,
+            },
+        });
+    };
 
-    //     setCols(newCols);
-    // };
-
-    const handleDragEnd = ({ destination, source, draggableId }) => {
+    const handleDragEnd = ({ destination, source, draggableId, type }) => {
         if (!destination) {
             return;
         }
@@ -57,21 +57,61 @@ const Organizer = () => {
             return;
         }
 
-        const column = organizer.columns[source.droppableId];
-        const newTaskIds = [...column.taskIds];
-        newTaskIds.splice(source.index, 1);
-        newTaskIds.splice(destination.index, 0, draggableId);
+        if (type === 'column') {
+            const newColumnOrder = [...organizer.columnOrder];
+            newColumnOrder.splice(source.index, 1);
+            newColumnOrder.splice(destination.index, 0, draggableId);
 
-        const newColumn = {
-            ...column,
-            taskIds: newTaskIds,
+            setOrganizer({
+                ...organizer,
+                columnOrder: newColumnOrder,
+            });
+            return;
+        }
+
+        const start = organizer.columns[source.droppableId];
+        const finish = organizer.columns[destination.droppableId];
+
+        if (start === finish) {
+            const newTaskIds = [...start.taskIds];
+            newTaskIds.splice(source.index, 1);
+            newTaskIds.splice(destination.index, 0, draggableId);
+
+            const newColumn = {
+                ...start,
+                taskIds: newTaskIds,
+            };
+
+            setOrganizer({
+                ...organizer,
+                columns: {
+                    ...organizer.columns,
+                    [newColumn.id]: newColumn,
+                },
+            });
+            return;
+        }
+
+        const startTaskIds = [...start.taskIds];
+        startTaskIds.splice(source.index, 1);
+        const newStart = {
+            ...start,
+            taskIds: startTaskIds,
+        };
+
+        const finishTaskIds = [...finish.taskIds];
+        finishTaskIds.splice(destination.index, 0, draggableId);
+        const newFinish = {
+            ...finish,
+            taskIds: finishTaskIds,
         };
 
         setOrganizer({
             ...organizer,
             columns: {
                 ...organizer.columns,
-                [newColumn.id]: newColumn,
+                [newStart.id]: newStart,
+                [newFinish.id]: newFinish,
             },
         });
     };
@@ -79,22 +119,37 @@ const Organizer = () => {
     return (
         <DragDropContext onDragEnd={handleDragEnd}>
             <section className='organizer'>
-                <ul className='organizer__columns'>
-                    {organizer.columnOrder.map(columnId => {
-                        const column = organizer.columns[columnId];
-                        const tasks = column.taskIds.map(
-                            taskId => organizer.tasks[taskId]
-                        );
+                <Droppable
+                    droppableId='columns'
+                    direction='horizontal'
+                    type='column'
+                >
+                    {provided => (
+                        <ul
+                            className='organizer__columns'
+                            ref={provided.innerRef}
+                            {...provided.droppableProps}
+                        >
+                            {organizer.columnOrder.map((columnId, index) => {
+                                const column = organizer.columns[columnId];
+                                const tasks = column.taskIds.map(
+                                    taskId => organizer.tasks[taskId]
+                                );
 
-                        return (
-                            <OrganizerColumn
-                                key={column.id}
-                                column={column}
-                                tasks={tasks}
-                            />
-                        );
-                    })}
-                </ul>
+                                return (
+                                    <OrganizerColumn
+                                        key={column.id}
+                                        column={column}
+                                        tasks={tasks}
+                                        index={index}
+                                        onTitleChange={handleColumnTitleChange}
+                                    />
+                                );
+                            })}
+                            {provided.placeholder}
+                        </ul>
+                    )}
+                </Droppable>
             </section>
         </DragDropContext>
     );
