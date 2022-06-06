@@ -1,10 +1,11 @@
 .organizer-task {
-    height: 20px;
-    padding: 4px;
+    height: 32px;
+    padding: 6px;
     text-align: center;
     border-radius: 8px;
     border: 1px solid lightgray;
     background: white;
+    box-sizing: border-box;
 
     &_dragging {
         filter: drop-shadow(-8px 8px 8px rgba(42, 83, 145, 0.15));

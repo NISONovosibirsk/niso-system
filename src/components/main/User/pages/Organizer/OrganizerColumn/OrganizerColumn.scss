@@ -4,7 +4,7 @@
     width: 272px;
     background: #f5f7fb;
     border-radius: 8px;
-    border: 1px solid lightgray;
+    border: 1px solid lightgrey;
     box-sizing: border-box;
 
     &_dragging {
@@ -41,12 +41,12 @@
 
     &__tasks {
         box-sizing: border-box;
-        height: calc(100% - 32px);
         border-radius: 8px;
         list-style: none;
         padding: 8px;
         display: grid;
         gap: 8px;
+        // grid-template-rows: repeat(auto-fill, 32px);
 
         &_dragging-over {
             background: #4f8be4;

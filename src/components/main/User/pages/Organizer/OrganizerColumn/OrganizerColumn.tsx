@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
+import { Button } from '../../../../../support';
 import OrganizerTask from '../OrganizerTask/OrganizerTask';
 import './OrganizerColumn.scss';
 
@@ -10,7 +11,13 @@ let InnerList = ({ tasks }) =>
 
 InnerList = React.memo(InnerList);
 
-const OrganizerColumn = ({ column, tasks, index, onTitleChange }) => {
+const OrganizerColumn = ({
+    column,
+    tasks,
+    index,
+    onTitleChange,
+    onAddTask,
+}) => {
     const [isEditing, setIsEditing] = useState(false);
     const inputRef = useRef<HTMLInputElement>(null);
 
@@ -30,7 +37,7 @@ const OrganizerColumn = ({ column, tasks, index, onTitleChange }) => {
         }
     };
 
-    const handleBlur = e => {
+    const handleBlur = () => {
         setIsEditing(false);
     };
 
@@ -78,6 +85,14 @@ const OrganizerColumn = ({ column, tasks, index, onTitleChange }) => {
                             </ul>
                         )}
                     </Droppable>
+                    <Button
+                        title='+ Добавить карточку'
+                        onClick={() => onAddTask(column)}
+                        type='light-grey'
+                        margin='8px'
+                        height='32px'
+                        width='240px'
+                    />
                 </li>
             )}
         </Draggable>

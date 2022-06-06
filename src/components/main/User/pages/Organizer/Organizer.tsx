@@ -6,35 +6,85 @@ import OrganizerColumn from './OrganizerColumn/OrganizerColumn';
 
 const Organizer = () => {
     const [organizer, setOrganizer] = useState({
-        tasks: {
-            'task-1': { id: 'task-1', content: '1-1' },
-            'task-2': { id: 'task-2', content: '1-2' },
-            'task-3': { id: 'task-3', content: '1-3' },
-            'task-4': { id: 'task-4', content: '1-4' },
-        },
+        tasks: {},
         columns: {
-            'column-1': {
-                id: 'column-1',
-                title: 'To do',
-                taskIds: ['task-1', 'task-2', 'task-3', 'task-4'],
-            },
-            'column-2': {
-                id: 'column-2',
-                title: 'In progress',
-                taskIds: [],
-            },
-            'column-3': {
-                id: 'column-3',
-                title: 'Done',
-                taskIds: [],
-            },
+            // 'column-1': {
+            //     id: 'column-1',
+            //     title: 'To do',
+            //     taskIds: [],
+            // },
         },
-        columnOrder: ['column-1', 'column-2', 'column-3'],
+        columnOrder: [] as any[],
     });
 
+    const handleAddColumn = () => {
+        const columns = { ...organizer.columns };
+        const columnsKeys = Object.keys(columns);
+        let newColumnIndex;
+
+        if (columnsKeys.length) {
+            newColumnIndex =
+                parseInt(columnsKeys[columnsKeys.length - 1].slice(7)) + 1;
+        } else {
+            newColumnIndex = 1;
+        }
+
+        const newColumn = {
+            id: 'column-' + newColumnIndex,
+            title: 'TItle here',
+            taskIds: [],
+        };
+
+        setOrganizer({
+            ...organizer,
+            columns: {
+                ...organizer.columns,
+                [newColumn.id]: newColumn,
+            },
+            columnOrder: [...organizer.columnOrder, newColumn.id],
+        });
+    };
+
+    const handleAddTask = column => {
+        const tasks = { ...organizer.tasks };
+        const tasksKeys = Object.keys(tasks);
+        let newTaskIndex;
+
+        if (tasksKeys.length) {
+            newTaskIndex =
+                parseInt(tasksKeys[tasksKeys.length - 1].slice(5)) + 1;
+        } else {
+            newTaskIndex = 1;
+        }
+
+        const newTask = {
+            id: 'task-' + newTaskIndex,
+            content: 'task-' + newTaskIndex,
+        };
+
+        const newColumns = {
+            ...organizer.columns,
+            [column.id]: {
+                ...column,
+                taskIds: [...column.taskIds, newTask.id],
+            },
+        };
+
+        setOrganizer({
+            ...organizer,
+            tasks: {
+                ...organizer.tasks,
+                [newTask.id]: newTask,
+            },
+            columns: newColumns,
+        });
+    };
+
     const handleColumnTitleChange = (e, column) => {
-        const newColumn = { ...organizer.columns[column.id] };
-        newColumn.title = e.target.value;
+        const newColumn = {
+            ...organizer.columns[column.id],
+            title: e.target.value,
+        };
 
         setOrganizer({
             ...organizer,
@@ -47,6 +97,43 @@ const Organizer = () => {
 
     const handleDragEnd = ({ destination, source, draggableId, type }) => {
         if (!destination) {
+            if (type === 'column') {
+                const newColumnOrder = [...organizer.columnOrder];
+                newColumnOrder.splice(source.index, 1);
+
+                const newTasks = { ...organizer.tasks };
+                const newColumns = { ...organizer.columns };
+
+                newColumns[draggableId].taskIds.forEach(taskId => {
+                    delete newTasks[taskId];
+                });
+                delete newColumns[draggableId];
+
+                setOrganizer({
+                    ...organizer,
+                    tasks: newTasks,
+                    columns: newColumns,
+                    columnOrder: newColumnOrder,
+                });
+
+                return;
+            }
+
+            const newColumn = { ...organizer.columns[source.droppableId] };
+            const newTaskIds = [...newColumn.taskIds];
+            newTaskIds.splice(source.index, 1);
+
+            const newTasks = { ...organizer.tasks };
+            delete newTasks[draggableId];
+
+            setOrganizer({
+                ...organizer,
+                tasks: newTasks,
+                columns: {
+                    ...organizer.columns,
+                    [newColumn.id]: { ...newColumn, taskIds: newTaskIds },
+                },
+            });
             return;
         }
 
@@ -124,7 +211,7 @@ const Organizer = () => {
                     direction='horizontal'
                     type='column'
                 >
-                    {provided => (
+                    {(provided, snapshot) => (
                         <ul
                             className='organizer__columns'
                             ref={provided.innerRef}
@@ -143,10 +230,31 @@ const Organizer = () => {
                                         tasks={tasks}
                                         index={index}
                                         onTitleChange={handleColumnTitleChange}
+                                        onAddTask={handleAddTask}
                                     />
                                 );
                             })}
                             {provided.placeholder}
+                            <li
+                                className='organizer__button'
+                                style={
+                                    snapshot.isDraggingOver
+                                        ? {
+                                              transform:
+                                                  'translate(272px, 0px)',
+                                          }
+                                        : {
+                                              transition:
+                                                  'transform 0.2s cubic-bezier(0.2, 0, 0, 1)',
+                                          }
+                                }
+                            >
+                                <Button
+                                    title='+ Добавить колонку'
+                                    onClick={handleAddColumn}
+                                    type='light-grey'
+                                />
+                            </li>
                         </ul>
                     )}
                 </Droppable>
