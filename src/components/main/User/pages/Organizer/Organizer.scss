@@ -1,0 +1,22 @@
+.organizer {
+    grid-area: userContent;
+    margin: 0 32px 20px;
+    height: calc(88vh - 20px);
+    overflow: auto;
+
+    &__columns {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        grid-template: auto / repeat(auto-fit, 272px);
+        gap: 16px;
+        align-items: start;
+    }
+
+    &__button {
+        grid-row: 1 / 2;
+        width: 272px;
+        transition: none 0s ease 0s;
+    }
+}

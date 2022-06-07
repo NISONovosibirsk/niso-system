@@ -9,8 +9,8 @@ const Popup = ({
     isOpen: boolean;
     children: any;
 }) => (
-    <div className={`popup ${isOpen && 'popup_open'}`} onClick={onClose}>
-        <div className='popup__content' onClick={e => e.stopPropagation()}>
+    <div className={`popup ${isOpen && 'popup_open'}`} onMouseDown={onClose}>
+        <div className='popup__content' onMouseDown={e => e.stopPropagation()}>
             {children}
         </div>
     </div>

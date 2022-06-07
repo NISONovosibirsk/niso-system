@@ -7,12 +7,14 @@ import { statusPopupReducer } from './reducers/statusPopupReducer';
 import { userConstructorReducer } from './reducers/userConstructorReducer';
 import { userHandbookReducer } from './reducers/userHandbookReducer';
 import { userListEIReducer } from './reducers/userListEIReducer';
+import { userOrganizerReducer } from './reducers/userOrganizerReducer';
 import { userProfileReducer } from './reducers/userProfileReducer';
 import { userStatusReducer } from './reducers/userStatusReducer';
 
 export const rootReducer = combineReducers({
     headerSidebar: headerSidebarReducer,
 
+    userOrganizer: userOrganizerReducer,
     userConstructor: userConstructorReducer,
     userProfile: userProfileReducer,
     userHandbook: userHandbookReducer,

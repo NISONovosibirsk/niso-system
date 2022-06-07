@@ -33,6 +33,10 @@ const UserHeader = () => {
             path: 'listEI',
             title: 'Список образовательных учреждений',
         },
+        {
+            path: 'organizer',
+            title: 'Органайзер руководителя',
+        },
     ];
 
     const handleHeaderTitle = routes =>

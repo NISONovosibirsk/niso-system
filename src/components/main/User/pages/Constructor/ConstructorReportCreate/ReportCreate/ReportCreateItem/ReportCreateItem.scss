@@ -125,6 +125,7 @@
         cursor: pointer;
         width: 21px;
         height: 32px;
+        transition: fill ease 0.2s;
 
         &:hover {
             fill: #e84141;
