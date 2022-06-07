@@ -17,7 +17,7 @@ const initialState: ILoginState = {
 };
 
 export const loginReducer = (
-    state = initialState,
+    state = { ...initialState },
     action: IReduxActions
 ): ILoginState => {
     switch (action.type) {

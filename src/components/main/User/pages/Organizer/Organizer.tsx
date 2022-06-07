@@ -1,24 +1,22 @@
-import { useState } from 'react';
 import { Button } from '../../../../support';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import './Organizer.scss';
 import OrganizerColumn from './OrganizerColumn/OrganizerColumn';
+import { useTypeSelector } from '../../../../../hooks/useTypeSelector';
+import { useDispatch } from 'react-redux';
+import {
+    updateColumnOrder,
+    updateColumns,
+    updateTasks,
+} from '../../../../../store/actions/userOrganizerActions';
 
 const Organizer = () => {
-    const [organizer, setOrganizer] = useState({
-        tasks: {},
-        columns: {
-            // 'column-1': {
-            //     id: 'column-1',
-            //     title: 'To do',
-            //     taskIds: [],
-            // },
-        },
-        columnOrder: [] as any[],
-    });
+    const { tasks, columns, columnOrder } = useTypeSelector(
+        state => state.userOrganizer
+    );
+    const dispatch = useDispatch();
 
     const handleAddColumn = () => {
-        const columns = { ...organizer.columns };
         const columnsKeys = Object.keys(columns);
         let newColumnIndex;
 
@@ -31,22 +29,32 @@ const Organizer = () => {
 
         const newColumn = {
             id: 'column-' + newColumnIndex,
-            title: 'TItle here',
+            title: '',
             taskIds: [],
         };
 
-        setOrganizer({
-            ...organizer,
-            columns: {
-                ...organizer.columns,
-                [newColumn.id]: newColumn,
-            },
-            columnOrder: [...organizer.columnOrder, newColumn.id],
+        dispatch(updateColumns({ ...columns, [newColumn.id]: newColumn }));
+        dispatch(updateColumnOrder([...columnOrder, newColumn.id]));
+    };
+
+    const handleDeleteColumn = (columnIndex, columnId) => {
+        const newColumnOrder = [...columnOrder];
+        newColumnOrder.splice(columnIndex, 1);
+
+        const newTasks = { ...tasks };
+        const newColumns = { ...columns };
+
+        newColumns[columnId].taskIds.forEach(taskId => {
+            delete newTasks[taskId];
         });
+        delete newColumns[columnId];
+
+        dispatch(updateColumnOrder(newColumnOrder));
+        dispatch(updateColumns(newColumns));
+        dispatch(updateTasks(newTasks));
     };
 
     const handleAddTask = column => {
-        const tasks = { ...organizer.tasks };
         const tasksKeys = Object.keys(tasks);
         let newTaskIndex;
 
@@ -59,81 +67,43 @@ const Organizer = () => {
 
         const newTask = {
             id: 'task-' + newTaskIndex,
-            content: 'task-' + newTaskIndex,
+            content: '',
         };
 
-        const newColumns = {
-            ...organizer.columns,
-            [column.id]: {
-                ...column,
-                taskIds: [...column.taskIds, newTask.id],
-            },
+        const newColumn = {
+            ...column,
+            taskIds: [...column.taskIds, newTask.id],
         };
 
-        setOrganizer({
-            ...organizer,
-            tasks: {
-                ...organizer.tasks,
-                [newTask.id]: newTask,
-            },
-            columns: newColumns,
-        });
+        dispatch(updateTasks({ ...tasks, [newTask.id]: newTask }));
+        dispatch(updateColumns({ ...columns, [newColumn.id]: newColumn }));
     };
 
-    const handleColumnTitleChange = (e, column) => {
-        const newColumn = {
-            ...organizer.columns[column.id],
-            title: e.target.value,
+    const handleDeleteTask = (columnId, taskIndex, taskId) => {
+        const newColumn = { ...columns[columnId] };
+        const newTaskIds = [...newColumn.taskIds];
+        newTaskIds.splice(taskIndex, 1);
+
+        const newTasks = { ...tasks };
+        delete newTasks[taskId];
+
+        const newColumns = {
+            ...columns,
+            [newColumn.id]: { ...newColumn, taskIds: newTaskIds },
         };
 
-        setOrganizer({
-            ...organizer,
-            columns: {
-                ...organizer.columns,
-                [newColumn.id]: newColumn,
-            },
-        });
+        dispatch(updateColumns(newColumns));
+        dispatch(updateTasks(newTasks));
     };
 
     const handleDragEnd = ({ destination, source, draggableId, type }) => {
         if (!destination) {
             if (type === 'column') {
-                const newColumnOrder = [...organizer.columnOrder];
-                newColumnOrder.splice(source.index, 1);
-
-                const newTasks = { ...organizer.tasks };
-                const newColumns = { ...organizer.columns };
-
-                newColumns[draggableId].taskIds.forEach(taskId => {
-                    delete newTasks[taskId];
-                });
-                delete newColumns[draggableId];
-
-                setOrganizer({
-                    ...organizer,
-                    tasks: newTasks,
-                    columns: newColumns,
-                    columnOrder: newColumnOrder,
-                });
-
+                handleDeleteColumn(source.index, draggableId);
                 return;
             }
 
-            const newColumn = { ...organizer.columns[source.droppableId] };
-            const newTaskIds = [...newColumn.taskIds];
-            newTaskIds.splice(source.index, 1);
-
-            const newTasks = { ...organizer.tasks };
-            delete newTasks[draggableId];
-
-            setOrganizer({
-                ...organizer,
-                tasks: newTasks,
-                columns: {
-                    ...organizer.columns,
-                    [newColumn.id]: { ...newColumn, taskIds: newTaskIds },
-                },
-            });
+            handleDeleteTask(source.droppableId, source.index, draggableId);
             return;
         }
 
@@ -145,19 +115,16 @@ const Organizer = () => {
         }
 
         if (type === 'column') {
-            const newColumnOrder = [...organizer.columnOrder];
+            const newColumnOrder = [...columnOrder];
             newColumnOrder.splice(source.index, 1);
             newColumnOrder.splice(destination.index, 0, draggableId);
 
-            setOrganizer({
-                ...organizer,
-                columnOrder: newColumnOrder,
-            });
+            dispatch(updateColumnOrder(newColumnOrder));
             return;
         }
 
-        const start = organizer.columns[source.droppableId];
-        const finish = organizer.columns[destination.droppableId];
+        const start = columns[source.droppableId];
+        const finish = columns[destination.droppableId];
 
         if (start === finish) {
             const newTaskIds = [...start.taskIds];
@@ -169,13 +136,7 @@ const Organizer = () => {
                 taskIds: newTaskIds,
             };
 
-            setOrganizer({
-                ...organizer,
-                columns: {
-                    ...organizer.columns,
-                    [newColumn.id]: newColumn,
-                },
-            });
+            dispatch(updateColumns({ ...columns, [newColumn.id]: newColumn }));
             return;
         }
 
@@ -193,14 +154,13 @@ const Organizer = () => {
             taskIds: finishTaskIds,
         };
 
-        setOrganizer({
-            ...organizer,
-            columns: {
-                ...organizer.columns,
-                [newStart.id]: newStart,
-                [newFinish.id]: newFinish,
-            },
-        });
+        const newColumns = {
+            ...columns,
+            [newStart.id]: newStart,
+            [newFinish.id]: newFinish,
+        };
+
+        dispatch(updateColumns(newColumns));
     };
 
     return (
@@ -217,20 +177,21 @@ const Organizer = () => {
                             ref={provided.innerRef}
                             {...provided.droppableProps}
                         >
-                            {organizer.columnOrder.map((columnId, index) => {
-                                const column = organizer.columns[columnId];
-                                const tasks = column.taskIds.map(
-                                    taskId => organizer.tasks[taskId]
+                            {columnOrder.map((columnId, index) => {
+                                const column = columns[columnId];
+                                const columnTasks = column.taskIds.map(
+                                    taskId => tasks[taskId]
                                 );
 
                                 return (
                                     <OrganizerColumn
                                         key={column.id}
                                         column={column}
-                                        tasks={tasks}
+                                        columnTasks={columnTasks}
                                         index={index}
-                                        onTitleChange={handleColumnTitleChange}
                                         onAddTask={handleAddTask}
+                                        onDeleteTask={handleDeleteTask}
+                                        onDeleteColumn={handleDeleteColumn}
                                     />
                                 );
                             })}

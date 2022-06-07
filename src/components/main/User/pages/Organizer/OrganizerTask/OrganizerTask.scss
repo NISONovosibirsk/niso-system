@@ -1,13 +1,48 @@
 .organizer-task {
-    height: 32px;
-    padding: 6px;
-    text-align: center;
+    cursor: pointer !important;
+    min-height: 32px;
+    // padding: 8px;
     border-radius: 8px;
     border: 1px solid lightgray;
     background: white;
     box-sizing: border-box;
+    transition: border ease 0.2s;
 
     &_dragging {
         filter: drop-shadow(-8px 8px 8px rgba(42, 83, 145, 0.15));
+    }
+
+    &:hover {
+        border: 1px solid #4f8be4;
+    }
+
+    &__title {
+        padding: 8px;
+        white-space: pre-line;
+        margin: 0;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 20px;
+        color: #172b4d;
+    }
+
+    &__textarea {
+        border-radius: 8px;
+        border: 2px solid white;
+        outline: none;
+        resize: none;
+        box-sizing: border-box;
+        padding: 4px 8px;
+        vertical-align: top;
+        min-height: 32px;
+        width: 100%;
+        line-height: 20px;
+        font-size: 16px;
+        font-weight: 400;
+        color: #172b4d;
+
+        &:focus {
+            border: 2px solid #4f8be4;
+        }
     }
 }

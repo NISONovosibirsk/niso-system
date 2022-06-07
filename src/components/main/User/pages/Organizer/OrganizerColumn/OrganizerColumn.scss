@@ -1,5 +1,5 @@
 .organizer-column {
-    padding: 8px;
+    // padding: 8px;
     grid-row: 1 / 2;
     width: 272px;
     background: #f5f7fb;
@@ -11,6 +11,12 @@
         filter: drop-shadow(-8px 8px 8px rgba(42, 83, 145, 0.15));
     }
 
+    &__header {
+        display: flex;
+        flex-direction: row;
+        margin: 8px;
+    }
+
     &__input {
         cursor: default;
         box-sizing: border-box;
@@ -19,7 +25,6 @@
         outline: none;
         border-radius: 2px;
         border: 1px solid lightgrey;
-        margin-bottom: 8px;
         color: #172b4d;
         font-size: 14px;
         font-weight: 400;
@@ -30,13 +35,27 @@
     }
 
     &__title {
+        cursor: pointer;
         padding: 0 2px;
         margin: 0;
         font-size: 14px;
         font-weight: 400;
         line-height: 24px;
         color: #172b4d;
-        margin-bottom: 8px;
+        width: 100%;
+    }
+
+    &__trash {
+        cursor: pointer;
+        transition: fill ease 0.2s;
+
+        &:hover {
+            fill: #e84141;
+        }
+
+        &:active {
+            fill: #a9abba;
+        }
     }
 
     &__tasks {
@@ -44,12 +63,23 @@
         border-radius: 8px;
         list-style: none;
         padding: 8px;
+        margin: 0 8px;
         display: grid;
         gap: 8px;
-        // grid-template-rows: repeat(auto-fill, 32px);
+        border: 1px solid lightgrey;
+        min-height: 50px;
 
         &_dragging-over {
-            background: #4f8be4;
+            border: 1px solid #4f8be4;
         }
+    }
+
+    &__placeholder {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 32px;
+        text-align: center;
+        color: #a9abba;
     }
 }

@@ -1,24 +1,39 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
+import { useDispatch } from 'react-redux';
+import { TrashIcon } from '../../../../../../assets';
+import { useTypeSelector } from '../../../../../../hooks/useTypeSelector';
+import { updateColumns } from '../../../../../../store/actions/userOrganizerActions';
 import { Button } from '../../../../../support';
+import AcceptPopup from '../../../../AcceptPopup/AcceptPopup';
 import OrganizerTask from '../OrganizerTask/OrganizerTask';
 import './OrganizerColumn.scss';
 
-let InnerList = ({ tasks }) =>
+let InnerList = ({ columnId, tasks, onDeleteTask }) =>
     tasks.map((task, index) => (
-        <OrganizerTask key={task.id} task={task} index={index} />
+        <OrganizerTask
+            key={task.id}
+            columnId={columnId}
+            task={task}
+            index={index}
+            onDeleteTask={onDeleteTask}
+        />
     ));
 
 InnerList = React.memo(InnerList);
 
 const OrganizerColumn = ({
     column,
-    tasks,
+    columnTasks,
     index,
-    onTitleChange,
     onAddTask,
+    onDeleteTask,
+    onDeleteColumn,
 }) => {
-    const [isEditing, setIsEditing] = useState(false);
+    const [isEditing, setIsEditing] = useState(column.title ? false : true);
+    const [isOpen, setIsOpen] = useState(false);
+    const { columns } = useTypeSelector(state => state.userOrganizer);
+    const dispatch = useDispatch();
     const inputRef = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
@@ -27,19 +42,32 @@ const OrganizerColumn = ({
         }
     }, [isEditing]);
 
+    const handleOpenPopup = () => {
+        setIsOpen(true);
+    };
+    const handleClosePopup = () => {
+        setIsOpen(false);
+    };
+
     const handleStartEditing = () => {
         setIsEditing(true);
     };
 
-    const handleKeyPress = e => {
-        if (e.key === 'Enter') {
-            setIsEditing(false);
+    const handleStopEditing = e => {
+        const { value } = e.target;
+        setIsEditing(false);
+
+        if (value.trim()) {
+            const newColumn = { ...column, title: value.trim() };
+            dispatch(updateColumns({ ...columns, [newColumn.id]: newColumn }));
+            return;
+        }
+        if (!columnTasks.length) {
+            onDeleteColumn(index, column.id);
         }
     };
 
-    const handleBlur = () => {
-        setIsEditing(false);
-    };
+    const handleKeyPress = e => e.key === 'Enter' && handleStopEditing(e);
 
     return (
         <Draggable draggableId={column.id} index={index}>
@@ -51,25 +79,32 @@ const OrganizerColumn = ({
                     ref={provided.innerRef}
                     {...provided.draggableProps}
                 >
-                    {isEditing ? (
-                        <input
-                            className='organizer-column__input'
-                            value={column.title}
-                            onChange={e => onTitleChange(e, column)}
-                            onBlur={handleBlur}
-                            onKeyPress={handleKeyPress}
-                            ref={inputRef}
-                            {...provided.dragHandleProps}
+                    <div
+                        className='organizer-column__header'
+                        {...provided.dragHandleProps}
+                    >
+                        {isEditing ? (
+                            <input
+                                className='organizer-column__input'
+                                defaultValue={column.title}
+                                onBlur={handleStopEditing}
+                                onKeyPress={handleKeyPress}
+                                ref={inputRef}
+                            />
+                        ) : (
+                            <p
+                                className='organizer-column__title'
+                                onClick={handleStartEditing}
+                            >
+                                {column.title}
+                            </p>
+                        )}
+                        <TrashIcon
+                            className='organizer-column__trash'
+                            onClick={handleOpenPopup}
                         />
-                    ) : (
-                        <p
-                            className='organizer-column__title'
-                            onClick={handleStartEditing}
-                            {...provided.dragHandleProps}
-                        >
-                            {column.title}
-                        </p>
-                    )}
+                    </div>
+
                     <Droppable droppableId={column.id} type='task'>
                         {(provided, snapshot) => (
                             <ul
@@ -80,18 +115,42 @@ const OrganizerColumn = ({
                                 ref={provided.innerRef}
                                 {...provided.droppableProps}
                             >
-                                <InnerList tasks={tasks} />
+                                {columnTasks.length ? (
+                                    <InnerList
+                                        columnId={column.id}
+                                        tasks={columnTasks}
+                                        onDeleteTask={onDeleteTask}
+                                    />
+                                ) : (
+                                    !snapshot.isDraggingOver && (
+                                        <p className='organizer-column__placeholder'>
+                                            Добавьте или перетащите задачу
+                                        </p>
+                                    )
+                                )}
                                 {provided.placeholder}
                             </ul>
                         )}
                     </Droppable>
                     <Button
-                        title='+ Добавить карточку'
+                        title='+ Добавить задачу'
                         onClick={() => onAddTask(column)}
                         type='light-grey'
                         margin='8px'
                         height='32px'
-                        width='240px'
+                        width='254px'
+                    />
+                    <AcceptPopup
+                        title={`Удалить колонку "${column.title}"? ${
+                            columnTasks.length
+                                ? `Она содержит задачи: ${columnTasks.map(
+                                      task => ` "${task.content}"`
+                                  )}.`
+                                : 'Она не содержит никаких задач.'
+                        }`}
+                        onClick={() => onDeleteColumn(index, column.id)}
+                        isOpen={isOpen}
+                        onClose={handleClosePopup}
                     />
                 </li>
             )}
