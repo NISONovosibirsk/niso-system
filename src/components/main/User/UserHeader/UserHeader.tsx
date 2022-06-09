@@ -30,6 +30,10 @@ const UserHeader = () => {
             title: 'Методические материалы',
         },
         {
+            path: 'communications',
+            title: 'Вопрос/Ответ'
+        },
+        {
             path: 'listEI',
             title: 'Список образовательных учреждений',
         },

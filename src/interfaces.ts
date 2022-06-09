@@ -170,3 +170,10 @@ export interface IUserStatusState {
         title: string;
     };
 }
+
+// Chat
+
+export interface IChatState {
+    message: string;
+    messageList: any;
+}

@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import { changePasswordReducer } from './reducers/changePasswordReducer';
+import { chatReducer } from './reducers/chatReducer';
 import { headerSidebarReducer } from './reducers/headerSidebarReducer';
 import { loginReducer } from './reducers/loginReducer';
 import { registerReducer } from './reducers/registerReducer';
@@ -18,6 +19,8 @@ export const rootReducer = combineReducers({
     userHandbook: userHandbookReducer,
     userListEI: userListEIReducer,
     userStatus: userStatusReducer,
+
+    chat: chatReducer,
 
     login: loginReducer,
     register: registerReducer,

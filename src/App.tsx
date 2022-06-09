@@ -12,6 +12,7 @@ import {
     NotFoundRoute,
 } from './components/main';
 import {
+    Chat,
     Constructor,
     Handbook,
     Home,
@@ -64,6 +65,7 @@ function App() {
                     <Route path='constructor/*' element={<Constructor />} />
                     <Route path='handbook' element={<Handbook />} />
                     <Route path='listEI' element={<ListEI />} />
+                    <Route path='communications' element={<Chat />} />
                 </Route>
 
                 <Route path='404' element={<NotFoundRoute />} />

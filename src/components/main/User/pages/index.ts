@@ -3,3 +3,4 @@ export { default as Profile } from './Profile/Profile';
 export { default as Constructor } from './Constructor/Constructor';
 export { default as Handbook } from './Handbook/Handbook';
 export { default as ListEI } from './ListEI/ListEI';
+export { default as Chat } from './Chat/Chat';

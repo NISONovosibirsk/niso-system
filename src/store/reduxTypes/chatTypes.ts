@@ -1,0 +1,2 @@
+export const UPDATE_MESSAGE = 'CHAT/UPDATE_MESSAGE';
+export const GET_MESSAGES = 'CHAT/GET/MESSAGES';
