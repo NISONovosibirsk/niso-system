@@ -29,6 +29,7 @@ const InputForm = ({ socket }) => {
             };
 
             await socket.emit('send_message', messageData);
+            dispatch(getMessages(messageData));
         }
     };
 

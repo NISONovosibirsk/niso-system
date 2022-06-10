@@ -19,7 +19,10 @@ const MessageList = ({ socket }) => {
             <p>Message List</p>
             <ul>
                 {messageList.map((message, index) => (
-                    <li key={index}>{message.text}</li>
+                    <li key={index}>
+                        {message.text}
+                        <p>{message.author}</p>
+                    </li>
                 ))}
             </ul>
         </div>

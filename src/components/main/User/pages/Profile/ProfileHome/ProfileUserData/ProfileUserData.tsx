@@ -18,7 +18,6 @@ const ProfileUserData = () => {
                 />
             ))}
             {statusCode ? (<StatusPopup/>) : (<ChangeInfoPopup type={popup.type}/>)}
-            {/* <ChangeInfoPopup type={popup.type} /> */}
         </ul>
     );
 };

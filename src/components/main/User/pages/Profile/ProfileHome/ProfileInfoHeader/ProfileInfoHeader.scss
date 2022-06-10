@@ -39,6 +39,12 @@
         };
     }
 
+    &__name {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+    }
+
     &__position {
         margin-top: 6px;
     }

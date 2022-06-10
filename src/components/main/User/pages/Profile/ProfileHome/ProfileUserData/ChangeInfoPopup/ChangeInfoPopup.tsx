@@ -7,6 +7,7 @@ import ChangeProfileEmail from './ChangeProfileData/ChangeProfileEmail';
 import ChangeProfilePhone from './ChangeProfileData/ChangeProfilePhone';
 import { updatePopup } from '../../../../../../../../store/actions/userProfileActions';
 import { FormProvider, useForm } from 'react-hook-form';
+import ChangeProfileName from './ChangeProfileName/ChangeProfileName';
 
 const ChangeInfoPopup = ({ type }) => {
     const { popup } = useTypeSelector(state => state.userProfile);
@@ -29,6 +30,8 @@ const ChangeInfoPopup = ({ type }) => {
                 return <ChangeProfilePhone />;
             case 'password':
                 return <ChangeProfilePassword />;
+            case 'name':
+                return <ChangeProfileName />;
             default:
                 break;
         }
@@ -36,9 +39,7 @@ const ChangeInfoPopup = ({ type }) => {
 
     return (
         <Popup isOpen={popup.isOpen} onClose={handleClose}>
-            <FormProvider {...methods}>
-            {handleType()}
-            </FormProvider>
+            <FormProvider {...methods}>{handleType()}</FormProvider>
         </Popup>
     );
 };
