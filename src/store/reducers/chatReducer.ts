@@ -19,7 +19,7 @@ export const chatReducer = (
         case GET_MESSAGES:
             return {
                 ...state,
-                messageList: [...action.payload]
+                messageList: [...state.messageList, action.payload]
             };
         default:
             return state;

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTypeSelector } from '../../../../../../hooks/useTypeSelector';
 import { getMessages } from '../../../../../../store/actions/chatActions';
@@ -8,13 +8,9 @@ const MessageList = ({ socket }) => {
     const { messageList } = useTypeSelector(state => state.chat);
     const dispatch = useDispatch();
 
-    const [testList, setTestList]: any = useState([]);
-
     useEffect(() => {
         socket.on('receive_message', data => {
-            dispatch(getMessages([...messageList, data])); // НЕ РАБОТАЕТ
-
-            setTestList(list => [...list, data]); // РАБОТАЕТ
+            dispatch(getMessages(data));
         });
     }, [socket]);
 
