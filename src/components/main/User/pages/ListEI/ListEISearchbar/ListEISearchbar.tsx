@@ -74,7 +74,6 @@ const ListEISearchbar = () => {
 
     const handleSecondModalClick = e => {
         const title = e.target.outerText;
-        // console.log(e.target.outerText);
 
         const newList: any[] = [...filter.list];
         const newPicked: string[] = [...newList[secondModalIndex].picked];
