@@ -21,6 +21,12 @@ const ListEISearchbar = () => {
     });
     const [secondModalIndex, setSecondModalIndex] = useState(-1);
 
+    const [thirdModalIsOpen, setThirdModalIsOpen] = useState(false);
+    const [thirdModalPosition, setThirdModalPosition] = useState({
+        top: 0,
+        left: 0,
+    });
+
     const { chars, filter } = useTypeSelector(state => state.userListEI.search);
     const dispatch = useDispatch();
     const filterRef = useRef<HTMLButtonElement>(null);
@@ -66,22 +72,34 @@ const ListEISearchbar = () => {
         setSecondModalIndex(-1);
     };
 
-    const handleSecondModalClick = index => {
+    const handleSecondModalClick = e => {
+        const title = e.target.outerText;
+
         const newList: any[] = [...filter.list];
         const newPicked: string[] = [...newList[secondModalIndex].picked];
 
-        if (newPicked.indexOf(newList[secondModalIndex].options[index]) > -1) {
-            newPicked.splice(
-                newPicked.indexOf(newList[secondModalIndex].options[index]),
-                1
-            );
+        if (newPicked.indexOf(title) > -1) {
+            newPicked.splice(newPicked.indexOf(title), 1);
         } else {
-            newPicked.push(newList[secondModalIndex].options[index]);
+            newPicked.push(title);
         }
 
         newList[secondModalIndex].picked = newPicked;
 
         dispatch(updateSearchList(newList));
+    };
+
+    const handleOpenThirdModal = e => {
+        const position = e.target.getBoundingClientRect();
+        setThirdModalIsOpen(true);
+        setThirdModalPosition({
+            top: position.top,
+            left: position.right + 8,
+        });
+    };
+
+    const handleCloseThirdModal = () => {
+        setThirdModalIsOpen(false);
     };
 
     const handleUpdateSearchList = newList => {
@@ -119,17 +137,46 @@ const ListEISearchbar = () => {
                 >
                     {filter.list[secondModalIndex].options
                         .sort()
-                        .map((option, index) => (
+                        .map((option, index) =>
+                            typeof option === 'string' ? (
+                                <button
+                                    className='modal__button'
+                                    onClick={handleSecondModalClick}
+                                    key={index}
+                                >
+                                    {option}
+                                </button>
+                            ) : (
+                                <button
+                                    className='modal__button'
+                                    onClick={e => handleOpenThirdModal(e)}
+                                    key={index}
+                                >
+                                    {option.title}
+                                </button>
+                            )
+                        )}
+                </Modal>
+            )}
+            {
+                <Modal
+                    onClose={handleCloseThirdModal}
+                    isOpen={thirdModalIsOpen}
+                    position={thirdModalPosition}
+                >
+                    {filter.list[1].options[0].subOptions.map(
+                        (option, index) => (
                             <button
                                 className='modal__button'
-                                onClick={() => handleSecondModalClick(index)}
+                                onClick={handleSecondModalClick}
                                 key={index}
                             >
                                 {option}
                             </button>
-                        ))}
+                        )
+                    )}
                 </Modal>
-            )}
+            }
             <input
                 className='list-ei-searchbar__input'
                 placeholder='Поиск...'
