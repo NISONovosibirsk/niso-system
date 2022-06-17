@@ -17,14 +17,15 @@ const io = new Server(server, {
 io.on('connection', socket => {
     console.log(`user ${socket.id} connected`);
 
-    socket.on('join_chat', () => {
+    socket.on('join_chat', data => {
         socket.join();
-        console.log(`User with ID: ${socket.id} joined chat`);
+        socket.to().emit('get_companion_data', data);
+        console.log(`User ${data.userName} joined chat`);
     });
 
     socket.on('send_message', data => {
-        socket.to().emit('receive_message', data)
-    })
+        socket.to().emit('receive_message', data);
+    });
 
     socket.on('disconnect', () => {
         console.log(`user ${socket.id} disconnected`);

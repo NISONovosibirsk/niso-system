@@ -1,0 +1,50 @@
+.communications-form {
+    display: grid;
+    grid-template-columns: 85% auto;
+    gap: 30px;
+
+    &__input {
+        border-radius: 10px;
+        font-weight: 400;
+        font-size: 14px;
+        letter-spacing: 0.3px;
+        box-sizing: border-box;
+        border: 1px solid #dadada;
+        border-radius: 5px;
+        padding: 7px 16px 2px 16px;
+        resize: none;
+        max-height: 125px !important;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &__button {
+        cursor: pointer;
+        user-select: none;
+        color: white;
+        background: #4f8be4;
+        font-weight: 600;
+        font-size: 14px;
+        letter-spacing: 0.3px;
+        transition: filter linear 0.2s;
+        border: 1px solid #4f8be4 {
+            radius: 8px;
+        }
+        height: 30%;
+
+        &:hover {
+            filter: drop-shadow(-8px 8px 8px rgba(42, 83, 145, 0.3));
+        }
+
+        &:active {
+            filter: none;
+        }
+
+        &:disabled {
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+    }
+}

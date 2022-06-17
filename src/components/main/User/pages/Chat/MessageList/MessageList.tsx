@@ -1,3 +1,4 @@
+import dayjs from 'dayjs';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTypeSelector } from '../../../../../../hooks/useTypeSelector';
@@ -6,6 +7,7 @@ import './MessageList.scss';
 
 const MessageList = ({ socket }) => {
     const { messageList } = useTypeSelector(state => state.chat);
+    const { profile } = useTypeSelector(state => state.userProfile);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -15,17 +17,23 @@ const MessageList = ({ socket }) => {
     }, [socket]);
 
     return (
-        <div>
-            <p>Message List</p>
-            <ul>
-                {messageList.map((message, index) => (
-                    <li key={index}>
-                        {message.text}
-                        <p>{message.author}</p>
-                    </li>
-                ))}
-            </ul>
-        </div>
+        <ul className='message-list'>
+            {messageList.map((message, index) => (
+                <li
+                    className={`message-list__message ${
+                        message.author === profile.name
+                            ? 'message-list__message-user'
+                            : ''
+                    }`}
+                    key={index}
+                >   
+                    {message.text}
+                    <span className='message-list__date'>
+                        {dayjs(message.date).format('hh:mm')}
+                    </span>
+                </li>
+            ))}
+        </ul>
     );
 };
 

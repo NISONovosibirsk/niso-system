@@ -1,0 +1,39 @@
+.message-list {
+    list-style: none;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 {
+        right: 10px;
+    }
+
+    &__message {
+        min-width: 25%;
+        max-width: 45%;
+        overflow:hidden;
+        word-break: break-all;
+        padding: 10px;
+        border-radius: 10px;
+        align-self: flex-start;
+        color: white;
+        background: linear-gradient(
+            214.01deg,
+            rgba(79, 139, 228, 0.8) 1.1%,
+            #3a78f2 98.17%
+        );
+        display: grid;
+    }
+
+    &__message-user {
+        color: black;
+        background: #f5f7fb;
+        align-self: flex-end;
+    }
+
+    &__date {
+        font-style: italic;
+        justify-self: end;
+        color: rgb(105, 105, 105);
+    }
+}
