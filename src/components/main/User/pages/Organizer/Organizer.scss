@@ -14,9 +14,70 @@
         align-items: start;
     }
 
+    &__date {
+        margin: 0;
+        display: inline-block;
+        text-align: center;
+        width: calc(100% - (24px + 8px) * 4);
+    }
+
     &__button {
-        grid-row: 1 / 2;
-        width: 272px;
-        transition: none 0s ease 0s;
+        cursor: pointer;
+        border: none;
+        border-radius: 4px;
+        background: white;
+        height: 24px;
+        width: 24px;
+        padding: 0;
+        margin: 4px;
+
+        &:hover {
+            background: lightgray;
+        }
+        // grid-row: 1 / 2;
+        // width: 272px;
+        // transition: none 0s ease 0s;
+    }
+
+    &__month {
+        border: 1px solid grey;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+    }
+
+    &__weekdays {
+        border: 1px solid grey;
+        text-align: center;
+        background: lightgrey;
+    }
+
+    &__day {
+        border: 1px solid grey;
+        min-height: 100px;
+
+        text-align: center;
+
+        &_inactive {
+            background: lightgrey;
+            filter: brightness(80%);
+        }
+
+        &_current {
+            background: lightblue;
+        }
+    }
+
+    &__task {
+        background: lightgreen;
+
+        &_start {
+            margin-left: 20px;
+            border-radius: 8px 0 0 8px;
+        }
+
+        &_end {
+            margin-right: 20px;
+            border-radius: 0 8px 8px 0;
+        }
     }
 }
