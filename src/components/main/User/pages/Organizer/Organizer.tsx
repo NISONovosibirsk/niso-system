@@ -256,41 +256,45 @@ const Organizer = () => {
 
     return (
         <section className='organizer'>
-            <button className='organizer__button' onClick={reduceYaer}>
-                {'<<'}
-            </button>
-            <button className='organizer__button' onClick={reduceMonth}>
-                {'<'}
-            </button>
-            <p className='organizer__date'>
-                <span>{getPrettyMonth()} </span>
-                <span>{date.getFullYear()}</span>
-            </p>
-            <button className='organizer__button' onClick={increaseMonth}>
-                {'>'}
-            </button>
-            <button className='organizer__button' onClick={increaseYaer}>
-                {'>>'}
-            </button>
-            <div className='organizer__month'>
-                {weekdays.map(weekdays => (
-                    <div key={weekdays} className='organizer__weekdays'>
-                        {weekdays}
-                    </div>
-                ))}
-                {getDaysInMonth().map(monthDay => (
-                    <div
-                        className={`organizer__day ${
-                            date.getMonth() !== monthDay.getMonth() &&
-                            'organizer__day_inactive'
-                        } ${
-                            new Date().setHours(0, 0, 0, 0) ===
-                                monthDay.getTime() && 'organizer__day_current'
-                        }`}
-                        key={monthDay}
-                    >
-                        {monthDay.getDate()}
-                        {event.startDate.getTime() === monthDay.getTime() && (
+            <div className='organizer__calendar'>
+                <button className='organizer__button' onClick={reduceYaer}>
+                    {'<<'}
+                </button>
+                <button className='organizer__button' onClick={reduceMonth}>
+                    {'<'}
+                </button>
+                <p className='organizer__date'>
+                    <span>{getPrettyMonth()} </span>
+                    <span>{date.getFullYear()}</span>
+                </p>
+                <button className='organizer__button' onClick={increaseMonth}>
+                    {'>'}
+                </button>
+                <button className='organizer__button' onClick={increaseYaer}>
+                    {'>>'}
+                </button>
+                <div className='organizer__week-days'>
+                    {weekdays.map(weekday => (
+                        <div key={weekday} className='organizer__week-day'>
+                            {weekday}
+                        </div>
+                    ))}
+                </div>
+                <div className='organizer__month-days'>
+                    {getDaysInMonth().map(monthDay => (
+                        <div
+                            className={`organizer__month-day ${
+                                date.getMonth() !== monthDay.getMonth() &&
+                                'organizer__month-day_inactive'
+                            } ${
+                                new Date().setHours(0, 0, 0, 0) ===
+                                    monthDay.getTime() &&
+                                'organizer__month-day_current'
+                            }`}
+                            key={monthDay}
+                        >
+                            {monthDay.getDate()}
+                            {/* {event.startDate.getTime() === monthDay.getTime() && (
                             <div className='organizer__task organizer__task_start'>
                                 {event.title}
                             </div>
@@ -305,9 +309,13 @@ const Organizer = () => {
                                 <div className='organizer__task'>
                                     {event.title}
                                 </div>
-                            )}
-                    </div>
-                ))}
+                            )} */}
+                        </div>
+                    ))}
+                </div>
+                <div className='organizer__events'>
+                    <div className='organizer__event'>{event.title}</div>
+                </div>
             </div>
         </section>
         // <DragDropContext onDragEnd={handleDragEnd}>

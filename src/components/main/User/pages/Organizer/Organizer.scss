@@ -1,8 +1,12 @@
 .organizer {
     grid-area: userContent;
-    margin: 0 32px 20px;
+    padding: 0 32px 20px;
     height: calc(88vh - 20px);
     overflow: auto;
+
+    &__calendar {
+        position: relative;
+    }
 
     &__columns {
         list-style: none;
@@ -15,19 +19,23 @@
     }
 
     &__date {
+        font-size: 24px;
+        line-height: 38px;
+        font-weight: 600;
         margin: 0;
         display: inline-block;
         text-align: center;
-        width: calc(100% - (24px + 8px) * 4);
+        width: calc(100% - (30px + 8px) * 4);
     }
 
     &__button {
+        font-size: 20px;
         cursor: pointer;
         border: none;
         border-radius: 4px;
         background: white;
-        height: 24px;
-        width: 24px;
+        height: 30px;
+        width: 30px;
         padding: 0;
         margin: 4px;
 
@@ -39,27 +47,36 @@
         // transition: none 0s ease 0s;
     }
 
-    &__month {
-        border: 1px solid grey;
+    &__week-days {
+        margin-top: 12px;
         display: grid;
         grid-template-columns: repeat(7, 1fr);
     }
 
-    &__weekdays {
-        border: 1px solid grey;
-        text-align: center;
-        background: lightgrey;
+    &__week-day {
+        min-width: 124px;
+        font-weight: 600;
+        padding: 8px;
+        border: 1px solid lightgrey;
+        background: #f5f7fb;
     }
 
-    &__day {
-        border: 1px solid grey;
-        min-height: 100px;
+    &__month-days {
+        width: 100%;
+        position: absolute;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+    }
 
-        text-align: center;
+    &__month-day {
+        padding: 8px;
+        border: 1px solid lightgrey;
+        min-height: 100px;
+        min-width: 124px;
 
         &_inactive {
-            background: lightgrey;
-            filter: brightness(80%);
+            color: lightgrey;
+            text-align: right;
         }
 
         &_current {
@@ -67,7 +84,13 @@
         }
     }
 
-    &__task {
+    &__events {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+    }
+
+    &__event {
+        min-height: 20px;
         background: lightgreen;
 
         &_start {
