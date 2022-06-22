@@ -5,7 +5,7 @@
     overflow: auto;
 
     &__calendar {
-        position: relative;
+        // position: relative;
     }
 
     &__columns {
@@ -62,10 +62,11 @@
     }
 
     &__month-days {
+        overflow: auto;
         width: 100%;
-        position: absolute;
+        // position: absolute;
         display: grid;
-        grid-template-columns: repeat(7, 1fr);
+        grid-auto-flow: column;
     }
 
     &__month-day {

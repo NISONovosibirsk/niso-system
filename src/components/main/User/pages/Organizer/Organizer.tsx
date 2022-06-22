@@ -9,76 +9,56 @@ import {
     updateColumns,
     updateTasks,
 } from '../../../../../store/actions/userOrganizerActions';
-import { useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 
 const Organizer = () => {
     const [date, setDate] = useState(new Date());
-    const weekdays = [
-        'Воскресенье',
-        'Понедельник',
-        'Вторник',
-        'Среда',
-        'Четверг',
-        'Пятница',
-        'Суббота',
+    const [scroll, setScroll] = useState(0);
+    const currentDayRef = useRef(null);
+    const calendarRef = useRef(null);
+
+    //узнать положение скролла по рефу от гридов с месяцем
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+
+        console.log(scroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [scroll]);
+
+    const handleScroll = e => {
+        setScroll(window.scrollY);
+    };
+
+    const weekdays = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
+    const monthNames = [
+        'Январь',
+        'Февраль',
+        'Март',
+        'Апрель',
+        'Май',
+        'Июнь',
+        'Июль',
+        'Август',
+        'Сентябрь',
+        'Октябрь',
+        'Ноябрь',
+        'Декабрь',
     ];
     const event = {
         title: 'Праздник',
         startDate: new Date(2022, 5, 22),
         endDate: new Date(2022, 5, 25),
     };
-    // const [year, setYear] = useState(new Date().getFullYear());
-    // const [month, setMonth] = useState(new Date().getMonth());
-
-    // console.log(33 - new Date(2022, 5, 33).getDate());
-
-    // date.setHours(0, 0, 0, 0);
-    // date.setMonth(date.getMonth() + 1);
-
-    const getPrettyMonth = () => {
-        switch (date.getMonth()) {
-            case 0:
-                return 'Январь';
-            case 1:
-                return 'Февраль';
-            case 2:
-                return 'Март';
-            case 3:
-                return 'Апрель';
-            case 4:
-                return 'Май';
-            case 5:
-                return 'Июнь';
-            case 6:
-                return 'Июль';
-            case 7:
-                return 'Август';
-            case 8:
-                return 'Сентябрь';
-            case 9:
-                return 'Октябрь';
-            case 10:
-                return 'Ноябрь';
-            case 11:
-                return 'Декабрь';
-        }
-    };
 
     const getDaysInMonth = () => {
         const days = [] as any[];
 
-        const firstDayInMonth = new Date(
-            date.getFullYear(),
-            date.getMonth(),
-            1
-        );
+        const countDaysInMonth =
+            33 - new Date(date.getFullYear(), date.getMonth(), 33).getDate();
 
-        for (let i = 2; i < 37; i++) {
-            days[i] = new Date(
-                date.getFullYear(),
-                date.getMonth(),
-                i - firstDayInMonth.getDay()
-            );
+        for (let i = 1; i <= countDaysInMonth; i++) {
+            days[i] = new Date(date.getFullYear(), date.getMonth(), i);
         }
 
         return days;
@@ -264,7 +244,7 @@ const Organizer = () => {
                     {'<'}
                 </button>
                 <p className='organizer__date'>
-                    <span>{getPrettyMonth()} </span>
+                    <span>{monthNames[date.getMonth()]} </span>
                     <span>{date.getFullYear()}</span>
                 </p>
                 <button className='organizer__button' onClick={increaseMonth}>
@@ -273,48 +253,26 @@ const Organizer = () => {
                 <button className='organizer__button' onClick={increaseYaer}>
                     {'>>'}
                 </button>
-                <div className='organizer__week-days'>
-                    {weekdays.map(weekday => (
-                        <div key={weekday} className='organizer__week-day'>
-                            {weekday}
-                        </div>
-                    ))}
-                </div>
                 <div className='organizer__month-days'>
-                    {getDaysInMonth().map(monthDay => (
-                        <div
-                            className={`organizer__month-day ${
-                                date.getMonth() !== monthDay.getMonth() &&
-                                'organizer__month-day_inactive'
-                            } ${
-                                new Date().setHours(0, 0, 0, 0) ===
-                                    monthDay.getTime() &&
-                                'organizer__month-day_current'
-                            }`}
-                            key={monthDay}
-                        >
-                            {monthDay.getDate()}
-                            {/* {event.startDate.getTime() === monthDay.getTime() && (
-                            <div className='organizer__task organizer__task_start'>
-                                {event.title}
+                    {getDaysInMonth().map(monthDay =>
+                        new Date().setHours(0, 0, 0, 0) ===
+                        monthDay.getTime() ? (
+                            <div
+                                className='organizer__month-day organizer__month-day_current'
+                                key={monthDay}
+                                ref={currentDayRef}
+                            ></div>
+                        ) : (
+                            <div
+                                className='organizer__month-day'
+                                key={monthDay}
+                            >
+                                {weekdays[monthDay.getDay()]}
+                                <br></br>
+                                {monthDay.getDate()}
                             </div>
-                        )}
-                        {event.endDate.getTime() === monthDay.getTime() && (
-                            <div className='organizer__task organizer__task_end'>
-                                {event.title}
-                            </div>
-                        )}
-                        {monthDay.getTime() > event.startDate.getTime() &&
-                            monthDay.getTime() < event.endDate.getTime() && (
-                                <div className='organizer__task'>
-                                    {event.title}
-                                </div>
-                            )} */}
-                        </div>
-                    ))}
-                </div>
-                <div className='organizer__events'>
-                    <div className='organizer__event'>{event.title}</div>
+                        )
+                    )}
                 </div>
             </div>
         </section>
