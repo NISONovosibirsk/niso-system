@@ -1,9 +1,14 @@
 import { IReduxActions, IChatState } from '../../interfaces';
-import { GET_MESSAGES, UPDATE_MESSAGE } from '../reduxTypes/chatTypes';
+import {
+    GET_MESSAGES,
+    UPDATE_MESSAGE,
+    UPDATE_USERS,
+} from '../reduxTypes/chatTypes';
 
 const initialState: IChatState = {
     message: '',
     messageList: [],
+    users: [],
 };
 
 export const chatReducer = (
@@ -19,7 +24,12 @@ export const chatReducer = (
         case GET_MESSAGES:
             return {
                 ...state,
-                messageList: [...state.messageList, action.payload]
+                messageList: [...state.messageList, action.payload],
+            };
+        case UPDATE_USERS:
+            return {
+                ...state,
+                users: action.payload,
             };
         default:
             return state;

@@ -176,4 +176,5 @@ export interface IUserStatusState {
 export interface IChatState {
     message: string;
     messageList: any;
+    users: any;
 }
