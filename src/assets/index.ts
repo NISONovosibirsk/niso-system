@@ -37,6 +37,7 @@ export { ReactComponent as MaterialsIcon } from './icons/sidebarIcons/materials-
 export { ReactComponent as QAIcon } from './icons/sidebarIcons/qa-icon.svg';
 export { ReactComponent as FileShareIcon } from './icons/sidebarIcons/file-share-icon.svg';
 export { ReactComponent as InstitutionListIcon } from './icons/sidebarIcons/institution-list-icon.svg';
+export { ReactComponent as BurgerIcon } from './icons/sidebarIcons/burger-icon.svg';
 // home
 export { ReactComponent as CommonInfoIcon } from './icons/homeIcons/common-info-icon.svg';
 export { ReactComponent as AboutSystemIcon } from './icons/homeIcons/about-system-icon.svg';
@@ -61,6 +62,6 @@ export { default as slide4 } from './images/4.svg';
 // export { default as smoke } from './smoke-background-optimized.mp4';
 
 // banner
-export { default as constructorSlide } from './images/bannerImages/constructorSlide.svg'
-export { default as notificationsSlide } from './images/bannerImages/notificationsSlide.svg'
-export { default as reportsSlide } from './images/bannerImages/reportsSlide.svg'
+export { default as constructorSlide } from './images/bannerImages/constructorSlide.svg';
+export { default as notificationsSlide } from './images/bannerImages/notificationsSlide.svg';
+export { default as reportsSlide } from './images/bannerImages/reportsSlide.svg';

@@ -1,4 +1,5 @@
-import { MaisLogo } from '../../../../assets';
+import { useState } from 'react';
+import { MaisLogo, BurgerIcon } from '../../../../assets';
 import SidebarItem from './SidebarItem/SidebarItem';
 import './UserSidebar.scss';
 
@@ -9,10 +10,20 @@ const UserSidebar = ({ sidebarListData }) => {
         icon: '',
     };
 
+    const [isOpen, setIsOpen] = useState(true);
+
     return (
-        <nav className='user-sidebar'>
-            <div className='user-sidebar__logo'>
+        <nav className={isOpen ? 'user-sidebar' : 'user-sidebar user-sidebar_collapsed'}>
+            {/* <div className='user-sidebar__logo'>
                 <MaisLogo />
+                <p className='user-sidebar__caption'>
+                    Муниципальная система оценки качества образования города
+                    Новосибирска
+                </p>
+            </div> */}
+            <div className='user-sidebar__header'>
+                <MaisLogo />
+                <BurgerIcon/>
                 <p className='user-sidebar__caption'>
                     Муниципальная система оценки качества образования города
                     Новосибирска

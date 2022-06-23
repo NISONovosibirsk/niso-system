@@ -10,13 +10,32 @@
     background: #3a78f2;
     border-radius: 0 40px 40px 0;
 
-    &__logo {
+    &_collapsed {
+        width: 5vw;
+    }
+
+    &__header {
         padding: {
             left: 24px;
             right: 32px;
         }
         align-self: center;
+        display: grid;
+        grid-template-areas:
+            'logo burger'
+            'paragraph paragraph';
     }
+
+    &__logo {
+    }
+
+    // &__logo {
+    //     padding: {
+    //         left: 24px;
+    //         right: 32px;
+    //     }
+    //     align-self: center;
+    // }
 
     &__caption {
         color: #efefef;
