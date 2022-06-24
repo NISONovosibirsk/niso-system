@@ -1,7 +1,7 @@
 import { Link, useMatch, useResolvedPath } from 'react-router-dom';
 import './SidebarItem.scss';
 
-const SidebarItem = ({ sidebarItemData }) => {
+const SidebarItem = ({ sidebarItemData, isOpen }) => {
     const { path, icon, text } = sidebarItemData;
 
     const resolved = useResolvedPath(path);
@@ -12,9 +12,9 @@ const SidebarItem = ({ sidebarItemData }) => {
 
     return (
         <li className={`sidebar-item ${match && 'sidebar-item_active'}`}>
-            <Link className='sidebar-item__link' to={path}>
+            <Link className={`sidebar-item__link ${isOpen ? '' : 'sidebar-item__link_collapsed'}`} to={path}>
                 {icon}
-                <p className='sidebar-item__text'>{text}</p>
+                {isOpen && <p className='sidebar-item__text'>{text}</p>}
             </Link>
         </li>
     );
