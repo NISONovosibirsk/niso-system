@@ -15,6 +15,7 @@ import {
     QAIcon,
 } from '../../../assets';
 import { useTypeSelector } from '../../../hooks/useTypeSelector';
+import { useCallback, useState } from 'react';
 
 const User = () => {
     const loggedSidebarListData = [
@@ -90,9 +91,16 @@ const User = () => {
 
     const { isLogged } = useTypeSelector(state => state.userStatus);
 
+    //handle state from child-sidebar
+    const [isOpen, setIsOpen] = useState(false);
+    const handleSidebar = useCallback(state => {
+        setIsOpen(state);
+    }, []);
+
     return (
-        <div className='user'>
+        <div className={isOpen ? 'user user_collapsed' : 'user'}>
             <UserSidebar
+                handleSidebar={handleSidebar}
                 sidebarListData={
                     isLogged ? loggedSidebarListData : notLoggedSidebarListData
                 }

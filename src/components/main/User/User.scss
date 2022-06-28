@@ -4,4 +4,11 @@
     grid-template-areas:
         'userSidebar userHeader'
         'userSidebar userContent';
+
+    &_collapsed {
+        grid-template: 12vh auto / 80px auto;
+        grid-template-areas:
+            'userSidebar userHeader'
+            'userSidebar userContent';
+    }
 }
