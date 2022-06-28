@@ -12,7 +12,7 @@ const SidebarItem = ({ sidebarItemData, isOpen }) => {
 
     return (
         <li className={`sidebar-item ${match && 'sidebar-item_active'}`}>
-            <Link className={`sidebar-item__link ${isOpen ? '' : 'sidebar-item__link_collapsed'}`} to={path}>
+            <Link className={`sidebar-item__link ${isOpen ? '' : 'sidebar-item__link_collapsed'}`} to={path} title={text}>
                 {icon}
                 {isOpen && <p className='sidebar-item__text'>{text}</p>}
             </Link>

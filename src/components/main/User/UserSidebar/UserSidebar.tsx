@@ -3,7 +3,7 @@ import { MaisLogo, BurgerIcon } from '../../../../assets';
 import SidebarItem from './SidebarItem/SidebarItem';
 import './UserSidebar.scss';
 
-const UserSidebar = ({ sidebarListData }) => {
+const UserSidebar = ({ sidebarListData, handleSidebar }) => {
     const techSupport = {
         path: 'support',
         text: 'Техподдержка',
@@ -14,6 +14,7 @@ const UserSidebar = ({ sidebarListData }) => {
 
     const handleCollapse = () => {
         setIsOpen(!isOpen);
+        handleSidebar(isOpen);
     };
 
     return (
@@ -29,7 +30,8 @@ const UserSidebar = ({ sidebarListData }) => {
             >
                 {isOpen && <MaisLogo />}
                 <BurgerIcon
-                    className='user-sidebar__burger'
+                    // className='user-sidebar__burger'
+                    className={`user-sidebar__burger ${isOpen ? 'user-sidebar__burger_collapsed' : ''}`}
                     onClick={handleCollapse}
                 />
                 {isOpen && (

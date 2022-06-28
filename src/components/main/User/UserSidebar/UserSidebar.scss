@@ -1,37 +1,19 @@
-@keyframes collapse {
-    from {
-        width: 20vw;
-    }
-    to {
-        width: 80px;
-    }
-}
-
-@keyframes expand {
-    from {
-        width: 80px;
-    }
-    to {
-        width: 20vw;
-    }
-}
-
 .user-sidebar {
     grid-area: userSidebar;
     z-index: 999;
     width: 20vw;
-    min-width: 80px;
+    min-width: 300px;
     position: fixed;
     display: grid;
     height: 100vh;
     grid-template-rows: 15vh auto 25vh;
     background: #3a78f2;
     border-radius: 0 40px 40px 0;
-    animation: 0.2s expand backwards;
-
+    transition: width 0.3s ease;
 
     &_collapsed {
-        animation: 0.3s collapse forwards;
+        transition: width 0.3s ease;
+        min-width: 80px;
         width: 80px;
         border-radius: 0 20px 20px 0;
         justify-items: center;
@@ -50,8 +32,8 @@
 
         &_collapsed {
             padding: 0 {
-                left: 0.7vw;
-                right: 0.7vw;
+                left: 10px;
+                right: 10px;
             }
         }
     }
@@ -59,6 +41,13 @@
     &__burger {
         cursor: pointer;
         place-self: center;
+        transform: rotate(-180deg);
+        transition: transform 0.5s ease;
+
+        &_collapsed {
+            transform: rotate(180deg);
+            transition: transform 0.5s ease;
+        }
     }
 
     &__logo {
@@ -84,8 +73,10 @@
         grid-row: 2 / 3;
         list-style: none;
         padding: 0 {
-            left: 0.7vw;
-            right: 0.7vw;
+            // left: 0.7vw;
+            left: 20px;
+            // right: 0.7vw;
+            right: 20px;
         }
 
         :hover {
@@ -104,6 +95,7 @@
 
         &_collapsed {
             width: 50px;
+            padding: 0;
         }
     }
 
@@ -111,18 +103,19 @@
         grid-row: 3 / 4;
         color: white;
         padding: {
-            left: 1.5vw;
+            // left: 1.5vw;
+            left: 34px;
             top: 4vh;
             bottom: 1vh;
         }
         font-size: 0.75rem;
         display: grid;
-        // flex-direction: column;
         gap: 10px;
-        // justify-content: center;
 
         &_collapsed {
-            padding: 0;
+            padding: 0 {
+                top: 7vh;
+            }
         }
     }
 
