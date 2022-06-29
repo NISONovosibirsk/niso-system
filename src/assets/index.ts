@@ -37,7 +37,7 @@ export { ReactComponent as MaterialsIcon } from './icons/sidebarIcons/materials-
 export { ReactComponent as QAIcon } from './icons/sidebarIcons/qa-icon.svg';
 export { ReactComponent as FileShareIcon } from './icons/sidebarIcons/file-share-icon.svg';
 export { ReactComponent as InstitutionListIcon } from './icons/sidebarIcons/institution-list-icon.svg';
-export { ReactComponent as BurgerIcon } from './icons/sidebarIcons/burger-icon.svg';
+export { ReactComponent as DoubleArrowIcon } from './icons/sidebarIcons/double-arrow-icon.svg';
 // home
 export { ReactComponent as CommonInfoIcon } from './icons/homeIcons/common-info-icon.svg';
 export { ReactComponent as AboutSystemIcon } from './icons/homeIcons/about-system-icon.svg';

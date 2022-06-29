@@ -41,11 +41,10 @@
     &__burger {
         cursor: pointer;
         place-self: center;
-        transform: rotate(-180deg);
         transition: transform 0.5s ease;
 
         &_collapsed {
-            transform: rotate(180deg);
+            transform: rotate(-180deg);
             transition: transform 0.5s ease;
         }
     }

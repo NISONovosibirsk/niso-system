@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { MaisLogo, BurgerIcon } from '../../../../assets';
+import { MaisLogo, DoubleArrowIcon } from '../../../../assets';
 import SidebarItem from './SidebarItem/SidebarItem';
 import './UserSidebar.scss';
 
@@ -29,9 +29,10 @@ const UserSidebar = ({ sidebarListData, handleSidebar }) => {
                 }`}
             >
                 {isOpen && <MaisLogo />}
-                <BurgerIcon
-                    // className='user-sidebar__burger'
-                    className={`user-sidebar__burger ${isOpen ? 'user-sidebar__burger_collapsed' : ''}`}
+                <DoubleArrowIcon
+                    className={`user-sidebar__burger ${
+                        isOpen ? 'user-sidebar__burger_collapsed' : ''
+                    }`}
                     onClick={handleCollapse}
                 />
                 {isOpen && (
@@ -54,9 +55,11 @@ const UserSidebar = ({ sidebarListData, handleSidebar }) => {
                     />
                 ))}
             </ul>
-            <div className={`user-sidebar__footer ${
+            <div
+                className={`user-sidebar__footer ${
                     isOpen ? '' : 'user-sidebar__footer_collapsed'
-                }`}>
+                }`}
+            >
                 {isOpen && (
                     <>
                         <p className='user-sidebar__politics'>
