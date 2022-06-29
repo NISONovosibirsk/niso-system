@@ -2,3 +2,4 @@ export { default as renderReportCreateElementInput } from './renderReportCreateE
 export { default as renderReportElement } from './renderReportElement';
 export { default as getPrettyDate } from './getPrettyDate';
 export { default as listEIFilter } from './listEIFilter';
+export { default as getNumberOfDaysInAMonth } from './getNumberOfDaysInAMonth';

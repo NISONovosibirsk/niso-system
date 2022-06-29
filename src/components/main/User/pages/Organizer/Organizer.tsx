@@ -10,44 +10,19 @@ import {
     updateTasks,
 } from '../../../../../store/actions/userOrganizerActions';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import OrganizerEvent from './OrganizerEvent/OrganizerEvent';
+import { getNumberOfDaysInAMonth } from '../../../../../middleware';
+import OrganizerMonthTitle from './OrganizerMonthTitle/OrganizerMonthTitle';
 
 const Organizer = () => {
     const [date, setDate] = useState(new Date());
     const [scroll, setScroll] = useState(0);
-
-    const [prevMonthWidth, setPrevMonthWidth] = useState(0);
-    const prevMonthRef = useRef<HTMLParagraphElement>(null);
-
-    const [currentMonthWidth, setCurrentMonthWidth] = useState(0);
-    const currentMonthRef = useRef<HTMLParagraphElement>(null);
-
-    const [nextMonthWidth, setNextMonthWidth] = useState(0);
-    const NextMonthRef = useRef<HTMLParagraphElement>(null);
-
-    const currentDayRef = useRef<HTMLDivElement>(null);
-
-    const dayWidth = 58 + 4;
-    const weekdays = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
-    const monthNames = [
-        'Январь',
-        'Февраль',
-        'Март',
-        'Апрель',
-        'Май',
-        'Июнь',
-        'Июль',
-        'Август',
-        'Сентябрь',
-        'Октябрь',
-        'Ноябрь',
-        'Декабрь',
-    ];
-    const events = [
+    const [events, setEvents] = useState([
         {
             title: 'Тина',
             startDate: new Date(2022, 6, 25),
-            endDate: new Date(2022, 6, 29),
-            color: 'skyblue',
+            endDate: new Date(2022, 7, 1),
+            color: '#87ceeb',
         },
         {
             title: 'Праздник',
@@ -56,30 +31,42 @@ const Organizer = () => {
             color: '#f08080',
         },
         {
+            title: 'В школу',
+            startDate: new Date(2022, 7, 1),
+            endDate: new Date(2022, 7, 1),
+            color: '#f08080',
+        },
+        {
+            title: 'Праздник 3',
+            startDate: new Date(2022, 5, 22),
+            endDate: new Date(2022, 5, 24),
+            color: '#f08080',
+        },
+        {
             title: 'Праздник 2',
             startDate: new Date(2022, 6, 20),
             endDate: new Date(2022, 6, 25),
             color: '#90ee90',
         },
-    ];
+    ]);
+    const [filteredEvents, setFilteredEvents] = useState([] as {}[]);
+
+    const currentDayRef = useRef<HTMLDivElement>(null);
+
+    const dayWidth = 58;
+    const weekdays = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
 
     useEffect(() => {
-        if (null !== prevMonthRef.current) {
-            setPrevMonthWidth(
-                prevMonthRef.current.getBoundingClientRect().width
-            );
-        }
-        if (null !== currentMonthRef.current) {
-            setCurrentMonthWidth(
-                currentMonthRef.current.getBoundingClientRect().width
-            );
-        }
-        if (null !== NextMonthRef.current) {
-            setNextMonthWidth(
-                NextMonthRef.current.getBoundingClientRect().width
-            );
-        }
-    }, [date]);
+        setFilteredEvents(
+            events.filter(
+                event =>
+                    (event.startDate.getFullYear() === date.getFullYear() &&
+                        event.startDate.getMonth() === date.getMonth()) ||
+                    event.startDate.getMonth() === date.getMonth() - 1 ||
+                    event.startDate.getMonth() === date.getMonth() + 1
+            )
+        );
+    }, [date, events]);
 
     useLayoutEffect(() => {
         if (null !== currentDayRef.current) {
@@ -90,41 +77,72 @@ const Organizer = () => {
     const handleScroll = e => {
         setScroll(e.target.scrollLeft);
 
-        // if (
-        //     e.target.scrollLeft >
-        //     (getCountDaysInMonth(date.getMonth() - 1) +
-        //         getCountDaysInMonth(date.getMonth())) *
-        //         dayWidth +
-        //         100
-        // ) {
-        //     e.target.scrollLeft =
-        //         getCountDaysInMonth(date.getMonth()) * dayWidth + 100;
-        //     setTimeout(() => increaseMonth(), 2);
-        // }
+        if (
+            e.target.scrollLeft >
+            (getCountDaysInMonth(date.getMonth() - 1) +
+                getCountDaysInMonth(date.getMonth())) *
+                dayWidth +
+                100
+        ) {
+            e.target.scrollLeft =
+                getCountDaysInMonth(date.getMonth()) * dayWidth + 100;
+            setTimeout(() => increaseMonth(), 2);
+        }
 
-        // if (
-        //     e.target.scrollLeft <
-        //     getCountDaysInMonth(date.getMonth() - 1) * dayWidth - 100
-        // ) {
-        //     e.target.scrollLeft =
-        //         (getCountDaysInMonth(date.getMonth() - 2) +
-        //             getCountDaysInMonth(date.getMonth() - 1)) *
-        //             dayWidth -
-        //         100;
-        //     setTimeout(() => reduceMonth(), 2);
-        // }
+        if (
+            e.target.scrollLeft <
+            getCountDaysInMonth(date.getMonth() - 1) * dayWidth - 100
+        ) {
+            e.target.scrollLeft =
+                (getCountDaysInMonth(date.getMonth() - 2) +
+                    getCountDaysInMonth(date.getMonth() - 1)) *
+                    dayWidth -
+                100;
+            setTimeout(() => reduceMonth(), 2);
+        }
     };
 
-    const getDaysInMonth = month => {
+    const getDaysInAThreeMonths = () => {
         const days = [] as any[];
 
-        const countDaysInMonth = getCountDaysInMonth(month);
+        const curYear = date.getFullYear();
+        const curMonth = date.getMonth();
 
-        for (let i = 1; i <= countDaysInMonth; i++) {
-            days[i] = new Date(date.getFullYear(), month, i);
+        const numberOfDaysInAThreeMonths =
+            getNumberOfDaysInAMonth(curYear, curMonth) +
+            getNumberOfDaysInAMonth(curYear, curMonth - 1) +
+            getNumberOfDaysInAMonth(curYear, curMonth + 1);
+
+        for (let i = 1; i <= numberOfDaysInAThreeMonths; i++) {
+            days[i] = new Date(curYear, curMonth - 1, i);
         }
 
         return days;
+    };
+
+    const getRandomColor = () => {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    };
+
+    const handleCreateEvent = () => {
+        const newEvent = {
+            title: '',
+            startDate: new Date(),
+            endDate: new Date(),
+            color: '',
+        };
+
+        newEvent.title = 'Событие ' + (events.length + 1);
+        newEvent.startDate = new Date(2022, 5, events.length * 3 + 1);
+        newEvent.endDate = new Date(2022, 5, events.length * 3 + 3);
+        newEvent.color = getRandomColor();
+
+        setEvents([...events, newEvent]);
     };
 
     const getCountDaysInMonth = month =>
@@ -302,6 +320,10 @@ const Organizer = () => {
 
     return (
         <section className='organizer'>
+            <Button
+                title='Создать событие'
+                onClick={handleCreateEvent}
+            ></Button>
             <div className='organizer__calendar'>
                 <button className='organizer__button' onClick={reduceYaer}>
                     {'<<'}
@@ -313,199 +335,83 @@ const Organizer = () => {
                 <button className='organizer__button' onClick={reduceMonth}>
                     {'<'}
                 </button>
-                <div className='organizer__month-days' onScroll={handleScroll}>
-                    <p
-                        className='organizer__date organizer__date_month'
-                        ref={prevMonthRef}
+                <div className='organizer__month' onScroll={handleScroll}>
+                    <OrganizerMonthTitle
+                        scroll={scroll}
+                        year={date.getFullYear()}
+                        month={date.getMonth() - 1}
+                    />
+                    <OrganizerMonthTitle
+                        scroll={
+                            scroll -
+                            getCountDaysInMonth(date.getMonth() - 1) * dayWidth
+                        }
+                        year={date.getFullYear()}
+                        month={date.getMonth()}
+                    />
+                    <OrganizerMonthTitle
+                        scroll={
+                            scroll -
+                            (getCountDaysInMonth(date.getMonth() - 1) +
+                                getCountDaysInMonth(date.getMonth())) *
+                                dayWidth
+                        }
+                        year={date.getFullYear()}
+                        month={date.getMonth() + 1}
+                    />
+                    {getDaysInAThreeMonths().map((monthDay, index) =>
+                        new Date().setHours(0, 0, 0, 0) ===
+                        monthDay.getTime() ? (
+                            <div
+                                className='organizer__day organizer__day_current'
+                                key={monthDay}
+                                ref={currentDayRef}
+                                style={{ gridColumnStart: index }}
+                            >
+                                {weekdays[monthDay.getDay()]}
+                                <br></br>
+                                {monthDay.getDate()}
+                            </div>
+                        ) : (
+                            <div
+                                className='organizer__day'
+                                key={monthDay}
+                                style={{ gridColumnStart: index }}
+                            >
+                                {weekdays[monthDay.getDay()]}
+                                <br></br>
+                                {monthDay.getDate()}
+                            </div>
+                        )
+                    )}
+                    <div
+                        className='organizer__events'
                         style={{
-                            gridColumn: `1 / span ${getCountDaysInMonth(
-                                date.getMonth() - 1
-                            )}`,
-                            position:
-                                scroll >
-                                getCountDaysInMonth(date.getMonth() - 1) *
-                                    dayWidth -
-                                    prevMonthWidth
-                                    ? 'static'
-                                    : 'sticky',
-                            margin:
-                                scroll >
-                                getCountDaysInMonth(date.getMonth() - 1) *
-                                    dayWidth -
-                                    prevMonthWidth
-                                    ? '0 0 0 auto'
-                                    : '',
-                        }}
-                    >
-                        {monthNames[date.getMonth() - 1]}
-                    </p>
-                    <p
-                        className='organizer__date organizer__date_month'
-                        ref={currentMonthRef}
-                        style={{
-                            gridColumn: `${
-                                getCountDaysInMonth(date.getMonth() - 1) + 1
-                            } / span ${getCountDaysInMonth(date.getMonth())}`,
-                            position:
-                                scroll -
-                                    getCountDaysInMonth(date.getMonth() - 1) *
-                                        dayWidth >
-                                getCountDaysInMonth(date.getMonth()) *
-                                    dayWidth -
-                                    currentMonthWidth
-                                    ? 'static'
-                                    : 'sticky',
-                            margin:
-                                scroll -
-                                    getCountDaysInMonth(date.getMonth() - 1) *
-                                        dayWidth >
-                                getCountDaysInMonth(date.getMonth()) *
-                                    dayWidth -
-                                    currentMonthWidth
-                                    ? '0 0 0 auto'
-                                    : '',
-                        }}
-                    >
-                        {monthNames[date.getMonth()]}
-                    </p>
-                    <p
-                        className='organizer__date organizer__date_month'
-                        ref={NextMonthRef}
-                        style={{
-                            gridColumn: `${
-                                getCountDaysInMonth(date.getMonth() - 1) +
-                                getCountDaysInMonth(date.getMonth()) +
+                            gridColumn: `1 / ${
+                                getNumberOfDaysInAMonth(
+                                    date.getFullYear(),
+                                    date.getMonth()
+                                ) +
+                                getNumberOfDaysInAMonth(
+                                    date.getFullYear(),
+                                    date.getMonth() - 1
+                                ) +
+                                getNumberOfDaysInAMonth(
+                                    date.getFullYear(),
+                                    date.getMonth() + 1
+                                ) +
                                 1
-                            } / span ${getCountDaysInMonth(
-                                date.getMonth() + 1
-                            )}`,
-                            position:
-                                scroll -
-                                    (getCountDaysInMonth(date.getMonth() - 1) +
-                                        getCountDaysInMonth(date.getMonth())) *
-                                        dayWidth >
-                                getCountDaysInMonth(date.getMonth() + 1) *
-                                    dayWidth -
-                                    nextMonthWidth
-                                    ? 'static'
-                                    : 'sticky',
-                            margin:
-                                scroll -
-                                    (getCountDaysInMonth(date.getMonth() - 1) +
-                                        getCountDaysInMonth(date.getMonth())) *
-                                        dayWidth >
-                                getCountDaysInMonth(date.getMonth()) *
-                                    dayWidth -
-                                    nextMonthWidth
-                                    ? '0 0 0 auto'
-                                    : '',
+                            }`,
                         }}
                     >
-                        {monthNames[date.getMonth() + 1]
-                            ? monthNames[date.getMonth() + 1]
-                            : 'Январь'}
-                    </p>
-                    {getDaysInMonth(date.getMonth() - 1).map(monthDay =>
-                        new Date().setHours(0, 0, 0, 0) ===
-                        monthDay.getTime() ? (
-                            <div
-                                className='organizer__month-day organizer__month-day_current'
-                                key={monthDay}
-                                ref={currentDayRef}
-                            >
-                                {weekdays[monthDay.getDay()]}
-                                <br></br>
-                                {monthDay.getDate()}
-                            </div>
-                        ) : (
-                            <div
-                                className='organizer__month-day'
-                                key={monthDay}
-                            >
-                                {weekdays[monthDay.getDay()]}
-                                <br></br>
-                                {monthDay.getDate()}
-                            </div>
-                        )
-                    )}
-                    {getDaysInMonth(date.getMonth()).map(monthDay =>
-                        new Date().setHours(0, 0, 0, 0) ===
-                        monthDay.getTime() ? (
-                            <div
-                                className='organizer__month-day organizer__month-day_current'
-                                key={monthDay}
-                                ref={currentDayRef}
-                            >
-                                {weekdays[monthDay.getDay()]}
-                                <br></br>
-                                {monthDay.getDate()}
-                            </div>
-                        ) : (
-                            <div
-                                className='organizer__month-day'
-                                key={monthDay}
-                            >
-                                {weekdays[monthDay.getDay()]}
-                                <br></br>
-                                {monthDay.getDate()}
-                            </div>
-                        )
-                    )}
-                    {getDaysInMonth(date.getMonth() + 1).map(monthDay => (
-                        <>
-                            {new Date().setHours(0, 0, 0, 0) ===
-                            monthDay.getTime() ? (
-                                <div
-                                    className='organizer__month-day organizer__month-day_current'
-                                    key={monthDay}
-                                    ref={currentDayRef}
-                                >
-                                    {weekdays[monthDay.getDay()]}
-                                    <br></br>
-                                    {monthDay.getDate()}
-                                </div>
-                            ) : (
-                                <div
-                                    className='organizer__month-day'
-                                    key={monthDay}
-                                >
-                                    {weekdays[monthDay.getDay()]}
-                                    <br></br>
-                                    {monthDay.getDate()}
-                                </div>
-                            )}
-                            {events
-                                .filter(
-                                    event =>
-                                        event.startDate.getTime() ===
-                                        monthDay.getTime()
-                                )
-                                .map((event, index) => (
-                                    <div
-                                        className='organizer__event'
-                                        key={index}
-                                        style={{
-                                            gridColumn: `${
-                                                getCountDaysInMonth(
-                                                    date.getMonth() - 1
-                                                ) +
-                                                getCountDaysInMonth(
-                                                    date.getMonth()
-                                                ) +
-                                                event.startDate.getDate()
-                                            } / span ${
-                                                event.endDate.getDate() -
-                                                event.startDate.getDate() +
-                                                1
-                                            }`,
-                                            background: event.color,
-                                        }}
-                                    >
-                                        {event.title}
-                                    </div>
-                                ))}
-                        </>
-                    ))}
+                        {filteredEvents.map((event, index) => (
+                            <OrganizerEvent
+                                key={index}
+                                event={event}
+                                date={date}
+                            />
+                        ))}
+                    </div>
                 </div>
                 <button className='organizer__button' onClick={increaseMonth}>
                     {'>'}
