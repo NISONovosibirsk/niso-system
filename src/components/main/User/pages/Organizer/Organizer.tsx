@@ -1,60 +1,39 @@
 import { Button } from '../../../../support';
-import { DragDropContext, Droppable } from 'react-beautiful-dnd';
-import './Organizer.scss';
-import OrganizerColumn from './OrganizerColumn/OrganizerColumn';
-import { useTypeSelector } from '../../../../../hooks/useTypeSelector';
-import { useDispatch } from 'react-redux';
-import {
-    updateColumnOrder,
-    updateColumns,
-    updateTasks,
-} from '../../../../../store/actions/userOrganizerActions';
+// import { DragDropContext, Droppable } from 'react-beautiful-dnd';
+// import OrganizerColumn from './OrganizerColumn/OrganizerColumn';
+// import { useTypeSelector } from '../../../../../hooks/useTypeSelector';
+// import { useDispatch } from 'react-redux';
+// import {
+//     updateColumnOrder,
+//     updateColumns,
+//     updateTasks,
+// } from '../../../../../store/actions/userOrganizerActions';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import OrganizerEvent from './OrganizerEvent/OrganizerEvent';
 import { getNumberOfDaysInAMonth } from '../../../../../middleware';
 import OrganizerMonthTitle from './OrganizerMonthTitle/OrganizerMonthTitle';
+import OrganizerPopup from './OrganizerPopup/OrganizerPopup';
+
+import './Organizer.scss';
 
 const Organizer = () => {
     const [date, setDate] = useState(new Date());
     const [scroll, setScroll] = useState(0);
-    const [events, setEvents] = useState([
-        {
-            title: 'Тина',
-            startDate: new Date(2022, 6, 25),
-            endDate: new Date(2022, 7, 1),
-            color: '#87ceeb',
-        },
-        {
-            title: 'Праздник',
-            startDate: new Date(2022, 6, 22),
-            endDate: new Date(2022, 6, 24),
-            color: '#f08080',
-        },
-        {
-            title: 'В школу',
-            startDate: new Date(2022, 7, 1),
-            endDate: new Date(2022, 7, 1),
-            color: '#f08080',
-        },
-        {
-            title: 'Праздник 3',
-            startDate: new Date(2022, 5, 22),
-            endDate: new Date(2022, 5, 24),
-            color: '#f08080',
-        },
-        {
-            title: 'Праздник 2',
-            startDate: new Date(2022, 6, 20),
-            endDate: new Date(2022, 6, 25),
-            color: '#90ee90',
-        },
-    ]);
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
+    const [events, setEvents] = useState(
+        [] as {
+            title: string;
+            startDate: Date;
+            endDate: Date;
+            color: string;
+        }[]
+    );
     const [filteredEvents, setFilteredEvents] = useState([] as {}[]);
 
     const currentDayRef = useRef<HTMLDivElement>(null);
 
     const dayWidth = 58;
-    const weekdays = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
+    const weekdays = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
 
     useEffect(() => {
         setFilteredEvents(
@@ -102,6 +81,14 @@ const Organizer = () => {
         }
     };
 
+    const handleOpenPopup = () => {
+        setIsPopupOpen(true);
+    };
+
+    const handlClosePopup = () => {
+        setIsPopupOpen(false);
+    };
+
     const getDaysInAThreeMonths = () => {
         const days = [] as any[];
 
@@ -120,28 +107,7 @@ const Organizer = () => {
         return days;
     };
 
-    const getRandomColor = () => {
-        const letters = '0123456789ABCDEF';
-        let color = '#';
-        for (let i = 0; i < 6; i++) {
-            color += letters[Math.floor(Math.random() * 16)];
-        }
-        return color;
-    };
-
-    const handleCreateEvent = () => {
-        const newEvent = {
-            title: '',
-            startDate: new Date(),
-            endDate: new Date(),
-            color: '',
-        };
-
-        newEvent.title = 'Событие ' + (events.length + 1);
-        newEvent.startDate = new Date(2022, 5, events.length * 3 + 1);
-        newEvent.endDate = new Date(2022, 5, events.length * 3 + 3);
-        newEvent.color = getRandomColor();
-
+    const handleCreateEvent = newEvent => {
         setEvents([...events, newEvent]);
     };
 
@@ -320,10 +286,7 @@ const Organizer = () => {
 
     return (
         <section className='organizer'>
-            <Button
-                title='Создать событие'
-                onClick={handleCreateEvent}
-            ></Button>
+            <Button title='Создать событие' onClick={handleOpenPopup}></Button>
             <div className='organizer__calendar'>
                 <button className='organizer__button' onClick={reduceYaer}>
                     {'<<'}
@@ -417,6 +380,11 @@ const Organizer = () => {
                     {'>'}
                 </button>
             </div>
+            <OrganizerPopup
+                onClose={handlClosePopup}
+                isOpen={isPopupOpen}
+                onCreateEvent={handleCreateEvent}
+            />
         </section>
         // <DragDropContext onDragEnd={handleDragEnd}>
         //     <section className='organizer'>

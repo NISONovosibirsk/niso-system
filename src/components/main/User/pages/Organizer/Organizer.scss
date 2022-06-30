@@ -5,6 +5,7 @@
     overflow: auto;
 
     &__calendar {
+        padding: 8px 8px 0;
         border-radius: 8px;
         border: 1px solid lightgray;
         margin-top: 12px;
@@ -76,8 +77,8 @@
         overflow: auto;
         grid-template-rows: repeat(auto-fill, 36px);
         height: calc(
-            100vh - 12vh - 36px - 12px - 30px - 8px - 30px - 8px - 68px - 20px -
-                5px
+            100vh - 12vh - 36px - 12px - 8px - 30px - 8px - 30px - 8px - 68px -
+                20px - 5px
         );
     }
 }
