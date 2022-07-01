@@ -5,16 +5,14 @@ import './OrganizerPopup.scss';
 
 const OrganizerPopup = ({ onClose, isOpen, onCreateEvent }) => {
     const [isValid, setIsValid] = useState(false);
-    const [startDateInput, setStartDateInput] = useState();
-    const [endDateInput, setEndDateInput] = useState();
-    const [values, setValues] = useState(
-        {} as {
-            title: string;
-            startDate: Date;
-            endDate: Date;
-            color: string;
-        }
-    );
+    const [startDateInput, setStartDateInput] = useState('');
+    const [endDateInput, setEndDateInput] = useState('');
+    const [values, setValues] = useState({ title: '', color: '' } as {
+        title: string;
+        startDate: Date;
+        endDate: Date;
+        color: string;
+    });
 
     useEffect(() => {
         const letters = '0123456789ABCDEF';
@@ -29,6 +27,19 @@ const OrganizerPopup = ({ onClose, isOpen, onCreateEvent }) => {
             endDate: new Date(),
             color,
         });
+        const date = new Date();
+        const year = date.getFullYear();
+        const month =
+            String(date.getMonth() + 1).length > 1
+                ? date.getMonth() + 1
+                : '0' + (date.getMonth() + 1);
+        const day =
+            String(date.getDate()).length > 1
+                ? date.getDate()
+                : '0' + date.getDate();
+        const inputDate = year + '-' + month + '-' + day;
+        setStartDateInput(inputDate);
+        setEndDateInput(inputDate);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isOpen]);
 
