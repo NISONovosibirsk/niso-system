@@ -1,8 +1,18 @@
 .organizer {
     grid-area: userContent;
-    margin: 0 32px 20px;
+    padding: 0 32px 20px;
     height: calc(88vh - 20px);
     overflow: auto;
+
+    &__calendar {
+        padding: 8px 8px 0;
+        border-radius: 8px;
+        border: 1px solid lightgray;
+        margin-top: 12px;
+        display: grid;
+        grid-template-columns: 30px auto 30px;
+        gap: 8px;
+    }
 
     &__columns {
         list-style: none;
@@ -14,9 +24,61 @@
         align-items: start;
     }
 
+    &__date {
+        font-size: 24px;
+        line-height: 30px;
+        font-weight: 600;
+        margin: 0 auto;
+    }
+
     &__button {
-        grid-row: 1 / 2;
-        width: 272px;
-        transition: none 0s ease 0s;
+        font-size: 20px;
+        cursor: pointer;
+        border: none;
+        border-radius: 4px;
+        background: white;
+        height: 30px;
+        width: 30px;
+        padding: 0;
+
+        &:hover {
+            background: #f5f7fb;
+        }
+        // grid-row: 1 / 2;
+        // width: 272px;
+        // transition: none 0s ease 0s;
+    }
+
+    &__month {
+        overflow: auto;
+        grid-template-rows: 30px 68px auto;
+        display: grid;
+        padding-bottom: 4px;
+    }
+
+    &__day {
+        box-sizing: border-box;
+        padding: 8px;
+        border-left: 1px solid lightgrey;
+        width: 58px;
+        text-align: center;
+        grid-row: 2 / 4;
+
+        &_current {
+            background: lightblue;
+        }
+    }
+
+    &__events {
+        display: grid;
+        grid-row: 3 / 4;
+        row-gap: 4px;
+        grid-template-columns: repeat(auto-fill, 58px);
+        overflow: auto;
+        grid-template-rows: repeat(auto-fill, 36px);
+        height: calc(
+            100vh - 12vh - 36px - 12px - 8px - 30px - 8px - 30px - 8px - 68px -
+                20px - 5px
+        );
     }
 }
