@@ -7,7 +7,9 @@
     display: grid;
     height: 100vh;
     grid-template-rows: 15vh auto 25vh;
-    background: #3a78f2;
+    // background: #3a78f2;
+    background: url(../../../../assets/images/sidebarBackground.jpg) no-repeat;
+    background-size: cover;
     border-radius: 0 40px 40px 0;
     transition: width 0.3s ease;
 
