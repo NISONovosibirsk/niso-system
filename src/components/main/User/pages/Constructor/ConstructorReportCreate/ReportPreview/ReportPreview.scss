@@ -1,0 +1,75 @@
+.report-preview {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 100px - 12vh - 32px);
+    grid-column: 1 / 3;
+    box-sizing: border-box;
+
+    &__title {
+        font-weight: 600;
+        font-size: 17px;
+        line-height: 23px;
+        margin: 0;
+        color: #1c1d20;
+        opacity: 0.8;
+    }
+
+    &__date {
+        margin: 0;
+        padding: 8px 0;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 16px;
+        color: #1c1d20;
+    }
+
+    &__author {
+        margin: 0;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 16px;
+
+        & span {
+            font-weight: 600;
+            color: #4f8be4;
+        }
+    }
+
+    &__subtitle {
+        white-space: pre-line;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 19px;
+        color: #1c1d20;
+        margin: 0;
+        margin: 0 {
+            bottom: 32px;
+        }
+        padding: 32px 0 62px;
+        border-bottom: 1px solid #a9abba;
+    }
+
+    &__list {
+        list-style: none;
+        display: grid;
+        gap: 16px;
+        padding: 0;
+        margin: 0;
+        width: calc(80vw - 36px - 36px);
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 32px;
+    }
+
+    &__item {
+        display: grid;
+    }
+
+    &__buttons {
+        margin-top: auto;
+        display: grid;
+        grid-template: 68px / repeat(3, 150px);
+        gap: 28px;
+        align-items: end;
+    }
+}

@@ -1,12 +1,13 @@
 import { useDispatch } from 'react-redux';
-import { Button, Sidebar } from '../';
-import { nisoLogo } from '../../assets';
+import { Sidebar } from '../';
+// import { blueNisoLogo } from '../../assets';
 import { useTypeSelector } from '../../hooks/useTypeSelector';
-import { setLoggedInStatus } from '../../store/action-creators/sidebar';
+import { setLoggedInStatus } from '../../store/actions/headerSidebarActions';
+import { Button } from '../support';
 import './Header.scss';
 
 const Header = () => {
-    const isOpen = useTypeSelector(state => state.sidebar.isOpen);
+    const isOpen = useTypeSelector(state => state.headerSidebar.isOpen);
     const dispatch = useDispatch();
     const handleBurgerButtonClick = () => {
         dispatch(setLoggedInStatus(true));
@@ -18,7 +19,7 @@ const Header = () => {
                 onClick={handleBurgerButtonClick}
                 className='header__burger-btn'
             ></button>
-            <img src={nisoLogo} alt='logo' className='header__logo' />
+            {/* <img src={blueNisoLogo} alt='logo' className='header__logo' /> */}
             <nav className='header__navigation'>
                 <button className='header__link'>система</button>
                 <button className='header__link'>документация</button>
@@ -27,7 +28,7 @@ const Header = () => {
             </nav>
             <div className='header__buttons-field'>
                 <Button title='Войти'></Button>
-                <Button title='Регистрация' type='filled'></Button>
+                {/* <Button title='Регистрация'></Button> */}
             </div>
             <Sidebar isOpen={isOpen} />
         </header>

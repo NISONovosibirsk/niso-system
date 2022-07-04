@@ -1,10 +1,10 @@
 // source import
-import { smoke } from '../../assets';
+// import { smoke } from '../../assets';
 
 const Video = () => {
     return (
         <video
-            src={smoke}
+            // src={smoke}
             className='showcase__video'
             autoPlay={true}
             loop={true}

@@ -1,0 +1,69 @@
+.report-create {
+    display: grid;
+    grid-template:
+        24px 28px 28px 24px 28px 48px calc(100% - 180px)
+        / 100%;
+    min-height: calc(100vh - 100px - 12vh - 32px);
+    grid-column: 1 / 3;
+    box-sizing: border-box;
+
+    &__label {
+        user-select: none;
+        margin: {
+            bottom: 8px;
+        }
+        color: #a9abba;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    &__input {
+        padding: 0 {
+            top: 4px;
+            bottom: 8px;
+        }
+        outline: none;
+        height: 15px;
+        resize: none;
+        border: none {
+            bottom: 0.5px solid #a9abba;
+        }
+
+        &:hover {
+            border: {
+                bottom: 1px solid #4f8be4;
+            }
+        }
+
+        &:focus {
+            border: {
+                bottom: 1px solid #4f8be4;
+            }
+        }
+
+        &:valid {
+            border: {
+                bottom: 1px solid #3fac50;
+            }
+        }
+
+        &_invalid {
+            border: {
+                bottom: 1px solid #e84141 !important;
+            }
+        }
+    }
+
+    &__error {
+        color: #e84141;
+        font-size: 11px;
+        line-height: 12px;
+        letter-spacing: 0.3px;
+        padding: 4px 0 12px;
+
+        &:last-of-type {
+            padding: 4px 0 32px;
+        }
+    }
+}

@@ -1,0 +1,58 @@
+.report-text {
+    margin: 0;
+    text-align: center;
+    color: #1c1d20;
+
+    &_text {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 19px;
+        text-align: left;
+        padding-left: 12px;
+
+        &:not(:last-child:nth-child(1)) {
+            border: {
+                left: 1px solid #a9abba;
+                right: 1px solid #a9abba;
+            }
+            text-align: center;
+            padding: 0;
+        }
+    }
+
+    &_h6 {
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+    }
+
+    &_h5 {
+        font-size: 2rem;
+        line-height: 2rem;
+    }
+
+    &_h4 {
+        font-size: 2.5rem;
+        line-height: 2.5rem;
+    }
+
+    &_h3 {
+        font-size: 3rem;
+        line-height: 3rem;
+    }
+
+    &_h2 {
+        font-size: 3.5rem;
+        line-height: 3.5rem;
+    }
+
+    &_h1 {
+        font-size: 4rem;
+        line-height: 4rem;
+    }
+
+    &__field {
+        display: grid;
+        grid-template: 19px / repeat(auto-fill, 400px);
+        gap: 8px;
+    }
+}

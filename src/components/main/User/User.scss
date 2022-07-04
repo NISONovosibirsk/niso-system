@@ -1,0 +1,14 @@
+.user {
+    display: grid;
+    grid-template: 12vh auto / minmax(300px, 20vw) minmax(700px, 80vw);
+    grid-template-areas:
+        'userSidebar userHeader'
+        'userSidebar userContent';
+
+    &_collapsed {
+        grid-template: 12vh auto / 80px auto;
+        grid-template-areas:
+            'userSidebar userHeader'
+            'userSidebar userContent';
+    }
+}

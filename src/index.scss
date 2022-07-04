@@ -1,0 +1,33 @@
+@mixin scrollbars(
+    $size,
+    $foreground-color,
+    $background-color: mix($foreground-color, #f5f7fb, 0%)
+) {
+    ::-webkit-scrollbar {
+        width: $size;
+        height: $size;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: $foreground-color;
+        border-radius: 500px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: $background-color;
+    }
+}
+
+@include scrollbars(5px, #b6d3ff);
+
+body {
+    margin: 0;
+    font-family: 'Ubuntu', 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
+}

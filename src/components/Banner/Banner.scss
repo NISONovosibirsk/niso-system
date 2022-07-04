@@ -1,0 +1,113 @@
+.banner {
+    @keyframes glow-up {
+        from {
+            color: white;
+            text-shadow: 0px 3px 4px #0070ffe5;
+        }
+        to {
+            color: #70ffe5;
+            text-shadow: 0px 3px 4px #70ffe5;
+        }
+    }
+
+    @keyframes glow-out {
+        from {
+            color: #70ffe5;
+            text-shadow: 0px 3px 4px #70ffe5;
+        }
+        to {
+            color: white;
+        }
+    }
+
+    &__slide {
+        height: 100vh;
+        width: 100vw;
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: white;
+        display: flex;
+    }
+
+    &__current {
+        background: rgba($color: #000000, $alpha: 0.25);
+        padding: {
+            left: 70px;
+            top: 200px;
+        }
+        width: 46%;
+        display: flex;
+        gap: 40px;
+        flex-direction: column;
+        box-shadow: 0px 0px 8px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+    }
+
+    &__other {
+        padding: {
+            bottom: 250px;
+        }
+        width: 32%;
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 24px;
+        letter-spacing: 0.5em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__title {
+        margin: 0;
+        color: #70ffe5;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 24px;
+        letter-spacing: 0.5em;
+    }
+
+    &__text {
+        margin: 0;
+        font-weight: 500;
+        font-size: 64px;
+        line-height: 72px;
+    }
+
+    &__caption {
+        margin: 0;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 32px;
+    }
+
+    &__button {
+        cursor: pointer;
+        width: 130px;
+        height: 40px;
+        background: #70ffe5;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.3em;
+        border: none {
+            radius: 40px;
+        }
+
+        &:hover {
+            filter: drop-shadow(-8px 8px 8px rgba(42, 83, 145, 0.3));
+        }
+
+        &:active {
+            filter: none;
+        }
+    }
+
+    &__link {
+        cursor: pointer;
+        animation: 0.5s glow-out forwards;
+
+        &:hover {
+            animation: 0.5s glow-up forwards;
+        }
+    }
+}

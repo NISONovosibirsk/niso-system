@@ -1,0 +1,138 @@
+@keyframes deleting {
+    from {
+        width: 100%;
+    }
+
+    to {
+        width: 0px;
+    }
+}
+
+.report-create-item {
+    cursor: default;
+    filter: none;
+    transition: filter linear 0.2s;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: auto 21px;
+    align-items: center;
+
+    &_delete {
+        animation: deleting 0.3s linear forwards;
+    }
+
+    &_dragging {
+        filter: drop-shadow(-8px 8px 8px rgba(42, 83, 145, 0.15));
+    }
+
+    &__content {
+        display: grid;
+        gap: 8px;
+        grid-template-columns: auto 50px 32px;
+        background: #f2f6fc;
+        border-radius: 6px;
+        align-items: center;
+    }
+
+    &__input-field {
+        display: grid;
+        gap: 8px;
+        grid-template-columns: calc(100% - 64px - 8px) 64px;
+    }
+
+    &__input {
+        outline: none;
+        background: #f5f7fb;
+        border: 0.5px solid #a9abba;
+        border-radius: 6px;
+        box-sizing: border-box;
+        padding: 0px 16px;
+        height: 100%;
+
+        &::placeholder {
+            color: #a9abba;
+            font-size: 11px;
+            line-height: 12px;
+            letter-spacing: 0.3px;
+        }
+
+        &:hover {
+            border: 1px solid #4f8be4;
+        }
+
+        &:focus {
+            border: 1px solid #4f8be4;
+        }
+
+        &_underline {
+            padding: 0px 8px;
+            border-radius: 6px 0 0;
+            border: none;
+            border-bottom: 0.5px solid #a9abba;
+
+            &:last-of-type {
+                &:nth-child(1) {
+                    grid-column: 1 / 3;
+                }
+            }
+
+            &:hover {
+                border: none;
+                border-bottom: 1px solid #4f8be4;
+            }
+
+            &:focus {
+                border: none;
+                border-bottom: 1px solid #4f8be4;
+            }
+        }
+
+        &_counter {
+            padding-right: 0;
+            text-align: center;
+            height: 32px;
+            align-self: baseline;
+        }
+    }
+
+    &__drag {
+        cursor: grab;
+        padding: 4px 8px {
+            left: 0;
+        }
+        transition: fill linear 0.2s;
+
+        &:hover {
+            fill: #4f8be4;
+        }
+    }
+
+    &__open-modal {
+        cursor: pointer;
+        padding: 0 8px;
+        transition: fill linear 0.2s;
+
+        &:hover {
+            fill: #4f8be4;
+        }
+
+        &_active {
+            fill: #4f8be4;
+        }
+    }
+
+    &__trash {
+        cursor: pointer;
+        width: 21px;
+        height: 32px;
+        transition: fill ease 0.2s;
+
+        &:hover {
+            fill: #e84141;
+        }
+
+        &:active {
+            fill: #a9abba;
+        }
+    }
+}

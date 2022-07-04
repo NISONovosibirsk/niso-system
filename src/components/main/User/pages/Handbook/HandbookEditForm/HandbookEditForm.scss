@@ -1,0 +1,59 @@
+.handbook-item-edit {
+
+    @keyframes edit-form {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    animation: 1s edit-form ease;
+
+    display: grid;
+    grid-template-columns: 40% 10% 10%;
+    gap: 20px;
+    align-items: center;
+
+    &__placeholder {
+        box-sizing: border-box;
+        min-width: 340px;
+        margin: 0 130px 0 0;
+        font-weight: 400;
+        font-size: 16px;
+        height: 25px;
+        border-radius: 10px;
+        background: #f5f7fb;
+        border: 1px solid #dadada;
+        padding: 0 3%;
+
+        &:focus {
+            outline: none;
+            border: 1px solid #4f8be4;
+        }
+
+        &-invalid {
+            border: 1px solid red !important;
+        }
+    }
+
+    &__value {
+        min-width: 70px;
+        height: 25px;
+        text-align: center;
+        box-sizing: border-box;
+        border: 1px solid #dadada;
+        border-radius: 5px;
+        padding: 3px 16px 2px 16px;
+
+        &:focus {
+            outline: none;
+            border: 1px solid #4f8be4;
+        }
+
+        &-invalid {
+            border: 1px solid red !important;
+        }
+    }
+}

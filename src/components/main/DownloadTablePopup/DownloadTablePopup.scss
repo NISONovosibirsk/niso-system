@@ -1,0 +1,48 @@
+.download-table-popup {
+    padding: 16px;
+    box-sizing: border-box;
+
+    table {
+        margin: auto;
+        border-collapse: collapse;
+        border: 2px solid grey;
+    }
+
+    th,
+    td {
+        min-width: 80px;
+        border: 1px solid grey;
+        // background: lightblue;
+    }
+    tr {
+        height: 20px;
+    }
+
+    &__button {
+        margin: {
+            top: 16px;
+            left: calc(100% - 100px);
+        }
+        cursor: pointer;
+        user-select: none;
+        height: 32px;
+        width: 100px;
+        color: white;
+        background: #4f8be4;
+        font-weight: 600;
+        font-size: 11px;
+        letter-spacing: 0.3px;
+        transition: filter linear 0.2s;
+        border: 1px solid #4f8be4 {
+            radius: 8px;
+        }
+
+        &:hover {
+            filter: drop-shadow(-8px 8px 8px rgba(42, 83, 145, 0.3));
+        }
+
+        &:active {
+            filter: none;
+        }
+    }
+}

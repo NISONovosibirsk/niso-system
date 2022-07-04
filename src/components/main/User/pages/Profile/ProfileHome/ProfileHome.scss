@@ -1,0 +1,19 @@
+.user-profile-info {
+    display: grid;
+    grid-template-columns: auto;
+    margin-top: 35px;
+    gap: 45px;
+  
+}
+
+.bold-title {
+    font-weight: 600;
+    font-size: 17px;
+    color: black;
+}
+
+.regular-subtitle {
+    font-weight: 400;
+    font-size: 14px;
+    color: #A9ABBA;
+}

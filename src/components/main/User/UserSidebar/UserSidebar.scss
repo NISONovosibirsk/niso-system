@@ -1,0 +1,136 @@
+.user-sidebar {
+    grid-area: userSidebar;
+    z-index: 999;
+    width: 20vw;
+    min-width: 300px;
+    position: fixed;
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 15vh auto 25vh;
+    // background: #3a78f2;
+    background: url(../../../../assets/images/sidebarBackground.jpg) no-repeat;
+    background-size: cover;
+    border-radius: 0 40px 40px 0;
+    transition: width 0.3s ease;
+
+    &_collapsed {
+        transition: width 0.3s ease;
+        min-width: 80px;
+        width: 80px;
+        border-radius: 0 20px 20px 0;
+        justify-items: center;
+    }
+
+    &__header {
+        padding: {
+            left: 24px;
+            right: 32px;
+        }
+        align-self: center;
+        display: grid;
+        grid-template-areas:
+            'logo burger'
+            'paragraph paragraph';
+
+        &_collapsed {
+            padding: 0 {
+                left: 10px;
+                right: 10px;
+            }
+        }
+    }
+
+    &__burger {
+        cursor: pointer;
+        place-self: center;
+        transition: transform 0.5s ease;
+
+        &_collapsed {
+            transform: rotate(-180deg);
+            transition: transform 0.5s ease;
+        }
+    }
+
+    &__logo {
+        padding: {
+            left: 24px;
+            right: 32px;
+        }
+        align-self: center;
+    }
+
+    &__caption {
+        color: #efefef;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 12.19px;
+    }
+
+    &__list {
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        grid-row: 2 / 3;
+        list-style: none;
+        padding: 0 {
+            // left: 0.7vw;
+            left: 20px;
+            // right: 0.7vw;
+            right: 20px;
+        }
+
+        :hover {
+            background: white;
+            border-radius: 12px;
+
+            svg {
+                fill: #3a78f2;
+            }
+
+            .sidebar-item__text {
+                color: #1c1d20;
+                font-weight: 500;
+            }
+        }
+
+        &_collapsed {
+            width: 50px;
+            padding: 0;
+        }
+    }
+
+    &__footer {
+        grid-row: 3 / 4;
+        color: white;
+        padding: {
+            // left: 1.5vw;
+            left: 34px;
+            top: 4vh;
+            bottom: 1vh;
+        }
+        font-size: 0.75rem;
+        display: grid;
+        gap: 10px;
+
+        &_collapsed {
+            padding: 0 {
+                top: 7vh;
+            }
+        }
+    }
+
+    &__politics {
+        margin: 0;
+    }
+
+    &__support {
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+        background: url(../../../../assets/icons/commonIcons/support-icon.svg)
+            no-repeat center white;
+        width: 50px;
+        height: 50px;
+    }
+}

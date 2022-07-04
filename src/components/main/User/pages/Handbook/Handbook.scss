@@ -1,0 +1,25 @@
+.user-handbook {
+    grid-area: userContent;
+    padding: 0 16px 0 36px;
+    display: grid;
+    grid-template: 48px auto / minmax(260px, 100%) 200px;
+    grid-template-areas:
+        'searchbar button'
+        'handbookList handbookList';
+
+    &__list {
+        grid-area: handbookList;
+        list-style: none;
+        padding: 0;
+        margin: 54px 0 0 0;
+        display: grid;
+        gap: 20px;
+    }
+
+    &__error {
+        justify-self: start;
+        color: red;
+        font-style: italic;
+        font-size: 14px;
+    }
+}

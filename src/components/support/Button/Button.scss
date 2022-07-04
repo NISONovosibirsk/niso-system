@@ -1,0 +1,60 @@
+.button {
+    cursor: pointer;
+    user-select: none;
+    height: 36px;
+    width: 100%;
+    color: white;
+    background: #4f8be4;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.3px;
+    transition: filter linear 0.2s;
+    border: 1px solid #4f8be4 {
+        radius: 8px;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &:hover {
+        filter: drop-shadow(-8px 8px 8px rgba(42, 83, 145, 0.3));
+    }
+
+    &:active {
+        filter: none;
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+    }
+
+    &_type {
+        &_hollow {
+            background: white;
+            color: #4f8be4;
+        }
+
+        &_light-grey {
+            background: #f5f7fb;
+            color: #979dbb;
+            border: none;
+        }
+
+        &_light-red {
+            background: #ed9c87;
+            border: none;
+        }
+
+        &_report-item {
+            background: none;
+            border: none;
+            color: #4f8be4;
+
+            &:hover {
+                background: #f5f7fb;
+            }
+        }
+    }
+}

@@ -1,0 +1,17 @@
+.header-searchbar {
+    grid-column: 2 / 3;
+    place-self: center;
+    padding: {
+        left: 1vw;
+    }
+    border: none;
+    border-radius: 8px;
+    background: url(../../../../../assets/icons/commonIcons/loupe-icon.svg)
+        no-repeat right 10px center #f5f7fb;
+    min-height: 4vh;
+    min-width: 20vw;
+
+    &:focus {
+        outline: none;
+    }
+}

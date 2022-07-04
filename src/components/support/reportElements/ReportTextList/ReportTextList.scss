@@ -1,0 +1,32 @@
+.report-text-list {
+    padding: 8px 0;
+    list-style: '\2218';
+
+    &__item {
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+        color: #1c1d20;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 19px;
+
+        &::before {
+            content: '\2218';
+            color: #a9abba;
+            font-size: 24px;
+        }
+
+        & p {
+            word-break:break-all;
+            border-bottom: 0.5px solid rgba($color: #a9abba, $alpha: 0.4);
+            width: 100%;
+            margin: 0 {
+                left: 8px;
+            }
+            padding: 6px 0 {
+                left: 8px;
+            }
+        }
+    }
+}

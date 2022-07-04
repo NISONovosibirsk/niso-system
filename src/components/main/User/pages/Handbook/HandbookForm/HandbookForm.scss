@@ -1,0 +1,52 @@
+.handbook-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    &__placeholder {
+        box-sizing: border-box;
+        outline: none;
+        background: none;
+        border: none;
+
+        &::placeholder {
+            color: #a9abba;
+            font-style: italic;
+        }
+
+        &:valid {
+            border-bottom: 1px solid #3fac50 !important;
+        }
+
+        &-invalid {
+            border-bottom: 1px solid red !important;
+        }
+    }
+
+    &__value {
+        min-width: 479px;
+        height: 31px;
+        box-sizing: border-box;
+        border-radius: 10px;
+        background: #f5f7fb;
+        border: 1px solid #dadada;
+
+        &-invalid {
+            border: 1px solid red !important;
+        }
+
+        &:valid {
+            border: 1px solid #3fac50 !important;
+        }
+
+        &::placeholder {
+            color: #a9abba;
+            font-style: italic;
+        }
+
+        &:focus {
+            outline: none;
+            border: 1px solid #4f8be4;
+        }
+    }
+}

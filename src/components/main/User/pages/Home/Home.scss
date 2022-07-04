@@ -1,0 +1,28 @@
+$item-color: #f5f7fb;
+$item-color-active: linear-gradient(
+    214.01deg,
+    rgba(79, 139, 228, 0.8) 1.1%,
+    #3a78f2 98.17%
+);
+
+.user-home {
+    grid-area: userContent;
+    margin: {
+        top: 3vh;
+    };
+    display: grid;
+    grid-template-columns: 90% 10%;
+
+    &-list {
+        list-style: none;
+        margin: 0;
+        display: grid;
+        gap: 28px;
+        grid-template-columns: repeat(auto-fit, 250px);
+    }
+
+    &__reference {
+        cursor: pointer;
+        justify-self: center;
+    }
+}

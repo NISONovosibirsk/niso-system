@@ -1,0 +1,72 @@
+.filter-modal {
+    padding: 8px;
+
+    &__title {
+        margin: 0 {
+            bottom: 4px;
+        }
+        padding: {
+            bottom: 8px;
+        }
+        font-weight: 700;
+        font-size: 15px;
+        color: #1c1d20;
+        opacity: 0.8;
+        border-bottom: solid 1px #d5d8e4;
+    }
+
+    &__list {
+        padding: 0;
+        list-style: none;
+
+        &_main {
+            display: grid;
+            gap: 4px;
+        }
+
+        &_second {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+
+    &__item {
+        &_main {
+            display: grid;
+            gap: 4px;
+            grid-template-columns: 80px auto;
+            border-bottom: solid 1px #d5d8e4;
+            padding: 4px 0;
+        }
+
+        &_second {
+            cursor: pointer;
+            color: #1c1d20;
+            padding: 0 8px;
+            text-align: center;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 18px;
+            border-radius: 500px;
+            border: 1px solid #b6d3ff;
+            margin: {
+                bottom: 4px;
+                right: 4px;
+            }
+
+            &:hover {
+                border: 1px solid #ed9c87;
+                background: #ed9c87;
+                color: white;
+            }
+        }
+    }
+
+    &__checked-title {
+        margin: 0;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;
+        color: #a9abba;
+    }
+}

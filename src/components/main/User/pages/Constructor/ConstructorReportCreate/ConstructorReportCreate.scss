@@ -1,0 +1,36 @@
+.constructor-report-create {
+    padding: 0 36px;
+    display: grid;
+    grid-template: 32px auto / auto 32px;
+
+    &__visibility {
+        grid-column: 2 /3;
+        cursor: pointer;
+        justify-self: right;
+        transition: fill linear 0.2s;
+
+        &:hover {
+            fill: #4f8be4;
+        }
+    }
+
+    &__visibility-off {
+        grid-column: 2 /3;
+        cursor: pointer;
+        justify-self: right;
+        transition: fill linear 0.2s;
+
+        &:hover {
+            fill: #4f8be4;
+        }
+    }
+
+    &__buttons {
+        display: grid;
+        grid-row: 3 / 4;
+        grid-column: 1 / 3;
+        grid-template: 100px / 150px calc(100% - 350px - 28px - 28px) 200px;
+        gap: 28px;
+        align-items: center;
+    }
+}
