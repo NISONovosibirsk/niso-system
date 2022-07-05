@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Button, Popup } from '../../../../../support';
 
-import './OrganizerPopup.scss';
+import './OrganizerCreatePopup.scss';
 
-const OrganizerPopup = ({ onClose, isOpen, onCreateEvent }) => {
+const OrganizerCreatePopup = ({ onClose, isOpen, onCreateEvent }) => {
     const [isValid, setIsValid] = useState(false);
     const [startDateInput, setStartDateInput] = useState('');
     const [endDateInput, setEndDateInput] = useState('');
@@ -81,24 +81,32 @@ const OrganizerPopup = ({ onClose, isOpen, onCreateEvent }) => {
 
     return (
         <Popup onClose={onClose} isOpen={isOpen}>
-            <form className='organizer-popup' onSubmit={handleSubmit}>
-                <p className='organizer-popup__title'>Создание события</p>
-                <label className='organizer-popup__label' htmlFor='title'>
+            <form className='organizer-create-popup' onSubmit={handleSubmit}>
+                <p className='organizer-create-popup__title'>
+                    Создание события
+                </p>
+                <label
+                    className='organizer-create-popup__label'
+                    htmlFor='title'
+                >
                     Название
                 </label>
                 <input
-                    className='organizer-popup__input'
+                    className='organizer-create-popup__input'
                     id='title'
                     placeholder='Введите название события'
                     onChange={handleTitleChange}
                     value={values.title}
                     required
                 />
-                <label className='organizer-popup__label' htmlFor='startDate'>
+                <label
+                    className='organizer-create-popup__label'
+                    htmlFor='startDate'
+                >
                     Дата начала
                 </label>
                 <input
-                    className='organizer-popup__input'
+                    className='organizer-create-popup__input'
                     id='startDate'
                     type='date'
                     value={startDateInput}
@@ -106,11 +114,14 @@ const OrganizerPopup = ({ onClose, isOpen, onCreateEvent }) => {
                     onChange={handleStartDateChange}
                     required
                 />
-                <label className='organizer-popup__label' htmlFor='endDate'>
-                    Дата конце
+                <label
+                    className='organizer-create-popup__label'
+                    htmlFor='endDate'
+                >
+                    Дата окончания
                 </label>
                 <input
-                    className='organizer-popup__input'
+                    className='organizer-create-popup__input'
                     id='endDate'
                     type='date'
                     value={endDateInput}
@@ -118,11 +129,14 @@ const OrganizerPopup = ({ onClose, isOpen, onCreateEvent }) => {
                     onChange={handleEndDateChange}
                     required
                 />
-                <label className='organizer-popup__label' htmlFor='color'>
+                <label
+                    className='organizer-create-popup__label'
+                    htmlFor='color'
+                >
                     Цвет
                 </label>
                 <input
-                    className='organizer-popup__input organizer-popup__input_color'
+                    className='organizer-create-popup__input organizer-create-popup__input_color'
                     id='color'
                     type='color'
                     onChange={handleColorChange}
@@ -140,4 +154,4 @@ const OrganizerPopup = ({ onClose, isOpen, onCreateEvent }) => {
     );
 };
 
-export default OrganizerPopup;
+export default OrganizerCreatePopup;

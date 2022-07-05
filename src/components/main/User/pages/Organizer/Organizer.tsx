@@ -12,9 +12,9 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import OrganizerEvent from './OrganizerEvent/OrganizerEvent';
 import { getNumberOfDaysInAMonth } from '../../../../../middleware';
 import OrganizerMonthTitle from './OrganizerMonthTitle/OrganizerMonthTitle';
-import OrganizerPopup from './OrganizerPopup/OrganizerPopup';
 
 import './Organizer.scss';
+import OrganizerCreatePopup from './OrganizerCreatePopup/OrganizerCreatePopup';
 
 const Organizer = () => {
     const [date, setDate] = useState(new Date());
@@ -372,6 +372,8 @@ const Organizer = () => {
                                 key={index}
                                 event={event}
                                 date={date}
+                                events={events}
+                                setEvents={setEvents}
                             />
                         ))}
                     </div>
@@ -380,7 +382,7 @@ const Organizer = () => {
                     {'>'}
                 </button>
             </div>
-            <OrganizerPopup
+            <OrganizerCreatePopup
                 onClose={handlClosePopup}
                 isOpen={isPopupOpen}
                 onCreateEvent={handleCreateEvent}
