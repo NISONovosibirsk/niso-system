@@ -15,6 +15,7 @@ import OrganizerMonthTitle from './OrganizerMonthTitle/OrganizerMonthTitle';
 
 import './Organizer.scss';
 import OrganizerCreatePopup from './OrganizerCreatePopup/OrganizerCreatePopup';
+import OrganizerFilterTabs from './OrganizerFilterTabs/OrganizerFilterTabs';
 
 const Organizer = () => {
     const [date, setDate] = useState(new Date());
@@ -26,8 +27,11 @@ const Organizer = () => {
             startDate: Date;
             endDate: Date;
             color: string;
+            types: string[];
+            subtitle: string;
         }[]
     );
+    const [currentTab, setCurrentTab] = useState('Мониторинг');
     const [filteredEvents, setFilteredEvents] = useState([] as {}[]);
 
     const currentDayRef = useRef<HTMLDivElement>(null);
@@ -37,15 +41,17 @@ const Organizer = () => {
 
     useEffect(() => {
         setFilteredEvents(
-            events.filter(
-                event =>
-                    (event.startDate.getFullYear() === date.getFullYear() &&
-                        event.startDate.getMonth() === date.getMonth()) ||
-                    event.startDate.getMonth() === date.getMonth() - 1 ||
-                    event.startDate.getMonth() === date.getMonth() + 1
-            )
+            events
+                .filter(event => event.types.includes(currentTab))
+                .filter(
+                    event =>
+                        (event.startDate.getFullYear() === date.getFullYear() &&
+                            event.startDate.getMonth() === date.getMonth()) ||
+                        event.startDate.getMonth() === date.getMonth() - 1 ||
+                        event.startDate.getMonth() === date.getMonth() + 1
+                )
         );
-    }, [date, events]);
+    }, [date, events, currentTab]);
 
     useLayoutEffect(() => {
         if (null !== currentDayRef.current) {
@@ -287,6 +293,10 @@ const Organizer = () => {
     return (
         <section className='organizer'>
             <Button title='Создать событие' onClick={handleOpenPopup}></Button>
+            <OrganizerFilterTabs
+                currentTab={currentTab}
+                setCurrentTab={setCurrentTab}
+            />
             <div className='organizer__calendar'>
                 <button className='organizer__button' onClick={reduceYaer}>
                     {'<<'}

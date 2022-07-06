@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Button, Popup } from '../../../../../support';
+import Checkbox from '../Checkbox/Checkbox';
 
 import './OrganizerCreatePopup.scss';
 
@@ -7,11 +8,17 @@ const OrganizerCreatePopup = ({ onClose, isOpen, onCreateEvent }) => {
     const [isValid, setIsValid] = useState(false);
     const [startDateInput, setStartDateInput] = useState('');
     const [endDateInput, setEndDateInput] = useState('');
-    const [values, setValues] = useState({ title: '', color: '' } as {
+    const [values, setValues] = useState({
+        title: '',
+        color: '',
+        types: [] as string[],
+    } as {
         title: string;
         startDate: Date;
         endDate: Date;
         color: string;
+        types: string[];
+        subtitle: string;
     });
 
     useEffect(() => {
@@ -26,6 +33,8 @@ const OrganizerCreatePopup = ({ onClose, isOpen, onCreateEvent }) => {
             startDate: new Date(),
             endDate: new Date(),
             color,
+            types: ['Мониторинг'],
+            subtitle: '',
         });
         const date = new Date();
         const year = date.getFullYear();
@@ -73,10 +82,30 @@ const OrganizerCreatePopup = ({ onClose, isOpen, onCreateEvent }) => {
         setIsValid(e.target.closest('form').checkValidity());
     };
 
+    const handleCheckboxChange = e => {
+        const { checked, id } = e.target;
+        const newTypes = [...values.types];
+
+        if (checked) {
+            newTypes.push(id);
+        } else {
+            const indexType = values.types.indexOf(id);
+            newTypes.splice(indexType, 1);
+        }
+
+        setValues({ ...values, types: newTypes });
+        setIsValid(
+            e.target.closest('form').checkValidity() && newTypes.length
+                ? true
+                : false
+        );
+    };
+
     const handleSubmit = e => {
         e.preventDefault();
         onCreateEvent(values);
         onClose();
+        setIsValid(false);
     };
 
     return (
@@ -143,10 +172,25 @@ const OrganizerCreatePopup = ({ onClose, isOpen, onCreateEvent }) => {
                     value={values.color}
                     required
                 />
+                <Checkbox
+                    title={'Мониторинг'}
+                    isChecked={values.types.includes('Мониторинг')}
+                    onChange={handleCheckboxChange}
+                />
+                <Checkbox
+                    title={'Анкетирование'}
+                    isChecked={values.types.includes('Анкетирование')}
+                    onChange={handleCheckboxChange}
+                />
+                <Checkbox
+                    title={'Конференции'}
+                    isChecked={values.types.includes('Конференции')}
+                    onChange={handleCheckboxChange}
+                />
                 <Button
                     title='Создать'
                     height='32px'
-                    margin='20px 0 0 0'
+                    margin='12px 0 0 0'
                     isDisabled={!isValid}
                 />
             </form>

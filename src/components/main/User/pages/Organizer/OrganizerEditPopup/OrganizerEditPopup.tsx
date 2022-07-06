@@ -1,20 +1,30 @@
 import { useEffect, useRef, useState } from 'react';
+import ReactTextareaAutosize from 'react-textarea-autosize';
+import { TrashIcon } from '../../../../../../assets';
 import { Popup } from '../../../../../support';
-import Checkbox from './Checkbox/Checkbox';
+import Checkbox from '../Checkbox/Checkbox';
 
 import './OrganizerEditPopup.scss';
 
 const OrganizerEditPopup = ({ isOpen, onClose, event, events, setEvents }) => {
-    const [isEditing, setIsEditing] = useState(false);
+    const [titleIsEditing, setTitleIsEditing] = useState(false);
+    const [subtitleIsEditing, setSubtitleIsEditing] = useState(false);
     const [startDateInput, setStartDateInput] = useState('');
     const [endDateInput, setEndDateInput] = useState('');
     const inputRef = useRef<HTMLInputElement>(null);
+    const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
     useEffect(() => {
-        if (isEditing) {
+        if (titleIsEditing) {
             inputRef.current?.select();
         }
-    }, [isEditing]);
+    }, [titleIsEditing]);
+
+    useEffect(() => {
+        if (subtitleIsEditing) {
+            textAreaRef.current?.select();
+        }
+    }, [subtitleIsEditing]);
 
     useEffect(() => {
         const { startDate, endDate } = event;
@@ -47,13 +57,13 @@ const OrganizerEditPopup = ({ isOpen, onClose, event, events, setEvents }) => {
         setEndDateInput(endInputDate);
     }, [event]);
 
-    const handleStartEditing = () => {
-        setIsEditing(true);
+    const handleStartTitleEditing = () => {
+        setTitleIsEditing(true);
     };
 
-    const handleStopEditing = e => {
+    const handleStopTitleEditing = e => {
         const { value } = e.target;
-        setIsEditing(false);
+        setTitleIsEditing(false);
 
         if (value.trim()) {
             const eventIndex = events.indexOf(event);
@@ -62,11 +72,27 @@ const OrganizerEditPopup = ({ isOpen, onClose, event, events, setEvents }) => {
             newEvents[eventIndex] = newEvent;
 
             setEvents(newEvents);
-            return;
         }
     };
 
-    const handleKeyPress = e => e.key === 'Enter' && handleStopEditing(e);
+    const handleTitleKeyPress = e =>
+        e.key === 'Enter' && handleStopTitleEditing(e);
+
+    const handleStartSubtitleEditing = () => {
+        setSubtitleIsEditing(true);
+    };
+
+    const handleStopSubtitleEditing = e => {
+        const { value } = e.target;
+        setSubtitleIsEditing(false);
+
+        const eventIndex = events.indexOf(event);
+        const newEvent = { ...event, subtitle: value.trim() };
+        const newEvents = [...events];
+        newEvents[eventIndex] = newEvent;
+
+        setEvents(newEvents);
+    };
 
     const handleStartDateChange = e => {
         const { value } = e.target;
@@ -103,26 +129,83 @@ const OrganizerEditPopup = ({ isOpen, onClose, event, events, setEvents }) => {
         setEvents(newEvents);
     };
 
+    const handleCheckboxChange = e => {
+        const { checked, id } = e.target;
+
+        const eventIndex = events.indexOf(event);
+        const newEvent = { ...event };
+        const newEvents = [...events];
+
+        if (checked) {
+            newEvent.types = [...newEvent.types, id];
+        } else if (newEvent.types.length !== 1) {
+            const indexType = newEvent.types.indexOf(id);
+            const newTypes = [...newEvent.types];
+            newTypes.splice(indexType, 1);
+
+            newEvent.types = newTypes;
+        }
+
+        newEvents[eventIndex] = newEvent;
+        setEvents(newEvents);
+    };
+
+    const handleDeleteEvent = () => {
+        const eventIndex = events.indexOf(event);
+        const newEvents = [...events];
+
+        newEvents.splice(eventIndex, 1);
+
+        onClose();
+        setEvents(newEvents);
+    };
+
     return (
         <Popup isOpen={isOpen} onClose={onClose}>
             <form className='organizer-edit-popup'>
-                <div className='organizer-edit-popup__column'>
-                    {isEditing ? (
+                <div className='organizer-edit-popup__header'>
+                    {titleIsEditing ? (
                         <input
                             className='organizer-edit-popup__input'
                             defaultValue={event.title}
-                            onBlur={handleStopEditing}
-                            onKeyPress={handleKeyPress}
+                            onBlur={handleStopTitleEditing}
+                            onKeyPress={handleTitleKeyPress}
                             ref={inputRef}
                         />
                     ) : (
                         <p
                             className='organizer-edit-popup__title'
-                            onClick={handleStartEditing}
+                            onClick={handleStartTitleEditing}
                         >
                             {event.title}
                         </p>
                     )}
+                    <TrashIcon
+                        className='organizer-edit-popup__trash'
+                        onClick={handleDeleteEvent}
+                    />
+                </div>
+                <div className='organizer-edit-popup__column'>
+                    <label className='organizer-edit-popup__label'>
+                        Описание
+                        {subtitleIsEditing ? (
+                            <ReactTextareaAutosize
+                                className='organizer-edit-popup__textarea'
+                                defaultValue={event.subtitle}
+                                placeholder={'Добавить описание'}
+                                onBlur={handleStopSubtitleEditing}
+                                ref={textAreaRef}
+                                minRows={14}
+                            />
+                        ) : (
+                            <p
+                                className='organizer-edit-popup__subtitle'
+                                onClick={handleStartSubtitleEditing}
+                            >
+                                {event.subtitle || 'Добавить описание'}
+                            </p>
+                        )}
+                    </label>
                 </div>
                 <div className='organizer-edit-popup__column'>
                     <label className='organizer-edit-popup__label'>
@@ -153,9 +236,21 @@ const OrganizerEditPopup = ({ isOpen, onClose, event, events, setEvents }) => {
                         value={event.color}
                         type='color'
                     />
-                    <Checkbox title={'Мониторинг'} />
-                    <Checkbox title={'Анкетирование'} />
-                    <Checkbox title={'Конференции'} />
+                    <Checkbox
+                        title={'Мониторинг'}
+                        isChecked={event.types.includes('Мониторинг')}
+                        onChange={handleCheckboxChange}
+                    />
+                    <Checkbox
+                        title={'Анкетирование'}
+                        isChecked={event.types.includes('Анкетирование')}
+                        onChange={handleCheckboxChange}
+                    />
+                    <Checkbox
+                        title={'Конференции'}
+                        isChecked={event.types.includes('Конференции')}
+                        onChange={handleCheckboxChange}
+                    />
                 </div>
             </form>
         </Popup>
