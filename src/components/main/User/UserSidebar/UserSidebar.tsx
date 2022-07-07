@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { MaisLogo, DoubleArrowIcon } from '../../../../assets';
 import SidebarItem from './SidebarItem/SidebarItem';
 import './UserSidebar.scss';
