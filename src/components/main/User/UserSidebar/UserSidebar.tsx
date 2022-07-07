@@ -1,34 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { MaisLogo, DoubleArrowIcon } from '../../../../assets';
 import SidebarItem from './SidebarItem/SidebarItem';
 import './UserSidebar.scss';
 
-const UserSidebar = ({ sidebarListData, handleSidebar }) => {
+const UserSidebar = ({ sidebarListData, isOpen, handleCollapse }) => {
     const techSupport = {
         path: 'support',
         text: 'Техподдержка',
         icon: '',
-    };
-
-    const [isOpen, setIsOpen] = useState(true);
-
-    useEffect(() => {
-        switch (localStorage.getItem('test')) {
-            case 'true':
-                setIsOpen(false);
-                break;
-            case 'false':
-                setIsOpen(true);
-                break;
-            default:
-                break;
-        }
-    }, []);
-
-    const handleCollapse = () => {
-        setIsOpen(!isOpen);
-        localStorage.setItem('test', JSON.stringify(isOpen));
-        handleSidebar(isOpen);
     };
 
     return (
