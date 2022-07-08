@@ -19,9 +19,6 @@ import { useEffect, useState } from 'react';
 
 const User = () => {
     useEffect(() => {
-        let node = document.querySelector('.user user_сollapsed');
-        node && node.classList.remove('.preload');
-
         switch (localStorage.getItem('sidebarStatus')) {
             case 'true':
                 setIsOpen(true);
