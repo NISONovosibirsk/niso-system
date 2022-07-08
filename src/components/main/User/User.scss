@@ -14,7 +14,6 @@
 }
 
 .preload * {
-    // Dry this up a bit with SCSS variable
     $null-transition: none !important;
 
     -webkit-transition: $null-transition;

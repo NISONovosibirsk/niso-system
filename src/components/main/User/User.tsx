@@ -19,8 +19,8 @@ import { useEffect, useState } from 'react';
 
 const User = () => {
     useEffect(() => {
-        // let node = document.querySelector('.user user_collapsed');
-        // node && node.classList.remove('.preload');
+        let node = document.querySelector('.user user_сollapsed');
+        node && node.classList.remove('.preload');
 
         switch (localStorage.getItem('sidebarStatus')) {
             case 'true':
@@ -110,7 +110,6 @@ const User = () => {
     const [isOpen, setIsOpen] = useState(true);
 
     useEffect(() => {
-        console.log(isOpen);
         localStorage.setItem('sidebarStatus', JSON.stringify(isOpen));
     }, [isOpen]);
 
@@ -119,7 +118,7 @@ const User = () => {
     };
 
     return (
-        <div className={isOpen ? 'user' : 'user user_collapsed preload'}>
+        <div className={isOpen ? 'user' : 'user user_collapsed'}>
             <UserSidebar
                 handleCollapse={handleCollapse}
                 isOpen={isOpen}
