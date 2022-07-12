@@ -45,10 +45,11 @@ const Organizer = () => {
                 .filter(event => event.types.includes(currentTab))
                 .filter(
                     event =>
-                        (event.startDate.getFullYear() === date.getFullYear() &&
-                            event.startDate.getMonth() === date.getMonth()) ||
-                        event.startDate.getMonth() === date.getMonth() - 1 ||
-                        event.startDate.getMonth() === date.getMonth() + 1
+                        event.startDate.getFullYear() === date.getFullYear() &&
+                        (event.startDate.getMonth() === date.getMonth() ||
+                            event.startDate.getMonth() ===
+                                date.getMonth() - 1 ||
+                            event.startDate.getMonth() === date.getMonth() + 1)
                 )
         );
     }, [date, events, currentTab]);
