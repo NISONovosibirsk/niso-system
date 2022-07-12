@@ -19,6 +19,7 @@ const OrganizerCreatePopup = ({ onClose, isOpen, onCreateEvent }) => {
         color: string;
         types: string[];
         subtitle: string;
+        attachments: [];
     });
 
     useEffect(() => {
@@ -35,6 +36,7 @@ const OrganizerCreatePopup = ({ onClose, isOpen, onCreateEvent }) => {
             color,
             types: ['Мониторинг'],
             subtitle: '',
+            attachments: [],
         });
         const date = new Date();
         const year = date.getFullYear();

@@ -13,6 +13,9 @@ export { ReactComponent as OpenModalIcon } from './icons/commonIcons/open-modal-
 export { ReactComponent as ReplyIcon } from './icons/commonIcons/reply-icon.svg';
 export { ReactComponent as SupportIcon } from './icons/commonIcons/support-icon.svg';
 export { ReactComponent as TrashIcon } from './icons/commonIcons/trash-icon.svg';
+export { ReactComponent as ClipIcon } from './icons/commonIcons/clip-icon.svg';
+export { ReactComponent as CommonImageIcon } from './icons/commonIcons/image-icon.svg';
+export { ReactComponent as DocumentIcon } from './icons/commonIcons/document-icon.svg';
 // status
 export { default as successfulIcon } from './icons/statusIcons/successful-icon.svg';
 export { default as unsuccessfulIcon } from './icons/statusIcons/unsuccessful-icon.svg';

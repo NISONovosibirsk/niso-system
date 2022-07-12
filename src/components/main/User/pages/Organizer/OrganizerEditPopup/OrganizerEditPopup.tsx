@@ -1,6 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import ReactTextareaAutosize from 'react-textarea-autosize';
-import { TrashIcon } from '../../../../../../assets';
+import {
+    ClipIcon,
+    CommonImageIcon,
+    DocumentIcon,
+    TrashIcon,
+} from '../../../../../../assets';
 import { Popup } from '../../../../../support';
 import Checkbox from '../Checkbox/Checkbox';
 
@@ -57,6 +62,27 @@ const OrganizerEditPopup = ({ isOpen, onClose, event, events, setEvents }) => {
         setEndDateInput(endInputDate);
     }, [event]);
 
+    const handleFileType = (fileType, index) => {
+        const splitFileType = fileType.split('/');
+        switch (splitFileType[0]) {
+            case 'image':
+                return (
+                    <CommonImageIcon
+                        className='organizer-edit-popup__file-icon'
+                        key={index}
+                    />
+                );
+
+            default:
+                return (
+                    <DocumentIcon
+                        className='organizer-edit-popup__file-icon'
+                        key={index}
+                    />
+                );
+        }
+    };
+
     const handleStartTitleEditing = () => {
         setTitleIsEditing(true);
     };
@@ -92,6 +118,22 @@ const OrganizerEditPopup = ({ isOpen, onClose, event, events, setEvents }) => {
         newEvents[eventIndex] = newEvent;
 
         setEvents(newEvents);
+    };
+
+    const handleAttachmentsChange = e => {
+        const { files } = e.target;
+
+        if (files) {
+            const eventIndex = events.indexOf(event);
+            const newEvent = {
+                ...event,
+                attachments: [...event.attachments, ...files],
+            };
+            const newEvents = [...events];
+            newEvents[eventIndex] = newEvent;
+
+            setEvents(newEvents);
+        }
     };
 
     const handleStartDateChange = e => {
@@ -206,6 +248,23 @@ const OrganizerEditPopup = ({ isOpen, onClose, event, events, setEvents }) => {
                             </p>
                         )}
                     </label>
+                    <div className='organizer-edit-popup__label'>
+                        Вложения
+                        <div className='organizer-edit-popup__attachments'>
+                            {event.attachments.map((attachment, index) =>
+                                handleFileType(attachment.type, index)
+                            )}
+                            <label>
+                                <ClipIcon className='organizer-edit-popup__clip' />
+                                <input
+                                    className='organizer-edit-popup__file-upload'
+                                    type='file'
+                                    onChange={handleAttachmentsChange}
+                                    accept='.doc,.exel,.pdf,.jpeg,.jpg,.png'
+                                />
+                            </label>
+                        </div>
+                    </div>
                 </div>
                 <div className='organizer-edit-popup__column'>
                     <label className='organizer-edit-popup__label'>

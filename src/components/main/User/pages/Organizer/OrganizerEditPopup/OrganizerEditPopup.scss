@@ -47,7 +47,7 @@
     }
 
     &__input {
-        cursor: default;
+        cursor: pointer;
         box-sizing: border-box;
         height: 32px;
         width: 100%;
@@ -66,6 +66,36 @@
 
         &:focus {
             border: 2px solid #4f8be4;
+        }
+    }
+
+    &__file-upload {
+        display: none;
+    }
+
+    &__file-icon {
+        cursor: pointer;
+        fill: #172b4d;
+        transition: fill ease 0.2s, background ease 0.2s;
+        border-radius: 6px;
+        padding: 8px;
+
+        &:hover {
+            fill: #e84141;
+            background: #f5f7fb;
+        }
+    }
+
+    &__clip {
+        cursor: pointer;
+        fill: #172b4d;
+        transition: fill ease 0.2s, background ease 0.2s;
+        border-radius: 6px;
+        padding: 8px;
+
+        &:hover {
+            fill: #4f8be4;
+            background: #f5f7fb;
         }
     }
 
