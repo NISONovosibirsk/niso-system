@@ -1,20 +1,12 @@
-import { useState } from 'react';
 import { MaisLogo, DoubleArrowIcon } from '../../../../assets';
 import SidebarItem from './SidebarItem/SidebarItem';
 import './UserSidebar.scss';
 
-const UserSidebar = ({ sidebarListData, handleSidebar }) => {
+const UserSidebar = ({ sidebarListData, isOpen, handleCollapse }) => {
     const techSupport = {
         path: 'support',
         text: 'Техподдержка',
         icon: '',
-    };
-
-    const [isOpen, setIsOpen] = useState(true);
-
-    const handleCollapse = () => {
-        setIsOpen(!isOpen);
-        handleSidebar(isOpen);
     };
 
     return (

@@ -1,4 +1,5 @@
 .organizer-event {
+    cursor: pointer;
     border-radius: 8px;
     margin: auto 4px;
     padding: 4px 8px;
@@ -7,5 +8,10 @@
     white-space: nowrap;
     overflow: hidden;
     height: 36px;
+    line-height: 28px;
     box-sizing: border-box;
+
+    &:hover {
+        opacity: 0.8;
+    }
 }
