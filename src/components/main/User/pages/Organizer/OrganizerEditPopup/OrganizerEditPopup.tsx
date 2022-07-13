@@ -4,6 +4,7 @@ import {
     ClipIcon,
     CommonImageIcon,
     DocumentIcon,
+    PlusIcon,
     TrashIcon,
 } from '../../../../../../assets';
 import { Popup } from '../../../../../support';
@@ -62,23 +63,47 @@ const OrganizerEditPopup = ({ isOpen, onClose, event, events, setEvents }) => {
         setEndDateInput(endInputDate);
     }, [event]);
 
-    const handleFileType = (fileType, index) => {
-        const splitFileType = fileType.split('/');
+    const handleFileType = (attachment, index) => {
+        const { type, name } = attachment;
+        let src = URL.createObjectURL(attachment);
+
+        const splitFileType = type.split('/');
+
         switch (splitFileType[0]) {
             case 'image':
                 return (
-                    <CommonImageIcon
-                        className='organizer-edit-popup__file-icon'
+                    <div
+                        className='organizer-edit-popup__attachment'
                         key={index}
-                    />
+                    >
+                        <img
+                            className='organizer-edit-popup__file-image'
+                            src={src}
+                            alt={name}
+                        />
+                        <CommonImageIcon className='organizer-edit-popup__file-icon' />
+                        <TrashIcon
+                            className='organizer-edit-popup__trash-icon'
+                            onClick={() => handleDeleteAttachment(index)}
+                        />
+                    </div>
                 );
 
             default:
                 return (
-                    <DocumentIcon
-                        className='organizer-edit-popup__file-icon'
+                    <div
+                        className='organizer-edit-popup__attachment'
                         key={index}
-                    />
+                    >
+                        <p className='organizer-edit-popup__file-name'>
+                            {name}
+                        </p>
+                        <DocumentIcon className='organizer-edit-popup__file-icon' />
+                        <TrashIcon
+                            className='organizer-edit-popup__trash-icon'
+                            onClick={() => handleDeleteAttachment(index)}
+                        />
+                    </div>
                 );
         }
     };
@@ -121,19 +146,31 @@ const OrganizerEditPopup = ({ isOpen, onClose, event, events, setEvents }) => {
     };
 
     const handleAttachmentsChange = e => {
-        const { files } = e.target;
+        const file = e.target.files[0];
 
-        if (files) {
+        if (file) {
             const eventIndex = events.indexOf(event);
             const newEvent = {
                 ...event,
-                attachments: [...event.attachments, ...files],
+                attachments: [...event.attachments, file],
             };
             const newEvents = [...events];
             newEvents[eventIndex] = newEvent;
 
             setEvents(newEvents);
         }
+    };
+
+    const handleDeleteAttachment = index => {
+        const eventIndex = events.indexOf(event);
+        const newAttachments = [...event.attachments];
+
+        newAttachments.splice(index, 1);
+        const newEvent = { ...event, attachments: newAttachments };
+        const newEvents = [...events];
+        newEvents[eventIndex] = newEvent;
+
+        setEvents(newEvents);
     };
 
     const handleStartDateChange = e => {
@@ -252,9 +289,10 @@ const OrganizerEditPopup = ({ isOpen, onClose, event, events, setEvents }) => {
                         Вложения
                         <div className='organizer-edit-popup__attachments'>
                             {event.attachments.map((attachment, index) =>
-                                handleFileType(attachment.type, index)
+                                handleFileType(attachment, index)
                             )}
-                            <label>
+                            <label className='organizer-edit-popup__attachment'>
+                                <PlusIcon className='organizer-edit-popup__plus-icon' />
                                 <ClipIcon className='organizer-edit-popup__clip' />
                                 <input
                                     className='organizer-edit-popup__file-upload'

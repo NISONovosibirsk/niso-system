@@ -16,6 +16,7 @@ export { ReactComponent as TrashIcon } from './icons/commonIcons/trash-icon.svg'
 export { ReactComponent as ClipIcon } from './icons/commonIcons/clip-icon.svg';
 export { ReactComponent as CommonImageIcon } from './icons/commonIcons/image-icon.svg';
 export { ReactComponent as DocumentIcon } from './icons/commonIcons/document-icon.svg';
+export { ReactComponent as PlusIcon } from './icons/commonIcons/plus-icon.svg';
 // status
 export { default as successfulIcon } from './icons/statusIcons/successful-icon.svg';
 export { default as unsuccessfulIcon } from './icons/statusIcons/unsuccessful-icon.svg';
