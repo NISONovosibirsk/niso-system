@@ -16,6 +16,7 @@ import {
 } from '../../../assets';
 import { useTypeSelector } from '../../../hooks/useTypeSelector';
 import { useEffect, useState } from 'react';
+import { ISidebarListItem } from '../../../interfaces';
 
 const User = () => {
     useEffect(() => {
@@ -31,7 +32,7 @@ const User = () => {
         }
     }, []);
 
-    const loggedSidebarListData = [
+    const loggedSidebarListData: ISidebarListItem[] = [
         {
             path: 'home',
             text: 'Главная',
@@ -84,7 +85,7 @@ const User = () => {
         },
     ];
 
-    const notLoggedSidebarListData = [
+    const notLoggedSidebarListData: ISidebarListItem[] = [
         {
             path: 'home',
             text: 'Главная',
