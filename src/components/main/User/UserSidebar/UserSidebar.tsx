@@ -1,12 +1,23 @@
 import { MaisLogo, DoubleArrowIcon } from '../../../../assets';
+import { ISidebarListItem } from '../../../../interfaces';
 import SidebarItem from './SidebarItem/SidebarItem';
 import './UserSidebar.scss';
 
-const UserSidebar = ({ sidebarListData, isOpen, handleCollapse }) => {
+export interface Props {
+    sidebarListData: ISidebarListItem[];
+    isOpen: boolean;
+    handleCollapse(): void;
+}
+
+const UserSidebar: React.FC<Props> = ({
+    sidebarListData,
+    isOpen,
+    handleCollapse,
+}) => {
     const techSupport = {
         path: 'support',
         text: 'Техподдержка',
-        icon: '',
+        icon: <></>,
     };
 
     return (
