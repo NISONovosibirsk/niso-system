@@ -18,6 +18,10 @@ const EICard = ({ ei }) => {
                         <span className='ei-card__span'>Название: </span>
                         {ei.name}
                     </p>
+					<p className='ei-card__text'>
+                        <span className='ei-card__span'>Тип: </span>
+                        {ei.type}
+                    </p>
                     <p className='ei-card__text'>
                         <span className='ei-card__span'>Полное название: </span>
                         {ei.fullname}
@@ -30,6 +34,10 @@ const EICard = ({ ei }) => {
                         <span className='ei-card__span'>ИНН: </span>
                         {ei.inn}
                     </p>
+					<p className='ei-card__text'>
+						<span className='ei-card__span'>Район</span>
+						{ei.district}
+					</p>
                     <p className='ei-card__text'>
                         <span className='ei-card__span'>Директор: </span>
                         {ei.director}
