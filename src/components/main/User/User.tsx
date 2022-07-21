@@ -1,5 +1,6 @@
 import UserSidebar from './UserSidebar/UserSidebar';
 import './User.scss';
+import './UserAdaptive.scss';
 import UserHeader from './UserHeader/UserHeader';
 import { Outlet } from 'react-router-dom';
 import {

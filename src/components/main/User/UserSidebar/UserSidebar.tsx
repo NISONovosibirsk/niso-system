@@ -2,6 +2,7 @@ import { MaisLogo, DoubleArrowIcon } from '../../../../assets';
 import { ISidebarListItem } from '../../../../interfaces';
 import SidebarItem from './SidebarItem/SidebarItem';
 import './UserSidebar.scss';
+import './UserSidebarAdaptive.scss';
 
 export interface Props {
     sidebarListData: ISidebarListItem[];
