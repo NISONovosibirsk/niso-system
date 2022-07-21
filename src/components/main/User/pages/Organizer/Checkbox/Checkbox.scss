@@ -1,0 +1,37 @@
+.checkbox {
+    cursor: pointer;
+    color: #172b4d;
+    font-size: 14px;
+    display: grid;
+    grid-template-columns: 32px auto;
+    gap: 4px;
+    line-height: 32px;
+    user-select: none;
+
+    &:hover .checkbox__custom {
+        border: 0.5px solid #4f8be4;
+    }
+
+    &__input {
+        display: none;
+
+        &:checked + .checkbox__custom::after {
+            content: '\2713';
+        }
+    }
+
+    &__custom {
+        height: 32px;
+        width: 32px;
+        outline: none;
+        background: #f5f7fb;
+        border: 0.5px solid #a9abba;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 32px;
+        box-sizing: border-box;
+        text-align: center;
+        color: #4f8be4;
+    }
+}

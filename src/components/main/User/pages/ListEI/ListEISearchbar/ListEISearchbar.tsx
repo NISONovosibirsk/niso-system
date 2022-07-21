@@ -26,6 +26,7 @@ const ListEISearchbar = () => {
         top: 0,
         left: 0,
     });
+    const [thirdModalIndex, setThirdModalIndex] = useState(-1);
 
     const { chars, filter } = useTypeSelector(state => state.userListEI.search);
     const dispatch = useDispatch();
@@ -89,17 +90,19 @@ const ListEISearchbar = () => {
         dispatch(updateSearchList(newList));
     };
 
-    const handleOpenThirdModal = e => {
+    const handleOpenThirdModal = (e, index) => {
         const position = e.target.getBoundingClientRect();
         setThirdModalIsOpen(true);
         setThirdModalPosition({
             top: position.top,
             left: position.right + 8,
         });
+        setThirdModalIndex(index);
     };
 
     const handleCloseThirdModal = () => {
         setThirdModalIsOpen(false);
+        setThirdModalIndex(-1);
     };
 
     const handleUpdateSearchList = newList => {
@@ -134,6 +137,7 @@ const ListEISearchbar = () => {
                     onClose={handleCloseSecondModal}
                     isOpen={secondModalIsOpen}
                     position={secondModalPosition}
+                    activeButton={thirdModalIndex}
                 >
                     {filter.list[secondModalIndex].options
                         .sort()
@@ -149,7 +153,9 @@ const ListEISearchbar = () => {
                             ) : (
                                 <button
                                     className='modal__button'
-                                    onClick={e => handleOpenThirdModal(e)}
+                                    onMouseOver={e =>
+                                        handleOpenThirdModal(e, index)
+                                    }
                                     key={index}
                                 >
                                     {option.title}

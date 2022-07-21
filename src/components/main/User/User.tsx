@@ -15,10 +15,24 @@ import {
     QAIcon,
 } from '../../../assets';
 import { useTypeSelector } from '../../../hooks/useTypeSelector';
-import { useCallback, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { ISidebarListItem } from '../../../interfaces';
 
 const User = () => {
-    const loggedSidebarListData = [
+    useEffect(() => {
+        switch (localStorage.getItem('sidebarStatus')) {
+            case 'true':
+                setIsOpen(true);
+                break;
+            case 'false':
+                setIsOpen(false);
+                break;
+            default:
+                break;
+        }
+    }, []);
+
+    const loggedSidebarListData: ISidebarListItem[] = [
         {
             path: 'home',
             text: 'Главная',
@@ -71,7 +85,7 @@ const User = () => {
         },
     ];
 
-    const notLoggedSidebarListData = [
+    const notLoggedSidebarListData: ISidebarListItem[] = [
         {
             path: 'home',
             text: 'Главная',
@@ -91,16 +105,21 @@ const User = () => {
 
     const { isLogged } = useTypeSelector(state => state.userStatus);
 
-    //handle state from child-sidebar
-    const [isOpen, setIsOpen] = useState(false);
-    const handleSidebar = useCallback(state => {
-        setIsOpen(state);
-    }, []);
+    const [isOpen, setIsOpen] = useState(true);
+
+    useEffect(() => {
+        localStorage.setItem('sidebarStatus', JSON.stringify(isOpen));
+    }, [isOpen]);
+
+    const handleCollapse = () => {
+        setIsOpen(!isOpen);
+    };
 
     return (
-        <div className={isOpen ? 'user user_collapsed' : 'user'}>
+        <div className={isOpen ? 'user' : 'user user_collapsed'}>
             <UserSidebar
-                handleSidebar={handleSidebar}
+                handleCollapse={handleCollapse}
+                isOpen={isOpen}
                 sidebarListData={
                     isLogged ? loggedSidebarListData : notLoggedSidebarListData
                 }

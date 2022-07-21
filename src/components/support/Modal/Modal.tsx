@@ -45,6 +45,11 @@ const Modal = ({
                         <li
                             className={`modal__item ${
                                 type ? `modal__item_${type}` : ''
+                            } ${
+                                child.type !== 'div' &&
+                                childIndex === activeButton
+                                    ? 'modal__item_active'
+                                    : ''
                             }`}
                             key={childIndex}
                         >

@@ -1,5 +1,7 @@
 // COMPONENTS //
 
+import { ReactElement } from 'react';
+
 // Blog Card
 export interface IBlogCard {
     title: string;
@@ -63,6 +65,13 @@ export interface ITerms {
 // User
 export interface IProfileDocuments {
     form: any;
+}
+
+// UserSidebar
+export interface ISidebarListItem {
+    path: string;
+    text: string;
+    icon: ReactElement;
 }
 
 // REDUX //

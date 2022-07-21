@@ -79,7 +79,8 @@ const FilterModal = ({
             {filter.list.map((item, index) => (
                 <button
                     className='modal__button'
-                    onClick={e => handleOpenSecondModal(e, index)}
+                    // onClick={e => handleOpenSecondModal(e, index)}
+                    onMouseOver={e => handleOpenSecondModal(e, index)}
                     key={index}
                 >
                     {item.title}

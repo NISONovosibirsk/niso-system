@@ -31,22 +31,20 @@
         margin: 0 auto;
     }
 
-    &__button {
-        font-size: 20px;
+    &__arrow {
         cursor: pointer;
         border: none;
         border-radius: 4px;
-        background: white;
-        height: 30px;
-        width: 30px;
-        padding: 0;
+        fill: black;
+        padding: 3px;
+
+        &:nth-of-type(odd) {
+            transform: rotate(180deg);
+        }
 
         &:hover {
             background: #f5f7fb;
         }
-        // grid-row: 1 / 2;
-        // width: 272px;
-        // transition: none 0s ease 0s;
     }
 
     &__month {
@@ -77,8 +75,8 @@
         overflow: auto;
         grid-template-rows: repeat(auto-fill, 36px);
         height: calc(
-            100vh - 12vh - 36px - 12px - 8px - 30px - 8px - 30px - 8px - 68px -
-                20px - 5px
+            100vh - 12vh - 48px - 36px - 12px - 8px - 30px - 8px - 30px - 8px -
+                68px - 20px - 5px
         );
     }
 }

@@ -12,9 +12,11 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import OrganizerEvent from './OrganizerEvent/OrganizerEvent';
 import { getNumberOfDaysInAMonth } from '../../../../../middleware';
 import OrganizerMonthTitle from './OrganizerMonthTitle/OrganizerMonthTitle';
-import OrganizerPopup from './OrganizerPopup/OrganizerPopup';
+import OrganizerCreatePopup from './OrganizerCreatePopup/OrganizerCreatePopup';
+import OrganizerFilterTabs from './OrganizerFilterTabs/OrganizerFilterTabs';
 
 import './Organizer.scss';
+import { DoubleArrowIcon } from '../../../../../assets';
 
 const Organizer = () => {
     const [date, setDate] = useState(new Date());
@@ -26,8 +28,11 @@ const Organizer = () => {
             startDate: Date;
             endDate: Date;
             color: string;
+            types: string[];
+            subtitle: string;
         }[]
     );
+    const [currentTab, setCurrentTab] = useState('Мониторинг');
     const [filteredEvents, setFilteredEvents] = useState([] as {}[]);
 
     const currentDayRef = useRef<HTMLDivElement>(null);
@@ -37,15 +42,18 @@ const Organizer = () => {
 
     useEffect(() => {
         setFilteredEvents(
-            events.filter(
-                event =>
-                    (event.startDate.getFullYear() === date.getFullYear() &&
-                        event.startDate.getMonth() === date.getMonth()) ||
-                    event.startDate.getMonth() === date.getMonth() - 1 ||
-                    event.startDate.getMonth() === date.getMonth() + 1
-            )
+            events
+                .filter(event => event.types.includes(currentTab))
+                .filter(
+                    event =>
+                        event.startDate.getFullYear() === date.getFullYear() &&
+                        (event.startDate.getMonth() === date.getMonth() ||
+                            event.startDate.getMonth() ===
+                                date.getMonth() - 1 ||
+                            event.startDate.getMonth() === date.getMonth() + 1)
+                )
         );
-    }, [date, events]);
+    }, [date, events, currentTab]);
 
     useLayoutEffect(() => {
         if (null !== currentDayRef.current) {
@@ -287,17 +295,24 @@ const Organizer = () => {
     return (
         <section className='organizer'>
             <Button title='Создать событие' onClick={handleOpenPopup}></Button>
+            <OrganizerFilterTabs
+                currentTab={currentTab}
+                setCurrentTab={setCurrentTab}
+            />
             <div className='organizer__calendar'>
-                <button className='organizer__button' onClick={reduceYaer}>
-                    {'<<'}
-                </button>
+                <DoubleArrowIcon
+                    className='organizer__arrow'
+                    onClick={reduceYaer}
+                />
                 <p className='organizer__date'>{date.getFullYear()}</p>
-                <button className='organizer__button' onClick={increaseYaer}>
-                    {'>>'}
-                </button>
-                <button className='organizer__button' onClick={reduceMonth}>
-                    {'<'}
-                </button>
+                <DoubleArrowIcon
+                    className='organizer__arrow'
+                    onClick={increaseYaer}
+                />
+                <DoubleArrowIcon
+                    className='organizer__arrow'
+                    onClick={reduceMonth}
+                />
                 <div className='organizer__month' onScroll={handleScroll}>
                     <OrganizerMonthTitle
                         scroll={scroll}
@@ -372,15 +387,18 @@ const Organizer = () => {
                                 key={index}
                                 event={event}
                                 date={date}
+                                events={events}
+                                setEvents={setEvents}
                             />
                         ))}
                     </div>
                 </div>
-                <button className='organizer__button' onClick={increaseMonth}>
-                    {'>'}
-                </button>
+                <DoubleArrowIcon
+                    className='organizer__arrow'
+                    onClick={increaseMonth}
+                />
             </div>
-            <OrganizerPopup
+            <OrganizerCreatePopup
                 onClose={handlClosePopup}
                 isOpen={isPopupOpen}
                 onCreateEvent={handleCreateEvent}

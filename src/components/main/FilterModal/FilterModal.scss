@@ -34,7 +34,7 @@
         &_main {
             display: grid;
             gap: 4px;
-            grid-template-columns: 80px auto;
+            grid-template-columns: 100px auto;
             border-bottom: solid 1px #d5d8e4;
             padding: 4px 0;
         }
@@ -53,6 +53,7 @@
                 bottom: 4px;
                 right: 4px;
             }
+            height: 18px;
 
             &:hover {
                 border: 1px solid #ed9c87;
