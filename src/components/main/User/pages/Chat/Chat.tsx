@@ -8,7 +8,7 @@ import { useTypeSelector } from '../../../../../hooks/useTypeSelector';
 import { useDispatch } from 'react-redux';
 import { updateUsers } from '../../../../../store/actions/chatActions';
 
-const Chat = () => {
+const Chat: React.FC = () => {
     const { profile } = useTypeSelector(state => state.userProfile);
     const { users } = useTypeSelector(state => state.chat);
     const dispatch = useDispatch();
