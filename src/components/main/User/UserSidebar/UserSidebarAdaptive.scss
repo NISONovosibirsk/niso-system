@@ -1,6 +1,8 @@
 @media only screen and (max-width: 760px) {
     .user-sidebar {
         grid-area: none;
+        grid-template-columns: 15vh auto 25vh;
+        grid-template-rows: none;
 
         &_collapsed {
             width: 100%;
