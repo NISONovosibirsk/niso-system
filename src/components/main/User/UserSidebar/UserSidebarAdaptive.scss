@@ -1,13 +1,38 @@
 @media only screen and (max-width: 760px) {
     .user-sidebar {
         grid-area: none;
-        grid-template-columns: 15vh auto 25vh;
+        grid-template-columns: 7vh auto 8vh;
         grid-template-rows: none;
+        grid-row: 1 / 2;
 
         &_collapsed {
             width: 100%;
             height: 7vh;
             border-radius: 0;
         }
+
+        &__header {
+            grid-row: none;
+            grid-column: 1 / 2;
+        }
+
+        &__list {
+            grid-row: none;
+            grid-column: 2 / 3;
+            width: auto;
+            flex-direction: row;
+            margin: 0;
+            gap: auto;
+        }
+
+        &__footer {
+            grid-row: none;
+            padding: 0;
+            place-self: center;
+        }
+    }
+
+    .sidebar-item {
+        // height: 5vh;
     }
 }

@@ -8,6 +8,7 @@ import {
 } from '../../../../../assets';
 import { useTypeSelector } from '../../../../../hooks/useTypeSelector';
 import './Home.scss';
+import './HomeAdaptive.scss';
 import HomeCard from './HomeCard/HomeCard';
 import InfoPopup from '../../InfoPopup/InfoPopup';
 import { updateUserPopup } from '../../../../../store/actions/userStatusActions';

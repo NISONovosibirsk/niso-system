@@ -1,0 +1,13 @@
+@media only screen and (max-width: 760px) {
+    .user-header {
+        grid-row: 2 / 3;
+        width: 100%;
+        // grid-area: none;
+        height: 7vh;
+        grid-template-rows: none;
+    }
+
+    .form-switch {
+        display: none;
+    }
+}

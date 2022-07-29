@@ -5,6 +5,7 @@ import { updateLoginStatus } from '../../../../store/actions/userStatusActions';
 import Checkbox from '../../../support/Checkbox/Checkbox';
 import Searchbar from './HeaderSearchbar/HeaderSearchbar';
 import './UserHeader.scss';
+import './UserHeaderAdaptive.scss';
 
 const UserHeader = () => {
     const { profile } = useTypeSelector(state => state.userProfile);

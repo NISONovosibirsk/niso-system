@@ -1,12 +1,14 @@
 .user-profile {
     grid-area: userContent;
     display: grid;
+    grid-template-rows: 10vh auto;
+    grid-template-columns: none;
     margin: {
         left: 3vw;
     }
 
     &-tabs {
-        width: 850px;
+        // width: 850px;
         height: 48px;
         display: grid;
         grid-template-columns: repeat(4, 20%);
@@ -15,5 +17,14 @@
         padding: 0;
 
         align-items: flex-end;
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    .user-profile {
+
+        &-tabs {
+            // width: 300px;
+        }
     }
 }
