@@ -2,7 +2,7 @@
     .user-sidebar {
         grid-area: none;
         grid-template-columns: 8vw auto;
-        grid-template-rows: none;
+        grid-template-rows: 1fr;
         grid-row: 1 / 2;
 
         &_collapsed {
@@ -12,28 +12,29 @@
         }
 
         &__header {
-            grid-row: none;
-            grid-column: 1 / 2;
+            grid-area: 1 / 1 / 2 / 2;
         }
 
         &__list {
-            grid-row: none;
-            grid-column: 2 / 3;
-            width: auto;
+            grid-area: 1 / 2 / 2 / 3;
+            width: 100%;
+            justify-content: space-between;
             flex-direction: row;
+            align-items: center;
             margin: 0;
-            gap: 0;
+            padding: {
+                right: 1vw;
+                left: 1vw;
+            }
         }
 
         &__footer {
-            // grid-row: none;
-            // padding: 0;
-            // place-self: center;
             display: none;
         }
     }
 
     .sidebar-item {
         height: 5vh;
+        width: auto;
     }
 }
