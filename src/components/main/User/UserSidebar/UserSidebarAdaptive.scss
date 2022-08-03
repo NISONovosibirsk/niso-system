@@ -1,7 +1,7 @@
 @media only screen and (max-width: 760px) {
     .user-sidebar {
         grid-area: none;
-        grid-template-columns: 7vh auto 8vh;
+        grid-template-columns: 8vw auto;
         grid-template-rows: none;
         grid-row: 1 / 2;
 
@@ -22,17 +22,18 @@
             width: auto;
             flex-direction: row;
             margin: 0;
-            gap: auto;
+            gap: 0;
         }
 
         &__footer {
-            grid-row: none;
-            padding: 0;
-            place-self: center;
+            // grid-row: none;
+            // padding: 0;
+            // place-self: center;
+            display: none;
         }
     }
 
     .sidebar-item {
-        // height: 5vh;
+        height: 5vh;
     }
 }
