@@ -38,6 +38,13 @@
         }
     }
 
+    &__logo {
+
+        &_collapsed {
+            display: none;
+        }
+    }
+
     &__burger {
         cursor: pointer;
         place-self: center;
@@ -47,14 +54,6 @@
             transform: rotate(-180deg);
             transition: transform 0.5s ease;
         }
-    }
-
-    &__logo {
-        padding: {
-            left: 24px;
-            right: 32px;
-        }
-        align-self: center;
     }
 
     &__caption {
