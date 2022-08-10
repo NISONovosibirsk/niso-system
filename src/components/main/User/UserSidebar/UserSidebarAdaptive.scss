@@ -7,19 +7,35 @@
         width: 100%;
         height: 7vh;
         border-radius: 0;
+        box-sizing: border-box;
+
+        padding: {
+            left: 2vw;
+            right: 2vw;
+        };
 
         &_collapsed {
             grid-template-columns: auto;
+            padding-right: 4vw;
         }
 
         &__header {
             grid-area: 1 / 2 / 1 / 3;
-
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            
             &_collapsed {
+                padding: 0;
                 grid-area: 1 / 1 / 1 / 1;
                 width: 100%;
                 justify-content: space-between;
             }
+        }
+
+        &__burger {
+            justify-self: center;
         }
 
         &__logo {
@@ -36,11 +52,11 @@
 
         &__list {
             grid-area: 1 / 1 / 1 / 2;
-            width: 100%;
             justify-content: space-between;
             flex-direction: row;
             align-items: center;
             margin: 0;
+            padding: 0;
 
             &_collapsed {
                 display: none;

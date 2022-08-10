@@ -4,6 +4,10 @@
     display: grid;
     grid-template-columns: 60% 30% auto;
     align-items: center;
+    position: sticky;
+    top: 0;
+    right: 0;
+    background: white;
 
     &__wrapper {
         display: flex;

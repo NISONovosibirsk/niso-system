@@ -32,7 +32,6 @@ const UserSidebar: React.FC<Props> = ({
                     isOpen ? '' : 'user-sidebar__header_collapsed'
                 }`}
             >
-                {/* {isOpen && <MaisLogo className={`user-sidebar__logo ${isOpen ? 'user-sidebar__logo_collapsed' : ''}`}/>} */}
                 <MaisLogo
                     className={`user-sidebar__logo ${
                         isOpen ? '' : 'user-sidebar__logo_collapsed'

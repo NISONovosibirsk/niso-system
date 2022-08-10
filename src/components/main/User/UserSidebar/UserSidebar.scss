@@ -1,9 +1,10 @@
 .user-sidebar {
     grid-area: userSidebar;
+    position: sticky;
+    top: 0;
+    left: 0;
     z-index: 999;
-    width: 20vw;
     min-width: 300px;
-    position: fixed;
     display: grid;
     height: 100vh;
     grid-template-rows: 15vh auto 25vh;
@@ -99,7 +100,6 @@
         grid-row: 3 / 4;
         color: white;
         padding: {
-            // left: 1.5vw;
             left: 34px;
             top: 4vh;
             bottom: 1vh;
