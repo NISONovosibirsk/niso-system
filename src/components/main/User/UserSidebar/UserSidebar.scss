@@ -52,8 +52,7 @@
         transition: transform 0.5s ease;
 
         &_collapsed {
-            transform: rotate(-180deg);
-            transition: transform 0.5s ease;
+            transform: rotate(180deg);
         }
     }
 

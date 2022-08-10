@@ -39,7 +39,7 @@ const UserSidebar: React.FC<Props> = ({
                 />
                 <DoubleArrowIcon
                     className={`user-sidebar__burger ${
-                        isOpen ? 'user-sidebar__burger_collapsed' : ''
+                        isOpen ? '' : 'user-sidebar__burger_collapsed'
                     }`}
                     onClick={handleCollapse}
                 />
