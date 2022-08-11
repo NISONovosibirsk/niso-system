@@ -75,7 +75,7 @@ const Home = () => {
 
     return (
         <section className='user-home'>
-            <ul className='user-home-list'>
+            <ul className='user-home__list'>
                 {handleLogged().map((card, index) => (
                     <HomeCard data={card} key={index} />
                 ))}

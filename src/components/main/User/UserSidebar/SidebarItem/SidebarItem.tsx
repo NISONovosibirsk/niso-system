@@ -5,9 +5,14 @@ import './SidebarItem.scss';
 export interface Props {
     sidebarItemData: ISidebarListItem;
     isOpen: boolean;
+    setIsOpen: (isOpen: boolean) => void;
 }
 
-const SidebarItem: React.FC<Props> = ({ sidebarItemData, isOpen }) => {
+const SidebarItem: React.FC<Props> = ({
+    sidebarItemData,
+    isOpen,
+    setIsOpen,
+}) => {
     const { path, icon, text } = sidebarItemData;
 
     const resolved = useResolvedPath(path);
@@ -16,9 +21,14 @@ const SidebarItem: React.FC<Props> = ({ sidebarItemData, isOpen }) => {
         end: false,
     });
 
+    const handleClick = () => {
+        window.innerWidth <= 603 && setIsOpen(false);
+    };
+
     return (
         <li className={`sidebar-item ${match && 'sidebar-item_active'}`}>
             <Link
+                onClick={handleClick}
                 className={`sidebar-item__link ${
                     isOpen ? '' : 'sidebar-item__link_collapsed'
                 }`}

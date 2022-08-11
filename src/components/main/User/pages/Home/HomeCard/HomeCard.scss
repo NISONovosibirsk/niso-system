@@ -1,4 +1,4 @@
-.user-home-card {
+.user-home__card {
     @keyframes card {
         0% {
             opacity: 0;
@@ -24,7 +24,7 @@
         align-self: end;
     }
 
-    &__text {
+    &-text {
         font-weight: 600;
     }
 

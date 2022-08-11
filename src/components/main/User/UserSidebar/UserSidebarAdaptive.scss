@@ -1,9 +1,7 @@
 @media only screen and (max-width: 760px) {
     .user-sidebar {
-        // grid-area: none;
         grid-template-columns: auto 8vw;
         grid-template-rows: 1fr;
-        // grid-row: 1 / 2;
         grid-area: 1 / 1 / 2 / 1;
         width: 100%;
         height: 7vh;
@@ -82,6 +80,53 @@
 
         &__text {
             display: none;
+        }
+    }
+}
+
+@media only screen and (max-width: 603px) {
+    .user-sidebar {
+        height: 100vh;
+        grid-template-columns: 100%;
+        grid-template-rows: 7vh auto;
+        transition: height 0.3s ease;
+        padding-bottom: 3vh;
+
+        &_collapsed {
+            height: 7vh;
+        }
+
+        &__header {
+            grid-area: 1 / 1 / 2 / 1;
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        &__logo {
+            display: block;
+        }
+
+        &__burger {
+            transform: rotate(90deg);
+            
+            &_collapsed {
+                transform: rotate(-90deg);
+            }
+        }
+
+        &__list {
+            grid-area: 2 / 1 / 3 / 1;
+            flex-direction: column;
+            gap: 0;
+        }
+    }
+
+    .sidebar-item {
+        width: 100%;
+
+
+        &__text {
+            display: block;
         }
     }
 }

@@ -120,6 +120,7 @@ const User = () => {
         <div className={isOpen ? 'user' : 'user user_collapsed'}>
             <UserSidebar
                 handleCollapse={handleCollapse}
+                setIsOpen={setIsOpen}
                 isOpen={isOpen}
                 sidebarListData={
                     isLogged ? loggedSidebarListData : notLoggedSidebarListData
