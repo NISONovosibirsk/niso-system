@@ -126,7 +126,9 @@ const User = () => {
                 }
             />
             <UserHeader />
-            <Outlet />
+            <div className='user-content'>
+                <Outlet />
+            </div>
         </div>
     );
 };

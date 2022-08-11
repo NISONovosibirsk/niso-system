@@ -1,13 +1,15 @@
 @media only screen and (max-width: 760px) {
     .user-sidebar {
-        grid-area: none;
+        // grid-area: none;
         grid-template-columns: auto 8vw;
         grid-template-rows: 1fr;
-        grid-row: 1 / 2;
+        // grid-row: 1 / 2;
+        grid-area: 1 / 1 / 2 / 1;
         width: 100%;
         height: 7vh;
         border-radius: 0;
         box-sizing: border-box;
+        transition: none;
 
         padding: {
             left: 2vw;

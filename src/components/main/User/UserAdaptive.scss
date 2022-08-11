@@ -1,6 +1,7 @@
 @media only screen and (max-width: 760px) {
     .user {
-        grid-template: 7vh 7vh auto / none;
+        grid-template-rows: 7vh 7vh auto;
+        grid-template-columns: 100%;
         grid-template-areas: none;
     }
 }
