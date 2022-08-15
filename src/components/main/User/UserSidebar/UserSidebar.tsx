@@ -40,8 +40,7 @@ const UserSidebar: React.FC<Props> = ({
                 />
                 {isOpen && (
                     <p className='user-sidebar__caption'>
-                        Муниципальная система оценки качества образования города
-                        Новосибирска
+                        ОКО города Новосибирска
                     </p>
                 )}
             </div>
