@@ -91,6 +91,7 @@
         grid-template-rows: 7vh auto;
         transition: height 0.3s ease;
         padding-bottom: 3vh;
+        gap: 3vh;
 
         &_collapsed {
             height: 7vh;
