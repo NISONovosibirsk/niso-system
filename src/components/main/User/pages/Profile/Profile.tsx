@@ -1,4 +1,5 @@
 import './Profile.scss';
+import './ProfileResponsive.scss';
 import { Routes, Route, Link } from 'react-router-dom';
 import ProfileNavItem from './ProfileNavItem/ProfileNavItem';
 import ProfileDocuments from './ProfileDocuments/ProfileDocuments';
@@ -11,7 +12,6 @@ const tabs = [
 ];
 
 const Profile = () => {
-
     return (
         <div className='user-profile'>
             <ul className='user-profile-tabs'>
