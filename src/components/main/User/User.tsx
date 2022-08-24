@@ -1,5 +1,6 @@
 import UserSidebar from './UserSidebar/UserSidebar';
 import './User.scss';
+import './UserAdaptive.scss';
 import UserHeader from './UserHeader/UserHeader';
 import { Outlet } from 'react-router-dom';
 import {
@@ -119,13 +120,16 @@ const User = () => {
         <div className={isOpen ? 'user' : 'user user_collapsed'}>
             <UserSidebar
                 handleCollapse={handleCollapse}
+                setIsOpen={setIsOpen}
                 isOpen={isOpen}
                 sidebarListData={
                     isLogged ? loggedSidebarListData : notLoggedSidebarListData
                 }
             />
             <UserHeader />
-            <Outlet />
+            <div className='user-content'>
+                <Outlet />
+            </div>
         </div>
     );
 };

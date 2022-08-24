@@ -8,6 +8,7 @@ import {
 } from '../../../../../assets';
 import { useTypeSelector } from '../../../../../hooks/useTypeSelector';
 import './Home.scss';
+import './HomeAdaptive.scss';
 import HomeCard from './HomeCard/HomeCard';
 import InfoPopup from '../../InfoPopup/InfoPopup';
 import { updateUserPopup } from '../../../../../store/actions/userStatusActions';
@@ -74,7 +75,7 @@ const Home = () => {
 
     return (
         <section className='user-home'>
-            <ul className='user-home-list'>
+            <ul className='user-home__list'>
                 {handleLogged().map((card, index) => (
                     <HomeCard data={card} key={index} />
                 ))}

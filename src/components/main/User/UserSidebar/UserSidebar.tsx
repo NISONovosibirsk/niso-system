@@ -1,18 +1,22 @@
+import { useEffect } from 'react';
 import { MaisLogo, DoubleArrowIcon } from '../../../../assets';
 import { ISidebarListItem } from '../../../../interfaces';
 import SidebarItem from './SidebarItem/SidebarItem';
 import './UserSidebar.scss';
+import './UserSidebarAdaptive.scss';
 
 export interface Props {
     sidebarListData: ISidebarListItem[];
     isOpen: boolean;
     handleCollapse(): void;
+    setIsOpen: (isOpen: boolean) => void;
 }
 
 const UserSidebar: React.FC<Props> = ({
     sidebarListData,
     isOpen,
     handleCollapse,
+    setIsOpen,
 }) => {
     const techSupport = {
         path: 'support',
@@ -31,10 +35,14 @@ const UserSidebar: React.FC<Props> = ({
                     isOpen ? '' : 'user-sidebar__header_collapsed'
                 }`}
             >
-                {isOpen && <MaisLogo />}
+                <MaisLogo
+                    className={`user-sidebar__logo ${
+                        isOpen ? '' : 'user-sidebar__logo_collapsed'
+                    }`}
+                />
                 <DoubleArrowIcon
                     className={`user-sidebar__burger ${
-                        isOpen ? 'user-sidebar__burger_collapsed' : ''
+                        isOpen ? '' : 'user-sidebar__burger_collapsed'
                     }`}
                     onClick={handleCollapse}
                 />
@@ -54,6 +62,7 @@ const UserSidebar: React.FC<Props> = ({
                         isOpen={isOpen}
                         sidebarItemData={sidebarItemData}
                         key={sidebarItemData.path}
+                        setIsOpen={setIsOpen}
                     />
                 ))}
             </ul>
@@ -72,13 +81,15 @@ const UserSidebar: React.FC<Props> = ({
                         </p>
                     </>
                 )}
-                <div className='user-sidebar__support'></div>
-                {isOpen && (
-                    <SidebarItem
-                        isOpen={isOpen}
-                        sidebarItemData={techSupport}
-                    />
-                )}
+                <div className='user-sidebar__support'>
+                    {isOpen && (
+                        <SidebarItem
+                            setIsOpen={setIsOpen}
+                            isOpen={isOpen}
+                            sidebarItemData={techSupport}
+                        />
+                    )}
+                </div>
             </div>
         </nav>
     );
