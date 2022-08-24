@@ -16,7 +16,7 @@ const UserSidebar: React.FC<Props> = ({
     sidebarListData,
     isOpen,
     handleCollapse,
-    setIsOpen
+    setIsOpen,
 }) => {
     const techSupport = {
         path: 'support',
@@ -82,14 +82,15 @@ const UserSidebar: React.FC<Props> = ({
                         </p>
                     </>
                 )}
-                <div className='user-sidebar__support'></div>
-                {isOpen && (
-                    <SidebarItem
-                        setIsOpen={setIsOpen}
-                        isOpen={isOpen}
-                        sidebarItemData={techSupport}
-                    />
-                )}
+                <div className='user-sidebar__support'>
+                    {isOpen && (
+                        <SidebarItem
+                            setIsOpen={setIsOpen}
+                            isOpen={isOpen}
+                            sidebarItemData={techSupport}
+                        />
+                    )}
+                </div>
             </div>
         </nav>
     );

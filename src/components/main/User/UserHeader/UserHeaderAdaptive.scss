@@ -10,3 +10,14 @@
         display: none;
     }
 }
+
+@media only screen and (max-width: 603px) {
+
+    .user-header {
+        grid-template-columns: 85% auto;
+    }
+
+    .header-searchbar {
+        display: none;
+    }
+}

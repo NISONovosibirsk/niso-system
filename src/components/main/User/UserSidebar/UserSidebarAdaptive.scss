@@ -1,3 +1,48 @@
+@media only screen and (max-width: 1024px) {
+    .user-sidebar {
+        min-width: 80px;
+        width: 80px;
+        grid-area: userSidebar;
+        border-radius: 0 20px 20px 0;
+        justify-items: center;
+        grid-template-rows: auto 10vh;
+        grid-template-columns: 100%;
+
+        &__header {
+            display: none;
+        }
+
+        &__list {
+            grid-row: 1 / 2;
+            width: 50px;
+            padding: 0 {
+                top: 2vh;
+            };
+            width: auto;
+            justify-content: space-between;
+        }
+
+        &__footer {
+            grid-row: 2 / 3;
+            padding: 0;
+            align-items: center;
+        }
+
+        &__politics {
+            display: none;
+        }
+    }
+
+    .sidebar-item {
+
+        height: 50px;
+
+        &__text {
+            display: none;
+        }
+    }
+}
+
 @media only screen and (max-width: 760px) {
     .user-sidebar {
         grid-template-columns: auto 8vw;
@@ -12,7 +57,7 @@
         padding: {
             left: 2vw;
             right: 2vw;
-        };
+        }
 
         &_collapsed {
             grid-template-columns: auto;
@@ -25,7 +70,7 @@
             display: flex;
             justify-content: center;
             gap: 0;
-            
+
             &_collapsed {
                 padding: 0;
                 grid-area: 1 / 1 / 1 / 1;
@@ -40,7 +85,6 @@
             &_collapsed {
                 transform: rotate(360deg);
                 transition: transform 0.5s ease;
-                
             }
         }
 
@@ -63,6 +107,7 @@
             align-items: center;
             margin: 0;
             padding: 0;
+            width: 100%;
 
             &_collapsed {
                 display: none;
@@ -109,7 +154,7 @@
 
         &__burger {
             transform: rotate(90deg);
-            
+
             &_collapsed {
                 transform: rotate(-90deg);
             }
@@ -124,7 +169,6 @@
 
     .sidebar-item {
         width: 100%;
-
 
         &__text {
             display: block;
