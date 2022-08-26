@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useTypeSelector } from '../../../hooks/useTypeSelector';
-import { MaisLogo } from '../../../assets';
+import { aisLogo } from '../../../assets';
 import './Login.scss';
 import {
     resetForm,
@@ -51,7 +51,7 @@ const Login = () => {
 
     return (
         <section className='login'>
-            <MaisLogo className='login__logo' />
+            <aisLogo className='login__logo' />
             <AuthForm
                 onSubmit={() => {}}
                 isValid={isValid}
