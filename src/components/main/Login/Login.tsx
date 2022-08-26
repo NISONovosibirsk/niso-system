@@ -51,7 +51,7 @@ const Login = () => {
 
     return (
         <section className='login'>
-            <AisLogo className='login__logo' />
+            <MaisLogo className='login__logo' />
             <AuthForm
                 onSubmit={() => {}}
                 isValid={isValid}
