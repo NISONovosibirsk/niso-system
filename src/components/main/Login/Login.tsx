@@ -1,7 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useTypeSelector } from '../../../hooks/useTypeSelector';
-import { NisoLogo } from '../../../assets';
+// import { NisoLogo } from '../../../assets';
+import { MaisLogo } from '../../../assets';
 import './Login.scss';
 import {
     resetForm,
