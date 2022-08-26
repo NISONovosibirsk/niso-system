@@ -1,8 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useTypeSelector } from '../../../hooks/useTypeSelector';
-
-import { AisLogo } from '../../../assets/aisLogo.svg';
+import { MaisLogo } from '../../../assets/';
 import './Login.scss';
 import {
     resetForm,
@@ -13,8 +12,6 @@ import {
     updatePasswordValue,
 } from '../../../store/actions/loginActions';
 import { AuthForm } from '../../support';
-
-// import { MaisLogo } from '../../../assets/';
 
 const Login = () => {
     const { email, emailError, password, passwordError, isValid } =
