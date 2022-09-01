@@ -1,0 +1,58 @@
+.calculate-input {
+    cursor: default;
+    grid-column: 1/3;
+    display: grid;
+    gap: 8px;
+    grid-template-columns: auto 50px;
+
+    &__case {
+        height: 26px;
+        border: 0.5px solid #a9abba;
+        border-radius: 6px;
+        display: grid;
+        padding: 4px;
+        gap: 4px;
+        grid-template-columns: repeat(auto-fill, 26px);
+    }
+
+    &__icon {
+        cursor: pointer;
+        border: 0.5px solid #a9abba;
+        border-radius: 6px;
+        background: #fff;
+
+        &:hover {
+            fill: #4f8be4;
+            border: 1px solid #4f8be4;
+        }
+    }
+
+    &__signs {
+        grid-column: 1/3;
+        border: 0.5px solid #a9abba;
+        border-radius: 6px;
+        display: grid;
+        padding: 4px;
+        gap: 4px;
+        grid-template-columns: repeat(auto-fill, 26px);
+    }
+
+    &__sign {
+        cursor: grab;
+        margin: 0;
+        height: 26px;
+        width: 26px;
+        text-align: center;
+        font-weight: 600;
+        border-radius: 6px;
+
+        &_nodrop {
+            cursor: pointer;
+        }
+
+        &:hover {
+            outline: 0.5px solid #a9abba;
+            background: #fff;
+        }
+    }
+}

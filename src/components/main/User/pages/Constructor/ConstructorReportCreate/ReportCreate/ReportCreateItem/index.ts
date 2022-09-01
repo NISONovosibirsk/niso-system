@@ -6,3 +6,5 @@ export { default as PercentInput } from './PercentInput/PercentInput';
 export { default as RadioInput } from './RadioInput/RadioInput';
 export { default as TextInput } from './TextInput/TextInput';
 export { default as TextList } from './TextList/TextList';
+export { default as CalculateInput } from './CalculateInput/CalculateInput';
+export { default as NumberInput } from './NumberInput/NumberInput';

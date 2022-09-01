@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import {
+    CalculateIcon,
     ImageIcon,
     ListIcon,
     TextIcon,
@@ -113,6 +114,15 @@ const ReportCreatePopup = () => {
                             handleAddElement({
                                 type: 'textList',
                                 values: ['', ''],
+                            })
+                        }
+                    />
+                    <CalculateIcon
+                        className='report-create-popup__icon'
+                        onClick={() =>
+                            handleAddElement({
+                                type: 'calculate',
+                                values: [],
                             })
                         }
                     />

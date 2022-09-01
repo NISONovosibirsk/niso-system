@@ -52,6 +52,7 @@ export { ReactComponent as TextIcon } from './icons/constructorIcons/text-icon.s
 export { ReactComponent as TitleH1Icon } from './icons/constructorIcons/title-h1-icon.svg';
 export { ReactComponent as ImageIcon } from './icons/constructorIcons/image-icon.svg';
 export { ReactComponent as ListIcon } from './icons/constructorIcons/list-icon.svg';
+export { ReactComponent as CalculateIcon } from './icons/constructorIcons/calculate-icon.svg';
 // show hide
 export { ReactComponent as Visibility } from './icons/showHideIcons/visibility-icon.svg';
 export { ReactComponent as VisibilityOff } from './icons/showHideIcons/visibility-off-icon.svg';

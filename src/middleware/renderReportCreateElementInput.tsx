@@ -1,8 +1,10 @@
 import {
+    CalculateInput,
     CheckboxInput,
     DefaultInput,
     ImageInput,
     ListInput,
+    NumberInput,
     PercentInput,
     RadioInput,
     TextInput,
@@ -45,6 +47,14 @@ const renderReportCreateElementInput = (
                     elementIndex={elementIndex}
                 />
             );
+        case 'calculate':
+            return (
+                <CalculateInput
+                    element={element}
+                    onUpdateElement={onUpdateElement}
+                    elementIndex={elementIndex}
+                />
+            );
         case 'checkbox':
             return (
                 <CheckboxInput
@@ -72,6 +82,14 @@ const renderReportCreateElementInput = (
         case 'percent':
             return (
                 <PercentInput
+                    element={element}
+                    onUpdateElement={onUpdateElement}
+                    elementIndex={elementIndex}
+                />
+            );
+        case 'number':
+            return (
+                <NumberInput
                     element={element}
                     onUpdateElement={onUpdateElement}
                     elementIndex={elementIndex}
