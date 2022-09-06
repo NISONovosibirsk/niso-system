@@ -75,7 +75,6 @@ const ReportCreateItem = ({
                     } ${isDelete ? 'report-create-item_delete' : ''}`}
                     id={elementIndex.toString()}
                     {...provided.draggableProps}
-                    {...provided.dragHandleProps}
                     ref={provided.innerRef}
                 >
                     <div className='report-create-item__content'>
@@ -84,7 +83,9 @@ const ReportCreateItem = ({
                             onUpdateElement,
                             elementIndex
                         )}
-                        <DragIcon className='report-create-item__drag' />
+                        <div {...provided.dragHandleProps}>
+                            <DragIcon className='report-create-item__drag' />
+                        </div>
                     </div>
                     {element.isRequired !== undefined ? (
                         <>

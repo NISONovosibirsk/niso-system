@@ -1,8 +1,16 @@
+import { useState } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { useTypeSelector } from '../../../../../../../../../hooks/useTypeSelector';
 import './CalculateInput.scss';
 
 const CalculateInput = ({ element, onUpdateElement, elementIndex }) => {
     const signs = ['(', ')', '*', '/', '+', '-'];
+    const [caseClass, setCaseClass] = useState('');
+    const { elements } = useTypeSelector(state => state.userConstructor.create);
+
+    const handleDragStart = () => {
+        setCaseClass('calculate-input__case_valid');
+    };
 
     const handleDragEnd = ({ destination, source }) => {
         const newValues = [...element.values];
@@ -12,6 +20,7 @@ const CalculateInput = ({ element, onUpdateElement, elementIndex }) => {
             const newElement = { ...element, values: newValues };
 
             onUpdateElement(newElement, elementIndex);
+            setCaseClass('');
         }
 
         if (source.droppableId === destination.droppableId) {
@@ -23,6 +32,15 @@ const CalculateInput = ({ element, onUpdateElement, elementIndex }) => {
             const newElement = { ...element, values: newValues };
 
             onUpdateElement(newElement, elementIndex);
+            setCaseClass('');
+        }
+    };
+
+    const handleDragUpdate = ({ destination }) => {
+        if (!destination) {
+            setCaseClass('calculate-input__case_invalid');
+        } else {
+            setCaseClass('calculate-input__case_valid');
         }
     };
 
@@ -34,7 +52,11 @@ const CalculateInput = ({ element, onUpdateElement, elementIndex }) => {
     };
 
     return (
-        <DragDropContext onDragEnd={handleDragEnd}>
+        <DragDropContext
+            onDragStart={handleDragStart}
+            onDragEnd={handleDragEnd}
+            onDragUpdate={handleDragUpdate}
+        >
             <div className='calculate-input'>
                 <div className='calculate-input__signs'>
                     {signs.map((sign, signIndex) => (
@@ -46,12 +68,40 @@ const CalculateInput = ({ element, onUpdateElement, elementIndex }) => {
                             {sign}
                         </p>
                     ))}
+                    {elements
+                        .filter(element => element.type === 'number')
+                        .map((numberInput, numberInputIndex) =>
+                            numberInput.values.map((value, valueIndex) => (
+                                <p
+                                    className='calculate-input__sign calculate-input__sign_nodrop'
+                                    key={
+                                        numberInputIndex +
+                                        1 +
+                                        '-' +
+                                        (valueIndex + 1)
+                                    }
+                                    onClick={() =>
+                                        handleAddSign(
+                                            numberInputIndex +
+                                                1 +
+                                                '-' +
+                                                (valueIndex + 1)
+                                        )
+                                    }
+                                >
+                                    {numberInputIndex +
+                                        1 +
+                                        '-' +
+                                        (valueIndex + 1)}
+                                </p>
+                            ))
+                        )}
                 </div>
 
                 <Droppable droppableId='addedSigns' direction='horizontal'>
                     {provided => (
                         <div
-                            className='calculate-input__case'
+                            className={`calculate-input__case ${caseClass}`}
                             {...provided.droppableProps}
                             ref={provided.innerRef}
                         >
