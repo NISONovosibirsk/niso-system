@@ -5,6 +5,7 @@ import { Button, Popup } from '../../../support';
 import './InfoPopup.scss';
 import MaisCommonInfo from './static/MaisCommonInfo';
 import ProfileDocumentsInfo from './static/ProfileDocumentsInfo';
+import AisFullInfo from './static/ProfileDocumentsInfo';
 
 const InfoPopup = () => {
     const { popup } = useTypeSelector(state => state.userStatus);
@@ -20,6 +21,8 @@ const InfoPopup = () => {
                 return <MaisCommonInfo />;
             case 'documentsInfo':
                 return <ProfileDocumentsInfo />;
+            case 'aboutSystem':
+                return <AisFullInfo />;
             default:
                 break;
         }
