@@ -20,14 +20,14 @@ const OrganizerFilterTabs = ({ currentTab, setCurrentTab }) => {
             </li>
             <li
                 className={`organizer-filter-tabs__item ${
-                    currentTab === 'Анкетирование' &&
+                    currentTab === 'Мероприятия' &&
                     'organizer-filter-tabs__item_active'
                 }`}
                 onClick={handleClick}
             >
-                Анкетирование
+                Мероприятия
             </li>
-            <li
+            {/* <li
                 className={`organizer-filter-tabs__item ${
                     currentTab === 'Конференции' &&
                     'organizer-filter-tabs__item_active'
@@ -35,7 +35,7 @@ const OrganizerFilterTabs = ({ currentTab, setCurrentTab }) => {
                 onClick={handleClick}
             >
                 Конференции
-            </li>
+            </li> */}
             <li className='organizer-filter-tabs__item'></li>
         </ul>
     );

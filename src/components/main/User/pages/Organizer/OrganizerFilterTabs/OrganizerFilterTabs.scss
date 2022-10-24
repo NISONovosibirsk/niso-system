@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template: 48px / repeat(3, 120px) auto;
+    grid-template: 48px / repeat(2, 120px) auto;
     align-items: flex-end;
 
     &__item {

@@ -180,15 +180,15 @@ const OrganizerCreatePopup = ({ onClose, isOpen, onCreateEvent }) => {
                     onChange={handleCheckboxChange}
                 />
                 <Checkbox
-                    title={'Анкетирование'}
-                    isChecked={values.types.includes('Анкетирование')}
+                    title={'Мероприятия'}
+                    isChecked={values.types.includes('Мероприятия')}
                     onChange={handleCheckboxChange}
                 />
-                <Checkbox
+                {/* <Checkbox
                     title={'Конференции'}
                     isChecked={values.types.includes('Конференции')}
                     onChange={handleCheckboxChange}
-                />
+                /> */}
                 <Button
                     title='Создать'
                     height='32px'
