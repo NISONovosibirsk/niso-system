@@ -19,6 +19,7 @@ import {
     ListEI,
     Organizer,
     Profile,
+    RiskFactor,
 } from './components/main/User/pages';
 import { updateCreatedReports } from './store/actions/userConstrucorActions';
 import { Banner } from './components';
@@ -75,6 +76,7 @@ function App() {
                     <Route path='handbook' element={<Handbook />} />
                     <Route path='listEI' element={<ListEI />} />
                     <Route path='organizer' element={<Organizer />} />
+                    <Route path='riskFactor' element={<RiskFactor />} />
                 </Route>
 
                 <Route path='404' element={<NotFoundRoute />} />

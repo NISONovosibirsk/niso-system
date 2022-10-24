@@ -37,6 +37,10 @@ const UserHeader = () => {
             path: 'organizer',
             title: 'Органайзер руководителя',
         },
+        {
+            path: 'riskFactor',
+            title: 'Личный кабинет психолога',
+        },
     ];
 
     const handleHeaderTitle = routes =>

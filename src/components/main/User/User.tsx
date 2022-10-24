@@ -83,6 +83,11 @@ const User = () => {
             text: 'Список образовательных учреждений',
             icon: <InstitutionListIcon />,
         },
+        {
+            path: 'riskFactor',
+            text: 'Фактор риска',
+            icon: <InstitutionListIcon />,
+        },
     ];
 
     const notLoggedSidebarListData: ISidebarListItem[] = [

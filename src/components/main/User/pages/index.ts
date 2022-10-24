@@ -4,3 +4,4 @@ export { default as Constructor } from './Constructor/Constructor';
 export { default as Handbook } from './Handbook/Handbook';
 export { default as ListEI } from './ListEI/ListEI';
 export { default as Organizer } from './Organizer/Organizer';
+export { default as RiskFactor } from './RiskFactor/RiskFactor';
