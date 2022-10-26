@@ -15,15 +15,17 @@ const EICard = ({ ei }) => {
             {isHover ? (
                 <>
                     <p className='ei-card__text'>
-                        <span className='ei-card__span'>Название: </span>
+                        <span className='ei-card__span'>Наименование ОО: </span>
                         {ei.name}
                     </p>
-					<p className='ei-card__text'>
+                    <p className='ei-card__text'>
                         <span className='ei-card__span'>Тип: </span>
                         {ei.type}
                     </p>
                     <p className='ei-card__text'>
-                        <span className='ei-card__span'>Полное название: </span>
+                        <span className='ei-card__span'>
+                            Полное наименование ОО:{' '}
+                        </span>
                         {ei.fullname}
                     </p>
                     <p className='ei-card__text'>
@@ -34,37 +36,55 @@ const EICard = ({ ei }) => {
                         <span className='ei-card__span'>ИНН: </span>
                         {ei.inn}
                     </p>
-					<p className='ei-card__text'>
-						<span className='ei-card__span'>Район </span>
-						{ei.district}
-					</p>
                     <p className='ei-card__text'>
-                        <span className='ei-card__span'>Директор: </span>
+                        <span className='ei-card__span'>Район/Округ: </span>
+                        {ei.district}
+                    </p>
+                    <p className='ei-card__text'>
+                        <span className='ei-card__span'>
+                            {ei.type === 'ДОУ' ? 'Заведующий: ' : 'Директор: '}
+                        </span>
                         {ei.director}
                     </p>
                     <p className='ei-card__text'>
-                        <span className='ei-card__span'>
-                            Фактический адрес:{' '} 
-                        </span>
-                        {ei.currentAddress}
+                        <span className='ei-card__span'>Адрес: </span>
+                        {ei.address}
                     </p>
-					<p className='ei-card__text'>
+                    <p className='ei-card__text'>
+                        <span className='ei-card__span'>Адрес сайта: </span>
+                        {ei.siteAddress}
+                    </p>
+                    <p className='ei-card__text'>
                         <span className='ei-card__span'>
-                            Вид деятельности: 
+                            Сведения об образовательных программах:{' '}
+                        </span>
+                        {ei.programmsInfo}
+                    </p>
+                    <p className='ei-card__text'>
+                        <span className='ei-card__span'>
+                            Общее образование:{' '}
                         </span>
                         {ei.mainDO}
                     </p>
-					<p className='ei-card__text'>
+                    <p className='ei-card__text'>
                         <span className='ei-card__span'>
-                            Образовательные программы: 
+                            Профессиональное обучение:{' '}
                         </span>
                         {ei.mainNooOoSo}
                     </p>
-					<p className='ei-card__text'>
+                    <p className='ei-card__text'>
                         <span className='ei-card__span'>
-                            Дополнительно: 
+                            Дополнительное образование (дополнительные
+                            общеобразовательные программы):{' '}
                         </span>
                         {ei.additional}
+                    </p>
+                    <p className='ei-card__text'>
+                        <span className='ei-card__span'>
+                            Дополнительное образование (дополнительные
+                            профессиональные программы):{' '}
+                        </span>
+                        {ei.additionalPro}
                     </p>
                 </>
             ) : (

@@ -339,15 +339,15 @@ const OrganizerEditPopup = ({ isOpen, onClose, event, events, setEvents }) => {
                         onChange={handleCheckboxChange}
                     />
                     <Checkbox
-                        title={'Анкетирование'}
-                        isChecked={event.types.includes('Анкетирование')}
+                        title={'Мероприятия'}
+                        isChecked={event.types.includes('Мероприятия')}
                         onChange={handleCheckboxChange}
                     />
-                    <Checkbox
+                    {/* <Checkbox
                         title={'Конференции'}
                         isChecked={event.types.includes('Конференции')}
                         onChange={handleCheckboxChange}
-                    />
+                    /> */}
                 </div>
             </form>
         </Popup>
