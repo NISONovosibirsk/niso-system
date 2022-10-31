@@ -15,12 +15,14 @@ import {
     UPDATE_POPUP_FILTER_CHARS,
     UPDATE_REPORTS,
     UPDATE_TARGET_REPORT,
+    UPDATE_CREATE_DEADLINE_DATE,
 } from '../reduxTypes/userConstructorTypes';
 
 const initialState = {
     create: {
         title: { value: '', error: '' },
         subtitle: { value: '', error: '' },
+        deadlineDate: '',
         isValid: false,
         elements: [],
         popup: {
@@ -173,6 +175,14 @@ export const userConstructorReducer = (
                 create: {
                     ...state.create,
                     subtitle: action.payload,
+                },
+            };
+        case UPDATE_CREATE_DEADLINE_DATE:
+            return {
+                ...state,
+                create: {
+                    ...state.create,
+                    deadlineDate: action.payload,
                 },
             };
         case SET_IS_VALID:

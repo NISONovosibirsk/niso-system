@@ -14,6 +14,7 @@ import {
     UPDATE_POPUP_FILTER_CHARS,
     UPDATE_REPORTS,
     UPDATE_TARGET_REPORT,
+    UPDATE_CREATE_DEADLINE_DATE,
 } from '../reduxTypes/userConstructorTypes';
 
 //CREATE
@@ -29,6 +30,14 @@ export const updateCreateTitle = title => {
 export const updateCreateSubtitle = subtitle => {
     try {
         return { type: UPDATE_CREATE_SUBTITLE, payload: subtitle };
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const updateCreateDeadlineDate = deadlineDate => {
+    try {
+        return { type: UPDATE_CREATE_DEADLINE_DATE, payload: deadlineDate };
     } catch (error) {
         console.log(error);
     }
