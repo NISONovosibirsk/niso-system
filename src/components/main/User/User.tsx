@@ -1,3 +1,4 @@
+import { Route, Routes } from 'react-router-dom';
 import UserSidebar from './UserSidebar/UserSidebar';
 import './User.scss';
 import './UserAdaptive.scss';
@@ -18,6 +19,7 @@ import {
 import { useTypeSelector } from '../../../hooks/useTypeSelector';
 import { useEffect, useState } from 'react';
 import { ISidebarListItem } from '../../../interfaces';
+import UserContent from './static/UserContent';
 
 const User = () => {
     useEffect(() => {
@@ -129,6 +131,19 @@ const User = () => {
             <UserHeader />
             <div className='user-content'>
                 <Outlet />
+                <Routes>
+                  <Route
+                    element={(
+                      <>
+                        {/* <UserContent /> */}
+                        <Outlet />
+                      </>
+                    )}
+                  >
+                    <Route path="/" element={<Outlet />} />
+                    <Route path="/handbook" element={<UserContent />} />
+                  </Route>
+                </Routes>
             </div>
         </div>
     );
