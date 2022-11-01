@@ -40,4 +40,16 @@
         }
         font-style: italic;
     }
+    
+    .documentWrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 25px;
+
+      .pdfIcon {
+        width: 20px;
+        margin-right: 15px;
+      }
+    }
 }
