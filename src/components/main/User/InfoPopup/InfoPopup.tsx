@@ -23,6 +23,8 @@ const InfoPopup = () => {
                 return <ProfileDocumentsInfo />;
             case 'aboutSystem':
                 return <AisFullInfo />;
+            case 'regulators':
+                return <AisRegulyators />
             default:
                 break;
         }
