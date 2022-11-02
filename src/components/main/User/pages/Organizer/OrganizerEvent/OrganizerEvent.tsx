@@ -55,7 +55,7 @@ const OrganizerEvent = ({ event, date, events, setEvents }) => {
     return (
         <>
             <div className='organizer-event' style={style} onClick={handleOpen}>
-                {event.title}
+                {event.title}<br/>
                 <small><b>Основание:</b> {event.subtitle}</small>
             </div>
             {isOpen ? (
