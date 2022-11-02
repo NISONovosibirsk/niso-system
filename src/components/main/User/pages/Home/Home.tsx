@@ -58,7 +58,7 @@ const Home = () => {
             type: 'commonInfo',
         },
         {
-            text: 'Нормативные регуляторы МСОКО',
+            text: 'Нормативные регуляторы',
             icon: <RegulatorsIcon />,
             type: 'regulators',
         },
