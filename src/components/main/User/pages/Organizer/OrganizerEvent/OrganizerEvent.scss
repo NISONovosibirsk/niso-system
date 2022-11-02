@@ -10,6 +10,10 @@
     height: 36px;
     line-height: 28px;
     box-sizing: border-box;
+    
+    small {
+      font-weight: 500;
+    }
 
     &:hover {
         opacity: 0.8;
