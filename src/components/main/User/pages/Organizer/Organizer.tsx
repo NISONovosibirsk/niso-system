@@ -22,16 +22,40 @@ const Organizer = () => {
     const [date, setDate] = useState(new Date());
     const [scroll, setScroll] = useState(0);
     const [isPopupOpen, setIsPopupOpen] = useState(false);
-    const [events, setEvents] = useState(
-        [] as {
-            title: string;
-            startDate: Date;
-            endDate: Date;
-            color: string;
-            types: string[];
-            subtitle: string;
-        }[]
-    );
+    const [events, setEvents] = useState([
+        {
+            title: 'Событие 1',
+            startDate: new Date('2022-11-2'),
+            endDate: new Date('2022-11-11'),
+            color: '#AC8B10',
+            types: ['Мониторинг', 'Мероприятия'],
+            subtitle: '',
+        },
+        {
+            title: 'Событие 2',
+            startDate: new Date('2022-11-4'),
+            endDate: new Date('2022-11-14'),
+            color: '#2ED545',
+            types: ['Мониторинг'],
+            subtitle: '',
+        },
+        {
+            title: 'Событие 3',
+            startDate: new Date('2022-10-29'),
+            endDate: new Date('2022-11-8'),
+            color: '#8DB3C3',
+            types: ['Мероприятия'],
+            subtitle: '',
+        },
+    ] as {
+        title: string;
+        startDate: Date;
+        endDate: Date;
+        color: string;
+        types: string[];
+        subtitle: string;
+    }[]);
+    console.log(events);
     const [currentTab, setCurrentTab] = useState('Мониторинг');
     const [filteredEvents, setFilteredEvents] = useState([] as {}[]);
 
