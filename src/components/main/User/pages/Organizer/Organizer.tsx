@@ -24,28 +24,20 @@ const Organizer = () => {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const [events, setEvents] = useState([
         {
-            title: 'Событие 1',
-            startDate: new Date('2022-11-2'),
-            endDate: new Date('2022-11-11'),
+            title: 'Мониторинг охвата обучающихся системой дополнительного образования',
+            startDate: new Date('2022-11-3'),
+            endDate: new Date('2022-11-20'),
             color: '#AC8B10',
-            types: ['Мониторинг', 'Мероприятия'],
-            subtitle: '',
-        },
-        {
-            title: 'Событие 2',
-            startDate: new Date('2022-11-4'),
-            endDate: new Date('2022-11-14'),
-            color: '#2ED545',
             types: ['Мониторинг'],
-            subtitle: '',
+            subtitle: 'Приказ департамента образования мэрии города Новосибирска от 24.03.22 № 0229-од',
         },
         {
-            title: 'Событие 3',
-            startDate: new Date('2022-10-29'),
-            endDate: new Date('2022-11-8'),
+            title: 'Школьный этап всероссийской олимпиады школьников',
+            startDate: new Date('2022-10-2'),
+            endDate: new Date('2022-10-20'),
             color: '#8DB3C3',
             types: ['Мероприятия'],
-            subtitle: '',
+            subtitle: 'приказ департамента образования мэрии города Новосибирска от 30.08.2022 № 0731-од Об организации школьного этапа всероссийской олимпиады школьников в 2022/2023 учебном году в городе Новосибирске',
         },
     ] as {
         title: string;
