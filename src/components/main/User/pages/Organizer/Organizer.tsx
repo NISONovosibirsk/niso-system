@@ -47,7 +47,6 @@ const Organizer = () => {
         types: string[];
         subtitle: string;
     }[]);
-    console.log(events);
     const [currentTab, setCurrentTab] = useState('Мониторинг');
     const [filteredEvents, setFilteredEvents] = useState([] as {}[]);
 
