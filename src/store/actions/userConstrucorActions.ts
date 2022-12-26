@@ -11,7 +11,6 @@ import {
     UPDATE_SEARCH_LIST,
     UPDATE_SEARCH_CHARS,
     UPDATE_SEARCH_TABS,
-    UPDATE_POPUP_FILTER_CHARS,
     UPDATE_REPORTS,
     UPDATE_TARGET_REPORT,
     UPDATE_CREATE_DEADLINE_DATE,
@@ -112,14 +111,6 @@ export const setDownloadIsOpen = status => {
 export const setPopupIsOpen = status => {
     try {
         return { type: SET_POPUP_IS_OPEN, payload: status };
-    } catch (error) {
-        console.log(error);
-    }
-};
-
-export const updatePopupFilterChars = filterChars => {
-    try {
-        return { type: UPDATE_POPUP_FILTER_CHARS, payload: filterChars };
     } catch (error) {
         console.log(error);
     }

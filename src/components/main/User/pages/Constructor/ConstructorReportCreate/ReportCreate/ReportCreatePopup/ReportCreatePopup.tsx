@@ -4,6 +4,11 @@ import {
     ListIcon,
     TextIcon,
     TitleH1Icon,
+    TitleH2Icon,
+    TitleH3Icon,
+    TitleH4Icon,
+    TitleH5Icon,
+    TitleH6Icon,
 } from '../../../../../../../../assets';
 import { useTypeSelector } from '../../../../../../../../hooks/useTypeSelector';
 import {
@@ -51,7 +56,7 @@ const ReportCreatePopup = () => {
                             })
                         }
                     />
-                    <TitleH1Icon
+                    <TitleH2Icon
                         className='report-create-popup__icon'
                         onClick={() =>
                             handleAddElement({
@@ -61,7 +66,7 @@ const ReportCreatePopup = () => {
                             })
                         }
                     />
-                    <TitleH1Icon
+                    <TitleH3Icon
                         className='report-create-popup__icon'
                         onClick={() =>
                             handleAddElement({
@@ -71,7 +76,7 @@ const ReportCreatePopup = () => {
                             })
                         }
                     />
-                    <TitleH1Icon
+                    <TitleH4Icon
                         className='report-create-popup__icon'
                         onClick={() =>
                             handleAddElement({
@@ -81,7 +86,7 @@ const ReportCreatePopup = () => {
                             })
                         }
                     />
-                    <TitleH1Icon
+                    <TitleH5Icon
                         className='report-create-popup__icon'
                         onClick={() =>
                             handleAddElement({
@@ -91,7 +96,7 @@ const ReportCreatePopup = () => {
                             })
                         }
                     />
-                    <TitleH1Icon
+                    <TitleH6Icon
                         className='report-create-popup__icon'
                         onClick={() =>
                             handleAddElement({

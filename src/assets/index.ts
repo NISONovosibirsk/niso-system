@@ -50,6 +50,11 @@ export { ReactComponent as RegulatorsIcon } from './icons/homeIcons/regulators-i
 // constructor
 export { ReactComponent as TextIcon } from './icons/constructorIcons/text-icon.svg';
 export { ReactComponent as TitleH1Icon } from './icons/constructorIcons/title-h1-icon.svg';
+export { ReactComponent as TitleH2Icon } from './icons/constructorIcons/title-h2-icon.svg';
+export { ReactComponent as TitleH3Icon } from './icons/constructorIcons/title-h3-icon.svg';
+export { ReactComponent as TitleH4Icon } from './icons/constructorIcons/title-h4-icon.svg';
+export { ReactComponent as TitleH5Icon } from './icons/constructorIcons/title-h5-icon.svg';
+export { ReactComponent as TitleH6Icon } from './icons/constructorIcons/title-h6-icon.svg';
 export { ReactComponent as ImageIcon } from './icons/constructorIcons/image-icon.svg';
 export { ReactComponent as ListIcon } from './icons/constructorIcons/list-icon.svg';
 // show hide
