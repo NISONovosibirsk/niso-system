@@ -1,6 +1,7 @@
 .user-profile-info-header {
     display: grid;
-    grid-template-columns: 10% auto;
+    // grid-template-columns: 10% auto;
+    grid-template-columns: 92px auto;
 
     &__photo {
         justify-self: center;

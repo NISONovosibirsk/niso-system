@@ -4,6 +4,7 @@ import TextareaAutosize from 'react-textarea-autosize';
 import { useTypeSelector } from '../../../../../../../hooks/useTypeSelector';
 import {
     setIsValid,
+    updateCreateDeadlineDate,
     updateCreateSubtitle,
     updateCreateTitle,
 } from '../../../../../../../store/actions/userConstrucorActions';
@@ -11,7 +12,7 @@ import ReportCreateElementsField from './ReportCreateElementsField/ReportCreateE
 import './ReportCreate.scss';
 
 const ReportCreate = () => {
-    const { title, subtitle, elements } = useTypeSelector(
+    const { title, subtitle, deadlineDate, elements } = useTypeSelector(
         state => state.userConstructor.create
     );
     const dispatch = useDispatch();
@@ -37,6 +38,10 @@ const ReportCreate = () => {
                 dispatch(
                     updateCreateSubtitle({ value, error: validationMessage })
                 );
+                break;
+
+            case 'deadlineDate':
+                dispatch(updateCreateDeadlineDate(value));
                 break;
 
             default:
@@ -76,6 +81,19 @@ const ReportCreate = () => {
                 maxRows={3}
             />
             <span className='report-create__error'>{subtitle.error}</span>
+            <label className='report-create__label' htmlFor='deadlineDate'>
+                Крайний срок
+            </label>
+            <input
+                className='report-create__input'
+                type='date'
+                onChange={handleChange}
+                value={deadlineDate}
+                min={new Date().toLocaleDateString('en-ca')}
+                id='deadlineDate'
+                name='deadlineDate'
+                required
+            ></input>
             <ReportCreateElementsField elements={elements} />
         </form>
     );

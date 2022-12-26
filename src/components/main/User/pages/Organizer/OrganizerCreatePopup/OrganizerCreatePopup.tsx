@@ -1,17 +1,25 @@
 import { useEffect, useState } from 'react';
 import { Button, Popup } from '../../../../../support';
+import Checkbox from '../Checkbox/Checkbox';
 
-import './OrganizerPopup.scss';
+import './OrganizerCreatePopup.scss';
 
-const OrganizerPopup = ({ onClose, isOpen, onCreateEvent }) => {
+const OrganizerCreatePopup = ({ onClose, isOpen, onCreateEvent }) => {
     const [isValid, setIsValid] = useState(false);
     const [startDateInput, setStartDateInput] = useState('');
     const [endDateInput, setEndDateInput] = useState('');
-    const [values, setValues] = useState({ title: '', color: '' } as {
+    const [values, setValues] = useState({
+        title: '',
+        color: '',
+        types: [] as string[],
+    } as {
         title: string;
         startDate: Date;
         endDate: Date;
         color: string;
+        types: string[];
+        subtitle: string;
+        attachments: [];
     });
 
     useEffect(() => {
@@ -26,6 +34,9 @@ const OrganizerPopup = ({ onClose, isOpen, onCreateEvent }) => {
             startDate: new Date(),
             endDate: new Date(),
             color,
+            types: ['Мониторинг'],
+            subtitle: '',
+            attachments: [],
         });
         const date = new Date();
         const year = date.getFullYear();
@@ -73,32 +84,60 @@ const OrganizerPopup = ({ onClose, isOpen, onCreateEvent }) => {
         setIsValid(e.target.closest('form').checkValidity());
     };
 
+    const handleCheckboxChange = e => {
+        const { checked, id } = e.target;
+        const newTypes = [...values.types];
+
+        if (checked) {
+            newTypes.push(id);
+        } else {
+            const indexType = values.types.indexOf(id);
+            newTypes.splice(indexType, 1);
+        }
+
+        setValues({ ...values, types: newTypes });
+        setIsValid(
+            e.target.closest('form').checkValidity() && newTypes.length
+                ? true
+                : false
+        );
+    };
+
     const handleSubmit = e => {
         e.preventDefault();
         onCreateEvent(values);
         onClose();
+        setIsValid(false);
     };
 
     return (
         <Popup onClose={onClose} isOpen={isOpen}>
-            <form className='organizer-popup' onSubmit={handleSubmit}>
-                <p className='organizer-popup__title'>Создание события</p>
-                <label className='organizer-popup__label' htmlFor='title'>
+            <form className='organizer-create-popup' onSubmit={handleSubmit}>
+                <p className='organizer-create-popup__title'>
+                    Создание события
+                </p>
+                <label
+                    className='organizer-create-popup__label'
+                    htmlFor='title'
+                >
                     Название
                 </label>
                 <input
-                    className='organizer-popup__input'
+                    className='organizer-create-popup__input'
                     id='title'
                     placeholder='Введите название события'
                     onChange={handleTitleChange}
                     value={values.title}
                     required
                 />
-                <label className='organizer-popup__label' htmlFor='startDate'>
+                <label
+                    className='organizer-create-popup__label'
+                    htmlFor='startDate'
+                >
                     Дата начала
                 </label>
                 <input
-                    className='organizer-popup__input'
+                    className='organizer-create-popup__input'
                     id='startDate'
                     type='date'
                     value={startDateInput}
@@ -106,11 +145,14 @@ const OrganizerPopup = ({ onClose, isOpen, onCreateEvent }) => {
                     onChange={handleStartDateChange}
                     required
                 />
-                <label className='organizer-popup__label' htmlFor='endDate'>
-                    Дата конце
+                <label
+                    className='organizer-create-popup__label'
+                    htmlFor='endDate'
+                >
+                    Дата окончания
                 </label>
                 <input
-                    className='organizer-popup__input'
+                    className='organizer-create-popup__input'
                     id='endDate'
                     type='date'
                     value={endDateInput}
@@ -118,21 +160,39 @@ const OrganizerPopup = ({ onClose, isOpen, onCreateEvent }) => {
                     onChange={handleEndDateChange}
                     required
                 />
-                <label className='organizer-popup__label' htmlFor='color'>
+                <label
+                    className='organizer-create-popup__label'
+                    htmlFor='color'
+                >
                     Цвет
                 </label>
                 <input
-                    className='organizer-popup__input organizer-popup__input_color'
+                    className='organizer-create-popup__input organizer-create-popup__input_color'
                     id='color'
                     type='color'
                     onChange={handleColorChange}
                     value={values.color}
                     required
                 />
+                <Checkbox
+                    title={'Мониторинг'}
+                    isChecked={values.types.includes('Мониторинг')}
+                    onChange={handleCheckboxChange}
+                />
+                <Checkbox
+                    title={'Мероприятия'}
+                    isChecked={values.types.includes('Мероприятия')}
+                    onChange={handleCheckboxChange}
+                />
+                {/* <Checkbox
+                    title={'Конференции'}
+                    isChecked={values.types.includes('Конференции')}
+                    onChange={handleCheckboxChange}
+                /> */}
                 <Button
                     title='Создать'
                     height='32px'
-                    margin='20px 0 0 0'
+                    margin='12px 0 0 0'
                     isDisabled={!isValid}
                 />
             </form>
@@ -140,4 +200,4 @@ const OrganizerPopup = ({ onClose, isOpen, onCreateEvent }) => {
     );
 };
 
-export default OrganizerPopup;
+export default OrganizerCreatePopup;

@@ -1,7 +1,7 @@
-.organizer-popup {
+.organizer-create-popup {
     padding: 20px;
     display: grid;
-    // gap: 8px;
+    gap: 8px;
     width: 320px;
 
     &__title {
@@ -17,12 +17,11 @@
         font-size: 11px;
         line-height: 12px;
         letter-spacing: 0.3px;
-        padding-left: 16px;
-        padding-bottom: 8px;
-        padding: 8px 16px;
+        padding: 0 16px;
     }
 
     &__input {
+        cursor: pointer;
         outline: none;
         background: #f5f7fb;
         border: 0.5px solid #a9abba;
@@ -46,7 +45,7 @@
             border: 1px solid #4f8be4;
         }
 
-        &:not(.organizer-popup__input_color):valid {
+        &:not(.organizer-create-popup__input_color):valid {
             border: 1px solid #3fac50;
         }
 

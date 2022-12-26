@@ -1,20 +1,20 @@
 .user-sidebar {
-    grid-area: userSidebar;
-    z-index: 999;
     width: 20vw;
+    grid-area: userSidebar;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 999;
     min-width: 300px;
-    position: fixed;
     display: grid;
     height: 100vh;
     grid-template-rows: 15vh auto 25vh;
-    // background: #3a78f2;
     background: url(../../../../assets/images/sidebarBackground.jpg) no-repeat;
     background-size: cover;
     border-radius: 0 40px 40px 0;
-    transition: width 0.3s ease;
+    transition: width 0.3s linear;
 
     &_collapsed {
-        transition: width 0.3s ease;
         min-width: 80px;
         width: 80px;
         border-radius: 0 20px 20px 0;
@@ -40,23 +40,21 @@
         }
     }
 
+    &__logo {
+
+        &_collapsed {
+            display: none;
+        }
+    }
+
     &__burger {
         cursor: pointer;
         place-self: center;
         transition: transform 0.5s ease;
 
         &_collapsed {
-            transform: rotate(-180deg);
-            transition: transform 0.5s ease;
+            transform: rotate(180deg);
         }
-    }
-
-    &__logo {
-        padding: {
-            left: 24px;
-            right: 32px;
-        }
-        align-self: center;
     }
 
     &__caption {
@@ -74,9 +72,7 @@
         grid-row: 2 / 3;
         list-style: none;
         padding: 0 {
-            // left: 0.7vw;
             left: 20px;
-            // right: 0.7vw;
             right: 20px;
         }
 
@@ -85,7 +81,7 @@
             border-radius: 12px;
 
             svg {
-                fill: #3a78f2;
+                fill: #43749D;
             }
 
             .sidebar-item__text {
@@ -104,7 +100,6 @@
         grid-row: 3 / 4;
         color: white;
         padding: {
-            // left: 1.5vw;
             left: 34px;
             top: 4vh;
             bottom: 1vh;

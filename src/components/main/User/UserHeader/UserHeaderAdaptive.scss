@@ -1,0 +1,23 @@
+@media only screen and (max-width: 760px) {
+    .user-header {
+        width: 100%;
+        grid-area: 2 / 1 / 3 / 1;
+        height: 7vh;
+        grid-template-rows: none;
+    }
+
+    .form-switch {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 603px) {
+
+    .user-header {
+        grid-template-columns: 85% auto;
+    }
+
+    .header-searchbar {
+        display: none;
+    }
+}

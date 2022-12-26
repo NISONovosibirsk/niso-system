@@ -9,6 +9,10 @@
         display: block;
         margin: 0 auto 110px;
     }
+    
+    &__logo svg {
+        fill: blue;
+    }
 
     &__forgot-question {
         cursor: pointer;

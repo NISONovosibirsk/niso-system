@@ -1,0 +1,40 @@
+.organizer-filter-tabs {
+    grid-area: filterTabs;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template: 48px / repeat(2, 120px) auto;
+    align-items: flex-end;
+
+    &__item {
+        cursor: default;
+        border: {
+            bottom: 0.5px solid rgba($color: #a9abba, $alpha: 0.4);
+        }
+        height: 20px;
+        color: #a9abba;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 16px;
+        text-align: center;
+
+        &:not(:last-of-type) {
+            cursor: pointer;
+
+            &:hover {
+                color: #4f8be4;
+                border: {
+                    bottom: 1px solid #4f8be4;
+                }
+            }
+        }
+
+        &_active {
+            color: #4f8be4;
+            border: {
+                bottom: 1px solid #4f8be4;
+            }
+        }
+    }
+}

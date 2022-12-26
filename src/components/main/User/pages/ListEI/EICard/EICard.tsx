@@ -15,11 +15,17 @@ const EICard = ({ ei }) => {
             {isHover ? (
                 <>
                     <p className='ei-card__text'>
-                        <span className='ei-card__span'>Название: </span>
+                        <span className='ei-card__span'>Наименование ОО: </span>
                         {ei.name}
                     </p>
                     <p className='ei-card__text'>
-                        <span className='ei-card__span'>Полное название: </span>
+                        <span className='ei-card__span'>Тип: </span>
+                        {ei.type}
+                    </p>
+                    <p className='ei-card__text'>
+                        <span className='ei-card__span'>
+                            Полное наименование ОО:{' '}
+                        </span>
                         {ei.fullname}
                     </p>
                     <p className='ei-card__text'>
@@ -31,26 +37,54 @@ const EICard = ({ ei }) => {
                         {ei.inn}
                     </p>
                     <p className='ei-card__text'>
-                        <span className='ei-card__span'>КПП: </span>
-                        {ei.kpp}
-                    </p>
-                    <p className='ei-card__text'>
-                        <span className='ei-card__span'>Директор: </span>
-                        {ei.director}
+                        <span className='ei-card__span'>Район/Округ: </span>
+                        {ei.district}
                     </p>
                     <p className='ei-card__text'>
                         <span className='ei-card__span'>
-                            Фактический адрес:{' '}
+                            {ei.type === 'ДОУ' ? 'Заведующий: ' : 'Директор: '}
                         </span>
-                        {ei.currentAddress}
+                        {ei.director}
                     </p>
                     <p className='ei-card__text'>
-                        <span className='ei-card__span'>Телефон: </span>
-                        {ei.phoneNumber}
+                        <span className='ei-card__span'>Адрес: </span>
+                        {ei.address}
                     </p>
                     <p className='ei-card__text'>
-                        <span className='ei-card__span'>Почта: </span>
-                        {ei.email}
+                        <span className='ei-card__span'>Адрес сайта: </span>
+                        {ei.siteAddress}
+                    </p>
+                    <p className='ei-card__text'>
+                        <span className='ei-card__span'>
+                            Сведения об образовательных программах:{' '}
+                        </span>
+                        {ei.programmsInfo}
+                    </p>
+                    <p className='ei-card__text'>
+                        <span className='ei-card__span'>
+                            Общее образование:{' '}
+                        </span>
+                        {ei.mainDO}
+                    </p>
+                    <p className='ei-card__text'>
+                        <span className='ei-card__span'>
+                            Профессиональное обучение:{' '}
+                        </span>
+                        {ei.mainNooOoSo}
+                    </p>
+                    <p className='ei-card__text'>
+                        <span className='ei-card__span'>
+                            Дополнительное образование (дополнительные
+                            общеобразовательные программы):{' '}
+                        </span>
+                        {ei.additional}
+                    </p>
+                    <p className='ei-card__text'>
+                        <span className='ei-card__span'>
+                            Дополнительное образование (дополнительные
+                            профессиональные программы):{' '}
+                        </span>
+                        {ei.additionalPro}
                     </p>
                 </>
             ) : (
@@ -58,18 +92,6 @@ const EICard = ({ ei }) => {
                     <p className='ei-card__text'>
                         <span className='ei-card__span'>Название: </span>
                         {ei.name}
-                    </p>
-                    <p className='ei-card__text'>
-                        <span className='ei-card__span'>Директор: </span>
-                        {ei.director}
-                    </p>
-                    <p className='ei-card__text'>
-                        <span className='ei-card__span'>Телефон: </span>
-                        {ei.phoneNumber}
-                    </p>
-                    <p className='ei-card__text'>
-                        <span className='ei-card__span'>Почта: </span>
-                        {ei.email}
                     </p>
                 </>
             )}

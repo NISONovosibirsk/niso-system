@@ -66,7 +66,7 @@ const SchoolsListItem = ({ school }) => {
     return (
         <li className='schools-list-item'>
             <p className='schools-list-item__title'>
-                {school.name}, {school.address.street}
+                {school.name}, {school.district} район
             </p>
             {schoolInTargets ? (
                 <Button

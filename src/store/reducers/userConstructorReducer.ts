@@ -12,15 +12,16 @@ import {
     UPDATE_SEARCH_LIST,
     UPDATE_SEARCH_CHARS,
     UPDATE_SEARCH_TABS,
-    UPDATE_POPUP_FILTER_CHARS,
     UPDATE_REPORTS,
     UPDATE_TARGET_REPORT,
+    UPDATE_CREATE_DEADLINE_DATE,
 } from '../reduxTypes/userConstructorTypes';
 
 const initialState = {
     create: {
         title: { value: '', error: '' },
         subtitle: { value: '', error: '' },
+        deadlineDate: '',
         isValid: false,
         elements: [],
         popup: {
@@ -110,7 +111,59 @@ const initialState = {
         downloadIsOpen: false,
         sendReportPopup: {
             isOpen: false,
-            filterChars: { value: '', error: '' },
+            chars: '',
+            filter: {
+                list: [
+                    {
+                        title: 'Наименование районов',
+                        options: [
+                            'Дзержинский',
+                            'Калининский',
+                            'Кировский',
+                            'Ленинский',
+                            'Октябрьский',
+                            'Первомайский',
+                            'Советский',
+                            'Центральный округ',
+                        ],
+                        picked: [] as string[],
+                    },
+                    {
+                        title: 'Тип',
+                        options: [
+                            {
+                                title: 'ОО',
+                                subOptions: [
+                                    'Лицей',
+                                    'Гимназия',
+                                    'СОШ с углубленным изучением отдельных предметов',
+                                    'СОШ',
+                                    'ООШ',
+                                    'С(К)Ш',
+                                    'С(К)ШИ',
+                                    'ШИ',
+                                    'В(С)Ш',
+                                    'Педагогические классы',
+                                ],
+                            },
+                            'ДОО',
+                            'ОО ДПО',
+                        ] as any[],
+                        picked: [] as string[],
+                    },
+                    {
+                        title: 'Тип класса',
+                        options: [
+                            'Специализированные классы',
+                            'Профильные классы',
+                            'Предпрофильные классы',
+                            'Классы с углубленным изучением отдельных предметов',
+                            'Педагогические классы',
+                        ],
+                        picked: [] as string[],
+                    },
+                ],
+            },
         },
     },
     search: {
@@ -173,6 +226,14 @@ export const userConstructorReducer = (
                 create: {
                     ...state.create,
                     subtitle: action.payload,
+                },
+            };
+        case UPDATE_CREATE_DEADLINE_DATE:
+            return {
+                ...state,
+                create: {
+                    ...state.create,
+                    deadlineDate: action.payload,
                 },
             };
         case SET_IS_VALID:
@@ -249,17 +310,6 @@ export const userConstructorReducer = (
                     sendReportPopup: {
                         ...state.createdReports.sendReportPopup,
                         isOpen: action.payload,
-                    },
-                },
-            };
-        case UPDATE_POPUP_FILTER_CHARS:
-            return {
-                ...state,
-                createdReports: {
-                    ...state.createdReports,
-                    sendReportPopup: {
-                        ...state.createdReports.sendReportPopup,
-                        filterChars: action.payload,
                     },
                 },
             };

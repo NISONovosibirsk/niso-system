@@ -18,11 +18,11 @@ const HomeCard = ({ data }) => {
                   })
               );
     };
-    
+
     return (
-        <li className='user-home-card' onClick={handleClick}>
+        <li className='user-home__card' onClick={handleClick}>
             {data.icon}
-            <p className='user-home-card__text'>{data.text}</p>
+            <p className='user-home__card-text'>{data.text}</p>
         </li>
     );
 };

@@ -1,20 +1,27 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
 import { MaisLogo, DoubleArrowIcon } from '../../../../assets';
+import { ISidebarListItem } from '../../../../interfaces';
 import SidebarItem from './SidebarItem/SidebarItem';
 import './UserSidebar.scss';
+import './UserSidebarAdaptive.scss';
 
-const UserSidebar = ({ sidebarListData, handleSidebar }) => {
+export interface Props {
+    sidebarListData: ISidebarListItem[];
+    isOpen: boolean;
+    handleCollapse(): void;
+    setIsOpen: (isOpen: boolean) => void;
+}
+
+const UserSidebar: React.FC<Props> = ({
+    sidebarListData,
+    isOpen,
+    handleCollapse,
+    setIsOpen,
+}) => {
     const techSupport = {
         path: 'support',
         text: 'Техподдержка',
-        icon: '',
-    };
-
-    const [isOpen, setIsOpen] = useState(true);
-
-    const handleCollapse = () => {
-        setIsOpen(!isOpen);
-        handleSidebar(isOpen);
+        icon: <></>,
     };
 
     return (
@@ -28,17 +35,20 @@ const UserSidebar = ({ sidebarListData, handleSidebar }) => {
                     isOpen ? '' : 'user-sidebar__header_collapsed'
                 }`}
             >
-                {isOpen && <MaisLogo />}
+                <MaisLogo
+                    className={`user-sidebar__logo ${
+                        isOpen ? '' : 'user-sidebar__logo_collapsed'
+                    }`}
+                />
                 <DoubleArrowIcon
                     className={`user-sidebar__burger ${
-                        isOpen ? 'user-sidebar__burger_collapsed' : ''
+                        isOpen ? '' : 'user-sidebar__burger_collapsed'
                     }`}
                     onClick={handleCollapse}
                 />
                 {isOpen && (
                     <p className='user-sidebar__caption'>
-                        Муниципальная система оценки качества образования города
-                        Новосибирска
+                        ОКО города Новосибирска
                     </p>
                 )}
             </div>
@@ -52,6 +62,7 @@ const UserSidebar = ({ sidebarListData, handleSidebar }) => {
                         isOpen={isOpen}
                         sidebarItemData={sidebarItemData}
                         key={sidebarItemData.path}
+                        setIsOpen={setIsOpen}
                     />
                 ))}
             </ul>
@@ -70,13 +81,15 @@ const UserSidebar = ({ sidebarListData, handleSidebar }) => {
                         </p>
                     </>
                 )}
-                <div className='user-sidebar__support'></div>
-                {isOpen && (
-                    <SidebarItem
-                        isOpen={isOpen}
-                        sidebarItemData={techSupport}
-                    />
-                )}
+                <div className='user-sidebar__support'>
+                    {isOpen && (
+                        <SidebarItem
+                            setIsOpen={setIsOpen}
+                            isOpen={isOpen}
+                            sidebarItemData={techSupport}
+                        />
+                    )}
+                </div>
             </div>
         </nav>
     );

@@ -13,6 +13,10 @@ export { ReactComponent as OpenModalIcon } from './icons/commonIcons/open-modal-
 export { ReactComponent as ReplyIcon } from './icons/commonIcons/reply-icon.svg';
 export { ReactComponent as SupportIcon } from './icons/commonIcons/support-icon.svg';
 export { ReactComponent as TrashIcon } from './icons/commonIcons/trash-icon.svg';
+export { ReactComponent as ClipIcon } from './icons/commonIcons/clip-icon.svg';
+export { ReactComponent as CommonImageIcon } from './icons/commonIcons/image-icon.svg';
+export { ReactComponent as DocumentIcon } from './icons/commonIcons/document-icon.svg';
+export { ReactComponent as PlusIcon } from './icons/commonIcons/plus-icon.svg';
 // status
 export { default as successfulIcon } from './icons/statusIcons/successful-icon.svg';
 export { default as unsuccessfulIcon } from './icons/statusIcons/unsuccessful-icon.svg';
@@ -46,6 +50,11 @@ export { ReactComponent as RegulatorsIcon } from './icons/homeIcons/regulators-i
 // constructor
 export { ReactComponent as TextIcon } from './icons/constructorIcons/text-icon.svg';
 export { ReactComponent as TitleH1Icon } from './icons/constructorIcons/title-h1-icon.svg';
+export { ReactComponent as TitleH2Icon } from './icons/constructorIcons/title-h2-icon.svg';
+export { ReactComponent as TitleH3Icon } from './icons/constructorIcons/title-h3-icon.svg';
+export { ReactComponent as TitleH4Icon } from './icons/constructorIcons/title-h4-icon.svg';
+export { ReactComponent as TitleH5Icon } from './icons/constructorIcons/title-h5-icon.svg';
+export { ReactComponent as TitleH6Icon } from './icons/constructorIcons/title-h6-icon.svg';
 export { ReactComponent as ImageIcon } from './icons/constructorIcons/image-icon.svg';
 export { ReactComponent as ListIcon } from './icons/constructorIcons/list-icon.svg';
 // show hide

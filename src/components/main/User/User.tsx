@@ -1,5 +1,7 @@
+import { Route, Routes } from 'react-router-dom';
 import UserSidebar from './UserSidebar/UserSidebar';
 import './User.scss';
+import './UserAdaptive.scss';
 import UserHeader from './UserHeader/UserHeader';
 import { Outlet } from 'react-router-dom';
 import {
@@ -15,10 +17,25 @@ import {
     QAIcon,
 } from '../../../assets';
 import { useTypeSelector } from '../../../hooks/useTypeSelector';
-import { useCallback, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { ISidebarListItem } from '../../../interfaces';
+import UserContent from './static/UserContent';
 
 const User = () => {
-    const loggedSidebarListData = [
+    useEffect(() => {
+        switch (localStorage.getItem('sidebarStatus')) {
+            case 'true':
+                setIsOpen(true);
+                break;
+            case 'false':
+                setIsOpen(false);
+                break;
+            default:
+                break;
+        }
+    }, []);
+
+    const loggedSidebarListData: ISidebarListItem[] = [
         {
             path: 'home',
             text: 'Главная',
@@ -71,7 +88,7 @@ const User = () => {
         },
     ];
 
-    const notLoggedSidebarListData = [
+    const notLoggedSidebarListData: ISidebarListItem[] = [
         {
             path: 'home',
             text: 'Главная',
@@ -91,22 +108,43 @@ const User = () => {
 
     const { isLogged } = useTypeSelector(state => state.userStatus);
 
-    //handle state from child-sidebar
-    const [isOpen, setIsOpen] = useState(false);
-    const handleSidebar = useCallback(state => {
-        setIsOpen(state);
-    }, []);
+    const [isOpen, setIsOpen] = useState(true);
+
+    useEffect(() => {
+        localStorage.setItem('sidebarStatus', JSON.stringify(isOpen));
+    }, [isOpen]);
+
+    const handleCollapse = () => {
+        setIsOpen(!isOpen);
+    };
 
     return (
-        <div className={isOpen ? 'user user_collapsed' : 'user'}>
+        <div className={isOpen ? 'user' : 'user user_collapsed'}>
             <UserSidebar
-                handleSidebar={handleSidebar}
+                handleCollapse={handleCollapse}
+                setIsOpen={setIsOpen}
+                isOpen={isOpen}
                 sidebarListData={
                     isLogged ? loggedSidebarListData : notLoggedSidebarListData
                 }
             />
             <UserHeader />
-            <Outlet />
+            <div className='user-content'>
+                <Outlet />
+                <Routes>
+                  <Route
+                    element={(
+                      <>
+                        {/* <UserContent /> */}
+                        <Outlet />
+                      </>
+                    )}
+                  >
+                    <Route path="/" element={<Outlet />} />
+                    <Route path="/handbook" element={<UserContent />} />
+                  </Route>
+                </Routes>
+            </div>
         </div>
     );
 };

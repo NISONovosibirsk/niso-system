@@ -1,0 +1,16 @@
+@media only screen and (max-width: 1024px) {
+    .user {
+        grid-template: 12vh auto / 80px auto;
+        grid-template-areas:
+            'userSidebar userHeader'
+            'userSidebar userContent';
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    .user {
+        grid-template-rows: 7vh 7vh auto;
+        grid-template-columns: 100%;
+        grid-template-areas: none;
+    }
+}

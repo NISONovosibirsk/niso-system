@@ -154,7 +154,9 @@ const ReportsItem = ({ report, index }) => {
                 />
                 <p className='reports-item__info'>Крайний срок:</p>
                 <p className='reports-item__info-status'>
-                    {report.deadlineDate ? report.deadlineDate : 'Не задан'}
+                    {report.deadlineDate
+                        ? getPrettyDate(Date.parse(report.deadlineDate))
+                        : 'Не задан'}
                 </p>
                 <p className='reports-item__info'>
                     {report.editDate ? 'Отредактирован:' : 'Создан:'}

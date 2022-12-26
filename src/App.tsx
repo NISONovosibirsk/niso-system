@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import './App.scss';
 import {
     Login,
     PasswordRecovery,
@@ -24,6 +25,14 @@ import { Banner } from './components';
 
 function App() {
     const dispatch = useDispatch();
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        const handler = () => {
+            setIsLoading(false);
+        };
+        window.addEventListener('load', handler);
+    }, []);
 
     useEffect(() => {
         handleStorage();
@@ -41,7 +50,7 @@ function App() {
     };
 
     return (
-        <div className='App'>
+        <div className={`App${isLoading ? '_preload' : ''}`}>
             <Routes>
                 <Route path='' element={<HomePage />} />
 
